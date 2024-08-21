@@ -3,6 +3,10 @@
     padding: 0;
     top: 0;
 }
+
+:root{
+    --text-color:white;
+}
 body{
     background-image: url('../img/Backgrounds/bg2.jpg');    
     background-repeat: no-repeat;
@@ -25,15 +29,76 @@ header{
     text-decoration: none;
     font-weight: bold;
     font-size: 25px;
-    border: 3px solid white;
-    width: 150px;
-    height: 30px;
+    border: 3px solid var(--text-color);
+    color: white;
     font-family: arial;
     text-align: center;
-    
+    transition: 1s;
+    cursor: pointer;
+    padding: 10px 50px;
+
 }
 .btn-login a{
-    color: white;
-    text-decoration: none;
+    transition: 1s;
+}
+.btn-login:hover{
+    background-color: var(--text-color);
+    border: 3px solid black;
+    color: black;
 }
 
+
+
+.beginning-section{
+    height: calc(100vh - 5em);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.logo-project{
+    height: 25%;
+    width: 100%;
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    
+}
+.logo-content{
+    padding-left: 50%;
+}
+.logo-project h1{
+    font-size: 60pt;
+}
+.logo-project p{
+    font-size: 18px;
+}
+.logo-company{
+    height: 75%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+
+    
+}
+.logo-company img:nth-child(1){
+  
+  height: 300px;
+   width: 300px;
+   padding-right: 60%;
+}
+.logo-company img:nth-child(2){
+  
+    height: 30px;
+    width: 230px;
+    padding-right: 60%;
+   
+}
