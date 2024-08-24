@@ -12,6 +12,7 @@
 }
 :root{
   --text-color:white;
+  --btn-color:#00BCD4;
 }
 main{
   height: 100%;
@@ -64,13 +65,13 @@ section:nth-child(1){
   font-size: 15pt;
 }
 .btn-find{
-  height: 80px;
+  height: 70px;
   width: 350px;
-  border:3px solid #00BCD4;
+  border:3px solid var(--btn-color);
   border-radius: 10px;
   display: flex;
   justify-content: center;
-  color: #00BCD4;
+  color: var(--btn-color);
   align-items: center;
   transition: 0.5s;
   text-decoration: none;
