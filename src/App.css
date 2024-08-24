@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'MentecFont';
+  src: url('./assets/fonts/eurostile.TTF');
+  font-weight: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+:root{
+  --text-color:'#FFFFFF';
+}
+main{
+  height: 100%;
+  width: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+section:nth-child(1){
+  height: 100vh;
+  width: 100%;
+  background-image: url('./assets/img/backgrounds/Background-provisorio.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'MentecFont';
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.up-box{
+  height: 20%;
+  width: 100%;
+  color: white;
+  font-size: 22pt;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 0 10%;
+}
+.center-box{
+  display: flex;
+
+  align-items: center;
+  height: 80%;
+ 
+}
+.center-box h1{
+ 
+  font-size: 50pt;
+}
+.info-mentec{
+  color:  white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 1.5em;
+  padding: 0 10%;
+}
+.info-mentec p{
+  max-width: 400px;
+  font-size: 15pt;
+}
+.btn-find{
+  height: 80px;
+  width: 350px;
+  border:3px solid #00BCD4;
+  border-radius: 10px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #00BCD4;
+  align-items: center;
+  transition: 0.5s;
+  text-decoration: none;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-find:hover{
+  transform: translateY(-5px);
+  
 }
