@@ -1,5 +1,4 @@
 
-import {BrowserRouter , Routes , Route} from 'react-router-dom';
 import './App.css';
 import mentorShip from './assets/img/Arts/mentor-ship.png';
 
