@@ -23,9 +23,9 @@ function App() {
                 <h1>Mentorias de<br/>tecnologia</h1>
                   <p>Transforme seus objetivos em realidade com a orientação 
                     certa. Junte-se a nós e comece sua jornada para o sucesso!</p>
-                  <a href='#'className='btn-find'>
+                  <Link to='/Login'className='btn-find'>
                     <h3>Encontrar mentorias</h3>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </section>
