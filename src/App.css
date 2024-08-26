@@ -121,6 +121,7 @@ section:nth-child(1){
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 .mentor-info h1{
   font-size: 25pt;
