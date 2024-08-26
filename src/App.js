@@ -25,6 +25,7 @@ function App() {
                     certa. Junte-se a nós e comece sua jornada para o sucesso!</p>
                   <Link to='/Login'className='btn-find'>
                     <h3>Encontrar mentorias</h3>
+
                   </Link>
                 </div>
               </div>
