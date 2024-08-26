@@ -176,10 +176,15 @@ section:nth-child(1){
   .top-elements h1{
     font-size: clamp(3pt, 15vw, 70pt);
   }
-
+  .info-mentec{
+    width: 100%;
+  }
   .section-mentor-ship{
     flex-direction: column;
     
+  }
+  .mentor-info{
+    width: 100%;
   }
   .mentor-sub-info h1{
     font-size: clamp(3pt,10vw,25pt);
@@ -188,7 +193,7 @@ section:nth-child(1){
     font-size: clamp(3pt,5vw,12pt)
   }
   .art{
-    height: 50%;
-    width: 60%;
+    height: clamp(50px , 50%, 300px);
+    width: clamp(50px , 90%, 300px);
   }
 }
