@@ -162,6 +162,9 @@ section:nth-child(1){
   .center-box{
     justify-content: center;
   }
+  .info-mentec br{
+    display: none;
+  }
   .btn-find{
     width: 100%;
     font-size: clamp(3pt,4vw,15pt);
@@ -193,7 +196,8 @@ section:nth-child(1){
     font-size: clamp(3pt,5vw,12pt)
   }
   .art{
-    height: clamp(50px , 50%, 300px);
-    width: clamp(50px , 90%, 300px);
+    height: clamp(50px , 50vw, 300px);
+    width: clamp(50px , 50vw, 300px);
   }
+
 }
