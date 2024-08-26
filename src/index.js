@@ -11,7 +11,7 @@ import{
 
 //pages
 import App from './App';
-import Signup from './Pages/Signup/Signup';
+import Signup from './Pages/Signup/index';
 import Login from './Pages/login';
 import Notfound from './Pages/Notfound/Notfound';
 
