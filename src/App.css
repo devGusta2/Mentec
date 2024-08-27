@@ -166,7 +166,7 @@ section:nth-child(1){
     display: none;
   }
   .btn-find{
-    width: 100%;
+    width: 80%;
     font-size: clamp(3pt,4vw,15pt);
     min-width: 50px;
   }
