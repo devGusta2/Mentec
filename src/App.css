@@ -14,6 +14,8 @@
   --text-color:white;
   --btn-color:#00BCD4;
   --bg-color:#02072D;
+  --bg-color1:#A6192E;
+  --bg-color2:#000434;
 }
 main{
   height: 100%;
@@ -149,6 +151,67 @@ section:nth-child(1){
   display: flex;
   flex-direction: column;
   
+}
+
+
+.benefits{
+  background-color: var(--bg-color2);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+
+}
+.cardsContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+  gap: 50px;
+}
+.row{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 100px;
+  align-items: center;
+}
+.card{
+  height: 270px;
+  width: 270px;
+  border:2px solid var(--bg-color1);
+  border-radius: 16px;
+  color: var(--text-color);
+  padding: 30px;
+  line-height: 25px;
+}
+.card h2{
+  height: 20%;
+  width: 100%;
+}
+.card p{
+  height: 80%;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.rowCard{
+  display: flex;
+  justify-content: space-around;
+}
+.ourApp{
+  background-color: var(--bg-color);
+  height: 100vh;
+  width: 100%;
 }
 
 
