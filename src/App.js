@@ -20,7 +20,7 @@ function App() {
               </div>
               <div className='center-box'>
                 <div className='info-mentec'>
-                <h1>Mentorias de<br/>tecnologia</h1>
+                <h1>Mentorias de<br/> tecnologia</h1>
                   <p>Transforme seus objetivos em realidade com a orientação 
                     certa. Junte-se a nós e comece sua jornada para o sucesso!</p>
                   <Link to='#'className='btn-find'>
