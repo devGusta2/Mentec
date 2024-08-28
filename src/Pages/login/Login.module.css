@@ -86,6 +86,10 @@ background: linear-gradient(169deg, rgba(2,12,14,1) 0%, rgba(27,91,120,1) 59%, r
     font-weight: 500;
     transition: 0.5s;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
 }
 .btnCad:hover{
     border: 3px solid  var(--color-1);
@@ -187,11 +191,17 @@ background: linear-gradient(169deg, rgba(2,12,14,1) 0%, rgba(27,91,120,1) 59%, r
     align-items: center;
     justify-content: center;
 }
-.cadResp h4{
-    font-size: clamp(1pt, 4vw, 15pt);
-}
+
 .linkCad{
     font-size: clamp(1pt, 4vw, 10pt);
+}
+.linkCad1{
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+.cadResp{
+    display: none;
 }
 @media(max-width:768px){
     .main{
@@ -239,5 +249,12 @@ background: linear-gradient(169deg, rgba(2,12,14,1) 0%, rgba(27,91,120,1) 59%, r
     }
     .msico{
        height: clamp(10px,5vw,30px); 
+    }
+
+    .cadResp{
+        display: block;
+    }
+    .cadResp h4{
+        font-size: clamp(1pt, 4vw, 15pt);
     }
 }
