@@ -181,6 +181,18 @@ background: linear-gradient(169deg, rgba(2,12,14,1) 0%, rgba(27,91,120,1) 59%, r
     height: 30px;
 }
 
+.cadResp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.cadResp h4{
+    font-size: clamp(1pt, 4vw, 15pt);
+}
+.linkCad{
+    font-size: clamp(1pt, 4vw, 10pt);
+}
 @media(max-width:768px){
     .main{
         flex-direction: column;
@@ -197,7 +209,7 @@ background: linear-gradient(169deg, rgba(2,12,14,1) 0%, rgba(27,91,120,1) 59%, r
     }
 
     .titleBox h3{
-        font-size: clamp(1pt,5vw,10pt); 
+        font-size: clamp(1pt,5vw,18pt); 
     }
 
     .imgBook, .btnCad{
