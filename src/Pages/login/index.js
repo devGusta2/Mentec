@@ -44,7 +44,10 @@ function Login(){
                             <img src={msIco} className={styles.msico}/>
                             <h3>Continue com a microsoft</h3>
                         </button>
-                        
+                        <div className={styles.cadResp}>
+                            <h4>Não tem uma conta ainda?</h4>
+                            <Link to='/Signup' className={styles.linkCad}>Cadastre-se</Link>
+                        </div>
                     </form>
                 </div>
             </div>
