@@ -13,9 +13,10 @@ function Login(){
                 <img 
                 draggable="false"
                 src={book} className={styles.imgBook}/>
-                <button className={styles.btnCad}>
+                <Link to='/Signup'className={styles.btnCad}>
+                    
                     <h1>Cadastrar</h1>
-                </button>
+                </Link>
            </div>
            <div className={styles.formBox}>
             
