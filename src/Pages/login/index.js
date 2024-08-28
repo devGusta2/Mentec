@@ -1,6 +1,7 @@
 import styles from './Login.module.css';
 import book from '../../assets/img/Arts/books.png';
 import msIco from '../../assets/img/Arts/microsft.png';
+import { Link } from 'react-router-dom';
 function Login(){
     return(
         <div className={styles.main}>
@@ -40,9 +41,10 @@ function Login(){
                             <hr className={styles.line}/>
                         </div>
                         <button className={styles.btnms}>
-                            <img src={msIco} style={{height:'30px'}}/>
+                            <img src={msIco} className={styles.msico}/>
                             <h3>Continue com a microsoft</h3>
                         </button>
+                        
                     </form>
                 </div>
             </div>
