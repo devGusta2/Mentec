@@ -12,10 +12,12 @@
 }
 :root{
   --text-color:white;
+  --text-color1:black;
   --btn-color:#00BCD4;
   --bg-color:#02072D;
   --bg-color1:#A6192E;
   --bg-color2:#000434;
+  --bg-color3:whitesmoke;
 }
 main{
   height: 100%;
@@ -29,7 +31,7 @@ main{
 section:nth-child(1){
   height: 100vh;
   width: 100%;
-  background-image: url('./assets/img/backgrounds/Background-provisorio.jpg');
+  background-image: url('./assets/img/backgrounds/bgFatecFerraz-colors.png');
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'MentecFont';
@@ -37,34 +39,36 @@ section:nth-child(1){
 }
 
 .up-box{
-  height: 20%;
+  height: 10%;
   width: 100%;
   color:  var(--text-color);
   font-size: 22pt;
   display: flex;
   justify-content: right;
   align-items: center;
-  padding: 0 10%;
+  padding: 0 5%;
+
 }
 .top-elements{
   display: flex;
   justify-content: center;
   align-items: center;
-
-
   height: 100%;
+ 
 }
 .top-elements:nth-child(1){
-  width: 70%;
+  width: 100%;
+
 }
 .top-elements:nth-child(2){
-  width: 30%;
+  width: 20%;
+
 }
 .center-box{
   display: flex;
   width: 100%;
   align-items: center;
-  height: 80%;
+  height: 90%;
  
 }
 .center-box h1{
@@ -91,11 +95,11 @@ section:nth-child(1){
 .btn-find{
   height: 70px;
   width: 370px;
-  border:3px solid var(--btn-color);
+  border:3px solid var(--text-color);
   border-radius: 10px;
   display: flex;
   justify-content: center;
-  color: var(--btn-color);
+  color: var(--text-color);
   align-items: center;
   transition: 0.5s;
   text-decoration: none;
@@ -110,12 +114,11 @@ section:nth-child(1){
 .section-mentor-ship{
   height: 100vh;
   width: 100%;
-  background-color: var(--bg-color);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
- 
+ background-color: var(--bg-color3);
 }
 
 .mentor-info{
@@ -146,7 +149,7 @@ section:nth-child(1){
 .mentor-sub-info{
   width: 370px;
   height: 100%;
-  color: var(--text-color);
+  color: var(--text-color1);
   gap: 1.5em;
   display: flex;
   flex-direction: column;
@@ -155,7 +158,7 @@ section:nth-child(1){
 
 
 .benefits{
-  background-color: var(--bg-color2);
+  
   height: 100vh;
   width: 100%;
   display: flex;
@@ -187,9 +190,9 @@ section:nth-child(1){
 .card{
   height: 270px;
   width: 270px;
-  border:2px solid var(--bg-color1);
+  border:3px solid var(--btn-color);
   border-radius: 16px;
-  color: var(--text-color);
+  color: var(--btn-color);
   padding: 30px;
   line-height: 25px;
 }
