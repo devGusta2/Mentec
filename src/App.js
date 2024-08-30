@@ -79,7 +79,22 @@ function App() {
               </div>
             </section>
             <section className='ourApp'>
-              
+              <div className='app-points'>
+                <h1>Baixe o app ou acesse nosso site</h1>
+                <ul>
+                  <li>Mentores de alto nível</li>
+                  <li>Mentoria personalizada</li>
+                  <li>Flexibilidade total</li>
+                  <li>Comunidade de suporte</li>
+                  <li>Oportunidades	além da mentoria</li>
+                </ul>
+              </div>
+              <div className='min-detail'>
+
+              </div>
+              <div className='app-img'>
+
+              </div>
             </section>
           </main>
         </div>
