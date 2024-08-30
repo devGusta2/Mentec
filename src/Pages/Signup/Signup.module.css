@@ -20,5 +20,54 @@
 .main{
     height: 100vh;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.formBox{
+    height: 100%;
+    width: 70%;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form{
+    height: 500px;
+    width: 400px;
     background-color: red;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+}
+.inpt{
+    width: 280px;
+    height: 40px;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+}
+.btn{
+    width: 320px;
+    height: 60px;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    background-color: purple;
+    transition: 0.5s;
+    color: white;
+}
+
+.loginBox{
+    height: 100%;
+    width: 30%;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
