@@ -6,7 +6,7 @@ import mala from './assets/img/Icons/mala.png';
 import relogio from './assets/img/Icons/relogio.png';
 import monitor from './assets/img/Icons/monitor.png';
 import foguete from './assets/img/Icons/foguete.png';
-
+import notebook from './assets/img/Arts/notebook.png';
 import { Link } from 'react-router-dom';
 function App() {
   return (
@@ -95,11 +95,10 @@ function App() {
                   <li>Oportunidades	além da mentoria</li>
                 </ul>
               </div>
+              <div className='column-app'></div>
               <div className='column-app'>
-
-              </div>
-              <div className='column-app'>
-
+                <h1>Mentec</h1>
+                <img src={notebook}></img>
               </div>
             </section>
           </main>
