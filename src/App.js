@@ -98,7 +98,9 @@ function App() {
               <div className='column-app'></div>
               <div className='column-app'>
                 <h1>Mentec</h1>
-                <img src={notebook}></img>
+                <img 
+                draggable='false'
+                src={notebook}></img>
               </div>
             </section>
           </main>
