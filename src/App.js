@@ -1,6 +1,12 @@
 
 import './App.css';
 import mentorShip from './assets/img/Arts/mentor-ship.png';
+import form from './assets/img/Icons/form.png';
+import mala from './assets/img/Icons/mala.png';
+import relogio from './assets/img/Icons/relogio.png';
+import monitor from './assets/img/Icons/monitor.png';
+import foguete from './assets/img/Icons/foguete.png';
+
 import { Link } from 'react-router-dom';
 function App() {
   return (
@@ -52,26 +58,26 @@ function App() {
               <div className='cardsContainer'>
                 <div className='row'>
                   <div className='card'>
-                    <div className='rowCard'><h2>Mentores de alto nível</h2></div>
+                    <div className='rowCard'><h2>Mentores de alto nível</h2><img src={form}></img></div>
                     <p>Conecte-se com especialistas com anos de experiência, prontos para compartilhar seu conhecimento.</p>
                   </div>
                   <div className='card'>
-                    <div className='rowCard'><h2>Mentoria personalizada</h2></div>
+                    <div className='rowCard'><h2>Mentoria personalizada</h2><img src={mala}></img></div>
                     <p>Conecte-se com especialistas com anos de experiência, prontos para compartilhar seu conhecimento.</p>
                   </div>
                   <div className='card'>
-                    <div className='rowCard'><h2>Flexibilidade total</h2></div>
+                    <div className='rowCard'><h2>Flexibilidade total</h2><img src={relogio}></img></div>
                     <p>Conecte-se com especialistas com anos de experiência, prontos para compartilhar seu conhecimento.</p>
                   </div>
                   
                 </div>
                 <div className='row'>
                 <div className='card'>
-                    <div className='rowCard'><h2>Plataforma intuitiva</h2></div>
+                    <div className='rowCard'><h2>Plataforma intuitiva</h2><img src={monitor}></img></div>
                     <p>Conecte-se com especialistas com anos de experiência, prontos para compartilhar seu conhecimento.</p>
                   </div>
                   <div className='card'>
-                    <div className='rowCard'><h2>Oportunidades além da mentoria</h2></div>
+                    <div className='rowCard'><h2>Oportunidades além da mentoria</h2><img src={foguete}></img></div>
                     <p>Conecte-se com especialistas com anos de experiência, prontos para compartilhar seu conhecimento.</p>
                   </div>
                 </div>
