@@ -171,7 +171,7 @@ section:nth-child(1){
   justify-content: center;
   align-items: center;
   padding: 30px;
-
+  background-color: var(--bg-color3);
 }
 .cardsContainer{
   display: flex;
@@ -215,6 +215,13 @@ section:nth-child(1){
 .rowCard{
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.rowCard img{
+  height: 70px;
+  width: 70px;
+ 
 }
 .ourApp{
   display: flex;
