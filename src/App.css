@@ -121,7 +121,9 @@ section:nth-child(1){
   flex-direction: row;
   justify-content: center;
   align-items: center;
- background-color: var(--bg-color3);
+  background-image: url('./assets/img/backgrounds/bgMentorship.png');
+  background-size: cover;
+
 }
 
 .mentor-info{
