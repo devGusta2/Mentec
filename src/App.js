@@ -85,7 +85,7 @@ function App() {
               </div>
             </section>
             <section className='ourApp'>
-              <div className='app-points'>
+              <div className='column-app'>
                 <h1>Baixe o app ou acesse nosso site</h1>
                 <ul>
                   <li>Mentores de alto nível</li>
@@ -95,10 +95,10 @@ function App() {
                   <li>Oportunidades	além da mentoria</li>
                 </ul>
               </div>
-              <div className='min-detail'>
+              <div className='column-app'>
 
               </div>
-              <div className='app-img'>
+              <div className='column-app'>
 
               </div>
             </section>
