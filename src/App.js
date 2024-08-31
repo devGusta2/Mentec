@@ -8,7 +8,19 @@ import monitor from './assets/img/Icons/monitor.png';
 import foguete from './assets/img/Icons/foguete.png';
 import notebook from './assets/img/Arts/notebook.png';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 function App() {
+
+  const  [darkMode, setdarkMode] = useState (false);
+
+  function mudarTema(){
+    setdarkMode(!darkMode)
+    if(darkMode){
+
+    }else{
+
+    }
+  }
   return (
     <div className="App">
           <main className='main'>
@@ -16,7 +28,7 @@ function App() {
               <div className='up-box'>
                 <div className='top-elements'>
                   <nav>
-         
+                    {/* <button className='btn-darkMode' onClick={mudarTema}>Tema</button> */}
                     
                   </nav>
                 </div>
@@ -104,6 +116,9 @@ function App() {
               </div>
             </section>
           </main>
+          <footer>
+            
+          </footer>
         </div>
 
   );
