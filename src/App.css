@@ -258,8 +258,8 @@ section:nth-child(1){
   color: var(--text-color);
 }
 .column-app:nth-child(1) h1{
-  font-family: 'MentecFOnt';
-  font-size: clamp(1pt,10vw, 40pt);
+
+  font-size: clamp(1pt,10vw, 35pt);
   display: flex;
   align-items: center;
   height: 50%;
@@ -270,7 +270,8 @@ section:nth-child(1){
   height: 50%;
   font-size: 14pt;
   width: 100%;
-  line-height: 40px;
+  line-height: 45px;  
+  padding: 0 22px;
 
 }
 
@@ -285,9 +286,21 @@ section:nth-child(1){
   width: 69%;
   height: 100%;
   background-color: var(--bg-red3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} 
+
+.column-app:nth-child(3) img{
+  height: 450px;
 }
 
-
+.column-app:nth-child(3) h1{
+  font-family: 'MentecFOnt';
+  font-size: clamp(1pt,10vw, 40pt);
+  color: var(--text-color);
+}
 
 @media(max-width:768px){
   .top-elements:nth-child(1){
