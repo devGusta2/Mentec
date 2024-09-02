@@ -20,8 +20,8 @@ function App() {
   const [bgMentec , setbgMentec] = useState(bg1);
   const changeBgMentec = () =>{
     setbgMentec(bgAnt => bgAnt === bg1 ? bg2 : bg1);
-    
-  }
+    document.getElementById('section-mentor-ship').style.backgroundColor="black";
+  } 
   return (
     <div className="App">
           <main className='main'>
@@ -48,7 +48,7 @@ function App() {
                 </div>
               </div>
             </section>
-            <section className='section-mentor-ship'>
+            <section className='section-mentor-ship' id="section-mentor-ship">
               <div className='mentor-info'>
                 <div className='mentor-sub-info'>
                   <h1>Transforme seu futuro com a mentoria ideal para você!</h1>
