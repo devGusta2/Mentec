@@ -8,29 +8,28 @@ import monitor from './assets/img/Icons/monitor.png';
 import foguete from './assets/img/Icons/foguete.png';
 import notebook from './assets/img/Arts/notebook.png';
 
+
+import bg1 from './assets/img/backgrounds/bgFatecFerraz-colors.png';
+import bg2 from './assets/img/backgrounds/Background-provisorio2.jpg';
+
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 function App() {
 
-  const  [darkMode, setdarkMode] = useState (false);
-
-  function mudarTema(){
-    setdarkMode(!darkMode)
-    if(darkMode){
-
-    }else{
-
-    }
+  const [bgMentec , setbgMentec] = useState(bg1);
+  const changeBgMentec = () =>{
+    setbgMentec(bgAnt => bgAnt === bg1 ? bg2 : bg1);
+    
   }
   return (
     <div className="App">
           <main className='main'>
-            <section>
+            <section style={{backgroundImage:`url(${bgMentec})` }}>
               <div className='up-box'>
                 <div className='top-elements'>
                   <nav>
-                     {/* <button className='btn-darkMode' onClick={mudarTema}>Tema</button> */}
+                     <button className='btn-darkMode' onClick={changeBgMentec}>Tema</button>
                     
                   </nav>
                 </div>
