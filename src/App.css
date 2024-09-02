@@ -34,7 +34,7 @@ main{
 section:nth-child(1){
   height: 100vh;
   width: 100%;
-  background-image: url('./assets/img/backgrounds/bgFatecFerraz-colors.png');
+
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'MentecFont';
