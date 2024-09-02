@@ -21,6 +21,7 @@ function App() {
   const changeBgMentec = () =>{
     setbgMentec(bgAnt => bgAnt === bg1 ? bg2 : bg1);
     document.getElementById('section-mentor-ship').style.cssText=`
+        background-image:none;
         background-color: black;
         color: white;
     `;
