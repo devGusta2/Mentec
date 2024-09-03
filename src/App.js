@@ -21,14 +21,44 @@ function App() {
   const changeBgMentec = () =>{
   const styleElement = [
     document.getElementById('section-mentor-ship'),
-    document.getElementById('sdecs-ment'),
+    document.getElementById('btn-findid'),
+    document.getElementById('decs-ment'),
+    
     ]; 
 
-    setbgMentec(bgAnt => bgAnt === bg1 ? bg2 : bg1);
+    setbgMentec(bgAnt => {
+      if (bgAnt === bg1) {
+        styleElement[0].style.cssText=`
+          background-image:none;
+          background-color:#00052B;
+        `;
 
-    styleElement[0].style.cssText=`
-      backgorund-color:black;
-    `
+        styleElement[1].style.cssText=`
+        color:#00BCD4;
+        border:3px solid #00BCD4;
+      `;
+
+
+        styleElement[2].style.color='white';
+   
+        return bg2;
+
+      } else {
+        styleElement[0].style.cssText=`
+        background-color:white;
+      `
+
+      styleElement[1].style.cssText=`
+      color:white;
+      border:3px solid white;
+      `;
+      styleElement[2].style.color='black';
+        return bg1;
+      }
+    });
+
+ 
+
     
   } 
   return (
@@ -51,7 +81,7 @@ function App() {
                 <h1>Mentorias de<br/> tecnologia</h1>
                   <p>Transforme seus objetivos em realidade com a orientação 
                     certa. Junte-se a nós e comece sua jornada para o sucesso!</p>
-                  <Link to='/Login'className='btn-find'>
+                  <Link to='/Login'className='btn-find' id="btn-findid">
                     <h3>Encontrar mentorias</h3>
                   </Link>
                 </div>
