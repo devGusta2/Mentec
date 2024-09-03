@@ -19,12 +19,17 @@ function App() {
 
   const [bgMentec , setbgMentec] = useState(bg1);
   const changeBgMentec = () =>{
+  const styleElement = [
+    document.getElementById('section-mentor-ship'),
+    document.getElementById('sdecs-ment'),
+    ]; 
+
     setbgMentec(bgAnt => bgAnt === bg1 ? bg2 : bg1);
-    document.getElementById('section-mentor-ship').style.cssText=`
-        background-image:none;
-        background-color: black;
-        color: white;
-    `;
+
+    styleElement[0].style.cssText=`
+      backgorund-color:black;
+    `
+    
   } 
   return (
     <div className="App">
@@ -54,7 +59,7 @@ function App() {
             </section>
             <section className='section-mentor-ship' id="section-mentor-ship">
               <div className='mentor-info'>
-                <div className='mentor-sub-info'>
+                <div className='mentor-sub-info' id="decs-ment">
                   <h1>Transforme seu futuro com a mentoria ideal para você!</h1>
                   <p>
                   Você já se pegou pensando em como alcançar 
