@@ -7,7 +7,8 @@ import relogio from './assets/img/Icons/relogio.png';
 import monitor from './assets/img/Icons/monitor.png';
 import foguete from './assets/img/Icons/foguete.png';
 import notebook from './assets/img/Arts/notebook.png';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoon } from '@fortawesome/free-solid-svg-icons';
 
 import bg1 from './assets/img/backgrounds/bgFatecFerraz-colors.png';
 import bg2 from './assets/img/backgrounds/Background-provisorio2.jpg';
@@ -68,7 +69,9 @@ function App() {
               <div className='up-box'>
                 <div className='top-elements'>
                   <nav>
-                     <button className='btn-darkMode' onClick={changeBgMentec}>Tema</button>
+                     <button className='btn-darkMode' onClick={changeBgMentec}>
+                      <FontAwesomeIcon id="icon-btn-dark" icon={faMoon} size='2x' color='white' />
+                     </button>
                     
                   </nav>
                 </div>
