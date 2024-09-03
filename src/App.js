@@ -24,6 +24,10 @@ function App() {
     document.getElementById('section-mentor-ship'),
     document.getElementById('btn-findid'),
     document.getElementById('decs-ment'),
+    document.getElementById('benefits-id'),
+    document.getElementById('app-site'),
+    document.getElementById('app-site1'),
+    document.getElementById('app-site2'),
     
     ]; 
 
@@ -41,20 +45,29 @@ function App() {
 
 
         styleElement[2].style.color='white';
-   
+        
+        styleElement[3].style.backgroundColor='#0F1644';
+        styleElement[4].style.backgroundColor='#00013C';
+        styleElement[5].style.backgroundColor='#0F1644';
+        styleElement[6].style.backgroundColor='#00052B';
         return bg2;
 
       } else {
         styleElement[0].style.cssText=`
         background-color:white;
-      `
+        `
 
-      styleElement[1].style.cssText=`
-      color:white;
-      border:3px solid white;
-      `;
-      styleElement[2].style.color='black';
-        return bg1;
+        styleElement[1].style.cssText=`
+        color:white;
+        border:3px solid white;
+        `;
+        styleElement[2].style.color='black';
+
+        styleElement[3].style.backgroundColor='white';
+        styleElement[4].style.backgroundColor='#A6192E';
+        styleElement[5].style.backgroundColor='#910F25';
+        styleElement[6].style.backgroundColor='#770B1C';
+          return bg1;
       }
     });
 
@@ -109,7 +122,7 @@ function App() {
               </div>
             </section>
 
-            <section className='benefits'>
+            <section className='benefits' id="benefits-id">
               <div className='cardsContainer'>
                 <div className='row'>
                   <div className='card'>
@@ -140,7 +153,7 @@ function App() {
               </div>
             </section>
             <section className='ourApp'>
-              <div className='column-app'>
+              <div className='column-app' id="app-site">
                 <h1>Baixe o app ou acesse nosso site</h1>
                 <ul>
                   <li>Mentores de alto nível</li>
@@ -150,8 +163,8 @@ function App() {
                   <li>Oportunidades	além da mentoria</li>
                 </ul>
               </div>
-              <div className='column-app'></div>
-              <div className='column-app'>
+              <div className='column-app' id="app-site1"></div>
+              <div className='column-app' id="app-site2">
                 <h1>Mentec</h1>
                 <img 
                 draggable='false'
