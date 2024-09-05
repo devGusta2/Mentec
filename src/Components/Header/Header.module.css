@@ -36,6 +36,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 .configBox{
     height: 100%;
@@ -59,9 +60,10 @@
 .navBar{
     display: flex;
     flex-direction: row;
-    padding: 10px;
+    justify-content: space-between;
     height: 30%;
-  
+
+    width: 100%;
 }
 .searchBarBox{
     height: 50%;
@@ -82,12 +84,10 @@
 .ul{
     display: flex;
     flex-direction: row;
-    width: 400px;
+    width: 100%;
     list-style: none;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-
-
 
 }
 
@@ -110,3 +110,4 @@
 .options option{
     color: black;
 }
+
