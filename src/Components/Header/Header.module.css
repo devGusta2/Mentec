@@ -1,5 +1,9 @@
+:root{
+    --header-color:#02072D;
+}
+
 .header{
-    background-color: red;
-    height: 20px;
-    width: 50px;
+    background-color:var(--bg-color);
+    height: 5em;
+    width: 100%;
 }
