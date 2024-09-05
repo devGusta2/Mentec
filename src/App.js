@@ -97,7 +97,7 @@ function App() {
                 <h1>Mentorias de<br/> tecnologia</h1>
                   <p>Transforme seus objetivos em realidade com a orientação 
                     certa. Junte-se a nós e comece sua jornada para o sucesso!</p>
-                  <Link to='/Login'className='btn-find' id="btn-findid">
+                  <Link to='/Teste'className='btn-find' id="btn-findid">
                     <h3>Encontrar mentorias</h3>
                   </Link>
                 </div>
