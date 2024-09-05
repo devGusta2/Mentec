@@ -1,6 +1,10 @@
 
 import styles from './Header.module.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+
+
 function Header(){
     return(
         <header className={styles.header}>
@@ -22,7 +26,18 @@ function Header(){
                     </ul>
                 </nav>
             </div>
-            <div className={styles.configBox}></div>
+            <div className={styles.configBox}>
+                <div className={styles.userConfig}>
+                    <FontAwesomeIcon id="" icon={faUser} size='2x' color='white' className={styles.icon} />
+                    <select className={styles.options}>
+                        <option>Usuário</option>
+                        <option>Oerfil</option>
+                        <option>Minhas mentorias</option>
+                        <option>Configurações</option>
+                        <option>Sair</option>
+                    </select>
+                </div>
+            </div>
         </header>
     );
 };
