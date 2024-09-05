@@ -1,9 +1,77 @@
 :root{
     --header-color:#02072D;
 }
-
+@font-face {
+    font-family: 'MentecFont';
+    src: url('../../assets/fonts/eurostile.TTF');
+    font-weight: normal;
+}
 .header{
     background-color:var(--bg-color);
-    height: 5em;
+    height: 7em;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 0 3em;
+}
+.logoBox{
+    height: 100%;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'MentecFont';
+
+}
+.navSearchBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.configBox{
+    height: 100%;
+    width: 45%;
+}
+.navBar{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    height: 30%;
+  
+}
+.searchBarBox{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.searchBar{
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    padding: 0 10px;
+}
+.ul{
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+
+
+
 }
