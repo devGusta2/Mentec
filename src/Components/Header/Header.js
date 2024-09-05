@@ -1,12 +1,12 @@
 
-import syles from './Header.modules.css';
+import styles from './Header.module.css';
 
 function Header(){
-
-    <div className={header}>
-
-    </div>
-
+    return(
+        <header className={styles.header}>
+            
+        </header>
+    );
 };
 
 export default Header;
