@@ -11,7 +11,7 @@ import{
 
 //pages
 import App from './App';
-
+import Teste from './Pages/Teste/index'
 import Login from './Pages/login';
 import Notfound from './Pages/Notfound/Notfound';
 import Teste from './Pages/Teste/index';
@@ -29,10 +29,6 @@ const router =  createBrowserRouter([
     path: "Login",
     element:<Login />,
   },
-  {
-    path: "Teste",
-    element: <Teste />
-  }
 ]);
 
 
