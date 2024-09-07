@@ -6,9 +6,9 @@ function Footer(){
         <div className={styles.footer}>
             <div className={styles.row}>
                 <div className={styles.column}>
-                    <h3>
+                    <h5>
                         FACULDADE DE TECNOLOGIA DE FERRAZ DE VASCONCELOS
-                    </h3>
+                    </h5>
                 </div>
                 <div className={styles.column}>
                     <h1 className={styles.title}>Mentec</h1>

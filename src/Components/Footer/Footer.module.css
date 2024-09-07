@@ -4,15 +4,14 @@
     font-weight: normal;
 }
 .footer{
-    height: 200px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     color: white;
-    bottom: 0;
     align-items: center;
     justify-content: center;
-  
- 
+    width: 100%;
+
 }
 .row{
     display: flex;
@@ -22,12 +21,12 @@
 
 }
 .row:nth-child(1){
-    height: 80%;
+    height: 70%;
     width: 100%;
     
 }
 .row:nth-child(2){
-    height: 20%;
+    height: 30%;
     width: 100%;
     background-color: #333333;
 
