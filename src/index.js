@@ -11,12 +11,17 @@ import{
 
 //pages
 import App from './App';
+import Test from './Pages/Test/index';
 
 import Login from './Pages/login';
-import Notfound from './Pages/Notfound/Notfound';
-import Teste from './Pages/Teste/index';
+import Notfound from './Pages/Notfound';
+import Home from './Pages/Home/index';
 
 const router =  createBrowserRouter([
+  {
+    path: "Teste",
+    component:<Test />
+  },
   {
     path:"*",
     element:<Notfound />
@@ -30,9 +35,10 @@ const router =  createBrowserRouter([
     element:<Login />,
   },
   {
-    path:"Teste",
-    component:<Teste />
+    path: "Home",
+    element: <Home />
   }
+
 ]);
 
 
