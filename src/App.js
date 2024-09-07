@@ -15,6 +15,7 @@ import bg2 from './assets/img/backgrounds/Background-provisorio2.jpg';
 
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import Footer from './Components/Footer/Footer';
 
 function App() {
 
@@ -172,9 +173,7 @@ function App() {
               </div>
             </section>
           </main>
-          <footer>
-
-          </footer>
+          <Footer/>
         </div>
 
   );
