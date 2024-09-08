@@ -1,0 +1,49 @@
+.menu{
+    height: 100vh;
+    width: 20%;
+    background-color: purple;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.imgUser{
+    height: 200px;
+    width: 200px;
+    background-color: white;
+    border-radius: 50%;
+}
+.optBox{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navOpt{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    color: white;
+
+   
+}
+
+.navOpt ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.navOpt ul li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14pt;
+    gap: 3px;
+}
