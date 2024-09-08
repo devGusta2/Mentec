@@ -1,8 +1,8 @@
 .menu{
-    height: 100vh;
+    height: calc(100vh - 5em);
     width: 20%;
     background-color: purple;
-    position: absolute;
+    
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -31,7 +31,7 @@
     justify-content: space-around;
     height: 100%;
     color: white;
-
+  
    
 }
 
@@ -39,11 +39,18 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
+    justify-content: center;
+        
 }
 .navOpt ul li{
     display: flex;
     flex-direction: row;
     align-items: center;
     font-size: 14pt;
-    gap: 3px;
+    gap: 20px;
+
+
+}
+.icon{
+    height: 30px;
 }
