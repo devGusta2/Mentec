@@ -1,0 +1,165 @@
+:root {
+    --header-color: #02072D;
+}
+
+@font-face {
+    font-family: 'MentecFont';
+    src: url('../../assets/fonts/eurostile.TTF');
+    font-weight: normal;
+}
+
+.header {
+    background-color: var(--header-color);
+    height: 5em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 0 3em;
+}
+
+.logoBox {
+    height: 100%;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'MentecFont';
+}
+
+.navSearchBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 40%;
+    flex-direction: column;
+}
+
+.configBox {
+    height: 100%;
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.userConfig {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    gap: 1em;
+}
+
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30%;
+    width: 100%;
+}
+
+.searchBarBox {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchBar {
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    padding: 0 10px;
+}
+
+.ul {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icon {
+    background-color: white;
+    height: 20px;
+    width: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    color: #02072D;
+}
+
+.options {
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: 0;
+}
+
+.options option {
+    color: black;
+}
+
+/* Tornar layout mais responsivo */
+@media(max-width: 1024px) {
+    .header {
+        padding: 0 2em;
+    }
+    .logoBox, .configBox {
+        width: 20%;
+    }
+    .navSearchBox {
+        width: 60%;
+    }
+}
+
+@media(max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 1em;
+    }
+    .logoBox, .configBox {
+        width: 100%;
+        justify-content: center;
+    }
+    .navSearchBox {
+        width: 100%;
+        margin-top: 1em;
+    }
+    .searchBar {
+        width: 100%;
+        max-width: 300px;
+    }
+    .ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media(max-width: 480px) {
+    .header {
+        padding: 0.5em;
+    }
+    .navSearchBox {
+        margin-top: 0.5em;
+    }
+    .searchBar {
+        width: 90%;
+    }
+    .ul {
+        width: 100%;
+        gap: 0.5em;
+    }
+}
