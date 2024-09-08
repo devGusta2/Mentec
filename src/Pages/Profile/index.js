@@ -2,13 +2,25 @@
 
 import Header from "../../Components/Header/Header";
 import Menu from "../../Components/Menu/Menu";
-
+import styles from './Profile.module.css';
 function Profile(){
     return(
-        <div>
+        <div className={styles.body}>
             <Header />
-            
-            <Menu />
+            <div className={styles.container}>
+                <Menu />
+                <div className={styles.infoContainer}>
+                    <div className={styles.infoRow}>
+                        <div className={styles.box}></div>
+                        <div className={styles.box}></div>
+                    </div>
+                    <div className={styles.infoRow}>
+                        <div className={styles.box}></div>
+                        <div className={styles.box}></div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
     );
 }
