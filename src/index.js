@@ -15,7 +15,7 @@ import Test from './Pages/Test/index';
 
 import Login from './Pages/login';
 import Notfound from './Pages/Notfound';
-import Home from './Pages/Home/index';
+import Mentoring from './Pages/Mentoring/index';
 
 import Profile from './Pages/Profile';
 
@@ -37,8 +37,8 @@ const router =  createBrowserRouter([
     element:<Login />,
   },
   {
-    path: "Home",
-    element: <Home />
+    path: "Mentoring",
+    element: <Mentoring />
   },
   {
     path: "Profile",
