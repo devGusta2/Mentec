@@ -17,6 +17,8 @@ import Login from './Pages/login';
 import Notfound from './Pages/Notfound';
 import Home from './Pages/Home/index';
 
+import Profile from './Pages/Profile';
+
 const router =  createBrowserRouter([
   {
     path: "Teste",
@@ -37,8 +39,11 @@ const router =  createBrowserRouter([
   {
     path: "Home",
     element: <Home />
+  },
+  {
+    path: "Profile",
+    element: <Profile  />
   }
-
 ]);
 
 
