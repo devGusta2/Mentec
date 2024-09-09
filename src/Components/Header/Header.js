@@ -8,9 +8,9 @@ import {Link} from 'react-router-dom';
 function Header(){
     return(
         <header className={styles.header}>
-            <div className={styles.logoBox}>
+            <Link to="/" className={styles.logoBox}>
                 <h1>Mentec</h1>
-            </div>
+            </Link>
             <div className={styles.navSearchBox}>
                 <div className={styles.searchBarBox}>
                     <input 
