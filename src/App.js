@@ -86,7 +86,6 @@ function App() {
                      <button className='btn-darkMode' onClick={changeBgMentec}>
                       <FontAwesomeIcon id="icon-btn-dark" icon={faMoon} size='2x' color='white' />
                      </button>
-                    
                   </nav>
                 </div>
                 <div className='top-elements'>
@@ -98,7 +97,7 @@ function App() {
                 <h1>Mentorias de<br/> tecnologia</h1>
                   <p>Transforme seus objetivos em realidade com a orientação 
                     certa. Junte-se a nós e comece sua jornada para o sucesso!</p>
-                  <Link to='/Home'className='btn-find' id="btn-findid">
+                  <Link to='/Mentoring'className='btn-find' id="btn-findid">
                     <h3>Encontrar mentorias</h3>
                   </Link>
                 </div>
