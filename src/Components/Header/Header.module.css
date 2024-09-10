@@ -7,7 +7,7 @@
     font-weight: normal;
 }
 .header{
-    background-color:var(--bg-color);
+    background-color:var(--bg-azulteste);
     height: 5em;
     width: 100%;
     display: flex;

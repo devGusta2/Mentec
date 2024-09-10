@@ -16,13 +16,13 @@ function Home(){
                             <input 
                             placeholder='Buscar mentorias'
                             className={styles.searchBar}></input>
-                            <select>
+                            <select className={styles.options}>
                                 <option>Área</option>
                             </select>
-                            <select>
+                            <select className={styles.options}>
                                 <option>Qntd Vagas</option>
                             </select>
-                            <select>
+                            <select className={styles.options}>
                                 <option>Data</option>
                             </select>
                           
