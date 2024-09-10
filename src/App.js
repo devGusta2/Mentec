@@ -16,7 +16,7 @@ import bg2 from './assets/img/backgrounds/Background-provisorio2.jpg';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Footer from './Components/Footer/Footer';
-
+import { Helmet } from 'react-helmet';
 function App() {
 
   const [bgMentec , setbgMentec] = useState(bg1);
@@ -78,6 +78,13 @@ function App() {
   } 
   return (
     <div className="App">
+      <Helmet>
+        <title>Mentec</title>
+        <meta name="description" content="Encontre mentorias personalizadas no Centro Paula Souza. Especialistas em tecnologia, inovação e desenvolvimento. Acelere seu aprendizado e carreira com nossos mentores." />
+        <meta name="keywords" content="Centro Paula Souza, Mentec, mentorias, educação, desenvolvimento, tecnologia, inovação, carreira, especialistas, aprendizado" />
+        <meta name="author" content="Centro Paula Souza Mentorias" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
           <main className='main'>
             <section style={{backgroundImage:`url(${bgMentec})` }}>
               <div className='up-box'>
