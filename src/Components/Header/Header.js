@@ -26,7 +26,7 @@ function Header(){
                     <nav className={styles.navBar}>
                         <ul className={styles.ul}>
                             <Link to='/Home' className={styles.link}><li>Inicio</li></Link>
-                            <li>Mentorias</li>
+                            <Link to='/Mentoring' className={styles.link}><li>Mentorias</li> </Link>
                             <li>Contato</li>
                             <li>Ajuda</li>
                         </ul>
@@ -37,7 +37,7 @@ function Header(){
             <div className={styles.configBox}>
                 <div className={styles.userConfig}>
                     
-                    <FontAwesomeIcon id="" icon={faUser} size='2x' color='white' className={styles.icon} />
+                    <Link to='/Profile'><FontAwesomeIcon id="" icon={faUser} size='2x' color='white' className={styles.icon} /></Link>
                     
                     <select className={styles.options}>
                         <option>Usuário</option>
