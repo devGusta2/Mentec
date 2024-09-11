@@ -11,19 +11,14 @@ import{
 
 //pages
 import App from './App';
-import Test from './Pages/Test/index';
-
 import Login from './Pages/login';
 import Notfound from './Pages/Notfound';
 import Mentoring from './Pages/Mentoring/index';
 
 import Profile from './Pages/Profile';
-
+import Tpage from './Pages/Tpage';
 const router =  createBrowserRouter([
-  {
-    path: "Teste",
-    component:<Test />
-  },
+
   {
     path:"*",
     element:<Notfound />
@@ -43,7 +38,12 @@ const router =  createBrowserRouter([
   {
     path: "Profile",
     element: <Profile  />
+  },
+  {
+    path: "Tpage",
+    element: <Tpage />
   }
+
 ]);
 
 
