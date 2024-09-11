@@ -13,10 +13,12 @@ import{
 import App from './App';
 import Login from './Pages/login';
 import Notfound from './Pages/Notfound';
-import Mentoring from './Pages/Mentoring/index';
-
+import Mentorships from './Pages/Mentorships/index';
 import Profile from './Pages/Profile';
 import Tpage from './Pages/Tpage';
+
+
+import Mentoring from './Pages/Mentoring';
 const router =  createBrowserRouter([
 
   {
@@ -32,12 +34,16 @@ const router =  createBrowserRouter([
     element:<Login />,
   },
   {
-    path: "Mentoring",
-    element: <Mentoring />
+    path: "Mentorships",
+    element: <Mentorships />
   },
   {
     path: "Profile",
     element: <Profile  />
+  },
+  {
+    path: "Mentoring",
+    element: <Mentoring />
   },
   {
     path: "Tpage",

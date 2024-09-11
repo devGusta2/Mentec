@@ -26,7 +26,7 @@ function Header(){
                     <nav className={styles.navBar}>
                         <ul className={styles.ul}>
                             <Link to='/Home' className={styles.link}><li>Inicio</li></Link>
-                            <Link to='/Mentoring' className={styles.link}><li>Mentorias</li> </Link>
+                            <Link to='/Mentorships' className={styles.link}><li>Mentorias</li> </Link>
                             <li>Contato</li>
                             <li>Ajuda</li>
                         </ul>
