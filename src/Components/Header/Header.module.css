@@ -35,11 +35,14 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 40%;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    width: 100%;
+    
     
 }
 .configBox{
@@ -64,10 +67,19 @@
 .navBar{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 30%;
-
+ 
     width: 100%;
+}
+.searchLogo{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 90%;
 }
 .searchBarBox{
     height: 50%;
@@ -75,6 +87,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
 
 }
 .searchBar{
@@ -92,7 +105,7 @@
     list-style: none;
     justify-content: space-around;
     align-items: center;
-
+   
 }
 
 .icon{
@@ -122,4 +135,26 @@
 
 .link:hover{
     
+}
+#menuBars{
+    display: none;
+    cursor: pointer;
+}
+@media (max-width:768px){
+    .header{
+        
+        height: 120px;
+    }
+    .configBox{
+        display: none;
+    }
+    .searchLogo{
+        flex-direction: column;
+    }
+    #menuBars{
+        display: block;
+    }
+    .navBar{
+        height: 50%;
+    }
 }
