@@ -10,6 +10,7 @@ function Profile(){
             <div className={styles.container}>
                 <Menu />
                 <div className={styles.infoContainer}>
+                    <h1>Seja bem-vindo(a) Usuário</h1>
                     <div className={styles.infoRow}>
                         <div className={styles.box}></div>
                         <div className={styles.box}></div>
