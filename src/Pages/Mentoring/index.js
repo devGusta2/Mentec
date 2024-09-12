@@ -5,27 +5,37 @@ function Mentoring(){
         <div className={styles.mentoring}>
             <Header></Header>
             <main className={styles.content}>
-                <div className={styles.mainLayout}>
-                    <div className={styles.row}>
-                        <div className={styles.info}>
-
-                        </div>
+                <div className={styles.row}>
+                    <div className={styles.mentInfo}>
+                        <img 
+                        src="https://wallpaperaccess.com/full/1805473.jpg"
+                        className={styles.imgMent}></img>
+                        <h2>
+                            Cloud computing com AWS
+                        </h2>
                     </div>
-                    <div className={styles.row}>
-                        <div className={styles.rowDown}>
-                            <div className={styles.col}>
-                                <div className={styles.info}>
-
-                                </div>
-                                <div className={styles.info}>
-
-                                </div>
+                </div>
+                <div className={styles.row}>
+                    <div className={styles.rowDesc}>
+                        <div className={styles.colDesc}>
+                            <div className={styles.minMentDesc}>
+                                
                             </div>
-                            <div className={styles.info2}>
-            
+                            <div className={styles.mentDesc}>
+                                
+                            </div>
+                            <div className={styles.mentDesc2}>
+                                
                             </div>
                         </div>
+                        <div className={styles.contactBox}>
+                            <div className={styles.contactCard}>
+
+                            </div>
+                        </div>
+                       
                     </div>
+                   
                 </div>
             </main>
         </div>

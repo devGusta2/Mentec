@@ -1,94 +1,109 @@
 
+
 :root{
-    --bg-cards:rgb(234, 234, 234);
+    --card-color:rgb(233, 233, 233);
 }
-.mentoring{
-    height: calc(100vh - 5em);
-    width: 100%;
-}
+
 
 .content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+    height: calc( 100vh - 5em);
     width: 100%;
-   
-}
-
-
-.mainLayout{
-        display: flex;
-        flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 90%;
-
-    gap: 0em;
-}
-.row{
-    height: 40%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.row:nth-child(2){
-    height: 60%;
-    width: 100%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  
-}
-.row:nth-child(1) .info{
-    background-color: var(--bg-cards);
-    height: 250px;
-    width: 1300px;
-    border-radius: 10px;
-}
-.col{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1em;
 }
-.row:nth-child(2) .info:nth-child(1){
-    background-color: var(--bg-cards);
-    height: 70px;
-    width: 950px;
-    border-radius: 10px;
-}
-
-.row:nth-child(2) .info:nth-child(2){
-    background-color: var(--bg-cards);
-    height: 250px;
-    width: 950px;
-    border-radius: 10px;
-}
-.row:nth-child(2){
-    justify-content: space-around;
-    align-items: center;
-}
-.info2{
-    
-    height: 340px;
-    width: 300px;
-    background-color: var(--bg-cards);
-    border-radius: 10px;
-}
-
-.rowDown{
-    height: 100%;
+.row:nth-child(1){
     display: flex;
     flex-direction: row;
-    width: 1300px;
-    justify-content: space-around;
-    gap: 50px;
     align-items: center;
+    justify-content: center;
+    height: 40%;
+    width: 90%;
+
+}
+
+.row:nth-child(2){
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    width:  90%;
+
+}
+.rowDesc{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    width: 1200px;
+
+    align-items: center;
+    gap: 10px;
+}
+.colDesc{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 1200px;
+
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.mentInfo{
+    background-color: var(--card-color);
+    height: 200px;
+    width: 1200px;
+    border-radius: 10px;
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.minMentDesc{
+    background-color: var(--card-color);
+    height: 50px;
+    width: 950px;
+    border-radius: 10px;
+}
+
+.mentDesc{
+    background-color: var(--card-color);
+    height: 230px;
+    width: 950px;
+    border-radius: 10px;
+}
+.contactBox{
+
+    height: 100%;
+    width: 310px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contactCard{
+    background-color: var(--card-color);
+    height: 300px;
+    width: 240px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.col{
+    width: 33.3%;
+    height: 100%;
+
+    background-color: green;
+}
+
+.imgMent{
+    height: 150px;
+    width: 250px;
+    border-radius: 10px;
 }
