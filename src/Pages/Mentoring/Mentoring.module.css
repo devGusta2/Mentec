@@ -44,7 +44,7 @@
 .row:nth-child(1) .info{
     background-color: white;
     height: 200px;
-    width: 1200px;
+    width: 1300px;
     border-radius: 10px;
 }
 .col{
@@ -57,20 +57,34 @@
 .row:nth-child(2) .info:nth-child(1){
     background-color: white;
     height: 70px;
-    width: 800px;
+    width: 950px;
     border-radius: 10px;
 }
 
 .row:nth-child(2) .info:nth-child(2){
     background-color: white;
     height: 230px;
-    width: 800px;
+    width: 950px;
+    border-radius: 10px;
+}
+.row:nth-child(2){
+    justify-content: space-around;
+    align-items: center;
+}
+.info2{
+    
+    height: 320px;
+    width: 300px;
+    background-color: white;
     border-radius: 10px;
 }
 
-.info2{
-    
-    height: 230px;
-    width: 300px;
-    background-color: red;
+.rowDown{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    width: 1300px;
+    justify-content: space-around;
+    gap: 50px;
+    align-items: center;
 }

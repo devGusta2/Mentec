@@ -12,16 +12,18 @@ function Mentoring(){
                         </div>
                     </div>
                     <div className={styles.row}>
-                        <div className={styles.col}>
-                            <div className={styles.info}>
+                        <div className={styles.rowDown}>
+                            <div className={styles.col}>
+                                <div className={styles.info}>
 
-                            </div>
-                            <div className={styles.info}>
+                                </div>
+                                <div className={styles.info}>
 
+                                </div>
                             </div>
-                        </div>
-                        <div className={styles.info2}>
-        
+                            <div className={styles.info2}>
+            
+                            </div>
                         </div>
                     </div>
                 </div>
