@@ -30,6 +30,7 @@
     justify-content: center;
     height: 60%;
     width:  90%;
+    font-family: Arial, Helvetica, sans-serif;
 
 }
 .rowDesc{
@@ -70,6 +71,7 @@
     height: 50px;
     width: 950px;
     border-radius: 10px;
+    padding: 15px 30px;
 }
 
 .mentDesc{
@@ -77,6 +79,7 @@
     height: 230px;
     width: 950px;
     border-radius: 10px;
+    padding: 30px;
 }
 .contactBox{
 
@@ -88,6 +91,7 @@
     align-items: center;
 }
 .contactCard{
+    padding: 30px;
     background-color: var(--card-color);
     height: 300px;
     width: 240px;
@@ -106,4 +110,31 @@
     height: 150px;
     width: 250px;
     border-radius: 10px;
+}
+.options{
+    width: 500px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:1em;
+}
+#signUpBtn{
+    border: 2px solid var(--btn-color);
+    height: 60px;
+    width: 160px;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--btn-color);
+}
+
+#saveBtn{
+    border: 2px solid var(--btn-color);
+    height: 60px;
+    width: 60px;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--btn-color);
 }
