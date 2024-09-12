@@ -1,3 +1,7 @@
+
+:root{
+    --bg-cards:rgb(234, 234, 234);
+}
 .mentoring{
     height: calc(100vh - 5em);
     width: 100%;
@@ -9,7 +13,7 @@
     justify-content: center;
     height: 100%;
     width: 100%;
-    background-color: yellow;
+   
 }
 
 
@@ -20,13 +24,12 @@
     align-items: center;
     height: 100%;
     width: 90%;
-    background-color: green;
-    gap: 1em;
+
+    gap: 0em;
 }
 .row{
     height: 40%;
     width: 100%;
-    background-color: blue;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -35,15 +38,16 @@
 .row:nth-child(2){
     height: 60%;
     width: 100%;
-    background-color: blue;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+  
 }
 .row:nth-child(1) .info{
-    background-color: white;
-    height: 200px;
+    background-color: var(--bg-cards);
+    height: 250px;
     width: 1300px;
     border-radius: 10px;
 }
@@ -55,15 +59,15 @@
     gap: 1em;
 }
 .row:nth-child(2) .info:nth-child(1){
-    background-color: white;
+    background-color: var(--bg-cards);
     height: 70px;
     width: 950px;
     border-radius: 10px;
 }
 
 .row:nth-child(2) .info:nth-child(2){
-    background-color: white;
-    height: 230px;
+    background-color: var(--bg-cards);
+    height: 250px;
     width: 950px;
     border-radius: 10px;
 }
@@ -73,9 +77,9 @@
 }
 .info2{
     
-    height: 320px;
+    height: 340px;
     width: 300px;
-    background-color: white;
+    background-color: var(--bg-cards);
     border-radius: 10px;
 }
 
