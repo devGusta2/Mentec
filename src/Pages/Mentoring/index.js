@@ -1,5 +1,6 @@
 import styles from './Mentoring.module.css';
 import Header from '../../Components/Header/Header';
+import Footer from '../../Components/Footer/Footer';
 function Mentoring(){
     return(
         <div className={styles.mentoring}>
@@ -51,6 +52,7 @@ function Mentoring(){
                    
                 </div>
             </main>
+            <Footer></Footer>
         </div>
     );
 }
