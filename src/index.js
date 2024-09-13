@@ -16,7 +16,7 @@ import Notfound from './Pages/Notfound';
 import Mentorships from './Pages/Mentorships/index';
 import Profile from './Pages/Profile';
 import Tpage from './Pages/Tpage';
-
+import Contact from './Pages/Contact';
 
 import Mentoring from './Pages/Mentoring';
 const router =  createBrowserRouter([
@@ -44,6 +44,10 @@ const router =  createBrowserRouter([
   {
     path: "Mentoring",
     element: <Mentoring />
+  },
+  {
+    path: "Contact",
+    element: <Contact />
   },
   {
     path: "Tpage",

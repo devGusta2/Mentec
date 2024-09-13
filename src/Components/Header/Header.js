@@ -27,7 +27,7 @@ function Header(){
                         <ul className={styles.ul}>
                             <Link to='/Home' className={styles.link}><li>Inicio</li></Link>
                             <Link to='/Mentorships' className={styles.link}><li>Mentorias</li> </Link>
-                            <li>Contato</li>
+                            <Link to='/Contact'className={styles.link}><li>Contato</li></Link>
                             <li>Ajuda</li>
                         </ul>
                     </nav>
