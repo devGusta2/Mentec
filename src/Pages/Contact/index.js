@@ -9,10 +9,10 @@ export default function Contact(){
                 <div className={styles.mainLayout}>
                     <div className={styles.formBox}>
                         <div className={styles.info}>
-                            
+                            <h1 id={styles.title1}>Contato</h1>
                         </div>
                         <div className={styles.subFormBox}>
-                            <h1>Envie sua mensagem!</h1>
+                            <h1 id={styles.title2}>Envie sua mensagem!</h1>
                             <form className={styles.form}>
 
                             </form>

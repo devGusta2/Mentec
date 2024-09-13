@@ -49,3 +49,10 @@
     box-shadow: 4px 4px 10px rgb(184, 184, 184);
     border-radius: 10px;
 }
+
+#title2, #title1{
+    font-family: 'MentecFont';
+}
+#title1{
+    color: white;
+}
