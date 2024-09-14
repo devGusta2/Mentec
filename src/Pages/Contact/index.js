@@ -34,17 +34,23 @@ export default function Contact(){
                         <div className={styles.subFormBox}>
                             <h1 id={styles.title2}>Envie sua mensagem!</h1>
                             <form className={styles.form}>
+                                <label>Nome *</label>
                                 <input 
                                 type='text'
-                                placeholder="Nome:"
+                                placeholder="Digite seu nome"
+                                required
                                 className={styles.inptContact}/>
+                                <label>E-mail *</label>
                                 <input 
+                                required
                                 type="email"
-                                placeholder="E-mail:"
+                                placeholder="Digite seu e-mail"
                                 className={styles.inptContact}/>
+                                <label>Sua mensagem *</label>
                                 <textarea 
+                                required
                                 type="text"
-                                 placeholder='Mensagem:'
+                                 placeholder='Escreva sua mensagem:'
                                  id={styles.msContact}>
 
                                 </textarea>

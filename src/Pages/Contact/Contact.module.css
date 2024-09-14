@@ -70,6 +70,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    font-family: 'MentecFont';
 }
 
 #title2, #title1{
@@ -101,9 +102,15 @@
 #btnEnviar{
     background-color: var(--bg-azulteste);
     width: 30%;
-    height: 15%;
+    height: 12%;
     border-radius: 10px;
     color: white;
     outline: 0;
     border:0;
+}
+.form label{
+    color: red;
+    text-align: left;
+
+    width: 100%;
 }
