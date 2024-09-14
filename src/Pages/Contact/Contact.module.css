@@ -14,7 +14,7 @@
 .formBox{
     height: 500px;
     width: 700px;
-    background-color: whitesmoke;
+    background-color: #ECECEC;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -30,6 +30,25 @@
     margin-left: -150px;
     border-radius: 10px;
     box-shadow: 4px 4px 10px rgb(116, 116, 116);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 70px 0;
+}
+.rowInfo{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 25%;
+    padding: 0 10px;
+    align-items: center;
+}
+.rowInfo p{
+    font-size: 12px;
+    padding: 10px;
 }
 .subFormBox{
     display: flex;
@@ -45,9 +64,12 @@
 .form{
     display: flex;
     height: 350px;
-    width: 400px;
-    box-shadow: 4px 4px 10px rgb(184, 184, 184);
+    height: 80%;
+    width: 80%;
     border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 #title2, #title1{
@@ -55,4 +77,33 @@
 }
 #title1{
     color: white;
+    font-size: 3em;
+    margin-bottom: 50px;
+}
+#msContact{
+    height: 40%;
+    width: 100%;
+    resize: none;
+    border-radius: 10px;
+    outline: 0;
+    border:0;
+    padding:  10px;
+
+}
+.inptContact{
+    height: 45px;
+    width: 100%;
+    border-radius: 10px;
+    outline: 0;
+    border:0;
+    padding: 0 10px;
+}
+#btnEnviar{
+    background-color: var(--bg-azulteste);
+    width: 30%;
+    height: 15%;
+    border-radius: 10px;
+    color: white;
+    outline: 0;
+    border:0;
 }
