@@ -35,12 +35,15 @@ export default function Contact(){
                             <h1 id={styles.title2}>Envie sua mensagem!</h1>
                             <form className={styles.form}>
                                 <input 
+                                type='text'
                                 placeholder="Nome:"
                                 className={styles.inptContact}/>
                                 <input 
+                                type="email"
                                 placeholder="E-mail:"
                                 className={styles.inptContact}/>
                                 <textarea 
+                                type="text"
                                  placeholder='Mensagem:'
                                  id={styles.msContact}>
 
