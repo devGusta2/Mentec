@@ -25,7 +25,7 @@
 .carGrid{
     display: grid;
     height: 100%;
-    width: 1200px;
+    width: 100%;
     grid-template-columns: 250px 250px 250px 250px;
     grid-template-rows: 250px 250px 250px 250px;
     justify-content: center;
@@ -37,23 +37,24 @@
     font-size: 23pt;
     font-family: 'MentecFont';
 
-    width: 1200px;
+    width: 95%;
     
 }
 
 .filterBox{
-    width: 1200px;
+    width: 95%;
     height: 100px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color:var(--bg-azulteste);
+    border-radius: 10px;
 }
 .searchBar{
     border: 0;
     outline: 0;
     height: 35px;
-    width: 400px;
+    width: 25%;
     border-radius: 5px;
     padding: 0 30px;
 }
@@ -75,5 +76,9 @@
     }
     .filterBox{
         width: clamp(500px,90vw,1200px);
+    }
+    .card{
+        height: 200px;
+        width: 200px;
     }
 }
