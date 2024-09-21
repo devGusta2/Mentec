@@ -31,6 +31,14 @@ dark=!dark;
 
 
 function Header(){
+    useEffect(()=>{
+        var tema = localStorage.getItem("dark");
+        if(tema=="true"){
+            document.documentElement.style.cssText="--bg-azulteste: #271665;";
+        }else{
+            document.documentElement.style.cssText="--bg-azulteste: #770B1C;";
+        }
+    })
     return(
         <header className={styles.header}>
             <div className={styles.searchLogo}>
