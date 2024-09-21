@@ -18,16 +18,14 @@ function changeTema(){
 dark=!dark;
     if(dark===true){
         localStorage.setItem("dark", "true");
-        if(localStorage.getItem("dark")=="true"){
-            document.documentElement.style.cssText="--bg-azulteste: #271665;";
-        }
+        document.documentElement.style.cssText="--bg-azulteste: #271665;";
+
     }else{
         localStorage.setItem("dark", "false");
-        if(localStorage.getItem("dark")=="false"){
-            document.documentElement.style.cssText="--bg-azulteste: #770B1C;";
-        }
+        document.documentElement.style.cssText="--bg-azulteste: #770B1C;";
     }
 }
+
 
 
 function Header(){
