@@ -22,7 +22,7 @@ dark=!dark;
 
     }else{
         localStorage.setItem("dark", "false");
-        document.documentElement.style.cssText="--bg-azulteste: #770B1C;";
+        document.documentElement.style.cssText="--bg-azulteste: #910F25;";
     }
 }
 
@@ -33,8 +33,9 @@ function Header(){
         var tema = localStorage.getItem("dark");
         if(tema=="true"){
             document.documentElement.style.cssText="--bg-azulteste: #271665;";
+        
         }else{
-            document.documentElement.style.cssText="--bg-azulteste: #770B1C;";
+            document.documentElement.style.cssText="--bg-azulteste: #910F25;";
         }
     })
     return(
