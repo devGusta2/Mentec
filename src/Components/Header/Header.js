@@ -10,6 +10,17 @@ const ativaMenu = () =>{
     window.alert("Ativa o menu");
 }
 
+let tema = false;
+function changeTema(){
+    tema = !tema;
+    if(tema){
+        document.documentElement.style.cssText="--bg-azulteste:red;";
+    }else{
+        
+    }
+}
+
+
 function Header(){
     return(
         <header className={styles.header}>
@@ -47,6 +58,7 @@ function Header(){
                         <option>Sair</option>
                     </select>
                 </div>
+                <button onClick={changeTema()}>TEMA</button>
             </div>
           
         </header>
