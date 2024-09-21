@@ -5,18 +5,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faMoon, faBars } from '@fortawesome/free-solid-svg-icons';
 
 import {Link} from 'react-router-dom';
+import { useEffect } from 'react';
 
 const ativaMenu = () =>{
     window.alert("Ativa o menu");
 }
 
-let tema = false;
+
+var dark = localStorage.getItem("dark");
+
 function changeTema(){
-    tema = !tema;
-    if(tema){
-        document.documentElement.style.cssText="--bg-azulteste:red;";
+dark=!dark;
+    if(dark===true){
+        localStorage.setItem("dark", "true");
+        if(localStorage.getItem("dark")=="true"){
+            document.documentElement.style.cssText="--bg-azulteste: #271665;";
+        }
     }else{
-        
+        localStorage.setItem("dark", "false");
+        if(localStorage.getItem("dark")=="false"){
+            document.documentElement.style.cssText="--bg-azulteste: #770B1C;";
+        }
     }
 }
 
@@ -58,7 +67,7 @@ function Header(){
                         <option>Sair</option>
                     </select>
                 </div>
-                <button onClick={changeTema()}>TEMA</button>
+                <button onClick={changeTema}>TEMA</button>
             </div>
           
         </header>
