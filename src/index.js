@@ -20,8 +20,8 @@ import Contact from './Pages/Contact';
 
 import Mentoring from './Pages/Mentoring';
 import Forum from './Pages/Forum';
-const router =  createBrowserRouter([
 
+const router =  createBrowserRouter([
   {
     path:"*",
     element:<Notfound />
@@ -57,8 +57,8 @@ const router =  createBrowserRouter([
   {
     path: "Forum",
     element: <Forum />
-  }
-
+  },
+ 
 ]);
 
 
