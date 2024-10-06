@@ -19,6 +19,7 @@ import Tpage from './Pages/Tpage';
 import Contact from './Pages/Contact';
 
 import Mentoring from './Pages/Mentoring';
+import Forum from './Pages/Forum';
 const router =  createBrowserRouter([
 
   {
@@ -52,6 +53,10 @@ const router =  createBrowserRouter([
   {
     path: "Tpage",
     element: <Tpage />
+  },
+  {
+    path: "Forum",
+    element: <Forum />
   }
 
 ]);
