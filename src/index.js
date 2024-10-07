@@ -20,7 +20,7 @@ import Contact from './Pages/Contact';
 
 import Mentoring from './Pages/Mentoring';
 import Forum from './Pages/Forum';
-
+import Services from './Pages/Services';
 const router =  createBrowserRouter([
   {
     path:"*",
@@ -58,7 +58,10 @@ const router =  createBrowserRouter([
     path: "Forum",
     element: <Forum />
   },
- 
+  {
+    path:"Services",
+    element:<Services />
+  },
 ]);
 
 
