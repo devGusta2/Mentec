@@ -1,0 +1,28 @@
+
+:root{
+    --card-services-color:#55C1C5;
+}
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grid{
+
+    display: grid;
+    grid-template-columns: 220px  220px  220px ;
+    grid-template-rows: 220px 220px;
+    gap: 1em;
+    
+}
+
+.card{
+    height: 220px ;
+    width: 220px ;
+    border-radius: 10px;
+    background-color: var(--card-services-color);
+}
