@@ -56,3 +56,17 @@
     font-family: 'MentecFont';
     font-weight: 200;
 }
+
+@media screen and (max-width:768px){
+    .column:nth-child(1) h5{
+        font-size: clamp(1px , 5vh ,10px);
+        
+    }
+    .column:nth-child(3) p{
+        font-size: clamp(1px , 5vw ,10px);
+        
+    }
+    .row:nth-child(2){
+        font-size: clamp(1px , 5vh ,12px);
+    }
+}
