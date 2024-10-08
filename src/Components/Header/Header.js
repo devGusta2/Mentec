@@ -55,7 +55,7 @@ function Header(){
                             <Link to='/Home' className={styles.link}><li>Inicio</li></Link>
                             <Link to='/Mentorships' className={styles.link}><li>Mentorias</li> </Link>
                             <Link to='/Contact'className={styles.link}><li>Contato</li></Link>
-                            <Link to='/*'className={styles.link}><li>Ajuda</li></Link>
+                            <Link to='/Services'className={styles.link}><li>Serviços</li></Link>
                         </ul>
                     </nav>
                 </div>

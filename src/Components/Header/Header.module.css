@@ -83,7 +83,7 @@
 }
 .searchBarBox{
     height: 50%;
-    width: 100%;
+    width:100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -178,5 +178,12 @@
     }
     .navBar{
         height: 50%;
+       
+        font-size: clamp(1px ,100vh ,15px);
+     
     }
+    .ul{
+        width: clamp(1px ,100vh ,100%);
+    }
+    
 }
