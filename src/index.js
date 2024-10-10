@@ -21,10 +21,15 @@ import Contact from './Pages/Contact';
 import Mentoring from './Pages/Mentoring';
 import Forum from './Pages/Forum';
 import Services from './Pages/Services';
+import Home from './Pages/Home';
 const router =  createBrowserRouter([
   {
     path:"*",
     element:<Notfound />
+  },
+  {
+    path: "Home",
+    element: <Home />
   },
   {
     path:"/",
