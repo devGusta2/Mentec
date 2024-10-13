@@ -2,12 +2,23 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import styles from './Calendar.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendar} from '@fortawesome/free-regular-svg-icons';
+import { faCalendar, faSun, faMoon} from '@fortawesome/free-regular-svg-icons';
+import { faSun as solidSun} from '@fortawesome/free-solid-svg-icons';
+
 export default function Calendar(){
     return(
         <div className={styles.container}>
             <Header/>
-            
+            <div id={styles.titleAndSearch}>
+                <FontAwesomeIcon icon={faCalendar} size="5x" />
+                <h2>Cronograma de aulas</h2>
+                <div id={styles.searchBox}>
+                    <div id={styles.searchBack}>
+                        <input id={styles.inpt}
+                        placeholder="Procurar aula cadastrada"/>
+                    </div>
+                </div>
+            </div>
             <div className={styles.grid}>
                 <div id={styles.timeTittle}>
                     <p>Período</p>
@@ -33,19 +44,28 @@ export default function Calendar(){
                     <p>30</p>
                     <p>Sexta-feira</p>
                 </div>
+                <div className={styles.cardIcon}>
+                    <FontAwesomeIcon icon={faSun} size="3x"/>
+                    <p>Manhã</p>
+                </div>
                 <div className={styles.card}></div>
                 <div className={styles.card}></div>
                 <div className={styles.card}></div>
                 <div className={styles.card}></div>
                 <div className={styles.card}></div>
+                <div className={styles.cardIcon}>
+                    <FontAwesomeIcon icon={solidSun} size="3x"/>
+                    <p>Tarde</p>
+                </div>
                 <div className={styles.card}></div>
                 <div className={styles.card}></div>
                 <div className={styles.card}></div>
                 <div className={styles.card}></div>
                 <div className={styles.card}></div>
-                <div className={styles.card}></div>
-                <div className={styles.card}></div>
-                <div className={styles.card}></div>
+                <div className={styles.cardIcon}>
+                    <FontAwesomeIcon icon={faMoon} size="3x"/>
+                    <p>Noite</p>
+                </div>
                 <div className={styles.card}></div>
                 <div className={styles.card}></div>
                 <div className={styles.card}></div>
