@@ -10,7 +10,7 @@
 .grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     height: 70%;
     width: 100%;
     background-color: green;
@@ -21,4 +21,11 @@
     height: 1fr;
     width: 1fr;
     background-color: orange;
+}
+.day p:nth-child(1){
+    font-size: 3em;
+}
+#timeTittle{
+    font-size: 3em;
+
 }
