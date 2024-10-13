@@ -1,4 +1,24 @@
 .container{
     height: 100vh;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction:column;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 70%;
+    width: 100%;
+    background-color: green;
+    gap: 5px;
+}
+
+.card{
+    height: 1fr;
+    width: 1fr;
+    background-color: orange;
 }
