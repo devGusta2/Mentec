@@ -4,7 +4,8 @@ import style from './Services.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faPersonChalkboard, faQuestion}  from '@fortawesome/free-solid-svg-icons';
 import { faHand, faCalendar} from '@fortawesome/free-regular-svg-icons';
-import { Router } from 'react-router-dom';
+import { Router, Link} from 'react-router-dom';
+ 
 export default function Services(){
     return(
         <div className={style.container}>
@@ -22,10 +23,10 @@ export default function Services(){
                     <FontAwesomeIcon icon={faMagnifyingGlass}size={'7x'}/>
                     <h3>Consultar monitor</h3>
                 </div>
-                <div className={style.card}>
+                <Link to="/Calendar" className={style.card}>
                     <FontAwesomeIcon icon={faPersonChalkboard}size={'7x'}/>
                     <h3>Conograma de aulas</h3>
-                </div>
+                </Link>
                 <div className={style.card}></div>
                 <div className={style.card}>
                     <FontAwesomeIcon icon={faQuestion}size={'7x'}/>
