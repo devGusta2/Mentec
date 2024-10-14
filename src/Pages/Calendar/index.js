@@ -21,7 +21,7 @@ export default function Calendar(){
             </div>
             <div className={styles.grid}>
                 <div id={styles.timeTittle}>
-                    <p>Período</p>
+                    <h4>Período</h4>
                 </div>
           
                 <div className={styles.day}>
