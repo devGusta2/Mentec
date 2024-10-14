@@ -15,10 +15,10 @@
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-columns: 250px 250px 250px ;
-    grid-template-rows: 250px 250px ;
+    grid-template-columns: 220px 220px 220px ;
+    grid-template-rows: 220px 220px ;
     justify-content: center;
-    gap: 10px;
+    gap: 1em;
     padding: 30px;
 
 }
@@ -40,6 +40,7 @@
     gap: 1em;
     cursor: pointer;
     transition: 0.5s;
+    text-decoration: none;
 }
 .card:hover{
     transform: scale(1.05);
