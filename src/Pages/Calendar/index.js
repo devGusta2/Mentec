@@ -72,7 +72,7 @@ export default function Calendar(){
                 <div className={styles.card}></div>
                 <div className={styles.card}></div>
             </div>
- 
+            <Footer/>
         </div>
     );
 }
