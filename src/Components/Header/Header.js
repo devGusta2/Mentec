@@ -2,8 +2,8 @@
 import styles from './Header.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faMoon, faBars } from '@fortawesome/free-solid-svg-icons';
-
+import { faUser, faBars} from '@fortawesome/free-solid-svg-icons';
+import { faMoon, faSun }from '@fortawesome/free-regular-svg-icons';
 import {Link} from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -19,10 +19,12 @@ dark=!dark;
     if(dark===true){
         localStorage.setItem("dark", "true");
         document.documentElement.style.cssText="--bg-azulteste: #271665;";
+        
 
     }else{
         localStorage.setItem("dark", "false");
         document.documentElement.style.cssText="--bg-azulteste: #910F25;";
+       
     }
 }
 
@@ -74,7 +76,10 @@ function Header(){
                         <option>Sair</option>
                     </select>
                 </div>
-                <button onClick={changeTema}>TEMA</button>
+                <FontAwesomeIcon icon={dark ? faMoon : faSun} 
+                onClick={changeTema}
+                size="2x"
+                id={styles.themeBtn}/>
             </div>
           
         </header>
