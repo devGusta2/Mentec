@@ -161,7 +161,14 @@
     display: none;
     cursor: pointer;
 }
-
+#themeBtn{
+    transition: 0.5s;
+    cursor: pointer;
+}
+#themeBtn:hover{
+    transform:scale(1.1);
+ 
+}
 @media (max-width:768px){
     .header{
         
