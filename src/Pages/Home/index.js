@@ -7,7 +7,7 @@ export default function Home(){
         <div className={style.container}>
             <Header />
             <Carousel />
-            oi
+            <h3>Notícias</h3>
             <Footer />
         </div>
     )
