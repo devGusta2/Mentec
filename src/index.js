@@ -23,10 +23,15 @@ import Forum from './Pages/Forum';
 import Services from './Pages/Services';
 import Home from './Pages/Home';
 import Calendar from './Pages/Calendar';
+import Mentors from './Pages/Mentors';
 const router =  createBrowserRouter([
   {
     path:"*",
     element:<Notfound />
+  },
+  {
+    path: "Mentors",
+    element: <Mentors />
   },
   {
     path: "Calendar",
