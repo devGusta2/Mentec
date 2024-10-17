@@ -1,0 +1,32 @@
+.container{
+    height: 100vh;
+    width: 100%;
+}
+.card{
+    height: 150px;
+    width: 150px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgb(196, 196, 196);
+}
+.card:nth-child(1){
+    background-color: #FFAB36;
+}
+.card:nth-child(2){
+    background-color: #5EABEA;
+}
+.card:nth-child(3){
+    background-color: #FFDD53;
+}
+.card:nth-child(4){
+    background-color: #45B445;
+}
+.card:nth-child(5){
+    background-color: #FF5151;
+}
+.btnBox{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    justify-content: space-around;
+}
