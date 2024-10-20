@@ -5,17 +5,68 @@
 .mainLayout{
     display: flex;
     flex-direction: row;
+    height:100vh;
+    background-color: green;
+}
+.menu{
+    height: 100%;
+    background-color: blue;
+    width: 16%;
+    padding: 48px;
 }
 .menu ul{
     display: flex;
     flex-direction: column;
+    gap: 1em;
 }
 .title{
-    width: 600px;
+    width: 100%;
+    height: 300px;
+    background-color: aquamarine;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 .title h3{
     font-size: 1.8em;
 }
 .title p{
     font-size: 1.2em;
+}
+.searchBar{
+    height: 70px;
+    width: 500px;
+    border-radius: 10px;
+    background-color: var(--bg-azulteste);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.searchBar input{
+    outline: 0;
+    border: 0;
+    height: 40px;
+    width: 400px;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 84%;
+}
+
+.discussions{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.card{
+    width: 100%;
+    height: 250px;
+    background-color: whitesmoke;
 }
