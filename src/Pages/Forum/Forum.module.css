@@ -6,11 +6,11 @@
     display: flex;
     flex-direction: row;
     height:100vh;
-    background-color: green;
+
 }
 .menu{
     height: 100%;
-    background-color: blue;
+
     width: 16%;
     padding: 48px;
 }
