@@ -3,7 +3,7 @@ import Footer from '../../Components/Footer/Footer';
 import style from './Services.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faPersonChalkboard, faQuestion}  from '@fortawesome/free-solid-svg-icons';
-import { faHand, faCalendar} from '@fortawesome/free-regular-svg-icons';
+import { faHand, faCalendar, faCommentDots} from '@fortawesome/free-regular-svg-icons';
 import { Router, Link} from 'react-router-dom';
  
 export default function Services(){
@@ -27,7 +27,12 @@ export default function Services(){
                     <FontAwesomeIcon icon={faPersonChalkboard}size={'7x'}/>
                     <h3>Conograma de aulas</h3>
                 </Link>
-                <div className={style.card}></div>
+                <div className={style.card}>
+                <Link to="/Forum" className={style.card}>
+                    <FontAwesomeIcon icon={faCommentDots}size={'7x'}/>
+                    <h3>Fórum</h3>
+                </Link>
+                </div>
                 <div className={style.card}>
                     <FontAwesomeIcon icon={faQuestion}size={'7x'}/>
                     <h3>Ajuda</h3>
