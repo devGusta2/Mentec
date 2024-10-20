@@ -15,13 +15,24 @@ export default function Forum(){
                             <li>Salvos</li>
                         </ul>
                     </div>
-                    <main>
+                    <main className={style.main}>
                         <div className={style.title}>
                             <h3>Conectando mentes, moldando futuros</h3>
                             <p>
                                 Um espaço para compartilhar conhecimento, 
-                                trocar ideias e impulsionar a inovação tecnológica.
+                                trocar ideias e <br/> impulsionar a inovação tecnológica.
                             </p>
+                            <div className={style.searchBar}>
+                                <input 
+                                    placeholder="Procuras tópicos"
+                                />
+                            </div>
+                        </div>
+                        <div className={style.discussions}>
+                            <h2>Comunidade e discussões gerais</h2>
+                            <div className={style.card}>
+
+                            </div>
                         </div>
                     </main>
                 </div>
