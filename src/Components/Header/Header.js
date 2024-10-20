@@ -3,7 +3,7 @@ import styles from './Header.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBars} from '@fortawesome/free-solid-svg-icons';
-import { faMoon, faSun }from '@fortawesome/free-regular-svg-icons';
+import { faMoon }from '@fortawesome/free-regular-svg-icons';
 import {Link} from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -76,7 +76,7 @@ function Header(){
                         <option>Sair</option>
                     </select>
                 </div>
-                <FontAwesomeIcon icon={dark ? faMoon : faSun} 
+                <FontAwesomeIcon icon={dark ? faMoon : faMoon} 
                 onClick={changeTema}
                 size="2x"
                 id={styles.themeBtn}/>
