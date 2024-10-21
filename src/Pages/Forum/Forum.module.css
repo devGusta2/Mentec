@@ -5,13 +5,12 @@
 .mainLayout{
     display: flex;
     flex-direction: row;
-    height:100vh;
-
+   
 }
 .menu{
     height: 100%;
 
-    width: 16%;
+    width: 20%;
     padding: 48px;
 }
 .menu ul{
@@ -23,7 +22,7 @@
     width: 100%;
     height: 300px;
 
-    padding: 40px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -43,11 +42,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: 4px 4px 10px rgb(146, 146, 146);
 }
 .searchBar input{
     outline: 0;
     border: 0;
-    height: 40px;
+    height: 35px;
     width: 400px;
     border-radius: 5px;
     padding: 0 10px;
@@ -57,16 +57,38 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 84%;
+    width: 80%;
 }
 
 .discussions{
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 1em;
+    padding: 15px;
 }
 .card{
-    width: 100%;
+    width: 95%;
     height: 250px;
-    background-color: whitesmoke;
+    background-color: rgb(224, 224, 224);
+    box-shadow: 4px 4px 10px rgb(146, 146, 146);
+    padding: 30px;
+    border-radius: 10px;
+}
+.card p{
+    padding: 15px 0px;
+}
+.btnNew{
+    background-color: var(--bg-azulteste);
+    height: 60px;
+    width: 200px;
+    border-radius: 10px;
+    margin-left: 75%;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
 }
