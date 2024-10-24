@@ -30,3 +30,17 @@
     padding: 30px;
     justify-content: space-around;
 }
+
+.cardMentor{
+    height: 250px;
+    width: 1080px;
+    border-radius: 10px;
+    background-color: #5EABEA;
+    padding: 20px;
+}
+.colCard{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 33.3%;
+}
