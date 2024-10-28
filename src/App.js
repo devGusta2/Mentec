@@ -131,7 +131,7 @@ function App() {
 
             <section className='benefits' id="benefits-id">
               <div className='cardsContainer'>
-                <div className='row'>
+                
                   <div className='card'>
                     <div className='rowCard'><h2>Mentores de alto nível</h2><img src={form}></img></div>
                     <p>Conecte-se com especialistas com anos de experiência, prontos para compartilhar seu conhecimento.</p>
@@ -145,8 +145,8 @@ function App() {
                     <p>Agende sessões de mentoria no horário que mais se adapta à sua rotina. você tem a liberdade de aprender e crescer no seu próprio ritmo.</p>
                   </div>
                   
-                </div>
-                <div className='row'>
+                
+                
                 <div className='card'>
                     <div className='rowCard'><h2>Plataforma intuitiva</h2><img src={monitor}></img></div>
                     <p>Navegue de forma simples e rápida, encontrando o mentor ideal em poucos cliques..</p>
@@ -155,7 +155,7 @@ function App() {
                     <div className='rowCard'><h2>Oportunidades além da mentoria</h2><img src={foguete}></img></div>
                     <p>Investimento em uma ferramenta poderosa para transformar sua carreira e alcançar seus objetivos.</p>
                   </div>
-                </div>
+                
              
               </div>
             </section>
