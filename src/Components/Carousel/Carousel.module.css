@@ -1,7 +1,65 @@
+
 .carousel{
-    height: 300px;
-    width: 95%;
-    background-image: url('../../assets/img/Arts/Carrousel1.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+    margin: 0 auto;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+
+}
+
+.slides{
+    width: 400%;
+    height: 400px;
+    display: flex;
+}
+
+.slides input{
+ 
+}
+
+.slide{
+    width: 25%;
+    position: relative;
+}
+.slide img{
+    width: 800px;
+    position: relative;
+    z-index: -1;
+}
+
+.manual_navigation{
+    height: 30px;
+    width: 800px;
+
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.manual_btn{
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    z-index: 1;
+}
+.manual_btn:hover{
+    background-color: white;
+}
+.manual_btn:not(:last-child){
+    margin-right: 40px;
+}
+
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+#radio2:checked ~ .first{
+    margin-left: -25%;
 }
