@@ -1,8 +1,34 @@
 import styles from './Carousel.module.css';
-
+import {useRef} from 'react';
 function Carousel(){
+// use ref é um metodo de hook que cria uma referencia durante o ciclo de vida do componente via DOM
+const img = useRef(null);
+
+var n = 0;
+// intervalo sobre a mudança de imagem
+setInterval(()=>{
+    // delimita um limite de imagens
+    if(n <1 ){
+        n+=1;
+    }else{
+        n=0;
+    }
+    if(img.current){
+        if(n == 1){
+            // muda para a segunda imagem
+            img.current.style.marginLeft = '-25%';
+        }else if(n == 2){
+            img.current.style.marginLeft = '-50%';
+        }else{
+            // volta para a primeira imagem
+            img.current.style.marginLeft = '0%';
+        }
+    }
+    console.log(n);
+},5000);
+
     return(
-        <div className={styles.carousel}>
+        <div className={styles.carousel}>   
             <div className={styles.slides}>
                 {/* radio buttons */}
                 <input type="radio" name="radio-btn" id="radio1"></input>
@@ -10,7 +36,7 @@ function Carousel(){
                 <input type="radio" name="radio-btn" id="radio3"></input>
                 <input type="radio" name="radio-btn" id="radio4"></input>
          
-                <div className={styles.slide}>
+                <div className={styles.slide} ref={img}>
                     <img  alt="img1" src="https://www.shutterstock.com/image-photo/happy-african-american-student-raising-600nw-1937721487.jpg"/>
                 </div>
                 <div className={styles.slide}>
@@ -27,12 +53,13 @@ function Carousel(){
             </div>
 
             <div className={styles.manual_navigation}>
-                <label fro="radio1" className={styles.manual_btn}/>
-                <label fro="radio2" className={styles.manual_btn}/>
-                <label fro="radio3" className={styles.manual_btn}/>
-                <label fro="radio4" className={styles.manual_btn}/>
+                <label for="radio1" className={styles.manual_btn}/>
+                <label for="radio2" className={styles.manual_btn}/>
+                <label for="radio3" className={styles.manual_btn}/>
+                <label for="radio4" className={styles.manual_btn}/>
   
             </div>  
+        
         </div>
     );
 }
