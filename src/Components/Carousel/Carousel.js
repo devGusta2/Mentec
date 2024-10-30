@@ -8,7 +8,7 @@ var n = 0;
 // intervalo sobre a mudança de imagem
 setInterval(()=>{
     // delimita um limite de imagens
-    if(n <1 ){
+    if(n <3 ){
         n+=1;
     }else{
         n=0;
@@ -19,9 +19,14 @@ setInterval(()=>{
             img.current.style.marginLeft = '-25%';
         }else if(n == 2){
             img.current.style.marginLeft = '-50%';
+        }else if(n == 3){
+            
+            img.current.style.marginLeft = '-75%';
+        }else if(n == 4){
+            img.current.style.marginLeft = '-100%';
         }else{
             // volta para a primeira imagem
-            img.current.style.marginLeft = '0%';
+            img.current.style.marginLeft = '-0%';
         }
     }
     console.log(n);
@@ -42,7 +47,12 @@ setInterval(()=>{
                 <div className={styles.slide}>
                     <img src="https://cdn.create.vista.com/api/media/small/347407302/stock-photo-cheerful-student-holding-notebook-pointing-finger-yellow-background" />
                 </div>
-
+                <div className={styles.slide}>
+                    <img src="https://png.pngtree.com/thumb_back/fh260/background/20231001/pngtree-energetic-university-student-engaged-with-laptop-3d-illustration-image_13571921.png"/>
+                </div>
+                <div className={styles.slide}>
+                    <img src="https://cdn.diariodesuzano.com.br/upload/dn_noticia/2018/05/portal-1-fatec-ferraz.jpg" />
+                </div>
                 <div className={styles.navigation_auto}>
                     <div className={styles.auto_btn1}></div>
                     <div className={styles.auto_btn2}></div>
