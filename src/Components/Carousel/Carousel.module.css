@@ -1,7 +1,7 @@
 
 .carousel{
     margin: 0 auto;
-    width: 800px;
+    width: 1200px;
     height: 400px;
     overflow: hidden;
 
@@ -14,7 +14,7 @@
 }
 
 .slides input{
- 
+    display: none;
 }
 
 .slide{
@@ -22,7 +22,7 @@
     position: relative;
 }
 .slide img{
-    width: 800px;
+    width: 1200px;
     position: relative;
     z-index: -1;
 }
@@ -31,7 +31,7 @@
     height: 30px;
     width: 800px;
 
-    width: 800px;
+    width: 1200px;
     margin-top: -40px;
     display: flex;
     justify-content: center;
