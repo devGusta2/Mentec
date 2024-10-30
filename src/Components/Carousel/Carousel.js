@@ -30,7 +30,7 @@ setInterval(()=>{
         }
     }
     console.log(n);
-},5000);
+},10000);
 
     return(
         <div className={styles.carousel}>   
