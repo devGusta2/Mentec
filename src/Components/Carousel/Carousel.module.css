@@ -1,7 +1,7 @@
 
 .carousel{
     margin: 0 auto;
-    width: 1200px;
+    width: 95%;
     height: 400px;
     overflow: hidden;
 
@@ -22,7 +22,7 @@
     position: relative;
 }
 .slide img{
-    width: 1200px;
+    width: 100%;
     position: relative;
     z-index: -1;
 }
@@ -31,7 +31,7 @@
     height: 30px;
     width: 800px;
 
-    width: 1200px;
+    width: 100%;
     margin-top: -40px;
     display: flex;
     justify-content: center;
