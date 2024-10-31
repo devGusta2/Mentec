@@ -1,0 +1,422 @@
+@font-face {
+  font-family: 'MentecFont';
+  src: url('./assets/fonts/eurostile.TTF');
+  font-weight: normal;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  transition: 0.5s;
+}
+:root{
+  --text-color:white;
+  --text-color1:black;
+  --btn-color:#00BCD4;
+  --bg-color:#02072D;
+  --bg-color1:#A6192E;
+  --bg-red1:#A6192E;
+  --bg-red2:#910F25;
+  --bg-red3:#770B1C;
+  --bg-color2:#000434;
+  --bg-color3:whitesmoke;
+  --bg-azulteste:rgb(39, 22, 101);
+}
+main{
+  height: 100%;
+  width: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section:nth-child(1){
+  height: 100vh;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'MentecFont';
+  
+}
+
+.up-box{
+  height: 10%;
+  width: 100%;
+  color:  var(--text-color);
+  font-size: 22pt;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 0 5%;
+
+
+}
+.top-elements{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+ 
+}
+.top-elements:nth-child(1){
+  width: 100%;
+  display: fle;
+}
+.top-elements nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+}
+.btn-darkMode{
+  outline: 0;
+  border: 0;
+  width: 40px;
+  height: 40px;
+  background:transparent;
+
+}
+#icon-btn-dark:hover{
+  transition: 0.5s;
+}
+#icon-btn-dark:hover{
+  color: var(--btn-color);
+  transform: rotate(20deg);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.top-elements:nth-child(2){
+  width: 20%;
+
+}
+.center-box{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 90%;
+ 
+}
+.center-box h1{
+ 
+  font-size: 50pt;
+}
+.info-mentec{
+  color:  var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  width: 50%;
+  height: 100%;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+.info-mentec p{
+  max-width: 370px;
+  font-size: 15pt;
+}
+.btn-find{
+  height: 70px;
+  width: 370px;
+  border:3px solid var(--text-color);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  color: var(--text-color);
+  align-items: center;
+  transition: 0.5s;
+  text-decoration: none;
+}
+.btn-find:hover{
+  transform: translateY(-5px);
+  
+}
+
+
+
+.section-mentor-ship{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./assets/img/backgrounds/bgMentorship.png');
+  background-size: cover;
+
+}
+
+.mentor-info{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.mentor-info h1{
+  font-size: 25pt;
+}
+.mentor-info:nth-child(1){
+
+  gap: 1em;
+}
+.mentor-info:nth-child(2){
+
+  height: 100%;
+  width: 50%;
+}
+.art{
+  height: 400px;
+  width: 400px;
+  background-color: var(--btn-color);
+  border-radius: 10px;
+}
+.mentor-sub-info{
+  width: 370px;
+  height: 100%;
+  color: var(--text-color1);
+  gap: 1.5em;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+.benefits{
+  height: 110vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: var(--text-color);
+  padding: 5%;
+}
+.cardsContainer{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+}
+
+
+.card{
+  height: 325px;
+  width: 325px;
+  border:3px solid var(--btn-color);
+  border-radius: 16px;
+  color: var(--btn-color);
+  padding: 30px;
+  line-height: 25px;
+  font-size: 1em;
+}
+.card h2{
+  height: 20%;
+  width: 100%;
+}
+.card p{
+  height: 80%;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.rowCard{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.rowCard img{
+  height: 70px;
+  width: 70px;
+ 
+}
+.ourApp{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--bg-red1);
+}
+
+
+.column-app{
+  padding:  0 5%;
+}
+.column-app:nth-child(1){
+  width: 30%;
+  height: 100%;
+  background-color: var(--bg-red1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--text-color);
+}
+.column-app:nth-child(1) h1{
+
+  font-size: clamp(1pt,5vw, 30pt);
+  display: flex;
+  align-items: center;
+  height: 40%;
+  width: 100%;
+  display: flex;
+
+}
+.column-app:nth-child(1) ul{
+  height: 60%;
+  font-size: clamp(1pt, 4vw, 13pt);
+  width: 100%;
+  line-height: 45px;  
+  padding: 0 22px;
+  overflow: auto; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+}
+
+.column-app:nth-child(2){
+  width: 1%;
+  height: 100%;
+  background-color: var(--bg-red2);
+  padding: 0px;
+}
+
+.column-app:nth-child(3){
+  width: 69%;
+  height: 100%;
+  background-color: var(--bg-red3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} 
+
+.column-app:nth-child(3) img{
+  width:clamp(10px,80vw,550px);
+ 
+
+}
+
+.column-app:nth-child(3) h1{
+  font-family: 'MentecFOnt';
+  font-size: clamp(1pt,10vw, 40pt);
+  color: var(--text-color);
+}
+footer{
+  height: 50vh;
+  background-color: var(--bg-color2);
+
+}
+@media(max-width:768px){
+  .top-elements:nth-child(1){
+    display: none;
+  }
+  .up-box{
+    justify-content: center;
+  }
+  .center-box{
+    justify-content: center;
+  }
+  .info-mentec br{
+    display: none;
+  }
+  .btn-find{
+    width: 80%;
+    font-size: clamp(3pt,4vw,15pt);
+    min-width: 50px;
+  }
+  .info-mentec h1{
+    font-size: clamp(3pt,10vw,30pt);
+  }
+  .info-mentec p{
+    font-size: clamp(3pt,5vw,15pt)
+  }
+  .top-elements h1{
+    font-size: clamp(3pt, 15vw, 70pt);
+  }
+  .info-mentec{
+    width: 100%;
+  }
+  .section-mentor-ship{
+    flex-direction: column;
+    
+  }
+  .mentor-info{
+    width: 100%;
+  }
+  .mentor-sub-info h1{
+    font-size: clamp(3pt,10vw,25pt);
+  }
+  .mentor-sub-info p{
+    font-size: clamp(3pt,5vw,12pt)
+  }
+  .art{
+    height: clamp(50px , 50vw, 300px);
+    width: clamp(50px , 50vw, 300px);
+  }
+  .cardsContainer, .row{
+    gap: 0px;
+  }
+  .row{
+    gap: 10px;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  .card{
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width:clamp(5px , 80vw, 500px) ;
+    font-size: clamp(1pt, 20vw, 10pt);
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+
+  }
+  .card p{
+
+    height: 100%;
+    width: 100%;
+  }
+  .card h2{
+    font-size: clamp(1pt, 20vw, 10pt);
+  }
+  .ourApp{
+    flex-direction: column;
+  }
+  .column-app:nth-child(1){
+    flex-direction: row;
+    width: 100%;
+    height: 39%;
+  }
+  .column-app:nth-child(2){
+    width: 100%;
+    height:1%;
+  }
+  .column-app:nth-child(3){
+    width: 100%;
+    height:60%;
+  }
+  .column-app:nth-child(1) ul{
+    height: 100%;
+ 
+  }
+
+}

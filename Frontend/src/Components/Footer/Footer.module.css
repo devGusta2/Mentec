@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'MentecFont';
+    src: url('../../assets/fonts/eurostile.TTF');
+    font-weight: normal;
+}
+.footer{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+.row{
+    display: flex;
+    flex-direction: row;
+   align-items: center;
+
+
+}
+.row:nth-child(1){
+    height: 70%;
+    width: 100%;
+    
+}
+.row:nth-child(2){
+    height: 30%;
+    width: 100%;
+    background-color: #333333;
+
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.column{
+    height: 100%;
+    width: 33.4%;
+    background-color: #404040;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.column:nth-child(3){
+    text-align: left;
+
+
+}
+.title{
+    font-family: 'MentecFont';
+    font-weight: 200;
+}
+
+@media screen and (max-width:768px){
+    .column:nth-child(1) h5{
+        font-size: clamp(1px , 5vh ,10px);
+        
+    }
+    .column:nth-child(3) p{
+        font-size: clamp(1px , 5vw ,10px);
+        
+    }
+    .row:nth-child(2){
+        font-size: clamp(1px , 5vh ,12px);
+    }
+}
