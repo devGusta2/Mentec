@@ -17,6 +17,30 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Footer from './Components/Footer/Footer';
 import { Helmet } from 'react-helmet';
+const ativaMenu = () =>{
+  window.alert("Ativa o menu");
+}
+
+
+var dark = localStorage.getItem("dark");
+
+function changeTema(){
+dark=!dark;
+  if(dark===true){
+      localStorage.setItem("dark", "true");
+      document.documentElement.style.cssText="--bg-azulteste: #271665;";
+      
+
+  }else{
+      localStorage.setItem("dark", "false");
+      document.documentElement.style.cssText="--bg-azulteste: #910F25;";
+     
+  }
+}
+
+
+
+
 function App() {
 
   const [bgMentec , setbgMentec] = useState(bg1);
@@ -76,6 +100,15 @@ function App() {
 
     
   } 
+  useEffect(()=>{
+    var tema = localStorage.getItem("dark");
+    if(tema=="true"){
+        document.documentElement.style.cssText="--bg-azulteste: #271665;";
+    
+    }else{
+        document.documentElement.style.cssText="--bg-azulteste: #910F25;";
+    }
+})
   return (
     <div className="App">
       <Helmet>
