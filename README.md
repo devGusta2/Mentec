@@ -10,7 +10,7 @@
     ```
 2. Navegue para a pasta do projeto:
     ```bash
-    cd seu-repositorio
+    cd Mentec
     ```
 3. Instale as dependências:
     ```bash
