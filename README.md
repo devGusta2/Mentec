@@ -6,7 +6,7 @@
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
+    git clone https://github.com/devGusta2/Mentec.git
     ```
 2. Navegue para a pasta do projeto:
     ```bash
