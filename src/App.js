@@ -1,5 +1,8 @@
 
 import './App.css';
+
+
+import Vlibras1 from './Components/Vlibras/Vlibras';
 import mentorShip from './assets/img/Arts/mentor-ship.png';
 import form from './assets/img/Icons/form.png';
 import mala from './assets/img/Icons/mala.png';
@@ -14,7 +17,7 @@ import bg1 from './assets/img/backgrounds/bgFatecFerraz-colors.png';
 import bg2 from './assets/img/backgrounds/Background-provisorio2.jpg';
 
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Footer from './Components/Footer/Footer';
 import { Helmet } from 'react-helmet';
 const ativaMenu = () =>{
@@ -211,7 +214,9 @@ function App() {
                 src={notebook}></img>
               </div>
             </section>
+            
           </main>
+          <Vlibras1 />
           <Footer/>
         </div>
 

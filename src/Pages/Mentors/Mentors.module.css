@@ -44,3 +44,9 @@
     gap: 1em;
     width: 33.3%;
 }
+.colCard{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 33.3%;
+}
