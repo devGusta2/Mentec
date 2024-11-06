@@ -2,7 +2,6 @@
 import './App.css';
 
 
-import Accessibility from './Components/Vlibras/Accessibility';
 import mentorShip from './assets/img/Arts/mentor-ship.png';
 import form from './assets/img/Icons/form.png';
 import mala from './assets/img/Icons/mala.png';
@@ -20,6 +19,7 @@ import { Link } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import Footer from './Components/Footer/Footer';
 import { Helmet } from 'react-helmet';
+import Accessibility from './Components/Acessibility/Accessibility';
 const ativaMenu = () =>{
   window.alert("Ativa o menu");
 }
@@ -121,6 +121,10 @@ function App() {
         <meta name="author" content="Centro Paula Souza Mentorias" />
         <meta name="robots" content="index, follow" />
       </Helmet>
+
+
+
+
           <main className='main'>
             <section style={{backgroundImage:`url(${bgMentec})` }}>
               <div className='up-box'>
@@ -129,6 +133,7 @@ function App() {
                      <button className='btn-darkMode' onClick={changeBgMentec}>
                       <FontAwesomeIcon id="icon-btn-dark" icon={faMoon} size='2x' color='white' />
                      </button>
+                     <Link className='link' to='/login'>Entre</Link>
                   </nav>
                 </div>
                 <div className='top-elements'>
@@ -143,6 +148,7 @@ function App() {
                   <Link to='/Mentorships'className='btn-find' id="btn-findid">
                     <h3>Encontrar mentorias</h3>
                   </Link>
+                  
                 </div>
               </div>
             </section>
@@ -216,7 +222,7 @@ function App() {
             </section>
             
           </main>
-          <Accessibility />
+          <Accessibility></Accessibility>
           <Footer/>
         </div>
 
