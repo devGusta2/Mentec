@@ -22,7 +22,7 @@ function font_size(e) {
     // Aplica o tamanho da fonte ao body
     return (document.body.style.fontSize = size_font + 'px');
 }
-export default function Accessibility(){
+export default function acessibility(){
     return(
         <div className={styles.accessibility}>
             <VLibras forceOnload={true} />

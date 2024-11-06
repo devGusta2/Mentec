@@ -17,7 +17,17 @@ function Signup(){
             </form>
           </div>
           <div className={styles.loginBox}>
-
+          <div className={styles.logoBox}>
+                    <h1  className={styles.title}>Mentec</h1>
+                    <h3  className={styles.sBtitle}>Conectando mentes, moldando futuros</h3>
+                </div>
+                <img 
+                draggable="false"
+                src={book} className={styles.imgBook}/>
+                <Link to='/Signup'className={styles.btnCad}>
+                    
+                    <h1>Cadastrar</h1>
+                </Link>
           </div>
         </div>
     );
