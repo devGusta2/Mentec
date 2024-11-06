@@ -9,7 +9,7 @@
   margin: 0;
   padding: 0;
   
-  transition: 0.5s;
+  transition: 0.1s;
 }
 :root{
   --text-color:white;

@@ -4,6 +4,7 @@ import styles from './Calendar.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar, faSun, faMoon} from '@fortawesome/free-regular-svg-icons';
 import { faSun as solidSun} from '@fortawesome/free-solid-svg-icons';
+import Accessibility from "../../Components/Acessibility/Accessibility";
 
 export default function Calendar(){
     return(
@@ -72,6 +73,7 @@ export default function Calendar(){
                 <div className={styles.card}></div>
                 <div className={styles.card}></div>
             </div>
+            <Accessibility />
             <Footer/>
         </div>
     );

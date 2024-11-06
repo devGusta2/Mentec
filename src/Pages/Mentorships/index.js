@@ -4,6 +4,7 @@ import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 import Carousel from '../../Components/Carousel/Carousel';
 import { Link } from 'react-router-dom';
+import Accessibility from '../../Components/Acessibility/Accessibility';
 function Home(){
     return(
         <div className={styles.home}>
@@ -60,6 +61,7 @@ function Home(){
                         </div>
                     </div>
                 </div>
+                <Accessibility/>
             <Footer />
         </div>
     );

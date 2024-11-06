@@ -3,6 +3,7 @@ import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMap, faPhone, faEnvelope, faE } from '@fortawesome/free-solid-svg-icons';
+import Accessibility from '../../Components/Acessibility/Accessibility';
 export default function Contact(){
     return(
         <div className={styles.contact}>
@@ -63,6 +64,7 @@ export default function Contact(){
                         </div>
                     </div>
                 </div>
+                <Accessibility />
             <Footer></Footer>
         </div>
     );

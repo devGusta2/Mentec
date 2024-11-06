@@ -2,6 +2,7 @@ import styles from './Login.module.css';
 import book from '../../assets/img/Arts/books.png';
 import msIco from '../../assets/img/Arts/microsft.png';
 import { Link } from 'react-router-dom';
+import Accessibility from '../../Components/Acessibility/Accessibility';
 function Login(){
     return(
         <div className={styles.main}>
@@ -52,6 +53,7 @@ function Login(){
                     </form>
                 </div>
             </div>
+            <Accessibility />
         </div>
     );
 }

@@ -4,6 +4,7 @@ import Header from '../../Components/Header/Header';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
+import Accessibility from '../../Components/Acessibility/Accessibility';
 
 export default function(){
     return(
@@ -41,6 +42,7 @@ export default function(){
 
                 </div>
             </div>
+            <Accessibility />
         </div>
     );
 }

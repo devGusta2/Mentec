@@ -3,6 +3,7 @@ import Footer from '../../Components/Footer/Footer';
 import style from './Forum.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus} from '@fortawesome/free-solid-svg-icons';
+import Accessibility from '../../Components/Acessibility/Accessibility';
 export default function Forum(){
     return(
         <div className={style.container}>
@@ -50,6 +51,7 @@ PS: Mandem help antes que eu tenha que fazer uma lista de gratidão em vez de um
                         </div>
                     </main>
                 </div>
+                <Accessibility/>
             <Footer></Footer>
         </div>
     );

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faPersonChalkboard, faQuestion}  from '@fortawesome/free-solid-svg-icons';
 import { faHand, faCalendar, faCommentDots} from '@fortawesome/free-regular-svg-icons';
 import { Router, Link} from 'react-router-dom';
+import Accessibility from '../../Components/Acessibility/Accessibility';
  
 export default function Services(){
     return(
@@ -38,6 +39,7 @@ export default function Services(){
                     <h3>Ajuda</h3>
                 </div>
             </div>
+            <Accessibility></Accessibility>
             <Footer />
         </div>
         

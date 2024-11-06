@@ -2,7 +2,7 @@
 import './App.css';
 
 
-import Vlibras1 from './Components/Vlibras/Vlibras';
+import Accessibility from './Components/Vlibras/Accessibility';
 import mentorShip from './assets/img/Arts/mentor-ship.png';
 import form from './assets/img/Icons/form.png';
 import mala from './assets/img/Icons/mala.png';
@@ -216,7 +216,7 @@ function App() {
             </section>
             
           </main>
-          <Vlibras1 />
+          <Accessibility />
           <Footer/>
         </div>
 

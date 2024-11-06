@@ -1,5 +1,6 @@
 
 
+import Accessibility from "../../Components/Acessibility/Accessibility";
 import Header from "../../Components/Header/Header";
 import Menu from "../../Components/Menu/Menu";
 import styles from './Profile.module.css';
@@ -22,6 +23,7 @@ function Profile(){
                 </div>
                 
             </div>
+            <Accessibility/>
         </div>
     );
 }
