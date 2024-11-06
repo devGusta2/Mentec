@@ -2,6 +2,7 @@ import styles from './Signup.module.css';
 import book from '../../assets/img/Arts/books.png';
 import msIco from '../../assets/img/Arts/microsft.png';
 import { Link } from 'react-router-dom';
+import Accessibility from '../../Components/Acessibility/Accessibility';
 function Signup(){
     return(
         <div className={styles.main}>
@@ -24,11 +25,13 @@ function Signup(){
                 <img 
                 draggable="false"
                 src={book} className={styles.imgBook}/>
-                <Link to='/Signup'className={styles.btnCad}>
+                <Link to='/Login'className={styles.btnCad}>
                     
-                    <h1>Cadastrar</h1>
+                    <h1>Login</h1>
                 </Link>
+                <Accessibility></Accessibility>
           </div>
+          
         </div>
     );
 }
