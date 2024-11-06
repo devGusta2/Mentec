@@ -1,0 +1,29 @@
+.accessibility{
+    height: 100px;
+    width: 40px;
+ 
+    right: 0;
+    margin-top: 13.6%;
+    margin-right: 10px;
+    position:fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.btn{
+    height: 40px;
+    width: 40px;
+    background-color: #2365D5;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
