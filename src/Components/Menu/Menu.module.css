@@ -1,7 +1,7 @@
 .menu{
     height: calc(100vh - 5em);
     width: 20%;
-    background-color: purple;
+    background-color: var(--bg-menu);
     
     z-index: 1;
     display: flex;

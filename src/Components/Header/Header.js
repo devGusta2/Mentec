@@ -19,11 +19,11 @@ function changeTema(){
 dark=!dark;
     if(dark===true){
         localStorage.setItem("dark", "true");
-        document.documentElement.style.cssText="--bg-azulteste: #271665; --bg-menu: purple;";
+        document.documentElement.style.cssText="--bg-azulteste: #271665; --bg-menu: #00013C;";
 
     }else{
         localStorage.setItem("dark", "false");
-        document.documentElement.style.cssText="--bg-azulteste: #910F25;";
+        document.documentElement.style.cssText="--bg-azulteste: #910F25; --bg-menu: #770B1C;";
       
     }
 }
