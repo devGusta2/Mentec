@@ -107,9 +107,10 @@ function App() {
     var tema = localStorage.getItem("dark");
     if(tema=="true"){
         document.documentElement.style.cssText="--bg-azulteste: #271665;";
-    
+        document.documentElement.style.cssText="--bg-menu: purple;";
     }else{
         document.documentElement.style.cssText="--bg-azulteste: #910F25;";
+        document.documentElement.style.cssText="--bg-menu: #770B1C;";
     }
 })
   return (
