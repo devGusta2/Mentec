@@ -133,7 +133,7 @@ function App() {
                      <button className='btn-darkMode' onClick={changeBgMentec}>
                       <FontAwesomeIcon id="icon-btn-dark" icon={faMoon} size='2x' color='white' />
                      </button>
-                     <Link className='link' to='/login'>Entre</Link>
+                     <Link className='link-login' to='/login'>Entre</Link>
                   </nav>
                 </div>
                 <div className='top-elements'>
