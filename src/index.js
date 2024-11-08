@@ -24,7 +24,7 @@ import Services from './Pages/Services';
 import Home from './Pages/Home';
 import Calendar from './Pages/Calendar';
 import Mentors from './Pages/Mentors';
-import Signup from './Pages/signup';
+
 const router =  createBrowserRouter([
   {
     path:"*",
@@ -45,10 +45,6 @@ const router =  createBrowserRouter([
   {
     path:"/",
     element:<App />,
-  },
-  {
-    path:"signup",
-    element:<Signup />
   },
   {
     path: "Login",
