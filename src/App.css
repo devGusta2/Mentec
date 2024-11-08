@@ -69,7 +69,7 @@ section:nth-child(1){
 nav{
   gap: 1.5em;
 }
-.link{
+.link-login{
   text-decoration: none;
   color: white;
 }
