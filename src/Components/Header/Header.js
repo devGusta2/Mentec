@@ -19,13 +19,12 @@ function changeTema(){
 dark=!dark;
     if(dark===true){
         localStorage.setItem("dark", "true");
-        document.documentElement.style.cssText="--bg-azulteste: #271665;";
-        
+        document.documentElement.style.cssText="--bg-azulteste: #271665; --bg-menu: purple;";
 
     }else{
         localStorage.setItem("dark", "false");
         document.documentElement.style.cssText="--bg-azulteste: #910F25;";
-       
+      
     }
 }
 
