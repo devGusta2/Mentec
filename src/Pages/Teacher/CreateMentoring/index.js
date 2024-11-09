@@ -20,6 +20,7 @@ export default function CreateMentoring(){
                     <div className={styles.col_form}>
                         <h4>Título</h4>
                         <input 
+                        required
                         placeholder="Título da sua mentoria"
                         className={styles.text_inpt}></input>
                         <h4>Objetivo</h4>
@@ -34,7 +35,7 @@ export default function CreateMentoring(){
                         <h4>Duração</h4>
                             <input 
                             type='number'
-                            min="12"
+                            min="5"
                             max="200"
                             placeholder="Carga horária estimada"
                             className={styles.text_inpt}></input>

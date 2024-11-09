@@ -1,7 +1,5 @@
 
 import './App.css';
-
-
 import mentorShip from './assets/img/Arts/mentor-ship.png';
 import form from './assets/img/Icons/form.png';
 import mala from './assets/img/Icons/mala.png';
@@ -20,10 +18,6 @@ import { useState,useEffect } from 'react';
 import Footer from './Components/Footer/Footer';
 import { Helmet } from 'react-helmet';
 import Accessibility from './Components/Acessibility/Accessibility';
-const ativaMenu = () =>{
-  window.alert("Ativa o menu");
-}
-
 
 var dark = localStorage.getItem("dark");
 
@@ -59,21 +53,14 @@ function App() {
     
     ]; 
 
+
     setbgMentec(bgAnt => {
-      if (bgAnt === bg1) {
-        styleElement[0].style.cssText=`
-          background-image:none;
-          background-color:#00052B;
-        `;
+      if (bgAnt === bg1 || !dark) {
+        localStorage.setItem("dark", "false");
 
-        styleElement[1].style.cssText=`
-        color:#00BCD4;
-        border:3px solid #00BCD4;
-      `;
-
-
+        styleElement[0].style.cssText=`background-image:none;background-color:#00052B;`;
+        styleElement[1].style.cssText=`color:#00BCD4;border:3px solid #00BCD4;`;
         styleElement[2].style.color='white';
-        
         styleElement[3].style.backgroundColor='#0F1644';
         styleElement[4].style.backgroundColor='#00013C';
         styleElement[5].style.backgroundColor='#0F1644';
@@ -81,16 +68,9 @@ function App() {
         return bg2;
 
       } else {
-        styleElement[0].style.cssText=`
-        background-color:white;
-        `
-
-        styleElement[1].style.cssText=`
-        color:white;
-        border:3px solid white;
-        `;
+        localStorage.setItem("dark", "true");styleElement[0].style.cssText=`background-color:white;`
+        styleElement[1].style.cssText=`color:white;border:3px solid white;`;
         styleElement[2].style.color='black';
-
         styleElement[3].style.backgroundColor='white';
         styleElement[4].style.backgroundColor='#A6192E';
         styleElement[5].style.backgroundColor='#910F25';
@@ -115,6 +95,7 @@ function App() {
         localStorage.setItem("dark", "false");
     }
 })
+
   return (
     <div className="App">
       <Helmet>

@@ -24,7 +24,10 @@ import Services from './Pages/Services';
 import Home from './Pages/Home';
 import Calendar from './Pages/Calendar';
 import Mentors from './Pages/Mentors';
+  
 
+//paginas do professor/mentor
+import CreateMentoring from './Pages/Teacher/CreateMentoring';
 const router =  createBrowserRouter([
   {
     path:"*",
@@ -77,6 +80,10 @@ const router =  createBrowserRouter([
   {
     path:"Services",
     element:<Services />
+  },
+  {
+    path:"Teacher/CreateMentoring",
+    element:<CreateMentoring />
   },
 ]);
 

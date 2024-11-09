@@ -19,7 +19,7 @@ function changeTema(){
 dark=!dark;
     if(dark===true){
         localStorage.setItem("dark", "true");
-        document.documentElement.style.cssText="--bg-azulteste: #271665; --bg-menu: #00013C;";
+        document.documentElement.style.cssText="--bg-azulteste: #271665; --bg-menu: #00013C;  --bg-body: #";
 
     }else{
         localStorage.setItem("dark", "false");
