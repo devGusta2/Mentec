@@ -4,6 +4,9 @@ import { faBook } from '@fortawesome/free-solid-svg-icons';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { faComment } from '@fortawesome/free-solid-svg-icons';
+function logout(){
+    window.alert("Deseja sair da sua conta?");
+}
 function Menu(){
     return(
         <div className={styles.menu}>
@@ -19,7 +22,9 @@ function Menu(){
                         <li> <FontAwesomeIcon icon={faComment} size='1x'  className={styles.icon} color='white'/>Chat</li>
                     </ul>
                     <ul>
-                        <li> <FontAwesomeIcon icon={faDoorOpen} size='1x'  className={styles.icon} color='white'/>Sair</li>
+                        <li onClick={logout}> <FontAwesomeIcon icon={faDoorOpen} size='1x'  
+                      
+                        className={styles.icon} color='white'/>Sair</li>
                     </ul>
                 </div>
             </div>

@@ -11,8 +11,8 @@
 }
 
 .imgUser{
-    height: 200px;
-    width: 200px;
+    height: clamp(20px, 15vw, 200px);
+    width:  clamp(20px, 15vw, 200px);
     background-color: white;
     border-radius: 50%;
 }
@@ -58,4 +58,16 @@
 
 label{
     display: block;
+}
+
+li{
+    cursor: pointer;
+}
+
+@media (max-width:768px){
+    .menu{
+        position: absolute;
+        margin-left: -110vw;
+        height: 100%;
+    }
 }
