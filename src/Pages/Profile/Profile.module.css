@@ -1,14 +1,13 @@
 .container{
     display: flex;
     flex-direction: row;
-    height: calc( 100vh - 5em);
+    height: calc(100vh - 5em);
     background-color: #EBEBEB;
     
 }
 
 
 .infoContainer{
-    
     width: 80%;
     height: 100%;
     display: grid;
@@ -39,3 +38,21 @@ p {
     
     overflow-wrap: break-word; /* Propriedade moderna para a mesma coisa */
   }
+
+
+@media (max-width:768px){
+    .infoContainer{
+        grid-template-columns: 100%;
+        grid-template-rows:  23% 23% 23% 23% ;
+    }
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #EBEBEB;
+        
+    }
+    
+    
+}
