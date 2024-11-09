@@ -1,0 +1,36 @@
+#line_detail{
+    height: 50px;
+    width: 100%;
+    background-color: #271665;
+}
+.titles_art{
+    padding:30px 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.titles{
+    height: 300px;
+    width: 100%;
+    background-color: #4C578F;
+    color: white;
+
+}
+.form_box{
+    height: 350px;
+    width: 80%;
+    background-color: whitesmoke;
+    box-shadow: 4px 4px 10px rgb(161, 161, 161);
+    border-radius: 10px;
+
+    margin: -70px auto;
+}
+#hat{
+    height: 300px;
+    width:400px;
+    margin-top: 0px;
+    margin-right: -100px;
+}
+.titles_box{
+    
+}
