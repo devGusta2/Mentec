@@ -30,14 +30,14 @@ var dark = localStorage.getItem("dark");
 function changeTema(){
 dark=!dark;
   if(dark===true){
-      localStorage.setItem("dark", "true");
+ 
       document.documentElement.style.cssText="--bg-azulteste: #271665;";
-      
+      localStorage.setItem("dark", "true");
 
   }else{
-      localStorage.setItem("dark", "false");
+
       document.documentElement.style.cssText="--bg-azulteste: #910F25;";
-     
+      localStorage.setItem("dark", "false");
   }
 }
 
@@ -108,9 +108,11 @@ function App() {
     if(tema=="true"){
         document.documentElement.style.cssText="--bg-azulteste: #271665;";
         document.documentElement.style.cssText="--bg-menu: purple;";
+        localStorage.setItem("dark", "true");
     }else{
         document.documentElement.style.cssText="--bg-azulteste: #910F25;";
         document.documentElement.style.cssText="--bg-menu: #770B1C;";
+        localStorage.setItem("dark", "false");
     }
 })
   return (
