@@ -1,5 +1,6 @@
 import styles from './CreateMentoring.module.css';
 import hat from '../../../assets/img/Arts/motarboard.png';
+import { Link } from 'react-router-dom';
 export default function CreateMentoring(){
     return(
         <div className={styles.CreateMentoring}>
@@ -7,16 +8,14 @@ export default function CreateMentoring(){
                 <div id={styles.line_detail}></div>
                 <div className={styles.titles_art}>
                     <div className={styles.titles_box}>
-                        <h3>Voltar</h3>
-                        <p>Passo 1 de 3</p>
+                        <Link  className={styles.link} to="../Teacher"> <h3>Voltar</h3></Link>
+                        <p>Passo 1 de 2</p>
                         <h1>Compartilhe seu conhecimento</h1>
                         <p>Publique sua mentoria e inspire novos talentos!</p>
                     </div>
                     <img src={hat} id={styles.hat}></img>
                 </div>
             </div>
-
-
             <div className={styles.form_box}>
                 <form>
                     <div className={styles.col_form}>
@@ -25,6 +24,7 @@ export default function CreateMentoring(){
                         required
                         placeholder="Título da sua mentoria"
                         className={styles.text_inpt}></input>
+
                         <h4>* Objetivo</h4>
                         <input 
                          required
@@ -64,9 +64,9 @@ export default function CreateMentoring(){
                          required
                         placeholder="Quem você deseja alcançar"
                         className={styles.text_inpt}></input>
-                            <button tupe="submit"className={styles.next_btn}>
-                                <h4>Próximo</h4>
-                            </button>
+                        <Link to="../Teacher/CreateMentoring2"type="submit"className={styles.next_btn}>
+                            <h4>Próximo</h4>
+                        </Link>
                     </div>
               
                 </form>
