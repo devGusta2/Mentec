@@ -14,7 +14,10 @@
     width: 100%;
     background-color: #4C578F;
     color: white;
-
+}
+.link{
+    text-decoration: none;
+    color: white;
 }
 .form_box{
     height: 400px;
