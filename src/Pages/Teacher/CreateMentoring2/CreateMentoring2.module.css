@@ -1,0 +1,32 @@
+#line_detail{
+    height: 50px;
+    width: 100%;
+    background-color: #271665;
+}
+.titles_art{
+    padding:30px 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.titles{
+    height: 270px;
+    width: 100%;
+    background-color: #4C578F;
+    color: white;
+
+}
+#hat{
+    height: 325px;
+    width:400px;
+    margin-top: -70px;
+    margin-right: -100px;
+    
+}
+
+.link{
+    text-decoration: none;
+    color: white;
+    height: 50px;
+    background-color: red;
+}
