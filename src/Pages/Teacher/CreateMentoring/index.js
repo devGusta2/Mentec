@@ -2,6 +2,10 @@ import styles from './CreateMentoring.module.css';
 import hat from '../../../assets/img/Arts/motarboard.png';
 import { Link } from 'react-router-dom';
 export default function CreateMentoring(){
+
+
+
+
     return(
         <div className={styles.CreateMentoring}>
             <div className={styles.titles}>
@@ -30,12 +34,6 @@ export default function CreateMentoring(){
                          required
                         placeholder="Descreva o objetivo de sua mentoria"
                         className={styles.text_inpt}></input>
-                        <h4>* Descrição</h4>
-                        <textarea 
-                         required
-                        placeholder="Descreva sua mentoria"></textarea>
-                    </div>
-                    <div className={styles.col_form}>
                         <h4>* Duração</h4>
                             <input 
                              required
@@ -51,6 +49,59 @@ export default function CreateMentoring(){
                                 <option value="Tarde">Tarde</option>
                                 <option value="Noite">Noite</option>
                             </select>
+                            
+                    </div>
+                    <div className={styles.col_form}>
+                        
+                        
+                        
+                       
+                        <h4>* Público alvo</h4>
+                        <input 
+                         required
+                        placeholder="Quem você deseja alcançar"
+                        className={styles.text_inpt}></input>
+                      <h4>* Frequência</h4>
+                        <input 
+                        required
+                        placeholder="Frequência ex:todas as quartas"
+                        className={styles.text_inpt}></input>
+                    </div>
+
+
+                    <div className={styles.col_form}>
+                        <h4>* Requisitos</h4>
+                        <input 
+                        required
+                        placeholder="Requisitos da mentoria ex:"
+                        className={styles.text_inpt}></input>
+
+                        <h4>* Objetivo</h4>
+                        <input 
+                         required
+                        placeholder="Descreva o objetivo de sua mentoria"
+                        className={styles.text_inpt}></input>
+                        <h4>* Descrição</h4>
+                        <textarea 
+                         required
+                        placeholder="Descrição da mentoria"></textarea>
+                    </div>
+                    <div className={styles.col_form}>
+                        <h4>* Intrutor</h4>
+                            <input 
+                             required
+                            type='text'
+                           
+                            placeholder="Instrutor"
+                            className={styles.text_inpt}></input>
+                        <h4>* Data de inicio</h4>
+                            <input 
+                             required
+                            type='data'
+                           
+                            placeholder="Data de início"
+                            className={styles.text_inpt}></input>
+
                         <h4>* Modalidade</h4>
                             <select  required className={styles.text_inpt}>
                             <option value="" disabled selected>Selecione uma modalidade</option>
@@ -59,16 +110,17 @@ export default function CreateMentoring(){
                                 <option value="Híbrido">Híbrido</option>
                             </select>
                        
-                        <h4>* Público alvo</h4>
-                        <input 
-                         required
-                        placeholder="Quem você deseja alcançar"
-                        className={styles.text_inpt}></input>
-                        <Link to="../Teacher/CreateMentoring2"type="submit"className={styles.next_btn}>
-                            <h4>Próximo</h4>
-                        </Link>
+                        <h4>* Forma de pagamento</h4>
+                        <select  required className={styles.text_inpt}>
+                            <option value="" disabled selected>Selecione uma forma de pagamento</option>
+                                <option value="Presencial">Grátis</option>
+                                <option value="Ead">Pix</option>
+                                <option value="Híbrido">Cartão de crédito</option>
+                            </select>
+                        <button to="../Teacher/CreateMentoring2" type="submit"className={styles.next_btn}>
+                            <h4>Salvar</h4> 
+                        </button>
                     </div>
-              
                 </form>
            
             </div>
