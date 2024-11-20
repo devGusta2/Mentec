@@ -75,9 +75,9 @@ form{
     justify-content: center;
 }
 .title_inpt{
-    height: 40px;
+    height: 50px;
     width: 40%;
-
+    
 }
 
 .text_inpt{
@@ -91,17 +91,24 @@ form{
 }
 .title_text_area{
     height: 150px;
-    width: 40%;
+    width: 83%;
 
 }
-textarea{
-    height: 80px;
+
+
+button{
+    height: 50px;
+    width: 40%;
+    background-color: #438649;
+    color: white;
+    border-radius: 5px;
+    outline: 0;
+    border: 0;
+    transition: 0.5s;
 }
-.title_text_area:nth-child(1){
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: red;
+button:hover{
+    background-color: #70b476;
+    cursor: pointer;
 }
 @media (max-width:768px){
     #hat{
