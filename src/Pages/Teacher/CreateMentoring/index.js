@@ -23,21 +23,21 @@ export default function CreateMentoring(){
             <div className={styles.form_container}>
                 <form>
                     <div className={styles.title_inpt}>
-                        <h3>* Título</h3>
+                        <h3>* Título:</h3>
                         <input
                         className={styles.text_inpt}
                         placeholder='Digite o título da sua mentoria'
                         />
                     </div>
                     <div className={styles.title_inpt}>
-                        <h3>* Objetivo</h3>
+                        <h3>* Objetivo:</h3>
                         <input
                         className={styles.text_inpt}
                         placeholder='Digite o objetivo da sua mentoria'
                         />
                     </div>
                     <div className={styles.title_inpt}>
-                        <h3>* Duração</h3>
+                        <h3>* Duração:</h3>
                         <input
                         type='number'
                         min={1}
@@ -46,58 +46,66 @@ export default function CreateMentoring(){
                         placeholder='Digite a duração da sua mentoria'
                         />
                     </div>
+              
                     <div className={styles.title_inpt}>
-                        <h3>* Período</h3>
+                        <h3>* Público alvo:</h3>
                         <input
                         className={styles.text_inpt}
-                        placeholder='Digite o período'
+                        placeholder='Quem você deseja alcançar'
                         />
                     </div>
                     <div className={styles.title_inpt}>
-                        <h3>* Público alvo</h3>
+                        <h3>* Frequência:</h3>
                         <input
                         className={styles.text_inpt}
-                        placeholder='Digite o título da sua mentoria'
+                        placeholder='Exemplo: duas vezes por semana'
                         />
                     </div>
                     <div className={styles.title_inpt}>
-                        <h3>* Frequência</h3>
+                        <h3>* Período:</h3>
+                        <select
+                       
+                       className={styles.text_inpt}
+                       placeholder='Digite a frequência'
+                       >
+                           <option>Selecione um período</option>
+                           <option>Manhã</option>
+                           <option>Tarde</option>
+                           <option>Noite</option>
+
+                       </select>
+                    </div>
+                    <div className={styles.title_inpt}>
+                        <h3>* Requisitos mínimos:</h3>
                         <input
                         className={styles.text_inpt}
-                        placeholder='Digite o título da sua mentoria'
-                        />
-                    </div>
-                    
-                    <div className={styles.title_inpt}>
-                        <h3>* Requisitos mínimos</h3>
-                        <input
-                        className={styles.text_inpt}
-                        placeholder='Digite o título da sua mentoria'
+                        placeholder='Exemplo: curso técnico'
                         />
                     </div>
                     <div className={styles.title_inpt}>
-                        <h3>* Data de início</h3>
+                        <h3>* Data de início:</h3>
                         <input
                         className={styles.text_inpt}
                         type='date'
-                        placeholder='Digite o título da sua mentoria'
+                        placeholder='Informe quando a mentoria iniciará'
                         />
                     </div>
                     <div className={styles.title_inpt}>
-                        <h3>* Instrutor</h3>
+                        <h3>* Instrutor:</h3>
                         <input
                         className={styles.text_inpt}
-                        placeholder='Digite o título da sua mentoria'
+                        placeholder='Informe quem serão os instrutores'
                         />
                     </div>
                     
                     <div className={styles.title_inpt}>
-                        <h3>* Modalidade</h3>
+                        <h3>* Modalidade:</h3>
                         <select
+                       
                         className={styles.text_inpt}
-                        placeholder='Digite o título da sua mentoria'
+                        
                         >
-                            <option>Digite o título da sua mentoria</option>
+                            <option>Selecione uma modalidade</option>
                             <option>Presencial</option>
                             <option>Híbrido</option>
                             <option>Ead</option>
@@ -105,18 +113,17 @@ export default function CreateMentoring(){
                         </select>
                     </div>
                     <div className={styles.title_text_area}>
-                        <h3>* Descrição</h3>
+                        <h3>* Descrição:</h3>
                         <textarea
+                         style={{padding:'10px'}}
                         className={styles.text_inpt}
-                     
+                        
                         placeholder='Digite o título da sua mentoria'
                         />
                     </div>
-                    <div className={styles.title_text_area}>
-                        <button>
-                            <h3>Criar</h3>
-                        </button>
-                    </div>
+                    <button>
+                        <h3>Publicar mentoria</h3>
+                    </button>
                     
                 </form>
             </div>
