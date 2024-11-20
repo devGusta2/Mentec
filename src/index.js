@@ -28,7 +28,7 @@ import Mentors from './Pages/Mentors';
 
 //paginas do professor/mentor
 import CreateMentoring from './Pages/Teacher/CreateMentoring';
-import CreateMentoring2 from './Pages/Teacher/CreateMentoring2';
+
 import Teacher from './Pages/Teacher';
 const router =  createBrowserRouter([
   {
@@ -86,10 +86,6 @@ const router =  createBrowserRouter([
   {
     path:"Teacher/CreateMentoring",
     element:<CreateMentoring />
-  },
-  {
-    path:"Teacher/CreateMentoring2",
-    element:<CreateMentoring2 />
   },
   {
     path:"Teacher",

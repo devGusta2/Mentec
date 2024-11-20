@@ -20,110 +20,109 @@ export default function CreateMentoring(){
                     <img src={hat} id={styles.hat}></img>
                 </div>
             </div>
-            <div className={styles.form_box}>
+            <div className={styles.form_container}>
                 <form>
-                    <div className={styles.col_form}>
-                        <h4>* Título</h4>
-                        <input 
-                        required
-                        placeholder="Título da sua mentoria"
-                        className={styles.text_inpt}></input>
-
-                        <h4>* Objetivo</h4>
-                        <input 
-                         required
-                        placeholder="Descreva o objetivo de sua mentoria"
-                        className={styles.text_inpt}></input>
-                        <h4>* Duração</h4>
-                            <input 
-                             required
-                            type='number'
-                            min="5"
-                            max="200"
-                            placeholder="Carga horária estimada"
-                            className={styles.text_inpt}></input>
-                        <h4>* Período</h4>
-                            <select  required className={styles.text_inpt}>
-                                <option value="" disabled selected>Selecione um período</option>
-                                <option value="Manha">Manhã</option>
-                                <option value="Tarde">Tarde</option>
-                                <option value="Noite">Noite</option>
-                            </select>
-                            
+                    <div className={styles.title_inpt}>
+                        <h3>* Título</h3>
+                        <input
+                        className={styles.text_inpt}
+                        placeholder='Digite o título da sua mentoria'
+                        />
                     </div>
-                    <div className={styles.col_form}>
-                        
-                        
-                        
-                       
-                        <h4>* Público alvo</h4>
-                        <input 
-                         required
-                        placeholder="Quem você deseja alcançar"
-                        className={styles.text_inpt}></input>
-                      <h4>* Frequência</h4>
-                        <input 
-                        required
-                        placeholder="Frequência ex:todas as quartas"
-                        className={styles.text_inpt}></input>
+                    <div className={styles.title_inpt}>
+                        <h3>* Objetivo</h3>
+                        <input
+                        className={styles.text_inpt}
+                        placeholder='Digite o objetivo da sua mentoria'
+                        />
                     </div>
-
-
-                    <div className={styles.col_form}>
-                        <h4>* Requisitos</h4>
-                        <input 
-                        required
-                        placeholder="Requisitos da mentoria ex:"
-                        className={styles.text_inpt}></input>
-
-                        <h4>* Objetivo</h4>
-                        <input 
-                         required
-                        placeholder="Descreva o objetivo de sua mentoria"
-                        className={styles.text_inpt}></input>
-                        <h4>* Descrição</h4>
-                        <textarea 
-                         required
-                        placeholder="Descrição da mentoria"></textarea>
+                    <div className={styles.title_inpt}>
+                        <h3>* Duração</h3>
+                        <input
+                        type='number'
+                        min={1}
+                        max={200}
+                        className={styles.text_inpt}
+                        placeholder='Digite a duração da sua mentoria'
+                        />
                     </div>
-                    <div className={styles.col_form}>
-                        <h4>* Intrutor</h4>
-                            <input 
-                             required
-                            type='text'
-                           
-                            placeholder="Instrutor"
-                            className={styles.text_inpt}></input>
-                        <h4>* Data de inicio</h4>
-                            <input 
-                             required
-                            type='data'
-                           
-                            placeholder="Data de início"
-                            className={styles.text_inpt}></input>
+                    <div className={styles.title_inpt}>
+                        <h3>* Período</h3>
+                        <input
+                        className={styles.text_inpt}
+                        placeholder='Digite o período'
+                        />
+                    </div>
+                    <div className={styles.title_inpt}>
+                        <h3>* Público alvo</h3>
+                        <input
+                        className={styles.text_inpt}
+                        placeholder='Digite o título da sua mentoria'
+                        />
+                    </div>
+                    <div className={styles.title_inpt}>
+                        <h3>* Frequência</h3>
+                        <input
+                        className={styles.text_inpt}
+                        placeholder='Digite o título da sua mentoria'
+                        />
+                    </div>
+                    
+                    <div className={styles.title_inpt}>
+                        <h3>* Requisitos mínimos</h3>
+                        <input
+                        className={styles.text_inpt}
+                        placeholder='Digite o título da sua mentoria'
+                        />
+                    </div>
+                    <div className={styles.title_inpt}>
+                        <h3>* Data de início</h3>
+                        <input
+                        className={styles.text_inpt}
+                        type='date'
+                        placeholder='Digite o título da sua mentoria'
+                        />
+                    </div>
+                    <div className={styles.title_inpt}>
+                        <h3>* Instrutor</h3>
+                        <input
+                        className={styles.text_inpt}
+                        placeholder='Digite o título da sua mentoria'
+                        />
+                    </div>
+                    
+                    <div className={styles.title_inpt}>
+                        <h3>* Modalidade</h3>
+                        <select
+                        className={styles.text_inpt}
+                        placeholder='Digite o título da sua mentoria'
+                        >
+                            <option>Digite o título da sua mentoria</option>
+                            <option>Presencial</option>
+                            <option>Híbrido</option>
+                            <option>Ead</option>
 
-                        <h4>* Modalidade</h4>
-                            <select  required className={styles.text_inpt}>
-                            <option value="" disabled selected>Selecione uma modalidade</option>
-                                <option value="Presencial">Presencial</option>
-                                <option value="Ead">Ead</option>
-                                <option value="Híbrido">Híbrido</option>
-                            </select>
-                       
-                        <h4>* Forma de pagamento</h4>
-                        <select  required className={styles.text_inpt}>
-                            <option value="" disabled selected>Selecione uma forma de pagamento</option>
-                                <option value="Presencial">Grátis</option>
-                                <option value="Ead">Pix</option>
-                                <option value="Híbrido">Cartão de crédito</option>
-                            </select>
-                        <button to="../Teacher/CreateMentoring2" type="submit"className={styles.next_btn}>
-                            <h4>Salvar</h4> 
+                        </select>
+                    </div>
+                    <div className={styles.title_text_area}>
+                        <h3>* Descrição</h3>
+                        <textarea
+                        className={styles.text_inpt}
+                     
+                        placeholder='Digite o título da sua mentoria'
+                        />
+                    </div>
+                    <div className={styles.title_text_area}>
+                        <button>
+                            <h3>Criar</h3>
                         </button>
                     </div>
+                    
                 </form>
-           
             </div>
+     
+            
+         
         </div>
     );
 }
