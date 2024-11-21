@@ -6,17 +6,25 @@ import axios from 'axios';
 
 export default function CreateMentoring() {
     const [formData, setFormData] = useState({
-        titulo: '',
-        objetivo: '',
-        duracao: '',
-        publicoAlvo: '',
-        frequencia: '',
-        periodo: '',
-        requisitos: '',
-        dataInicio: '',
-        instrutor: '',
-        modalidade: '',
-        descricao: '',
+        title: '',
+        goal: '',
+        duration: '',
+        target: '',
+        frequency: '',
+        period: '',
+        requirements: '',
+        date_begin: '',
+        teacher: '',
+        mode: '',
+        description: '',
+        //a partir daqui nao foi implementado nada no forms
+        content:'',
+        methods:'',
+        place:'',
+        payment:'',
+        feedback:'',
+        price:'',
+
     });
 
     // Função para lidar com mudanças nos inputs
@@ -29,8 +37,9 @@ export default function CreateMentoring() {
     const publicarMentoria = (e) => {
         e.preventDefault();
         axios
-            .post('http://localhost/Backend_Mentec/Controller/publicarMentoria.php', formData)
+            .post('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_controller.php', formData)
             .then((response) => {
+                console.log(formData);
                 console.log('Mentoria publicada com sucesso:', response.data);
                 alert('Mentoria publicada com sucesso!');
             })
@@ -61,10 +70,10 @@ export default function CreateMentoring() {
                     <div className={styles.title_inpt}>
                         <h3>* Título:</h3>
                         <input
-                            required
+                            //required
                             className={styles.text_inpt}
                             placeholder="Digite o título da sua mentoria"
-                            name="titulo"
+                            name="title"
                             value={formData.titulo}
                             onChange={handleChange}
                         />
@@ -72,10 +81,10 @@ export default function CreateMentoring() {
                     <div className={styles.title_inpt}>
                         <h3>* Objetivo:</h3>
                         <input
-                            required
+                            //required
                             className={styles.text_inpt}
                             placeholder="Digite o objetivo da sua mentoria"
-                            name="objetivo"
+                            name="goal"
                             value={formData.objetivo}
                             onChange={handleChange}
                         />
@@ -83,13 +92,13 @@ export default function CreateMentoring() {
                     <div className={styles.title_inpt}>
                         <h3>* Duração:</h3>
                         <input
-                            required
+                            //required
                             type="number"
                             min={1}
                             max={200}
                             className={styles.text_inpt}
                             placeholder="Digite a duração da sua mentoria"
-                            name="duracao"
+                            name="duration"
                             value={formData.duracao}
                             onChange={handleChange}
                         />
@@ -97,10 +106,10 @@ export default function CreateMentoring() {
                     <div className={styles.title_inpt}>
                         <h3>* Público alvo:</h3>
                         <input
-                            required
+                            //required
                             className={styles.text_inpt}
                             placeholder="Quem você deseja alcançar"
-                            name="publicoAlvo"
+                            name="target"
                             value={formData.publicoAlvo}
                             onChange={handleChange}
                         />
@@ -108,10 +117,10 @@ export default function CreateMentoring() {
                     <div className={styles.title_inpt}>
                         <h3>* Frequência:</h3>
                         <input
-                            required
+                            //required
                             className={styles.text_inpt}
                             placeholder="Exemplo: duas vezes por semana"
-                            name="frequencia"
+                            name="frequency"
                             value={formData.frequencia}
                             onChange={handleChange}
                         />
@@ -119,9 +128,9 @@ export default function CreateMentoring() {
                     <div className={styles.title_inpt}>
                         <h3>* Período:</h3>
                         <select
-                            required
+                            //required
                             className={styles.text_inpt}
-                            name="periodo"
+                            name="period"
                             value={formData.periodo}
                             onChange={handleChange}
                         >
@@ -134,10 +143,10 @@ export default function CreateMentoring() {
                     <div className={styles.title_inpt}>
                         <h3>* Requisitos mínimos:</h3>
                         <input
-                            required
+                            //required
                             className={styles.text_inpt}
                             placeholder="Exemplo: curso técnico"
-                            name="requisitos"
+                            name="requirements"
                             value={formData.requisitos}
                             onChange={handleChange}
                         />
@@ -145,21 +154,21 @@ export default function CreateMentoring() {
                     <div className={styles.title_inpt}>
                         <h3>* Data de início:</h3>
                         <input
-                            required
+                            //required
                             className={styles.text_inpt}
                             type="date"
-                            name="dataInicio"
-                            value={formData.dataInicio}
+                            name="date_begin"
+                            value={formData.date_begin}
                             onChange={handleChange}
                         />
                     </div>
                     <div className={styles.title_inpt}>
                         <h3>* Instrutor:</h3>
                         <input
-                            required
+                            //required
                             className={styles.text_inpt}
                             placeholder="Informe quem serão os instrutores"
-                            name="instrutor"
+                            name="teacher"
                             value={formData.instrutor}
                             onChange={handleChange}
                         />
@@ -167,9 +176,9 @@ export default function CreateMentoring() {
                     <div className={styles.title_inpt}>
                         <h3>* Modalidade:</h3>
                         <select
-                            required
+                            //required
                             className={styles.text_inpt}
-                            name="modalidade"
+                            name="mode"
                             value={formData.modalidade}
                             onChange={handleChange}
                         >
@@ -184,14 +193,14 @@ export default function CreateMentoring() {
                         <textarea
                             style={{ padding: '10px' }}
                             className={styles.text_inpt}
-                            required
+                            //required
                             placeholder="Digite o título da sua mentoria"
-                            name="descricao"
+                            name="description"
                             value={formData.descricao}
                             onChange={handleChange}
                         />
                     </div>
-                    <button type="submit">
+                    <button type='submit'>
                         <h3>Publicar mentoria</h3>
                     </button>
                 </form>
