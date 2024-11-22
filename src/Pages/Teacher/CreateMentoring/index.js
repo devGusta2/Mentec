@@ -58,7 +58,7 @@ export default function CreateMentoring() {
                         <Link className={styles.link} to="../Teacher">
                             <h3>Voltar</h3>
                         </Link>
-                        <p>Passo 1 de 2</p>
+                        <p>Passo 1 de 1</p>
                         <h1>Compartilhe seu conhecimento</h1>
                         <p>Publique sua mentoria e inspire novos talentos!</p>
                     </div>
