@@ -9,18 +9,16 @@ import axios from 'axios';
 import { useEffect } from 'react';
 function Home(){
 
-    const loadMentorships = async () =>{
-        const mentorshipsData = await axios.get('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_controller.php',{
-            title,
-            teacher,
-            duration,
-            goal,
-        });
+    // const loadMentorships = async () =>{
+    //     const mentorshipsData = await axios.get('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_controller.php',{
+    //         title,
+    //         teacher,
+    //         duration,
+    //         goal,
+    //     });
 
-    }
-    useEffect(()=>{
-        loadMentorships();
-    },[]);
+    // }
+
     return(
         <div className={styles.home}>
      
@@ -52,13 +50,13 @@ function Home(){
                         </div>
                         <h1>Mentorias que podem te interessar</h1>
                         <div className={styles.carGrid}>
-                            {
+                            {/* {
                                 mentorshipsData.map(data=>{
                                     <div className={styles.card}>
                                         {data.title}
                                     </div>
                                 })
-                            }
+                            } */}
                         </div>
                     </div>
                 </div>
