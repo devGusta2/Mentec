@@ -12,6 +12,7 @@ import{
 //pages
 import App from './App';
 import Login from './Pages/login';
+import Signup from './Pages/signup';
 import Notfound from './Pages/Notfound';
 import Mentorships from './Pages/Mentorships/index';
 import Profile from './Pages/Profile';
@@ -91,6 +92,10 @@ const router =  createBrowserRouter([
     path:"Teacher",
     element:<Teacher />
   },
+  {
+    path:"/signup",
+    element:<Signup />
+  }
 ]);
 
 

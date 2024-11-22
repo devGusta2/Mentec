@@ -3,7 +3,7 @@ import book from '../../assets/img/Arts/books.png';
 
 import { Link } from 'react-router-dom';
 import Accessibility from '../../Components/Acessibility/Accessibility';
-function Signup(){
+export default function Signup(){
     return(
         <div className={styles.main}>
           <div className={styles.formBox}>
@@ -36,4 +36,3 @@ function Signup(){
     );
 }
 
-export default Signup;
