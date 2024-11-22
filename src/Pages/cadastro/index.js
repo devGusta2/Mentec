@@ -3,7 +3,7 @@ import book from '../../assets/img/Arts/books.png';
 
 import { Link } from 'react-router-dom';
 import Accessibility from '../../Components/Acessibility/Accessibility';
-export default function Signup(){
+export default function Cadastro(){
     return(
         <div className={styles.main}>
           <div className={styles.formBox}>

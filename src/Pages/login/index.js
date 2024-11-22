@@ -14,7 +14,7 @@ function Login(){
                 <img 
                 draggable="false"
                 src={book} className={styles.imgBook}/>
-                <Link to='/Signup'className={styles.btnCad}>
+                <Link to='/cadastro'className={styles.btnCad}>
                     
                     <h1>Cadastrar</h1>
                 </Link>

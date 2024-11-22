@@ -12,13 +12,12 @@ import{
 //pages
 import App from './App';
 import Login from './Pages/login';
-import Signup from './Pages/signup';
 import Notfound from './Pages/Notfound';
 import Mentorships from './Pages/Mentorships/index';
 import Profile from './Pages/Profile';
 import Tpage from './Pages/Tpage';
 import Contact from './Pages/Contact';
-
+import Cad from './Pages/cadastro'
 import Mentoring from './Pages/Mentoring';
 import Forum from './Pages/Forum';
 import Services from './Pages/Services';
@@ -93,8 +92,8 @@ const router =  createBrowserRouter([
     element:<Teacher />
   },
   {
-    path:"/signup",
-    element:<Signup />
+    path:"/cadastro",
+    element:<Cad />
   }
 ]);
 
