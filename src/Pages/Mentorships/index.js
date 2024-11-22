@@ -5,7 +5,22 @@ import Footer from '../../Components/Footer/Footer';
 import Carousel from '../../Components/Carousel/Carousel';
 import { Link } from 'react-router-dom';
 import Accessibility from '../../Components/Acessibility/Accessibility';
+import axios from 'axios';
+import { useEffect } from 'react';
 function Home(){
+
+    const loadMentorships = async () =>{
+        const mentorshipsData = await axios.get('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_controller.php',{
+            title,
+            teacher,
+            duration,
+            goal,
+        });
+
+    }
+    useEffect(()=>{
+        loadMentorships();
+    },[]);
     return(
         <div className={styles.home}>
      
@@ -37,27 +52,13 @@ function Home(){
                         </div>
                         <h1>Mentorias que podem te interessar</h1>
                         <div className={styles.carGrid}>
-                            <div className={styles.card}>
-                              
-                            </div>
-                            <div className={styles.card}></div>
-                            <div className={styles.card}></div>
-                            <div className={styles.card}></div>
-                            <div className={styles.card}></div>
-                            <div className={styles.card}></div>
-                            <div className={styles.card}></div>
-                            <div className={styles.card}></div>
-                            <div className={styles.card}></div>
-                            <div className={styles.card}></div>
-                            <div className={styles.card}></div>
-                            <div className={styles.card}></div>
-                            <div className={styles.card}></div>
-                            <div className={styles.card}></div>
-                            <div className={styles.card}></div>
-                            
-                            <div className={styles.card}></div>
-                            <div className={styles.card}></div>
-                            
+                            {
+                                mentorshipsData.map(data=>{
+                                    <div className={styles.card}>
+                                        {data.title}
+                                    </div>
+                                })
+                            }
                         </div>
                     </div>
                 </div>
