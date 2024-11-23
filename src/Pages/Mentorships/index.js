@@ -54,13 +54,13 @@ function Home() {
                     </div>
                     <h1>Mentorias que podem te interessar</h1>
                     <div className={styles.carGrid}>
-                        {mentorshipsData.map((data) => (
+                        {/* {mentorshipsData.map((data) => (
                             <div key={data.id} className={styles.card}>
-                                <h2>{mentorshipsData[1]}</h2> {/* Exibindo o título da mentoria */}
-                                <p>ID: {mentorshipsData[0]}</p> {/* Exibindo o ID da mentoria */}
-                                <p>{mentorshipsData[2]}</p> {/* Exibindo a descrição */}
+                                <h2>{mentorshipsData[1]}</h2> 
+                                <p>ID: {mentorshipsData[0]}</p>
+                                <p>{mentorshipsData[2]}</p> 
                             </div>
-                        ))}
+                        ))} */}
                     </div>
                 </div>
             </div>
