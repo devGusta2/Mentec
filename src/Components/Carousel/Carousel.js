@@ -29,7 +29,7 @@ setInterval(()=>{
             img.current.style.marginLeft = '-0%';
         }
     }
-    console.log(n);
+
 },10000);
 
     return(
