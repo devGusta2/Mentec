@@ -19,7 +19,7 @@
     height: 300px;
     width: 90%;
     background-color: rgb(236, 236, 236);
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 4px 4px 10px rgb(182, 182, 182);
     display: flex;
     padding: 30px;
@@ -59,11 +59,15 @@
 .infoContainer img{
     height: 100%;
     width: 45%;
+    border-radius: 5px;
 }
 #description{
     height: 100%;
     width: 65%;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .btnBox{
