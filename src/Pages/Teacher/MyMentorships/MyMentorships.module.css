@@ -1,0 +1,62 @@
+
+
+
+.MyMentorships,.mentorshipsContainter{
+    display: flex;
+
+}
+.mentorshipsContainter{
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(230, 230, 230);
+}
+.myMentoringCard{
+    height: 300px;
+    width: 90%;
+    background-color: rgb(236, 236, 236);
+    border-radius: 15px;
+    box-shadow: 4px 4px 10px rgb(182, 182, 182);
+    display: flex;
+    padding: 30px;
+
+}
+
+#btn_edit,#btn_delete{
+    height: 50px;
+    width: 120px;
+    background-color: rgb(89, 89, 172);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
+#btn_edit:hover,#btn_delete:hover{
+    transform: translateY(-10px);
+}
+#btn_delete{
+    background-color: rgb(223, 55, 55);
+
+}
+.infoContainer, .btnBox{
+    display: flex;
+    
+}
+.infoContainer{
+    width: 85%;
+    height: 100%;
+
+}   
+.btnBox{
+    width: 15%;
+    height: 100%;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}

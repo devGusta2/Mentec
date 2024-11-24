@@ -28,8 +28,9 @@ import Mentors from './Pages/Mentors';
 
 //paginas do professor/mentor
 import CreateMentoring from './Pages/Teacher/CreateMentoring';
-
+import MyMentorships from './Pages/Teacher/MyMentorships';
 import Teacher from './Pages/Teacher';
+
 const router =  createBrowserRouter([
   {
     path:"*",
@@ -84,17 +85,22 @@ const router =  createBrowserRouter([
     element:<Services />
   },
   {
+    path:"/cadastro",
+    element:<Cad />
+  },
+  // Páginas dos mentores
+  {
     path:"Teacher/CreateMentoring",
     element:<CreateMentoring />
+  },
+  {
+    path:"Teacher/MyMentorships",
+    element:<MyMentorships />
   },
   {
     path:"Teacher",
     element:<Teacher />
   },
-  {
-    path:"/cadastro",
-    element:<Cad />
-  }
 ]);
 
 
