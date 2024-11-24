@@ -56,9 +56,9 @@ function Home() {
                     <div className={styles.carGrid}>
                         {/* {mentorshipsData.map((data) => (
                             <div key={data.id} className={styles.card}>
-                                <h2>{mentorshipsData[1]}</h2> 
-                                <p>ID: {mentorshipsData[0]}</p>
-                                <p>{mentorshipsData[2]}</p> 
+                                <h3>{data.title}</h3> 
+                                <p>ID: {data.id}</p> 
+                                <p>{data.description}</p> 
                             </div>
                         ))} */}
                     </div>
