@@ -1,6 +1,9 @@
 
 
 
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
 .MyMentorships,.mentorshipsContainter{
     display: flex;
 
@@ -34,6 +37,7 @@
     color: white;
     transition: 0.5s;
     cursor: pointer;
+    gap: 1em;
 }
 #btn_edit:hover,#btn_delete:hover{
     transform: translateY(-10px);
@@ -42,6 +46,7 @@
     background-color: rgb(223, 55, 55);
 
 }
+/* ~container de informalççoes */
 .infoContainer, .btnBox{
     display: flex;
     
@@ -51,6 +56,16 @@
     height: 100%;
 
 }   
+.infoContainer img{
+    height: 100%;
+    width: 45%;
+}
+#description{
+    height: 100%;
+    width: 65%;
+    padding: 10px;
+}
+
 .btnBox{
     width: 15%;
     height: 100%;
