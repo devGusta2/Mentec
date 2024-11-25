@@ -22,11 +22,24 @@ export default function MyMentorships(){
         }    
         loadMyMentorships();
     },[]);
+    //aqui temos a função de desativar  a mentoria de acordo com o id passado com parâmetor
+    const deactivateMentorship = async (idMentorship)=>{
+        if(window.confirm("Tem certeza que deseja excluir esta mentoria?")){
+            try{
+                const deactivateResponse = await axios.post('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_controller.php', idMentorship);
+            }catch(error){
+                console.log("Erro", error);
+            }
+        }else{
+            alert("Ação cancelada");
+        }
+    };
+
     return(
         <div className={styles.MyMentorships}>
             <MenuTeacher />
             <div className={styles.mentorshipsContainter}>
-                {/* {
+                {
                     mentorshipData.map((data)=>(
                     <div key={data.id} className={styles.myMentoringCard} >
                         <div className={styles.infoContainer}>
@@ -44,15 +57,16 @@ export default function MyMentorships(){
                                 <FontAwesomeIcon icon={faPen} size='1x' style={{height:'25px', width:'25px'}}/>
                                 <h3>Editar</h3>
                             </div>
-                            <div id={styles.btn_delete}>
+                            <div id={styles.btn_delete} onClick={(()=> deactivateMentorship(data.id))}>
                                 <FontAwesomeIcon icon={faTrash} size='1x' style={{height:'25px', width:'25px'}}/>
                                 <h3>Deletar</h3>
                             </div>
                         </div>
                     </div>
                     ))
-                } */}
+                }
             </div>
         </div>
     )
 }
+
