@@ -26,7 +26,9 @@ export default function MyMentorships(){
     const deactivateMentorship = async (idMentorship)=>{
         if(window.confirm("Tem certeza que deseja excluir esta mentoria?")){
             try{
-                const deactivateResponse = await axios.post('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_controller.php', idMentorship);
+                const deactivateResponse = await axios.post('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_controller.php',
+                    {id: idMentorship});
+                console.log(deactivateResponse.data);
             }catch(error){
                 console.log("Erro", error);
             }
