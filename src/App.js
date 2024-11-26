@@ -121,7 +121,7 @@ function App() {
                   </nav>
                 </div>
                 <div className='top-elements'>
-                  <h1>Mentec</h1>
+                  <h1 id='main_title'>Mentec</h1>
                 </div>
               </div>
               <div className='center-box'>

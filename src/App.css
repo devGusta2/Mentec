@@ -8,8 +8,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  
-
 }
 :root{
   --text-color:white;
@@ -57,6 +55,11 @@ section:nth-child(1){
 
 
 }
+#main_title{
+  font-family: 'MentecFont';
+  margin-left: 20px;
+}
+
 .top-elements{
   display: flex;
   justify-content: center;
@@ -64,9 +67,10 @@ section:nth-child(1){
   height: 100%;
  
 }
+
 .top-elements:nth-child(1){
   width: 100%;
-  display: fle;
+  display: flex;
 }
 nav{
   gap: 1.5em;
@@ -124,8 +128,12 @@ nav{
   padding: 10px;
   justify-content: center;
   align-items: center;
-
+  font-family: 'MentecFont';
   
+}
+.info-mentec h1{
+  margin-left: 0px;
+  font-family: 'MentecFont';
 }
 .info-mentec p{
   max-width: 370px;

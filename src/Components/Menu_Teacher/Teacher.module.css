@@ -22,6 +22,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: fixed;
 }
 .nav_menu, ul{
     display: flex;
