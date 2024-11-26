@@ -17,6 +17,8 @@ export default function CreateMentoring() {
         teacher: '',
         mode: '',
         description: '',
+        //diferenciar qual metodo foi chamado la no back end
+        action:'createMentorship',
         //a partir daqui nao foi implementado nada no forms
         content:'',
         methods:'',
@@ -24,7 +26,7 @@ export default function CreateMentoring() {
         payment:'',
         feedback:'',
         price:'',
-
+        
     });
 
     // Função para lidar com mudanças nos inputs
@@ -37,7 +39,7 @@ export default function CreateMentoring() {
     const publicarMentoria = (e) => {
         e.preventDefault();
         axios
-            .post('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_controller.php', formData)
+            .post('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_Create.php', formData)
             .then((response) => {
                 console.log(formData);
                 console.log('Mentoria publicada com sucesso:', response.data);
