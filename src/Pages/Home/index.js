@@ -1,14 +1,18 @@
 import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
 import Carousel from "../../Components/Carousel/Carousel"
-import style from "./Home.module.css"
+import styles from "./Home.module.css"
 import Accessibility from "../../Components/Acessibility/Accessibility"
 export default function Home(){
     return(
-        <div className={style.container}>
+        <div className={styles.container}>
             <Header />
             <Carousel />
-            <h3>Notícias</h3>
+           
+            <div className={styles.news_container}>
+                <h2>Notícias</h2>
+                
+            </div>
             <Accessibility />
             <Footer />
         </div>
