@@ -12,10 +12,10 @@ export default function Services(){
         <div className={style.container}>
             <Header />
             <div className={style.grid}>
-                <div className={style.card}>
+                <Link to="/Mentors"className={style.card}>
                     <FontAwesomeIcon icon={faHand}size={'7x'}/>
                     <h3>Solicitar monitor</h3>
-                </div>
+                </Link>
                 <div className={style.card}>
                     <FontAwesomeIcon icon={faCalendar}size={'7x'}/>
                     <h3>Agendar monitoria</h3>
