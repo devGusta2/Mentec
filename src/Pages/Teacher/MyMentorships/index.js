@@ -27,17 +27,17 @@ export default function MyMentorships() {
         feedback: '',
         price: '',
     });
-
+    const loadMyMentorships = async () => {
+        try {
+            const result = await axios.get('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_controller.php');
+            setMentorShipsData(result.data);
+        } catch (error) {
+            console.log("Erro ao carregar dados:", error);
+        }
+    };
     // Carregar dados da API
     useEffect(() => {
-        const loadMyMentorships = async () => {
-            try {
-                const result = await axios.get('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_controller.php');
-                setMentorShipsData(result.data);
-            } catch (error) {
-                console.log("Erro ao carregar dados:", error);
-            }
-        };
+
         loadMyMentorships();
     }, []);
 
@@ -75,20 +75,28 @@ export default function MyMentorships() {
     const updateMentorship = async () => {
         if (window.confirm("Deseja alterar as informações?")) {
             try {
+                const payload = mentorshipData.find(m => m.id === formData.id); // Dados originais
+                const updatedData = { ...payload, ...formData }; // Mescla alterações
+                
                 const responseUpdate = await axios.post(
                     'http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_update.php',
-                    JSON.stringify(formData),
+                    JSON.stringify(updatedData),
                     {
                         headers: { 'Content-Type': 'application/json' },
                     }
+                   
                 );
+                console.log(responseUpdate.data);
                 console.log("Resposta do servidor:", responseUpdate.data);
                 alert("Informações alteradas com sucesso!");
+                
             } catch (error) {
                 console.log("Erro ao atualizar:", error);
             }
         }
+        loadMyMentorships();
     };
+    
 
     // Função para desativar
     const deactivateMentorship = async (idMentorship) => {
@@ -104,13 +112,14 @@ export default function MyMentorships() {
                 console.log("Erro ao desativar:", error);
             }
         }
+        loadMyMentorships();
     };
 
     return (
         <div className={styles.MyMentorships}>
             <MenuTeacher />
             <div className={styles.mentorshipsContainter}>
-                {/* {mentorshipData.map((data) => (
+                {mentorshipData.map((data) => (
                     <div key={data.id} className={styles.myMentoringCard}>
                         <div className={styles.infoContainer}>
                             <img src="https://th.bing.com/th/id/R.27af735fcc270df3cba0709c982c1a67?rik=Ek8T%2f5U8ClREZg&pid=ImgRaw&r=0" />
@@ -152,7 +161,7 @@ export default function MyMentorships() {
                             </div>
                         </div>
                     </div>
-                ))} */}
+                ))}
             </div>
         </div>
     );
