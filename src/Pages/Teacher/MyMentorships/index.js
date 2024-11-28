@@ -1,8 +1,9 @@
 import styles from './MyMentorships.module.css';
 import MenuTeacher from '../../../Components/Menu_Teacher/Menu_Taeacher';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPen, faPlus} from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function MyMentorships() {
@@ -130,6 +131,9 @@ export default function MyMentorships() {
                     <select className={styles.box_filter}>
                         <option>Ordem</option>
                     </select>
+                    <Link to='/CreateMentoring' className={styles.box_filter}>
+                        <FontAwesomeIcon icon={faPlus} size="1x" style={{ height: '25px', width: '25px' }} />
+                    </Link>
                 </div>
                 {mentorshipData.map((data) => (
                     <div key={data.id} className={styles.myMentoringCard}>

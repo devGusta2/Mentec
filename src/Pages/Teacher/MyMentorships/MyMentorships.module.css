@@ -94,7 +94,7 @@
 
 .inpt_box{
     height: 50px;
-    width: 48%;
+    width: 35%;
     background-color: var(--bg-azulteste);
     border-radius: 10px;
     display: flex;
@@ -126,4 +126,16 @@
     background-color: var(--bg-azulteste);
     color: white;
     padding: 0 10px;
+}
+.box_filter:nth-child(4){
+    background-color: #4C8C3F;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.box_filter:nth-child(4):hover{
+    transform: scale(1.05);
 }
