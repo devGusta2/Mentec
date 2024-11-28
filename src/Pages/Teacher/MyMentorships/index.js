@@ -120,6 +120,17 @@ export default function MyMentorships() {
         <div className={styles.MyMentorships}>
             <MenuTeacher />
             <div className={styles.mentorshipsContainter}>
+                <div className={styles.top_elements}>
+                    <div className={styles.inpt_box}>
+                        <input placeholder='Busque uma de suas mentorias'/>
+                    </div>
+                    <select className={styles.box_filter}>
+                        <option>Tipo</option>
+                    </select>
+                    <select className={styles.box_filter}>
+                        <option>Ordem</option>
+                    </select>
+                </div>
                 {mentorshipData.map((data) => (
                     <div key={data.id} className={styles.myMentoringCard}>
                         <div className={styles.infoContainer}>
