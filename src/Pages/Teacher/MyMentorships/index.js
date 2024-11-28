@@ -31,6 +31,7 @@ export default function MyMentorships() {
         try {
             const result = await axios.get('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_controller.php');
             setMentorShipsData(result.data);
+            console.log('resposta da API', result.data);
         } catch (error) {
             console.log("Erro ao carregar dados:", error);
         }
