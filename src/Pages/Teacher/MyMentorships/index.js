@@ -12,7 +12,7 @@ export default function MyMentorships() {
 
     const loadMyMentorships = async () => {
         try {
-            const result = await axios.get('http://devgusta2.fwh.is/Model/Dao/Database.php');
+            const result = await axios.get('https://devgusta2.fwh.is/Model/Dao/Database.php');
             setMentorShipsData(result.data);
             console.log('resposta da API', result.data);
         } catch (error) {
