@@ -16,7 +16,7 @@
   }
 .teacher_menu{
     height: 100vh;
-    width: 20%;
+    width: 15%;
     background-color: var(--bg-menu);
     display: flex;
     flex-direction: column;
@@ -45,7 +45,8 @@
 .nav_menu ul li a{
     color: white;   
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 300;
+    font-size: 10pt;
 }
 .icon{
     height: 35px;

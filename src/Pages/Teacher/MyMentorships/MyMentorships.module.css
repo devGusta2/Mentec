@@ -10,12 +10,13 @@
 }
 .mentorshipsContainter{
     flex-direction: column;
-    width: 80%;
+    width: 85%;
     align-items: center;
     justify-content: center;
     background-color: rgb(230, 230, 230);
     gap:1em;
-    margin-left: 20%;
+    margin-left: 15%;
+    min-height: 100vh;
 }
 .myMentoringCard{
     height: 250px;
@@ -89,4 +90,52 @@
     border-left: 0;
     border-right: 0;
     outline: 0;
+}
+
+.inpt_box{
+    height: 50px;
+    width: 35%;
+    background-color: var(--bg-azulteste);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+   padding: 0 30px;
+
+}
+.inpt_box input{
+    height: 50%;
+    width: 80%;
+    
+
+}
+.top_elements{
+    width: 100%;
+
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1em;
+}
+
+.box_filter{
+    height: 50px;
+    width: 10%;
+    border-radius: 10px;
+    background-color: var(--bg-azulteste);
+    color: white;
+    padding: 0 10px;
+}
+.box_filter:nth-child(4){
+    background-color: #4C8C3F;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.box_filter:nth-child(4):hover{
+    transform: scale(1.05);
 }
