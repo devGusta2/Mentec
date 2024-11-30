@@ -29,7 +29,7 @@ export default function MyMentorships() {
     });
     const loadMyMentorships = async () => {
         try {
-            const result = await axios.get('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_controller.php');
+            const result = await axios.get('http://devgusta2.fwh.is/Model/Dao/Database.php');
             setMentorShipsData(result.data);
         } catch (error) {
             console.log("Erro ao carregar dados:", error);
