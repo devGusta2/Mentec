@@ -25,7 +25,7 @@ export default function CreateMentoring() {
         place:'',
         payment:'',
         feedback:'',
-        price:'',
+        price:0,
         
     });
 

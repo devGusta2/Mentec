@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29/11/2024 às 14:34
--- Versão do servidor: 10.8.4-MariaDB
--- Versão do PHP: 8.2.12
+-- Tempo de geração: 02/12/2024 às 23:46
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,21 +45,21 @@ CREATE TABLE `mentorias` (
   `forma_pagamento` varchar(50) DEFAULT NULL,
   `feedback` text DEFAULT NULL,
   `isActive` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `mentorias`
 --
 
 INSERT INTO `mentorias` (`id`, `titulo`, `descricao`, `publico_alvo`, `objetivos`, `conteudo_programatico`, `duracao`, `frequencia`, `requisitos`, `metodologia`, `instrutor`, `data_inicio`, `local`, `valor`, `forma_pagamento`, `feedback`, `isActive`) VALUES
-(1, 'Curso de PHP', 'Nova descrição funcionandodgfhdfhfg', 'mel', 'Ficar bom em php e chegar ao laravel RICOCO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(2, 'Mentoria de RUSTOOO', 'mano do ceu', 'Mel', '', '', 80, 'Semanal', 'Mel', '', 'Mel', '2024-11-30', '', 0.00, '', '', 0),
-(3, 'Mentoria de estatística', 'Nova descrição funcionando corretamente', 'Iniciantes do Curso de ADS', 'Mel', 'Mel', 80, 'Semanal', 'Mel', '', 'Mel', '2024-11-25', '', 0.00, '', '', 1),
-(4, 'Mentoria de Contabilidade', 'Bomd ia', 'Iniciantes do Curso de ADS', '~passar na matéria', '', 80, 'Semanal', 'Mel', '', 'Mel', '0000-00-00', '', 0.00, '', '', 1),
-(5, 'Computação em AWS', 'Muto bom, legal e bonito', 'Mel', 'Conhecimento básico', '', 50, 'Semanal', 'Mel', '', 'Mel', '2024-11-30', '', 0.00, '', '', 1),
-(6, 'Mentoria da mel', 'eb', 'Mel', 'Passar na matéria', '', 20, 'Semanal', 'Mel', '', 'Mel', '2024-11-29', '', 0.00, '', '', 0),
-(7, 'Reforço Python é vida', 'nao vou deixar isso acontecer', 'Melissa', 'Se tornar especialista com python', '', 9, 'Semanal', 'Mel', '', 'Mel ', '2024-11-08', '', 0.00, '', '', 1),
-(8, 'vamo ver se funfa', 'melissa do php', 'nenhum', 'n sei', '', 30, 'Semanal', 'Nnehum', '', 'Melissad do php', '2024-11-19', '', 0.00, '', '', 1),
+(1, 'Curso de PHP', 'Nova descrição funcionandodgfhdfhfg', 'Iniciantes', 'Ficar bom em php e chegar ao laravel RICOCO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(2, 'Mentoria de RUSTOOO', 'mano do ceu', 'Iniciantes', '', '', 80, 'Semanal', 'Nenhum', '', 'Mel', '2024-11-30', '', 0.00, '', '', 0),
+(3, 'Mentoria de estatística', 'Nova descrição funcionando corretamente', 'Iniciantes do Curso de ADS', 'Melhorar em tudo', '', 80, 'Semanal', 'Nenhum', '', 'Mel', '2024-11-25', '', 0.00, '', '', 1),
+(4, 'Mentoria de Contabilidade', 'Bomd ia', 'Iniciantes do Curso de ADS', '~passar na matéria', '', 80, 'Semanal', 'Nenhum', '', 'Mel', '0000-00-00', '', 0.00, '', '', 1),
+(5, 'Computação em AWS', 'Muto bom, legal e bonito', 'Iniciantes', 'Conhecimento básico', '', 50, 'Semanal', 'Nenhum', '', 'Mel', '2024-11-30', '', 0.00, '', '', 1),
+(6, 'Mentoria da mel', 'eb', 'Iniciantes', 'Passar na matéria', '', 20, 'Semanal', 'Nenhum', '', 'Mel', '2024-11-29', '', 0.00, '', '', 0),
+(7, 'Reforço Python é vida', 'nao vou deixar isso acontecer', 'Melissa', 'Se tornar especialista com python', '', 9, 'Semanal', 'Nenhum', '', 'Mel ', '2024-11-08', '', 0.00, '', '', 1),
+(8, 'vamo ver se funfa', 'melissa do php', 'nenhum', 'n sei', '', 30, 'Semanal', 'Nnehum', '', 'meldo php', '2024-11-19', '', 0.00, '', '', 1),
 (9, 'Mentoria em Programação Python', 'Aprenda Python de forma prática e com exemplos reais.', 'Iniciantes em programação', 'Dominar a linguagem Python para desenvolvimento de projetos.', 'Sintaxe básica, estruturas de dados, manipulação de arquivos.', 40, 'Semanal', 'Nenhuma', 'Aulas práticas com exercícios em tempo real', 'Lucas Santos', '2024-12-05', 'São Paulo', 1300.00, 'Pix', 'Excelente para iniciantes, bem didático!', 1),
 (10, 'Mentoria em Desenvolvimento de Games', 'Curso de desenvolvimento de jogos em Unity e C# para iniciantes e intermediários.', 'Desenvolvedores e entusiastas de jogos', 'Criar um jogo 2D simples e aprender princípios de desenvolvimento de jogos.', 'Configuração de Unity, criação de personagens, física e colisões.', 60, 'Semanal', 'Conhecimentos básicos em programação', 'Aulas práticas com projetos hands-on', 'Felipe Almeida', '2024-12-12', 'Curitiba', 2000.00, 'Boleto', 'A melhor forma de aprender a desenvolver jogos!', 1),
 (11, 'Mentoria em Cibersegurança', 'Curso de introdução à segurança da informação e técnicas de proteção contra ataques cibernéticos.', 'Profissionais de TI e interessados em segurança', 'Entender práticas de segurança e como proteger sistemas de dados.', 'Segurança de redes, criptografia, e análise de vulnerabilidades.', 80, 'Mensal', 'Conhecimentos intermediários de TI', 'Estudos de caso e simulações de ataques', 'Carla Souza', '2024-11-30', 'Rio de Janeiro', 2200.00, 'Cartão de crédito', 'Conteúdo completo e muito atualizado.', 1),
