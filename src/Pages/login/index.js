@@ -25,7 +25,7 @@ function Login(){
                     
                     <form className={styles.formLogin}>
                         <div className={styles.titleBox}>
-                            <h3>Entre na sua conta</h3>
+                            <h3>Fazer login</h3>
                         </div>
                         <input 
                         placeholder='E-mail'
@@ -35,7 +35,7 @@ function Login(){
                         className={styles.inptForm}/>
 
                         <button className={styles.btn}>
-                            <h3>Entrar</h3>
+                            <h3>Fazer login</h3>
                         </button>
                         <div className={styles.or}>
                             <hr className={styles.line}/>

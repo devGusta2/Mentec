@@ -105,7 +105,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgb(12,67,78);
+    background: #910F25;
 
     border-radius: 10px;
 }
@@ -116,16 +116,20 @@
     gap: 1em;
     align-items: center;
     width: 100%;
-    background: linear-gradient(169deg, rgba(12,67,78,1) 0%, rgba(40,125,163,1) 50%, rgba(31,166,198,1) 73%, rgba(0,212,255,1) 96%);
+    background: #910F25;
 }
 
 .inptForm{
     height: 40px;
-    width: 300px;
-    border-radius: 5px;
+    width: 400px;
+    color: white;
     padding: 0 10px;
-    border: 0;
+    border-bottom: 1px solid white;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
     outline: 0;
+    background: transparent;
 }
 .titleBox{
     width: 100%;
@@ -142,7 +146,7 @@
     outline: 0;
     border: 0;
     border-radius: 5px;
-    background-color: var(--color-btn);
+    background-color: #A6192E;
     color: var(--color-white);
     transition: 0.5s;
     cursor: pointer;
