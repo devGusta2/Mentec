@@ -96,7 +96,7 @@ form{
 }
 
 
-button{
+#btn{
     height: 50px;
     width: 40%;
     background-color: #438649;
@@ -106,7 +106,7 @@ button{
     border: 0;
     transition: 0.5s;
 }
-button:hover{
+#btn:hover{
     background-color: #70b476;
     cursor: pointer;
 }
