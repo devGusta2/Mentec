@@ -202,7 +202,7 @@ export default function CreateMentoring() {
                             onChange={handleChange}
                         />
                     </div>
-                    <button type='submit'>
+                    <button id={styles.btn}type='submit'>
                         <h3>Publicar mentoria</h3>
                     </button>
                 </form>
