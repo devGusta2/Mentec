@@ -1,269 +1,92 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    top: 0;
-    margin: 0;
-}
-@font-face {
-    font-family: 'MentecFont';
-    src: url('../../assets/fonts/eurostile.TTF');
-    font-weight: normal;
-}
-  
 :root{
-    --color-1:#02072D;
-    --color-white:white;
-    --color-btn:#461F62;
-}
+    --text-color:white;
+    --text-color1:black;
+    --btn-color:#00BCD4;
+    --bg-color:#02072D;
+    --bg-color1:#A6192E;
+    --bg-red1:#A6192E;
+    --bg-red2:#910F25;
+    --bg-red3:#770B1C;
+    --bg-color2:#000434;
+    --bg-color3:whitesmoke;
+    --bg-azulteste:rgb(39, 22, 101);
+    --bg-menu:#00013C;
+    --bg-body:#1E1E1E;
+  }
+
 .main{
- height: 100vh;
- width: 100%;
- display: flex;
- flex-direction: row;
- justify-content: center;
- align-items: center;
- font-family: 'MentecFont';
- background-color: #23244E;
-}
-.logoBox{
-    
+    height: 100vh;
     width: 100%;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    flex-direction: column;
 }
-.title{
-    font-size: 50pt;
-    font-weight: 500;
-}
-.sBtitle{
-
-    font-size: 15pt;
-    max-width: 210px;
-    font-weight: 500;
-
-
-
-}
-
-.cadBox{
-    width: 25%;
-    height: 100%;
-    background: rgb(2,12,14);
-    background: linear-gradient(169deg, rgba(2,12,14,1) 0%, rgba(27,91,120,1) 59%, rgba(23,139,166,1) 87%, rgba(0,212,255,1) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    color: var(--color-white);
-}
-.formBox{
-    width: 75%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-.imgBook{
-    height: 250px;
-    width: 250px;
-    user-select: none;
-  
-
-}
-
-.btnCad{
-    outline: 0;
-    border:3px solid var(--color-white);
-    background-color: transparent;
-    border-radius: 16px;
-    width: 200px;
-    height: 70px;
-    color: var(--color-white);
-    font-family: 'MentecFont';
-    font-weight: 500;
-    transition: 0.5s;
-    cursor: pointer;
+.header{
+    height: 5em;
+    width: 100%;
+    background-color: var(--bg-red2);
     display: flex;
     align-items: center;
-    text-decoration: none;
-    justify-content: center;
-}
-.btnCad:hover{
-    border: 3px solid  var(--color-1);
-    color: var(--color-1);
-}
-
-.form{
-    height: 500px;
-    width: 500px;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-    background: #910F25;
-
-    border-radius: 10px;
 }
-
+.formAndArt{
+    height: calc(100vh - 5em);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .formLogin{
+    height: 90%;
+    width: 30%;
+    background-color: var(--bg-red2);
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    align-items: center;
-    width: 100%;
-    background: #910F25;
-}
-
-.inptForm{
-    height: 40px;
-    width: 400px;
+    justify-content: space-evenly;
     color: white;
-    padding: 0 10px;
-    border-bottom: 1px solid white;
+}
+.formLogin p:nth-child(1){
+    font-size: 18pt;
+    font-weight: 100;
+    color: white;
+}
+.inpt{
+    display: block;
     border-top: 0;
     border-left: 0;
     border-right: 0;
+    border-bottom: 1px solid white;
+    background-color: transparent;
     outline: 0;
-    background: transparent;
-}
-.titleBox{
-    width: 100%;
-    height: 50px;
-    text-align: center;
-    font-size: 18pt;
-    color: var(--color-white);
-    font-weight: 100;
-}
-
-.btn{
-    width: 170px;
-    height: 60px;
-    outline: 0;
-    border: 0;
-    border-radius: 5px;
-    background-color: #A6192E;
-    color: var(--color-white);
-    transition: 0.5s;
-    cursor: pointer;
-}
-.btn:hover{
-    background-color: var(--color-white);
-    color: black;
-
-}
-.or{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 20px;
-
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-}
-
-.line{
-    width: 150px;
-    border: 1px solid black;
-}
-.btnms{
-    width: 380px;
-    height: 60px;
-    outline: 0;
-    border: 0;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s;
-    gap:1em;
-    cursor: pointer;
-}
-.btnms:hover{
-    background-color: var(--color-btn);
-    color: var(--color-white);
-}
-.msico{
+    padding: 0 10px;
     height: 30px;
+    width: 75%;
+    
+}
+.inpt::placeholder{
+    color: white;
 }
 
-.cadResp{
+#formRow{
     display: flex;
     flex-direction: row;
+    width: 75%;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    color: white;
+}
+#formRow p{
+    font-size: 10pt;
+}
+#btnLogin{
+    height: 50px;
+    width: 130px;
+    background-color: #A6192E;
+    border: 0;
+    outline: 0;
+    color: white;
+    border-radius: 5px;
 }
 
-.linkCad{
-    font-size: clamp(1pt, 4vw, 10pt);
-}
-.linkCad1{
-    text-decoration: none;
-    color: var(--color-white);
-}
+.art{
+    width: 60%;
+    height: 100%;
 
-.cadResp{
-    display: none;
-}
-@media(max-width:768px){
-    .main{
-        flex-direction: column;
-   
-    }
-    .cadBox{
-        width: 100%;
-        height: 30%;
-    }
-    .logoBox h1{
-        font-size: clamp(1pt, 20vw, 50pt);
-    }
-    .logoBox h3{
-        font-size: clamp(1pt ,15vw, 15pt);
-    }
-
-    .titleBox h3{
-        font-size: clamp(1pt,5vw,18pt); 
-    }
-
-    .imgBook, .btnCad{
-        display: none;
-    }
-    .formBox{
-        width: 100%;
-       
-    }
-    .form{
-        width: 70%;
-        border-radius: 7px;
-        height: 80%;
-    }
-    .btn{
-        font-size: clamp(1pt,5vw,10pt); 
-    }
-    .btnms, .btn, .inptForm{
-        width: clamp(30px,50vw,300px);
-    }
-    .btnms{
-        gap: 0.5em;
-        font-size: clamp(1pt,100vw,10pt); 
-    }
-    .btnms h3{
-        font-size: clamp(1pt,5vw,10pt); 
-    }
-    .msico{
-       height: clamp(10px,5vw,30px); 
-    }
-
-    .cadResp{
-        display: block;
-    }
-    .cadResp h4{
-        font-size: clamp(1pt, 4vw, 15pt);
-    }
 }
