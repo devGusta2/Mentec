@@ -9,7 +9,7 @@ function Login() {
     return (
         <div className={styles.main}>
             <div className={styles.header}>
-                <h2>Mentec</h2>
+                <Link id={styles.title} to='/'>Mentec</Link>
                 <Link  to='/cadastro'id={styles.cadBtn}>
                     <h4>Criar uma conta no mentec</h4>
                 </Link>
