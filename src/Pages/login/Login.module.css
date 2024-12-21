@@ -166,3 +166,22 @@
 #text span{
     color: #A6192E;
 }
+
+
+ 
+/* responsivo */
+
+@media(max-width:768px){
+    .artBox{
+        display: none;
+    }
+    .formBox{
+        width: 100%;
+    }
+    #cadBtn{
+        width: 150px;
+    }
+    .formLogin{
+        width: 75%;
+    }
+}
