@@ -43,6 +43,9 @@
     cursor: pointer;
     background-color: rgb(187, 74, 89);
     color: white;
+    text-decoration: none;
+    padding: 10px 30px;
+    font-size: 0.9em;
 }
 .formAndArt{
     height: calc(100vh - 5em);
@@ -59,7 +62,7 @@
     justify-content: center;
 }
 .formLogin{
-    height: 90%;
+    height: 95%;
     width: 65%;
     background-color: var(--bg-red2);
     border-radius: 16px;
@@ -77,9 +80,11 @@
     margin-left: -15%;
 }
 #textForgotPass{
-    margin-left: 40%;
+    margin-left: 33%;
     margin-top: -5%;
-
+    font-size: 1.2em;
+    color: white;
+    font-weight: 200;
 }
 .inpt{
     display: block;
