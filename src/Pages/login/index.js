@@ -1,6 +1,7 @@
 import styles from './Login.module.css';
 import book from '../../assets/img/Arts/books.png';
 import msIco from '../../assets/img/Arts/microsft.png';
+import reaginArt from '../../assets/img/Arts/reading.jpg';
 import { Link } from 'react-router-dom';
 import Accessibility from '../../Components/Acessibility/Accessibility';
 function Login() {
@@ -23,10 +24,17 @@ function Login() {
                             <p>Lembre-se de mim</p>
                             <button id={styles.btnLogin} type='submit'>Fazer login</button>
                         </div>
+                        <button id={styles.btnMs} >
+                            <img src={msIco} style={{height:'30px', width:'30px'}}/>
+                            <h4>Continue com a microsoft</h4>
+                        </button>
                     </form>
                 </div>
                 <div className={styles.artBox}>
-
+                    <img src={reaginArt} id={styles.artImg}/>
+                    <div id={styles.text}>
+                        <h3>Encontre a melhor <span>mentoria</span> ideal para complementar seus estudos</h3>
+                    </div>
                 </div>
             </div>
             <Accessibility />
