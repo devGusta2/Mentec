@@ -24,6 +24,8 @@ import Services from './Pages/Services';
 import Home from './Pages/Home';
 import Calendar from './Pages/Calendar';
 import Mentors from './Pages/Mentors';
+
+import Recovery from './Pages/Recovery';
   
 
 //paginas do professor/mentor
@@ -87,6 +89,10 @@ const router =  createBrowserRouter([
   {
     path:"/cadastro",
     element:<Cad />
+  },
+  {
+    path:"/Recovery",
+    element:<Recovery/>
   },
   // Páginas dos mentores
   {
