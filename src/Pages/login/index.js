@@ -4,11 +4,15 @@ import msIco from '../../assets/img/Arts/microsft.png';
 import reaginArt from '../../assets/img/Arts/reading.jpg';
 import { Link } from 'react-router-dom';
 import Accessibility from '../../Components/Acessibility/Accessibility';
+import Footer from '../../Components/Footer/Footer';
 function Login() {
     return (
         <div className={styles.main}>
             <div className={styles.header}>
                 <h2>Mentec</h2>
+                <button id={styles.cadBtn}>
+                    <h4>Criar uma conta no mentec</h4>
+                </button>
             </div>
             <div className={styles.formAndArt}>
                 <div className={styles.formBox}>
@@ -38,6 +42,7 @@ function Login() {
                 </div>
             </div>
             <Accessibility />
+            <Footer></Footer>
         </div>
     );
 }
