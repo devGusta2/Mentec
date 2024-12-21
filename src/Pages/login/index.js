@@ -10,9 +10,9 @@ function Login() {
         <div className={styles.main}>
             <div className={styles.header}>
                 <h2>Mentec</h2>
-                <button id={styles.cadBtn}>
+                <Link  to='/cadastro'id={styles.cadBtn}>
                     <h4>Criar uma conta no mentec</h4>
-                </button>
+                </Link>
             </div>
             <div className={styles.formAndArt}>
                 <div className={styles.formBox}>
@@ -21,7 +21,7 @@ function Login() {
                         
                         <input className={styles.inpt} placeholder='E-mail' />
                         <input className={styles.inpt} placeholder='Senha' />
-                        <p id={styles.textForgotPass}>Esqueceu sua senha?</p>
+                        <Link to='/Recovery' id={styles.textForgotPass}><span>Esqueceu sua senha?</span></Link>
 
                         <div id={styles.formRow}>
                             <input type='checkbox' id={styles.check} />
