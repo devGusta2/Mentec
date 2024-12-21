@@ -32,9 +32,17 @@
     justify-content: center;
     align-items: center;
 }
+.formBox{
+    height: 100%;
+    width: 45%;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .formLogin{
     height: 90%;
-    width: 30%;
+    width: 70%;
     background-color: var(--bg-red2);
     border-radius: 16px;
     display: flex;
@@ -46,6 +54,11 @@
     font-size: 18pt;
     font-weight: 100;
     color: white;
+}
+#textForgotPass{
+    margin-left: 40%;
+    margin-top: -10%;
+
 }
 .inpt{
     display: block;
@@ -85,8 +98,8 @@
     border-radius: 5px;
 }
 
-.art{
-    width: 60%;
+.artBox{
+    width: 55%;
     height: 100%;
-
+    background-color: blue;
 }
