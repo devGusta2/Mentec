@@ -34,15 +34,15 @@
 }
 .formBox{
     height: 100%;
-    width: 45%;
-    background-color: red;
+    width: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .formLogin{
     height: 90%;
-    width: 70%;
+    width: 65%;
     background-color: var(--bg-red2);
     border-radius: 16px;
     display: flex;
@@ -55,9 +55,12 @@
     font-weight: 100;
     color: white;
 }
+.formLogin p:nth-child(2){
+    margin-left: -15%;
+}
 #textForgotPass{
     margin-left: 40%;
-    margin-top: -10%;
+    margin-top: -5%;
 
 }
 .inpt{
@@ -96,10 +99,52 @@
     outline: 0;
     color: white;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .artBox{
-    width: 55%;
+    width: 50%;
     height: 100%;
-    background-color: blue;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#artImg{
+    height: 65%;
+    width: 55%;
+}
+#check{
+    cursor: pointer;
+}
+#btnMs{
+    width: 75%;
+    height: 50px;
+    background-color: white;
+    border: 0;
+    outline: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+ 
+    cursor: pointer;
+
+}
+
+#text{
+ 
+    height: 40%;
+    width: 100%;
+    display: flex;
+    
+    justify-content: center;
+
+}
+#text h3{
+    font-size: 1.5em;
+    width: 50%;
+}
+#text span{
+    color: #A6192E;
 }
