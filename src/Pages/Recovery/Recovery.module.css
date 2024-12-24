@@ -48,3 +48,18 @@
     font-weight: 200;
     text-decoration: none;
 }
+.formBox{
+    width: 100%;
+    height: calc(100vh - 5em);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formRecovery{
+    height: 70%;
+    width: 50%;
+    background-color: #770B1C;
+    border-radius: 16px;
+    color: white;
+}
