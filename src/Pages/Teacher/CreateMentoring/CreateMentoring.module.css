@@ -52,7 +52,7 @@ textarea{
 
 
 /* Forms */
-form{
+#form{
  
     height: 110%;
     width: 70%;
@@ -117,7 +117,7 @@ form{
         margin-top: 50px;
         margin-right: 0px;
     }
-    form{
+    #form{
         flex-direction: column;
     }
     .title_inpt{
