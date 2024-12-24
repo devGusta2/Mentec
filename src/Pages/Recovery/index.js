@@ -9,9 +9,9 @@ export default function Recovery() {
         <div className={styles.main}>
             <div className={styles.header}>
                 <Link id={styles.title} to='/'>Mentec</Link>
-                <button id={styles.cadBtn}>
+                <Link  to='/cadastro'id={styles.cadBtn}>
                     <h4>Criar uma conta no mentec</h4>
-                </button>
+                </Link>
             </div>
             <div className={styles.formBox}>
                 <form className={styles.formRecovery}>
