@@ -62,4 +62,46 @@
     background-color: #770B1C;
     border-radius: 16px;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.formRecovery p:nth-child(1){
+    font-size: 1.8em;
+    font-weight: 200;
+}
+
+.formRecovery p:nth-child(2){
+    font-size: 0.8em;
+    font-weight: 200;
+}
+
+
+.inpt{
+    display: block;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    outline: 0;
+    padding: 0 10px;
+    height: 30px;
+    width: 75%;
+    
+}
+.inpt::placeholder{
+    color: white;
+}
+#btn{
+    background-color: #00BCD4;
+    height: 3em;
+    width: 300px;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    color: white;
 }
