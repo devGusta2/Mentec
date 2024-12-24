@@ -2,6 +2,7 @@ import styles from './Recovery.module.css';
 import { Link } from 'react-router-dom';
 import { faEnvelope} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Footer from '../../Components/Footer/Footer';
 export default function Recovery() {
     return (
 
@@ -22,6 +23,7 @@ export default function Recovery() {
                     <button id={styles.btn}><h3>Recuperar</h3></button>
                 </form>
             </div>
+            <Footer />
         </div>
     );
 }
