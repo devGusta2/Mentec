@@ -68,7 +68,7 @@ export default function CreateMentoring() {
                 </div>
             </div>
             <div className={styles.form_container}>
-                <form onSubmit={publicarMentoria}>
+                <form id={styles.form}onSubmit={publicarMentoria}>
                     <div className={styles.title_inpt}>
                         <h3>* Título:</h3>
                         <input
