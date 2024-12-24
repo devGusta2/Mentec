@@ -10,8 +10,12 @@ export default function Recovery() {
                     <h4>Criar uma conta no mentec</h4>
                 </button>
             </div>
-            <h3>Recupere sua conta!</h3>
-            <p>Por favor, digite o email da conta que você quer recuperar.</p>
+            <div className={styles.formBox}>
+                <form className={styles.formRecovery}>
+                    <h3>Recupere sua conta!</h3>
+                    <p>Por favor, digite o email da conta que você quer recuperar.</p>
+                </form>
+            </div>
         </div>
     );
 }
