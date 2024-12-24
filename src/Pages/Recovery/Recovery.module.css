@@ -57,7 +57,7 @@
 }
 
 .formRecovery{
-    height: 70%;
+    height: 90%;
     width: 50%;
     background-color: #770B1C;
     border-radius: 16px;
@@ -97,7 +97,7 @@
     color: white;
 }
 #btn{
-    background-color: #00BCD4;
+    background-color: rgb(187, 74, 89);
     height: 3em;
     width: 300px;
     border: 0;
