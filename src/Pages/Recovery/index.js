@@ -1,10 +1,11 @@
 import styles from './Recovery.module.css';
+import { Link } from 'react-router-dom';
 export default function Recovery() {
     return (
 
         <div className={styles.main}>
             <div className={styles.header}>
-                <h2>Mentec</h2>
+                <Link id={styles.title} to='/'>Mentec</Link>
                 <button id={styles.cadBtn}>
                     <h4>Criar uma conta no mentec</h4>
                 </button>
