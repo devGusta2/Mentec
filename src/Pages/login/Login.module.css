@@ -5,23 +5,28 @@
     --bg-color:#02072D;
     --bg-color1:#A6192E;
     --bg-red1:#A6192E;
-    --bg-red2:#910F25;
+    --bg-background2:#910F25;
     --bg-red3:#770B1C;
     --bg-color2:#000434;
     --bg-color3:whitesmoke;
     --bg-azulteste:rgb(39, 22, 101);
     --bg-menu:#00013C;
-    --bg-body:#1E1E1E;
+    --bg-body:#1E1E1E;  
+
+
+    --bg-btn1:#CA2F46;
+    --bg-btn2:#a73142;
   }
 
 .main{
     height: 100vh;
     width: 100%;
+    user-select: none;
 }
 .header{
     height: 5em;
     width: 100%;
-    background-color: var(--bg-red2);
+    background-color: var(--bg-background2);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,7 +47,7 @@
     width: 250px;
     border-radius: 5px;
     cursor: pointer;
-    background-color: rgb(187, 74, 89);
+    background-color:var(--bg-btn1);
     color: white;
     text-decoration: none;
     padding: 10px 30px;
@@ -65,7 +70,7 @@
 .formLogin{
     height: 95%;
     width: 65%;
-    background-color: var(--bg-red2);
+    background-color: var(--bg-background2);
     border-radius: 16px;
     display: flex;
     flex-direction: column;
@@ -119,7 +124,7 @@
 #btnLogin{
     height: 50px;
     width: 130px;
-    background-color: #a73142;
+    background-color:var(--bg-btn2);
     border: 0;
     outline: 0;
     color: white;
@@ -189,7 +194,13 @@
     color: white;
     height: 100%;
 }
-
+#btnDark{
+    cursor: pointer;
+    transition: 0.5s;
+}
+#btnDark:hover{
+    transform: rotateZ(-20deg);
+}
  
 /* responsivo */
 
