@@ -1,3 +1,6 @@
+*{
+    transition: 0.5s;
+}
 :root{
     --text-color:white;
     --text-color1:black;
@@ -12,16 +15,30 @@
     --bg-azulteste:rgb(39, 22, 101);
     --bg-menu:#00013C;
     --bg-body:#1E1E1E;  
-
-
     --bg-btn1:#CA2F46;
     --bg-btn2:#a73142;
+
+    --bg-main:white;
+
+    --color-text:black;
+    --text-color2:#A6192E;
   }
 
 .main{
     height: 100vh;
     width: 100%;
     user-select: none;
+    background-color: var(--bg-main);
+
+}
+.headerDark{
+    background-color: #271665;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 9%;
+    height: 5em;
+    width: 100%;
 }
 .header{
     height: 5em;
@@ -170,7 +187,7 @@
 }
 
 #text{
- 
+    color: var(--color-text);
     height: 40%;
     width: 100%;
     display: flex;
@@ -183,7 +200,7 @@
     width: 50%;
 }
 #text span{
-    color: #A6192E;
+    color: var(--text-color2);
 }
 #bnts{
     width:30%;
