@@ -5,14 +5,20 @@ import reaginArt from '../../assets/img/Arts/reading.jpg';
 import { Link } from 'react-router-dom';
 import Accessibility from '../../Components/Acessibility/Accessibility';
 import Footer from '../../Components/Footer/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoon } from '@fortawesome/free-solid-svg-icons';
 function Login() {
     return (
         <div className={styles.main}>
             <div className={styles.header}>
                 <Link id={styles.title} to='/'>Mentec</Link>
-                <Link  to='/cadastro'id={styles.cadBtn}>
-                    <h4>Criar uma conta no mentec</h4>
-                </Link>
+                <div id={styles.bnts}>
+
+                    <Link  to='/cadastro'id={styles.cadBtn}>
+                        <h4>Criar uma conta no mentec</h4>
+                    </Link>
+                    <FontAwesomeIcon icon={faMoon} size='2x'/>
+                </div>
             </div>
             <div className={styles.formAndArt}>
                 <div className={styles.formBox}>
