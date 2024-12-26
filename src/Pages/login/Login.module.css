@@ -180,7 +180,15 @@
 #text span{
     color: #A6192E;
 }
-
+#bnts{
+    width:30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3em;
+    color: white;
+    height: 100%;
+}
 
  
 /* responsivo */
