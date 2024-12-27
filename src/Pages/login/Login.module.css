@@ -228,8 +228,15 @@
     .formBox{
         width: 100%;
     }
+    #bnts{
+        width: 50%;
+
+    }
     #cadBtn{
-        width: 150px;
+        width: 200px;
+        font-size: 0.65em;
+        padding: 15px 30px;
+  
     }
     .formLogin{
         width: 75%;
