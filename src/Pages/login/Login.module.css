@@ -110,6 +110,20 @@
     color: white;
     font-weight: 200;
 }
+.inptField{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.inptField label {
+    position: absolute;
+    top: 15%;
+    left: 12%;
+    pointer-events: none;
+}
 .inpt{
     display: block;
     border-top: 0;
@@ -118,11 +132,18 @@
     border-bottom: 1px solid white;
     background-color: transparent;
     outline: 0;
-    padding: 0 10px;
+    padding: 5px 10px;
     height: 30px;
+    color: white;
     width: 75%;
     
 }
+.inptField input:focus ~ label,
+.inptField input:not(:placeholder-shown) ~ label {
+    margin-top: -15px;
+    font-size: 10px;
+}
+
 .inpt::placeholder{
     color: white;
 }
