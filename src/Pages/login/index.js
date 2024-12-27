@@ -52,8 +52,14 @@ function Login() {
                 <div className={styles.formBox}>
                     <form className={styles.formLogin}>
                         <p>Fazer login</p>
-                        <input className={styles.inpt} placeholder='E-mail' />
-                        <input className={styles.inpt} placeholder='Senha' />
+                        <div className={styles.inptField}>
+                            <input className={styles.inpt}  placeholder=" " />
+                            <label>E-mail:</label>
+                        </div>
+                        <div className={styles.inptField}>
+                            <input className={styles.inpt}  placeholder=" " />
+                            <label>Senha:</label>
+                        </div>
                         <Link to='/Recovery' id={styles.textForgotPass}><span>Esqueceu sua senha?</span></Link>
                         <div id={styles.formRow}>
                             <input type='checkbox' id={styles.check} />
