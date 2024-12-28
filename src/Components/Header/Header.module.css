@@ -1,11 +1,7 @@
 :root{
     --header-color:#02072D;
 }
-@font-face {
-    font-family: 'MentecFont';
-    src: url('../../assets/fonts/eurostile.TTF');
-    font-weight: normal;
-}
+
 .header{
     background-color:var(--bg-azulteste);
     height: 5em;
@@ -26,10 +22,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'MentecFont';
+
     color: white;
     text-decoration: none;
-
+ 
+}
+.logoBox h1{
+    font-family: 'MentecFont';
 }
 .navSearchBox{
     display: flex;
