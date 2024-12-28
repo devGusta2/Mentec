@@ -53,11 +53,11 @@ function Login() {
                     <form className={styles.formLogin}>
                         <p>Fazer login</p>
                         <div className={styles.inptField}>
-                            <input className={styles.inpt}  placeholder=" " />
+                            <input className={styles.inpt}  placeholder=" " type='email'/>
                             <label>E-mail:</label>
                         </div>
                         <div className={styles.inptField}>
-                            <input className={styles.inpt}  placeholder=" " />
+                            <input className={styles.inpt}  placeholder=" "type='password' />
                             <label>Senha:</label>
                         </div>
                         <Link to='/Recovery' id={styles.textForgotPass}><span>Esqueceu sua senha?</span></Link>
