@@ -78,6 +78,8 @@ nav{
 .link-login{
   text-decoration: none;
   color: white;
+  font-size: 0.8em;
+  font-family: 'MentecFont';
 }
 .top-elements nav{
   display: flex;
