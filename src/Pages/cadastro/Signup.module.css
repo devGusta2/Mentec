@@ -60,6 +60,13 @@
     color: white;
     height: 100%;
 }
+#btnDark{
+    cursor: pointer;
+    transition: 0.5s;
+}
+#btnDark:hover{
+    transform: rotateZ(-20deg);
+}
 /* .formBox{
     height: 100%;
     width: 70%;
@@ -164,3 +171,10 @@
     text-decoration: none;
     justify-content: center;
 } */
+
+.formAndArt{
+    height: calc(100vh - 5em);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
