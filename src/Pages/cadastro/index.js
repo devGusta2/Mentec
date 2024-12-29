@@ -44,6 +44,9 @@ export default function Cadastro() {
                     <FontAwesomeIcon onClick={toggleDarkMode} id={styles.btnDark} icon={faMoon} size='2x' />
                 </div>
             </div>
+            <div className={styles.formAndArt}>
+                
+            </div>
             {/* <div className={styles.formBox}>
             <form className={styles.form}>
                 <h2>Crie sua conta!</h2>
