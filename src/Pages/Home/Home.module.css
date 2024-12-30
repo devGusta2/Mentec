@@ -8,14 +8,14 @@
 
 .news_container{
     height: 100vh;
-    width: 100%;
+    width: 90%;
     display: flex;
 }
 .colNews:nth-child(1){
-    width: 40%;
+    width: 50%;
 }
 .colNews:nth-child(2){
-    width: 60%;
+    width: 50%;
 }
 .colNews{
     display: flex;
@@ -27,7 +27,7 @@
     justify-content: space-around;
 }
 .newsBox{
-    width: 90%;
+    width: 100%;
     height: 50%;
     display: flex;
     flex-direction: column;
@@ -39,4 +39,15 @@
     width: 95%;
     height: 80%;
     border-radius: 10px;
+}
+
+.cardNews:nth-child(1){
+    height: 50%;
+    width: 100%;
+    background-color: #45B445;
+}
+.cardNews:nth-child(2){
+    height: 50%;
+    width: 100%;
+    background-color: #FFDD53;
 }
