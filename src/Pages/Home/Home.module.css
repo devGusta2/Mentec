@@ -9,5 +9,34 @@
 .news_container{
     height: 100vh;
     width: 100%;
-    
+    display: flex;
+}
+.colNews:nth-child(1){
+    width: 40%;
+}
+.colNews:nth-child(2){
+    width: 60%;
+}
+.colNews{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+
+    align-items: center;
+    justify-content: space-around;
+}
+.newsBox{
+    width: 90%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 20px;
+}
+
+.img{
+    width: 95%;
+    height: 80%;
+    border-radius: 10px;
 }
