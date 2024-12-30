@@ -38,39 +38,51 @@ export default function Cadastro() {
             <div className={styles.header}>
                 <Link id={styles.title} to='/'>Mentec</Link>
                 <div id={styles.bnts}>
-                    <Link to='/cadastro' id={styles.cadBtn}>
+                    <Link to='/login' id={styles.cadBtn}>
                         <h4>Fazer login no mentec</h4>
                     </Link>
                     <FontAwesomeIcon onClick={toggleDarkMode} id={styles.btnDark} icon={faMoon} size='2x' />
                 </div>
             </div>
             <div className={styles.formAndArt}>
+                <div id={styles.artPlace}>
+
+                </div>  
                 <div className={styles.formBox}>
                     <form id={styles.form}>
-                        <h2 id={styles.title}>Crie sua conta!</h2>
-                        <div className={styles.inptField}>
-                            
-                            <input placeholder="" className={styles.inpt}></input>
-                            <label>Nome:</label>
+                        <p id={styles.titleCad}>Cadastre uma conta!</p>
+                        <div id={styles.row}>
+                            <div className={styles.inptField}>
+                                
+                                <input placeholder="" className={styles.inpt}></input>
+                                <label>Nome:</label>
+                                
+                            </div>
+                            <div className={styles.inptField}>
+                                
+                                <input placeholder="" className={styles.inpt}></input>
+                                <label>Sobrenome:</label>
+                                
+                            </div>
                         </div>
                         <div className={styles.inptField}>
                            
-                            <input placeholder="" className={styles.inpt}></input>
+                            <input placeholder="" type='email'className={styles.inpt}></input>
                              <label>E-mail:</label>
                         </div>
                         <div className={styles.inptField}>
                 
-                            <input placeholder="" className={styles.inpt}></input>
+                            <input placeholder="" type='number'className={styles.inpt}></input>
                             <label>Número de matricula:</label>
                         </div>
                         <div className={styles.inptField}>
                     
-                            <input placeholder="" className={styles.inpt}></input>
+                            <input placeholder="" type='password' className={styles.inpt}></input>
                             <label>Senha:</label>
                         </div>
                         <div className={styles.inptField}>
                            
-                            <input placeholder="" className={styles.inpt}></input>
+                            <input placeholder=""type='password'     className={styles.inpt}></input>
                             <label>Senha:</label>
                         </div>
                  
