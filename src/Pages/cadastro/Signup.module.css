@@ -14,6 +14,26 @@
     --color-1:#02072D;
     --color-white:white;
     --color-btn:#461F62;
+    --text-color:white;
+    --text-color1:black;
+    --btn-color:#00BCD4;
+    --bg-color:#02072D;
+    --bg-color1:#A6192E;
+    --bg-red1:#A6192E;
+    --bg-background2:#910F25;
+    --bg-red3:#770B1C;
+    --bg-color2:#000434;
+    --bg-color3:whitesmoke;
+    --bg-azulteste:rgb(39, 22, 101);
+    --bg-menu:#00013C;
+    --bg-body:#1E1E1E;  
+    --bg-btn1:#CA2F46;
+    --bg-btn2:#a73142;
+
+    --bg-main:white;
+
+    --color-text:black;
+    --text-color2:#A6192E;
 }
 
 
@@ -48,9 +68,13 @@
     background-color:var(--bg-btn1);
     color: white;
     text-decoration: none;
-    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 0.9em;
+    
 }
+
 #bnts{
     width:30%;
     display: flex;
@@ -76,27 +100,35 @@
     justify-content: center;
     
 }
-.form{
-    height: 500px;
-    width: 400px;
-
+    */
+#form{
+    height: 90%;
+    width: 70%;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
     gap: 1em;  
-    background: linear-gradient(169deg, rgba(27,91,120,1) 59%, rgba(23,139,166,1) 87%, rgba(0,212,255,1) 100%);
+    background:var(--bg-background2) ;
 
-} */
-/* .inpt{
+} 
+ .inpt{
     width: 280px;
     height: 40px;
-    border: 0;
+    border-top:0 ;
+    border-left: 0;
+    border-right: 0;
+    background-color: transparent;
     outline: 0;
-    border-radius: 5px;
     padding: 0 5px;
+    border-bottom: 1px solid white;
 }
+#title{
+    color: white;
+}
+/*
 .btn{
     width: 320px;
     height: 60px;
@@ -177,4 +209,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.formBox{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  
+}
+.btn{
+    background-color: var(--bg-btn2);
+    border: 0;
+    width: 50%;
+    height: 10%;
+    border-radius: 5px;
+    color: white;
 }
