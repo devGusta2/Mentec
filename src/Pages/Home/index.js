@@ -16,7 +16,7 @@ export default function Home() {
                         <img src='https://thumbs.dreamstime.com/b/programmierer-der-mit-programmcode-arbeitet-131979164.jpg' className={styles.img}>
 
                         </img>
-                        <h3>Conheça as equipes ganhadoras do Interfatecs</h3>
+                        <h2>Conheça as equipes ganhadoras do Interfatecs</h2>
                         <p>
                             Fique por dentro também das equipes da sua fatec
                             participaram do interfatecs
@@ -36,19 +36,21 @@ export default function Home() {
                         <img src='https://th.bing.com/th/id/R.74bbf3ef034fa9dbaca13a5b9f777fc6?rik=vnTSmAzvXDtayA&pid=ImgRaw&r=0' className={styles.img}>
 
                         </img>
-                        <h3>Novas mentorias disponíveis</h3>
+                        <h2>Novas mentorias disponíveis</h2>
                         <p>
                             Veja as novas mentorias disponiveis em nosso portal de mentorias.
                         </p>
                     </div>
-                    <div className={styles.newsBox}>
-                        <img src='https://th.bing.com/th/id/R.74bbf3ef034fa9dbaca13a5b9f777fc6?rik=vnTSmAzvXDtayA&pid=ImgRaw&r=0' className={styles.img}>
+                    <div className={styles.newsBox} id={styles.inter}>
+                        <img src='https://th.bing.com/th/id/OIP.OgTVdrYKcGStgZHikgmK7gHaGe?rs=1&pid=ImgDetMain' className={styles.img}>
 
                         </img>
-                        <h3>Veja as oportunidades de intercâmbio em sua fatec</h3>
-                        <p>
-                            FIque por dentro das oportunidades de intercâbio edisponíveis para sua fatec!
-                        </p>
+                        <div className={styles.info}>
+                            <h2>Veja as oportunidades de intercâmbio em sua fatec</h2>
+                            <p>
+                                FIque por dentro das oportunidades de intercâbio edisponíveis para sua fatec!
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
