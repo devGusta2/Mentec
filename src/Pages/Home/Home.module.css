@@ -51,3 +51,23 @@
     width: 100%;
     background-color: #FFDD53;
 }
+
+
+#inter{
+    flex-direction: row;
+    width: 100%;
+    
+}
+#inter img{
+    width: 60%;
+    height: 100%;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.container img, p, .cardNews{
+    cursor: pointer;
+}
