@@ -64,3 +64,13 @@
 #radio2:checked ~ .first{
     margin-left: -25%;
 }
+
+
+@media (max-width:768px) {
+    .carousel{
+        height: 250px;
+    }
+    .slides{
+        height: 250px;
+    }
+}
