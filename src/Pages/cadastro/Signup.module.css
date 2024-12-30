@@ -58,6 +58,10 @@
     font-weight: 200;
     text-decoration: none;
 }
+#titleCad{
+    font-size: 1.5em;
+    font-family: 'MentecFont';
+}
 #cadBtn{
     outline: 0;
     border: 0;
@@ -211,6 +215,9 @@
     
   
 }
+.inpt::placeholder{
+    color: white;
+}
 .inpt{
     width: 75%;
     height: 40px;
@@ -221,11 +228,25 @@
     outline: 0;
     padding: 0 5px;
     border-bottom: 1px solid white;
+    color: rgb(221, 221, 221);
+}
+#row{
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+    width: 86%;
+}
+.inptField:nth-child(-n +2){
+    height: 100%;
 }
 .inptField input:focus ~ label,
+
 .inptField input:not(:placeholder-shown) ~ label {
     margin-top: -15px;
     font-size: 10px;
+}
+input:focus{
+    border-bottom: 2px solid #2365D5;
 }
 .inptField{
     height: 10%;
@@ -238,14 +259,28 @@
 .inptField label{
     position: absolute;
     left: 0;
-    margin-left: 10%;
+    margin-left: 12%;
     margin-top: 3%;
-    pointer-events: none;}
+    font-size: 15px;
+    pointer-events: none;
+}
 .btn{
     background-color: var(--bg-btn2);
     border: 0;
     width: 50%;
     height: 10%;
     border-radius: 5px;
+    cursor: pointer;
     color: white;
+}
+.btn:hover{
+    background-color: rgb(202, 47, 70);
+}
+
+
+
+/* lugar da arte */
+#artPlace{
+    height: 100%;
+    width: 50%;
 }
