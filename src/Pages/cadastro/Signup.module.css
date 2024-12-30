@@ -40,7 +40,7 @@
 .main{
     height: 100vh;
     width: 100%;
-    background-color: #23244E;
+    background-color: var(--bg-main);
 }
 .header{
     height: 5em;
