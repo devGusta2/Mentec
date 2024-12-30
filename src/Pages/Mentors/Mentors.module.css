@@ -39,6 +39,7 @@
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    box-shadow: 4px 4px 15px rgb(161, 161, 161);
 }
 .colCard{
     display: flex;
