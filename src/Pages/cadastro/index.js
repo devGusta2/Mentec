@@ -48,11 +48,32 @@ export default function Cadastro() {
                 <div className={styles.formBox}>
                     <form id={styles.form}>
                         <h2 id={styles.title}>Crie sua conta!</h2>
-                        <input placeholder="Nome:" className={styles.inpt}></input>
-                        <input placeholder="E-mail:" className={styles.inpt}></input>
-                        <input placeholder="Número de matricula:" className={styles.inpt}></input>
-                        <input placeholder="Senha:" className={styles.inpt}></input>
-                        <input placeholder="Repita sua senha:" className={styles.inpt}></input>
+                        <div className={styles.inptField}>
+                            
+                            <input placeholder="" className={styles.inpt}></input>
+                            <label>Nome:</label>
+                        </div>
+                        <div className={styles.inptField}>
+                           
+                            <input placeholder="" className={styles.inpt}></input>
+                             <label>E-mail:</label>
+                        </div>
+                        <div className={styles.inptField}>
+                
+                            <input placeholder="" className={styles.inpt}></input>
+                            <label>Número de matricula:</label>
+                        </div>
+                        <div className={styles.inptField}>
+                    
+                            <input placeholder="" className={styles.inpt}></input>
+                            <label>Senha:</label>
+                        </div>
+                        <div className={styles.inptField}>
+                           
+                            <input placeholder="" className={styles.inpt}></input>
+                            <label>Senha:</label>
+                        </div>
+                 
                         <button className={styles.btn}>Cria conta</button>
                     </form>
                 </div>
