@@ -102,6 +102,7 @@
 }
     */
 #form{
+    color: white;
     height: 90%;
     width: 70%;
     border-radius: 10px;
@@ -114,17 +115,7 @@
     background:var(--bg-background2) ;
 
 } 
- .inpt{
-    width: 280px;
-    height: 40px;
-    border-top:0 ;
-    border-left: 0;
-    border-right: 0;
-    background-color: transparent;
-    outline: 0;
-    padding: 0 5px;
-    border-bottom: 1px solid white;
-}
+
 #title{
     color: white;
 }
@@ -220,6 +211,36 @@
     
   
 }
+.inpt{
+    width: 75%;
+    height: 40px;
+    border-top:0 ;
+    border-left: 0;
+    border-right: 0;
+    background-color: transparent;
+    outline: 0;
+    padding: 0 5px;
+    border-bottom: 1px solid white;
+}
+.inptField input:focus ~ label,
+.inptField input:not(:placeholder-shown) ~ label {
+    margin-top: -15px;
+    font-size: 10px;
+}
+.inptField{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+.inptField label{
+    position: absolute;
+    left: 0;
+    margin-left: 10%;
+    margin-top: 3%;
+    pointer-events: none;}
 .btn{
     background-color: var(--bg-btn2);
     border: 0;
