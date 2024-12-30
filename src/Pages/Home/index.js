@@ -10,7 +10,7 @@ export default function Home() {
             {/* <Carousel /> */}
 
             <div className={styles.news_container}>
-         
+
                 <div className={styles.colNews}>
                     <div className={styles.newsBox}>
                         <img src='https://thumbs.dreamstime.com/b/programmierer-der-mit-programmcode-arbeitet-131979164.jpg' className={styles.img}>
@@ -18,16 +18,38 @@ export default function Home() {
                         </img>
                         <h3>Conheça as equipes ganhadoras do Interfatecs</h3>
                         <p>
-                            Fique por dentro também das equipes da sua fatec 
+                            Fique por dentro também das equipes da sua fatec
                             participaram do interfatecs
                         </p>
                     </div>
                     <div className={styles.newsBox}>
+                        <div className={styles.cardNews}>
 
+                        </div>
+                        <div className={styles.cardNews}>
+
+                        </div>
                     </div>
                 </div>
                 <div className={styles.colNews}>
+                    <div className={styles.newsBox}>
+                        <img src='https://th.bing.com/th/id/R.74bbf3ef034fa9dbaca13a5b9f777fc6?rik=vnTSmAzvXDtayA&pid=ImgRaw&r=0' className={styles.img}>
 
+                        </img>
+                        <h3>Novas mentorias disponíveis</h3>
+                        <p>
+                            Veja as novas mentorias disponiveis em nosso portal de mentorias.
+                        </p>
+                    </div>
+                    <div className={styles.newsBox}>
+                        <img src='https://th.bing.com/th/id/R.74bbf3ef034fa9dbaca13a5b9f777fc6?rik=vnTSmAzvXDtayA&pid=ImgRaw&r=0' className={styles.img}>
+
+                        </img>
+                        <h3>Veja as oportunidades de intercâmbio em sua fatec</h3>
+                        <p>
+                            FIque por dentro das oportunidades de intercâbio edisponíveis para sua fatec!
+                        </p>
+                    </div>
                 </div>
             </div>
             <Accessibility />
