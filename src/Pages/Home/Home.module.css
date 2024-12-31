@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
 }
 
 .news_container{
@@ -33,12 +34,14 @@
     flex-direction: column;
     gap: 0.5em;
     padding: 20px;
+  
 }
 
 .img{
     width: 95%;
     height: 80%;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .cardNews:nth-child(1){
