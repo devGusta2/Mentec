@@ -398,17 +398,26 @@ footer{
     width: 100%;
     height: 100%;
   }
+  .benefits{
+    padding: 5px;
+  }
+  .cardsContainer{
+    height: 100%;
+
+
+  }
   .card{
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 20%;
     width:clamp(5px , 80vw, 500px) ;
     font-size: clamp(1pt, 20vw, 10pt);
     display: flex;
     flex-direction: row;
     overflow: auto;
-
+    
   }
+
   .card p{
 
     height: 100%;
@@ -423,7 +432,7 @@ footer{
   .column-app:nth-child(1){
     flex-direction: row;
     width: 100%;
-    height: 39%;
+    height: 60%;
   }
   .column-app:nth-child(2){
     width: 100%;
@@ -431,7 +440,7 @@ footer{
   }
   .column-app:nth-child(3){
     width: 100%;
-    height:60%;
+    height:40%;
   }
   .column-app:nth-child(1) ul{
     height: 100%;

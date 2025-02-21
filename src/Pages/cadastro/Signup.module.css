@@ -14,18 +14,88 @@
     --color-1:#02072D;
     --color-white:white;
     --color-btn:#461F62;
+    --text-color:white;
+    --text-color1:black;
+    --btn-color:#00BCD4;
+    --bg-color:#02072D;
+    --bg-color1:#A6192E;
+    --bg-red1:#A6192E;
+    --bg-background2:#910F25;
+    --bg-red3:#770B1C;
+    --bg-color2:#000434;
+    --bg-color3:whitesmoke;
+    --bg-azulteste:rgb(39, 22, 101);
+    --bg-menu:#00013C;
+    --bg-body:#1E1E1E;  
+    --bg-btn1:#CA2F46;
+    --bg-btn2:#a73142;
+
+    --bg-main:white;
+
+    --color-text:black;
+    --text-color2:#A6192E;
 }
 
 
 .main{
     height: 100vh;
     width: 100%;
+    background-color: var(--bg-main);
+}
+.header{
+    height: 5em;
+    width: 100%;
+    background-color: var(--bg-background2);
     display: flex;
-    flex-direction: row;
-    background-color: #23244E;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 9%;
+}
+#title{
+    font-family: 'MentecFont';
+    font-size: 2.2em;
+    color: white;
+    font-weight: 200;
+    text-decoration: none;
+}
+#titleCad{
+    font-size: 1.5em;
+    font-family: 'MentecFont';
+}
+#cadBtn{
+    outline: 0;
+    border: 0;
+    height: 40px;
+    width: 250px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color:var(--bg-btn1);
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    
 }
 
-.formBox{
+#bnts{
+    width:30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3em;
+    color: white;
+    height: 100%;
+}
+#btnDark{
+    cursor: pointer;
+    transition: 0.5s;
+}
+#btnDark:hover{
+    transform: rotateZ(-20deg);
+}
+/* .formBox{
     height: 100%;
     width: 70%;
     color: white;
@@ -34,27 +104,26 @@
     justify-content: center;
     
 }
-.form{
-    height: 500px;
-    width: 400px;
-
+    */
+#form{
+    color: white;
+    height: 90%;
+    width: 70%;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
     gap: 1em;  
-    background: linear-gradient(169deg, rgba(27,91,120,1) 59%, rgba(23,139,166,1) 87%, rgba(0,212,255,1) 100%);
+    background:var(--bg-background2) ;
 
+} 
+
+#title{
+    color: white;
 }
-.inpt{
-    width: 280px;
-    height: 40px;
-    border: 0;
-    outline: 0;
-    border-radius: 5px;
-    padding: 0 5px;
-}
+/*
 .btn{
     width: 320px;
     height: 60px;
@@ -128,4 +197,90 @@
     align-items: center;
     text-decoration: none;
     justify-content: center;
+} */
+
+.formAndArt{
+    height: calc(100vh - 5em);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formBox{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  
+}
+.inpt::placeholder{
+    color: white;
+}
+.inpt{
+    width: 75%;
+    height: 40px;
+    border-top:0 ;
+    border-left: 0;
+    border-right: 0;
+    background-color: transparent;
+    outline: 0;
+    padding: 0 5px;
+    border-bottom: 1px solid white;
+    color: rgb(221, 221, 221);
+}
+#row{
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+    width: 86%;
+}
+.inptField:nth-child(-n +2){
+    height: 100%;
+}
+.inptField input:focus ~ label,
+
+.inptField input:not(:placeholder-shown) ~ label {
+    margin-top: -15px;
+    font-size: 10px;
+}
+input:focus{
+    border-bottom: 2px solid #2365D5;
+}
+.inptField{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+.inptField label{
+    position: absolute;
+    left: 0;
+    margin-left: 12%;
+    margin-top: 3%;
+    font-size: 15px;
+    pointer-events: none;
+}
+.btn{
+    background-color: var(--bg-btn2);
+    border: 0;
+    width: 50%;
+    height: 10%;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+.btn:hover{
+    background-color: rgb(202, 47, 70);
+}
+
+
+
+/* lugar da arte */
+#artPlace{
+    height: 100%;
+    width: 50%;
 }
