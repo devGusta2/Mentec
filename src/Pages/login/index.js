@@ -1,7 +1,7 @@
 import styles from './Login.module.css';
 import msIco from '../../assets/img/Arts/microsft.png';
-import reaginArt from '../../assets/img/Arts/Mascote Mentec.png';
-import reaginArtDark from '../../assets/img/Arts/readingDark.jpg';
+import reaginArt from '../../assets/img/Arts/Mascote Mentec vermelho.png';
+import reaginArtDark from '../../assets/img/Arts/MascoteMentec.png';
 import { Link } from 'react-router-dom';
 import Accessibility from '../../Components/Acessibility/Accessibility';
 import Footer from '../../Components/Footer/Footer';
@@ -73,7 +73,7 @@ function Login() {
                     </form>
                 </div>
                 <div className={styles.artBox}>
-                    <img src={tema ? reaginArt : reaginArt} id={styles.artImg} alt="Reading Art" />
+                    <img src={tema ? reaginArtDark : reaginArt} id={styles.artImg} alt="Reading Art" />
                     <div id={styles.text}>
                         <h3>Encontre a melhor <span>mentoria</span> ideal para complementar seus estudos</h3>
                     </div>
