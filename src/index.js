@@ -26,7 +26,7 @@ import Calendar from './Pages/Calendar';
 import Mentors from './Pages/Mentors';
 
 import Recovery from './Pages/Recovery';
-  
+import Chat from './Pages/Chat';  
 
 //paginas do professor/mentor
 import CreateMentoring from './Pages/Teacher/CreateMentoring';
@@ -107,6 +107,10 @@ const router =  createBrowserRouter([
     path:"Teacher",
     element:<Teacher />
   },
+  {
+    path:'Pages/Chat',
+    element:<Chat />
+  }
 ]);
 
 
