@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'MentecFont';
+    src: url('../../assets/fonts/eurostile.TTF');
+    font-weight: normal;
+  }
+
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
 #menu{
     height:100vh;
     width: 20%;
@@ -7,10 +19,154 @@
     height: 70px;
     background-color: #910F25;
     color: white;
-    font-size: 35px;
+    font-size: 30px;
     padding: 20px;
     box-sizing: border-box;
+    font-family: 'MentecFont';
 }
 #titlePageChat{
     margin: auto;
+}
+
+#contentMessages{
+    height: 100vh;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+#upInfoBox{
+    height: 70px;
+    width: 100%;
+    background-color: #910F25;
+}
+#searchBarBox{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+#searchBarBox input{
+    border-radius: 7px;
+    height: 50%;
+    width: 85%;
+    padding: 0 20px;
+    outline: 0;
+    border: 0;
+}
+#conversations{
+    height: calc(100% - 140px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.conversations_box{
+    height: 70px;
+    width: 95%;
+    background-color: #910F25;
+    border-radius: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.imgBox{
+    width: 60px;
+    height: 60px;
+    background-color: #770B1C;
+    border-radius: 50%;
+}
+.nameMessage{
+    width: 40%;
+    height: 100%;
+
+}
+.conversationsInfo{
+    width: 75%;
+    height: 100%;
+  
+    display: flex;
+}
+.nameMessage{
+    width: 50%;
+    height: 100%;
+
+}
+.additionalInfo{
+    width: 50%;
+    height: 100%;
+
+}
+
+
+
+
+
+
+
+
+
+/* Container onde ficarão as mensagens */
+.messagesBox {
+    height: calc(100% - 140px);
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse; /* Inverte a ordem das mensagens */
+    padding: 30px;
+}
+
+#messageInputBox{
+    background-color: #910F25;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+#messageInputBox input{
+    height: 70%;
+    width: 80%;
+    padding: 0 50px;
+    border-radius: 10px;
+    outline: 0;
+    border:0;
+}
+
+#optionalFunc{
+    height: 100%;
+    width: 15%;
+
+}
+
+/* mensagens */
+.senderMessage{
+    background-color: #D9D9D9;
+    height: 70px;
+    width: 300px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    align-self: start;
+    color: black;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.receiverMessage{
+    background-color: #A6192E;
+    height: 70px;
+    width: 300px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    align-self: end;
+    color: white;
+    padding: 30px;
+    box-sizing: border-box;
 }
