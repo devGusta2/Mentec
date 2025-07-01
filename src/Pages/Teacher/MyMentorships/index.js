@@ -12,7 +12,7 @@ export default function MyMentorships() {
 
     const loadMyMentorships = async () => {
         try {
-            const result = await axios.get('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_controller.php');
+            const result = await axios.get('http://localhost:8080/mentorships/findall');
             setMentorShipsData(result.data);
             console.log('resposta da API', result.data);
         } catch (error) {
@@ -37,42 +37,41 @@ export default function MyMentorships() {
     // Função para atualizar o estado de uma mentoria específica
     const handleChange = (e, id) => {
         const { name, value } = e.target;
-        setMentorShipsData((prevData) => 
-            prevData.map((mentorship) => 
+        setMentorShipsData((prevData) =>
+            prevData.map((mentorship) =>
                 mentorship.id === id ? { ...mentorship, [name]: value } : mentorship
             )
         );
     };
 
-    const updateMentorship = async (id) => {
-        if (window.confirm("Deseja alterar as informações?")) {
-            try {
-                const updatedMentorship = mentorshipData.find(m => m.id === id);
-                
-                const responseUpdate = await axios.post(
-                    'http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_update.php',
-                    JSON.stringify(updatedMentorship),
-                    {
-                        headers: { 'Content-Type': 'application/json' },
-                    }
-                );
-                console.log(responseUpdate.data);
-                alert("Informações alteradas com sucesso!");
-                loadMyMentorships();
-            } catch (error) {
-                console.log("Erro ao atualizar:", error);
-            }
-            cancelEditing();
+  const updateMentorship = async (id) => {
+    if (window.confirm("Deseja alterar as informações?")) {
+        try {
+            const updatedMentorship = mentorshipData.find(m => m.id === id);
+
+            const responseUpdate = await axios.put(
+                `http://localhost:8080/mentorships/update/${id}`,
+                updatedMentorship,  
+                {
+                    headers: { 'Content-Type': 'application/json' },
+                }
+            );
+            console.log(responseUpdate.data);
+            alert("Informações alteradas com sucesso!");
+            loadMyMentorships();
+        } catch (error) {
+            console.log("Erro ao atualizar:", error);
         }
-    };
+        cancelEditing();
+    }
+};
 
     const deactivateMentorship = async (idMentorship) => {
         if (window.confirm("Tem certeza que deseja excluir esta mentoria?")) {
             try {
-                const deactivateResponse = await axios.post(
-                    'http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_Delete.php',
-                    { id: idMentorship },
-                    { headers: { 'Content-Type': 'application/json' } }
+                const deactivateResponse = await axios.delete(
+                    `http://localhost:8080/mentorships/delete/${idMentorship}`
+                    // <- não precisa de headers aqui!
                 );
                 console.log("Mentoria desativada:", deactivateResponse.data);
                 loadMyMentorships();
@@ -81,6 +80,7 @@ export default function MyMentorships() {
             }
         }
     };
+
 
     return (
         <div className={styles.MyMentorships}>
@@ -125,10 +125,11 @@ export default function MyMentorships() {
                                 <input
                                     type="text"
                                     name="goal"
-                                    value={editingId === data.id ? data.goals : data.goals}
+                                    value={editingId === data.id ? data.goal : data.goal}
                                     onChange={(e) => handleChange(e, data.id)}
                                     disabled={editingId !== data.id}
                                 />
+
                             </div>
                         </div>
                         <div className={styles.btnBox}>

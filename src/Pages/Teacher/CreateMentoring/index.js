@@ -39,7 +39,7 @@ export default function CreateMentoring() {
     const publicarMentoria = (e) => {
         e.preventDefault();
         axios
-            .post('http://localhost/Api_mentec/controller/Mentorships_control/Mentorships_Create.php', formData)
+            .post('http://localhost:8080/mentorships/save', formData)
             .then((response) => {
                 console.log(formData);
                 console.log('Mentoria publicada com sucesso:', response.data);
