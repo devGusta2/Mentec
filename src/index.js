@@ -33,6 +33,9 @@ import CreateMentoring from './Pages/Teacher/CreateMentoring';
 import MyMentorships from './Pages/Teacher/MyMentorships';
 import Teacher from './Pages/Teacher/Index';
 
+//admin
+import Dashboard from './Pages/Admin/Dashboard';
+
 const router =  createBrowserRouter([
   {
     path:"*",
@@ -110,7 +113,11 @@ const router =  createBrowserRouter([
   {
     path:'Pages/Chat',
     element:<Chat />
-  }
+  },
+   {
+    path:"Pages/Admin/Dashboard",
+    element:<Dashboard />
+  },
 ]);
 
 
