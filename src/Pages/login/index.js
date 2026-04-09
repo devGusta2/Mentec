@@ -8,9 +8,10 @@ import Footer from '../../Components/Footer/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
-import { getApiUrl } from '../../ultis/ApiUrl';
+
+import axios from 'axios'
 function Login() {
-    const API_URL = getApiUrl();
+    const API_URL = process.env.REACT_APP_API_URL;
 
     const [tema, setTema] = useState(() => localStorage.getItem("dark") === "true");
 
@@ -41,15 +42,25 @@ function Login() {
 
 
 
+    const [cretentials, setCredentials] = useState({
+        senha: '',
+        email:''
+    })
 
 
 
 
 
-
-    const login = async () => {
+    const login = async (e) => {
+        e.preventDefault();
+        const payload = {
+            senha: cretentials.senha.trim(),
+            email: cretentials.email.trim()
+        }
+    
         try{
-
+            const response = axios.post(`${API_URL}/login`,)
+            console.log(response.data)
         }catch(e){
 
         }
@@ -70,14 +81,14 @@ function Login() {
             </div>
             <div className={styles.formAndArt}>
                 <div className={styles.formBox}>
-                    <form className={styles.formLogin}>
+                    <form className={styles.formLogin} onSubmit={login}>
                         <p>Fazer login</p>
                         <div className={styles.inptField}>
-                            <input className={styles.inpt}  placeholder=" " type='email'/>
+                            <input className={styles.inpt}  onChange={(e)=>{setCredentials({...cretentials, email: e.target.value})}}placeholder=" " type='email'/>
                             <label>E-mail:</label>
                         </div>
                         <div className={styles.inptField}>
-                            <input className={styles.inpt}  placeholder=" "type='password' />
+                            <input className={styles.inpt} onChange={(e)=>{setCredentials({...cretentials, senha: e.target.value})}} placeholder=" "type='password' />
                             <label>Senha:</label>
                         </div>
                         <Link to='/Recovery' id={styles.textForgotPass}><span>Esqueceu sua senha?</span></Link>
@@ -86,7 +97,7 @@ function Login() {
                             <p>Lembre-se de mim</p>
                             <button id={styles.btnLogin} type='submit'>Fazer login</button>
                         </div>
-                        <button id={styles.btnMs}>
+                        <button type='submit' id={styles.btnMs}>
                             <img src={msIco} style={{ height: '30px', width: '30px' }} alt="Microsoft Icon" />
                             <h4>Continue com a microsoft</h4>
                         </button>
