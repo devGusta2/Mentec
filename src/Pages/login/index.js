@@ -20,7 +20,7 @@ function Login() {
             `--bg-background1: #00013C;
              --bg-background2: #271665;
              --bg-btn1:rgb(47, 101, 202);
-             --bg-btn2:rgb(49, 71, 167);
+             --bg-btn2:rgb(49, 71, 167);    
              --bg-main: #08091D;
              --color-text:white;
              --text-color2:#00BCD4;`;
@@ -36,6 +36,24 @@ function Login() {
     }, [tema]);
 
     const toggleDarkMode = () => setTema((prevTema) => !prevTema);
+
+
+
+
+
+
+
+
+
+    const login = async () => {
+        try{
+            
+        }catch(e){
+
+        }
+    }
+
+
 
     return (
         <div className={styles.main}>
