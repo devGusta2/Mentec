@@ -17,6 +17,7 @@ function Login() {
 
     useEffect(() => {
 
+
         localStorage.setItem("dark", tema);
         if (tema) {
             document.documentElement.style.cssText = 
@@ -59,7 +60,7 @@ function Login() {
         }
     
         try{
-            const response = axios.post(`${API_URL}/login`,)
+            const response = await axios.post(`${API_URL}/login`, payload)
             console.log(response.data)
         }catch(e){
 
@@ -84,7 +85,7 @@ function Login() {
                     <form className={styles.formLogin} onSubmit={login}>
                         <p>Fazer login</p>
                         <div className={styles.inptField}>
-                            <input className={styles.inpt}  onChange={(e)=>{setCredentials({...cretentials, email: e.target.value})}}placeholder=" " type='email'/>
+                            <input className={styles.inpt}  onChange={(e)=>{setCredentials({...cretentials, email: e.target.value})}}placeholder=""/>
                             <label>E-mail:</label>
                         </div>
                         <div className={styles.inptField}>
