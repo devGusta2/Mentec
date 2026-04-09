@@ -8,8 +8,10 @@ import Footer from '../../Components/Footer/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
-
+import { getApiUrl } from '../../ultis/ApiUrl';
 function Login() {
+    const API_URL = getApiUrl();
+
     const [tema, setTema] = useState(() => localStorage.getItem("dark") === "true");
 
     useEffect(() => {
@@ -47,7 +49,7 @@ function Login() {
 
     const login = async () => {
         try{
-            
+
         }catch(e){
 
         }
