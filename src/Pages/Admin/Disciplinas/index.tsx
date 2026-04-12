@@ -1,7 +1,7 @@
 
 import axios from "axios";
 import { useState, useEffect } from "react";
-// import styles from ';/'
+import styles from "./index.module.css"
 
 
 export default function Disciplinas(){
@@ -11,8 +11,8 @@ export default function Disciplinas(){
 
 
     return(
-        <>
-       <p>sadasd</p>
-        </>
+        <div className={styles.container}>
+
+        </div>
     )
 }

@@ -6,6 +6,9 @@ export default function AdminLayout (){
     return(
         <div style={{display:'flex'}}>
             <SideBar />
+            <div>
+                
+            </div>
             <Outlet />
         </div>
     )
