@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 
 
 
-export default function AdminRoutes() {
+export default function MentorRoutes() {
     return(
         <BrowserRouter>
             <Routes>

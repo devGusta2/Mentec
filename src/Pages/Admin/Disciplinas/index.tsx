@@ -1,10 +1,7 @@
 
-
-
-import axios from "axios"
-import { useState, useEffect } from "react"
-import styles from './index.module.css'
-
+import axios from "axios";
+import { useState, useEffect } from "react";
+// import styles from ';/'
 
 
 export default function Disciplinas(){
