@@ -10,8 +10,9 @@ import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 
 import axios from 'axios'
+import { getApiUrl } from '../../utils/AuthProvider';
 function Login() {
-    const API_URL = process.env.REACT_APP_API_URL;
+    const API_URL = getApiUrl();
 
     const [tema, setTema] = useState(() => localStorage.getItem("dark") === "true");
 
@@ -20,8 +21,8 @@ function Login() {
 
         localStorage.setItem("dark", tema);
         if (tema) {
-            document.documentElement.style.cssText = 
-            `--bg-background1: #00013C;
+            document.documentElement.style.cssText =
+                `--bg-background1: #00013C;
              --bg-background2: #271665;
              --bg-btn1:rgb(47, 101, 202);
              --bg-btn2:rgb(49, 71, 167);    
@@ -29,8 +30,8 @@ function Login() {
              --color-text:white;
              --text-color2:#00BCD4;`;
         } else {
-            document.documentElement.style.cssText = 
-            `--bg-background1: #A6192E;
+            document.documentElement.style.cssText =
+                `--bg-background1: #A6192E;
              --bg-background2: #910F25;
              --bg-btn1: #CA2F46;
              --bg-btn2: #a73142;
@@ -45,7 +46,7 @@ function Login() {
 
     const [cretentials, setCredentials] = useState({
         senha: '',
-        email:''
+        email: ''
     })
 
 
@@ -58,11 +59,20 @@ function Login() {
             senha: cretentials.senha.trim(),
             email: cretentials.email.trim()
         }
-    
-        try{
+
+        try {
             const response = await axios.post(`${API_URL}/login`, payload)
-            console.log(response.data)
-        }catch(e){
+            localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('useId', response.data.idUser)
+            localStorage.setItem('role', response.data.role)
+            if (response.data.role === "ADMIN") {
+                window.location.href = "/admin/disciplinas";
+            } else if (response.data.role === "MENTOR") {
+                window.location.href = "/mentor/home";
+            } else {
+                window.location.href = "/";
+            }
+        } catch (e) {
 
         }
     }
@@ -85,11 +95,11 @@ function Login() {
                     <form className={styles.formLogin} onSubmit={login}>
                         <p>Fazer login</p>
                         <div className={styles.inptField}>
-                            <input className={styles.inpt}  onChange={(e)=>{setCredentials({...cretentials, email: e.target.value})}}placeholder=""/>
+                            <input className={styles.inpt} onChange={(e) => { setCredentials({ ...cretentials, email: e.target.value }) }} placeholder="" />
                             <label>E-mail:</label>
                         </div>
                         <div className={styles.inptField}>
-                            <input className={styles.inpt} onChange={(e)=>{setCredentials({...cretentials, senha: e.target.value})}} placeholder=" "type='password' />
+                            <input className={styles.inpt} onChange={(e) => { setCredentials({ ...cretentials, senha: e.target.value }) }} placeholder=" " type='password' />
                             <label>Senha:</label>
                         </div>
                         <Link to='/Recovery' id={styles.textForgotPass}><span>Esqueceu sua senha?</span></Link>

@@ -12,7 +12,7 @@ export default function Disciplinas(){
 
     return(
         <>
-        
+       <p>sadasd</p>
         </>
     )
 }

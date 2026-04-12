@@ -1,0 +1,80 @@
+
+.navBar{
+    background-color: var(--bg-red2);
+    height: 100vh;
+    width: 350px;
+    display: flex;
+    padding: 30px;
+    flex-direction: column  ;
+}
+.titleBox{
+    height: 150px;
+  
+    width: 100%;
+}
+.navBar .nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    height: 500px;
+    width: 100%;
+
+}
+.nav ul {
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    list-style: none;
+    color: white;
+}
+.nav ul li .item{
+    display: flex;
+    align-items: center;
+    gap: 3em;    
+}
+
+.nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+.nav ul li .item span{
+    font-size: 15pt;
+}
+.navBar .titleBox p:nth-child(1){
+    color: white;
+    font-size: 30pt;
+    font-family: 'MentecFont';
+}
+.navBar .titleBox p:nth-child(2){
+    color: white;
+    font-size: 18pt;
+    font-family: 'MentecFont';
+}
+
+.sair{
+    bottom: 0;
+    color: white;
+}
+
+
+
+
+
+
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s ease;
+
+
+}
+.submenu a{
+margin-left: 100px;
+}
+.open {
+  max-height: 300px; /* aumenta se precisar */
+}
