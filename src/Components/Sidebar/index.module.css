@@ -2,7 +2,7 @@
 .navBar{
     background-color: var(--bg-red2);
     height: 100vh;
-    width: 350px;
+    width: 275px;
     display: flex;
     padding: 30px;
     flex-direction: column  ;
@@ -41,7 +41,7 @@
     text-decoration: none;
 }
 .nav ul li .item span{
-    font-size: 15pt;
+    font-size: 13pt;
 }
 .navBar .titleBox p:nth-child(1){
     color: white;
