@@ -3,7 +3,7 @@ import styles from "./index.module.css";
 import { faChartLine, faUsers, faBook, faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function Home() {
+const HomeMonitor = () => {
     // Simulando dados do dashboard
     const [stats, setStats] = useState({
         totalMonitorias: 0,
@@ -25,7 +25,7 @@ export default function Home() {
 
     return (
         <div className={styles.container}>
-            <div className={styles.header}>
+            {/* <div className={styles.header}>
                 <h1>Dashboard do Monitor</h1>
                 <p>Bem-vindo! Aqui está um resumo das suas atividades.</p>
             </div>
@@ -79,7 +79,9 @@ export default function Home() {
                     <li>Nova monitoria criada: Física Aplicada</li>
                     <li>Perfil atualizado</li>
                 </ul>
-            </div>
+            </div> */}
         </div>
     );
 }
+
+export default HomeMonitor;

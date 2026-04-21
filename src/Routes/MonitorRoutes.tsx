@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import MonitorLayout from "../Layouts/MonitorLayout";
-import Home from "../Pages/Monitor/Home";
+import HomeMonitor from "../Pages/Monitor/Home";
 import Monitorias from "../Pages/Monitor/Monitorias";
 import Profile from "../Pages/Monitor/Profile";
 
@@ -42,7 +42,7 @@ export default function MonitorRoutes() {
 
             {/* Rotas monitor */}
             <Route path="/monitor" element={<MonitorLayout />}>
-                <Route path="home" element={<Home />} />
+                <Route path="home" element={<HomeMonitor />} />
                 <Route path="monitorias" element={<Monitorias />} />
                 <Route path="profile" element={<Profile />} />
             </Route>

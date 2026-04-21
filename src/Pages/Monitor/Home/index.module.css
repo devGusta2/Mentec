@@ -1,9 +1,10 @@
 .container {
     display: flex;
     flex-direction: column;
-    padding: 30px;
-    background-color: #f5f6f8;
+
+    /* background-color: hsl(220, 18%, 97%); */
     height: 100vh;
+    background-color: red;
 }
 
 .header {

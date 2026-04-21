@@ -12,8 +12,6 @@ export default function Home() {
     });
 
     useEffect(() => {
-        // Aqui você pode buscar dados reais da API
-        // Por enquanto, dados mockados
         setStats({
             totalMentorias: 8,
             alunosAtendidos: 45,
@@ -25,7 +23,7 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <h1>Dashboard do Mentor</h1>
+                <h1>Dashboard do</h1>
                 <p>Bem-vindo! Aqui está um resumo das suas atividades.</p>
             </div>
 

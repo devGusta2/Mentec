@@ -2,7 +2,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import MentorLayout from "../Layouts/MentorLayout";
-import Home from "../Pages/Mentor/Home";
+import Home from "../Pages/Home";
 import Mentorias from "../Pages/Mentor/Mentorias";
 import Profile from "../Pages/Mentor/Profile";
 
@@ -15,7 +15,7 @@ import Cad from '../Pages/cadastro';
 import Mentoring from '../Pages/Mentoring';
 import Forum from '../Pages/Forum';
 import Services from '../Pages/Services';
-import HomePage from '../Pages/Home';
+import HomePage from '../Pages/Mentor/Home';
 import Calendar from '../Pages/Calendar';
 import Mentors from '../Pages/Mentors';
 import Recovery from '../Pages/Recovery';
@@ -25,7 +25,7 @@ export default function MentorRoutes() {
     return(
         <Routes>
             {/* Rotas públicas */}
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cad />} />
             <Route path="/recovery" element={<Recovery />} />
@@ -40,14 +40,13 @@ export default function MentorRoutes() {
             <Route path="/chat" element={<Chat />} />
             <Route path="/tpage" element={<Tpage />} />
 
-            {/* Rotas mentor */}
+  
             <Route path="/mentor" element={<MentorLayout />}>
-                <Route path="home" element={<Home />} />
+                <Route path="home" element={<HomePage />} />
                 <Route path="mentorias" element={<Mentorias />} />
                 <Route path="profile" element={<Profile />} />
             </Route>
 
-            {/* fallback */}
             <Route path="*" element={<Notfound />} />
         </Routes>
     )
