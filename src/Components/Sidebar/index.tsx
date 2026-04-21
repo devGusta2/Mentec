@@ -84,7 +84,7 @@ export default function SideBar() {
 
             <nav className={styles.nav}>
                 <ul>
-                    {currentLinks.map((item, index) => {
+                    {currentLinks.map((item: any, index: any) => {
                         const isActive = location.pathname === item.path;
 
                         return (
@@ -116,7 +116,7 @@ export default function SideBar() {
                                         </div>
 
                                         <ul className={`${styles.submenu} ${openMenu === index ? styles.open : ""}`}>
-                                            {item.children.map((child, i) => {
+                                            {item.children.map((child: any, i: any) => {
                                                 const isChildActive = location.pathname === child.path;
 
                                                 return (
