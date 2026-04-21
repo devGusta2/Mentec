@@ -5,71 +5,85 @@ import { faPenToSquare, faTrash, faSync } from '@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getApiUrl, getToken } from "../../../utils/AuthProvider";
 
-export function MentoriasTable({ reload }: { reload: boolean }) {
+export function MentoriasCards({ reload }: { reload: boolean }) {
     const API_URL = getApiUrl();
     const TOKEN = getToken();
-    const [mentorias, setMentorias] = useState<any[]>([]);
-    const [editModalData, setEditModalData] = useState<any | null>(null);
-    const [deleteModalData, setDeleteModalData] = useState<any | null>(null);
 
     const [monitoriasData, setMonitoriasData] = useState<any[]>([]);
     const idUser = localStorage.getItem("useId");
 
     const fetchMonitorias = async () => {
         try {
-            const resposta = await axios.get(`${API_URL}/monitorias/listarMonitoriasMonitor/${idUser}`, {
-                headers: { Authorization: `Bearer ${TOKEN}` }
-            });
+            const resposta = await axios.get(
+                `${API_URL}/monitorias/listarMonitoriasMonitor/${idUser}`,
+                { headers: { Authorization: `Bearer ${TOKEN}` } }
+            );
             setMonitoriasData(resposta.data);
         } catch (e: any) {
-            alert("Ocorreu algum erro durante a listagem das suas monitorias!" + e?.response?.data?.message);
+            alert("Erro ao listar monitorias");
         }
-    }
+    };
 
     useEffect(() => {
         fetchMonitorias();
-        // console.log(idUser)
     }, [reload]);
 
     return (
-        <div className={styles.container}>
-            <table className={styles.table}>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Título</th>
-                        <th>Descrição</th>
-                        <th>Data</th>
-                        <th>Status</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {monitoriasData.length > 0 ? (
-                        monitoriasData.map((mentoria: any) => (
-                            <tr key={mentoria.id}>
-                                <td>{mentoria.id}</td>
-                                <td>{mentoria.titulo}</td>
-                                <td>{mentoria.descricao}</td>
-                                <td>{mentoria.data}</td>
-                                <td>{mentoria.status}</td>
-                                <td>
-                                    <button className={styles.edit} onClick={() => setEditModalData(mentoria)}>
-                                        <FontAwesomeIcon icon={faPenToSquare} />
-                                    </button>
-                                    <button className={styles.delete} onClick={() => setDeleteModalData(mentoria)}>
-                                        <FontAwesomeIcon icon={faTrash} />
-                                    </button>
-                                </td>
-                            </tr>
-                        ))
-                    ) : (
-                        <tr>
-                            <td colSpan={6}>Nenhuma monitoria encontrada.</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
+        <div className={styles.cardsContainer}>
+            {monitoriasData.length > 0 ? (
+                monitoriasData.map((mentoria) => (
+                 <div key={mentoria.id} className={styles.card}>
+    <div className={styles.cardInfo}>
+        <h3>{mentoria.titulo}</h3>
+
+        <p className={styles.descricao}>{mentoria.descricao}</p>
+
+        <div className={styles.infoGroup}>
+            <div>
+                <span className={styles.label}>Disciplina</span>
+                <p>{mentoria.disciplinaDto?.nome}</p>
+            </div>
+
+            <div>
+                <span className={styles.label}>Data</span>
+                <p>{mentoria.data}</p>
+            </div>
+
+            <div>
+                <span className={styles.label}>Horário</span>
+                <p>{mentoria.horario}</p>
+            </div>
+
+            <div>
+                <span className={styles.label}>Alunos</span>
+                <p>{mentoria.qtdAlunos ?? 0}</p>
+            </div>
+        </div>
+
+        {mentoria.link && (
+            <div className={styles.linkContainer}>
+                <span className={styles.label}>Link</span>
+                <a
+                    href={mentoria.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.link}
+                >
+                    Acessar reunião
+                </a>
+            </div>
+        )}
+    </div>
+
+    <div className={styles.cardActions}>
+        <button className={styles.edit}>Editar</button>
+        <button className={styles.delete}>Cancelar</button>
+    </div>
+</div>
+                ))
+            ) : (
+                <p>Nenhuma monitoria encontrada.</p>
+            )}
         </div>
     );
 }
@@ -120,7 +134,7 @@ export function CreateMentoriaModal({ isOpen, onClose, onSuccess, disciplinas }:
                 idMonitor: idUser,
                 idDisciplina
             };
-  
+
 
             await axios.post(
                 `${API_URL}/monitorias/criar`,
@@ -135,7 +149,7 @@ export function CreateMentoriaModal({ isOpen, onClose, onSuccess, disciplinas }:
             setImagem("");
             setStatus("ATIVO");
             setIdDisciplina("");
-            
+
             onSuccess();
             onClose();
 
@@ -270,10 +284,8 @@ export default function Mentorias() {
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <div className={styles.titleAndIcon}>
-                    <FontAwesomeIcon id={styles.icon} icon={faPenToSquare} />
-                    <p>Monitorias</p>
-                </div>
+                <h2>Minhas monitorias</h2>
+
                 <button
                     className={styles.addButton}
                     onClick={() => {
@@ -281,11 +293,16 @@ export default function Mentorias() {
                         fetchDisciplinas();
                     }}
                 >
-                    + Nova monitoria
+                    Nova monitoria
                 </button>
             </div>
 
-            <MentoriasTable reload={reloadTable} />
+            <input
+                className={styles.search}
+                placeholder="Buscar monitoria"
+            />
+
+          <MentoriasCards reload={reloadTable} />
 
             <CreateMentoriaModal
                 isOpen={openModal}

@@ -209,3 +209,144 @@
         transform: scale(1);
     }
 }
+
+
+.container {
+    padding: 30px;
+    background: #f5f5f5;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* BOTÃO */
+.addButton {
+    background: #b11226;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.addButton:hover {
+    background: #8e0e1d;
+}
+
+/* SEARCH */
+.search {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+/* CARDS */
+.cardsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+.cardInfo h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.cardInfo p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.meta {
+    display: flex;
+    gap: 15px;
+    font-size: 13px;
+    color: #777;
+}
+
+/* AÇÕES */
+.cardActions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit {
+    background: #6aa84f;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.delete {
+    background: #990000;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.descricao {
+    color: #555;
+    margin: 6px 0 12px;
+}
+
+.infoGroup {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-size: 12px;
+    color: #888;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.infoGroup p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.linkContainer {
+    margin-top: 10px;
+}
+
+.link {
+    color: #b11226;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
