@@ -6,31 +6,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getApiUrl, getToken } from "../../../utils/AuthProvider";
 
 // ---------------- TableData ----------------
-export function MonitoriasTable({ reload }: { reload: boolean }) {
+export function MentoriasTable({ reload }: { reload: boolean }) {
     const API_URL = getApiUrl();
     const TOKEN = getToken();
-    const [monitorias, setMonitorias] = useState<any[]>([]);
+    const [mentorias, setMentorias] = useState<any[]>([]);
     const [editModalData, setEditModalData] = useState<any | null>(null);
     const [deleteModalData, setDeleteModalData] = useState<any | null>(null);
 
-    const fetchMonitorias = async () => {
+    const fetchMentorias = async () => {
         try {
-            const response = await axios.get(`${API_URL}/monitorias/listar`, {
+            const response = await axios.get(`${API_URL}/mentorias/listar`, {
                 headers: { Authorization: `Bearer ${TOKEN}` }
             });
-            // Atualiza status para true/false
             const updated = response.data.map((m: any) => ({
                 ...m,
                 status: !!m.status
             }));
-            setMonitorias(updated);
+            setMentorias(updated);
         } catch (e: any) {
-            alert("Erro ao buscar monitorias: " + e?.response?.data?.message);
+            alert("Erro ao buscar mentorias: " + e?.response?.data?.message);
         }
     }
 
     useEffect(() => {
-        fetchMonitorias();
+        fetchMentorias();
     }, [reload]);
 
     return (
@@ -47,22 +46,22 @@ export function MonitoriasTable({ reload }: { reload: boolean }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {monitorias.length > 0 ? (
-                        monitorias.map((monitoria: any) => (
-                            <tr key={monitoria.id}>
-                                <td>{monitoria.id}</td>
-                                <td>{monitoria.nome}</td>
-                                <td>{monitoria.descricao}</td>
-                                <td>{new Date(monitoria.dataCriacao).toLocaleDateString()}</td>
-                                <td>{monitoria.status ? "Ativo" : "Inativo"}</td>
+                    {mentorias.length > 0 ? (
+                        mentorias.map((mentoria: any) => (
+                            <tr key={mentoria.id}>
+                                <td>{mentoria.id}</td>
+                                <td>{mentoria.nome}</td>
+                                <td>{mentoria.descricao}</td>
+                                <td>{new Date(mentoria.dataCriacao).toLocaleDateString()}</td>
+                                <td>{mentoria.status ? "Ativo" : "Inativo"}</td>
                                 <td>
-                                    <button className={styles.edit} onClick={() => setEditModalData(monitoria)}>
+                                    <button className={styles.edit} onClick={() => setEditModalData(mentoria)}>
                                         <FontAwesomeIcon icon={faPenToSquare} />
                                     </button>
-                                    <button className={styles.delete} onClick={() => setDeleteModalData(monitoria)}>
+                                    <button className={styles.delete} onClick={() => setDeleteModalData(mentoria)}>
                                         <FontAwesomeIcon icon={faTrash} />
                                     </button>
-                                    <button className={styles.refresh} onClick={fetchMonitorias}>
+                                    <button className={styles.refresh} onClick={fetchMentorias}>
                                         <FontAwesomeIcon icon={faSync} />
                                     </button>
                                 </td>
@@ -70,38 +69,38 @@ export function MonitoriasTable({ reload }: { reload: boolean }) {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan={6}>Nenhuma monitoria encontrada.</td>
+                            <td colSpan={6}>Nenhuma mentoria encontrada.</td>
                         </tr>
                     )}
                 </tbody>
             </table>
 
             {editModalData && (
-                <EditMonitoriaModal
-                    monitoria={editModalData}
+                <EditMentoriaModal
+                    mentoria={editModalData}
                     onClose={() => setEditModalData(null)}
-                    onSuccess={fetchMonitorias}
+                    onSuccess={fetchMentorias}
                 />
             )}
 
             {deleteModalData && (
-                <DeleteMonitoriaModal
-                    monitoria={deleteModalData}
+                <DeleteMentoriaModal
+                    mentoria={deleteModalData}
                     onClose={() => setDeleteModalData(null)}
-                    onSuccess={fetchMonitorias}
+                    onSuccess={fetchMentorias}
                 />
             )}
         </div>
     );
 }
 
-// ---------------- CreateMonitoriaModal ----------------
+// ---------------- CreateMentoriaModal ----------------
 interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
     onSuccess: () => void;
 }
-export function CreateMonitoriaModal({ isOpen, onClose, onSuccess }: ModalProps) {
+export function CreateMentoriaModal({ isOpen, onClose, onSuccess }: ModalProps) {
     const API_URL = getApiUrl();
     const TOKEN = getToken();
 
@@ -119,7 +118,7 @@ export function CreateMonitoriaModal({ isOpen, onClose, onSuccess }: ModalProps)
         try {
             setLoading(true);
             await axios.post(
-                `${API_URL}/monitorias/cadastrar`,
+                `${API_URL}/mentorias/cadastrar`,
                 { nome, descricao },
                 { headers: { Authorization: `Bearer ${TOKEN}` } }
             );
@@ -128,7 +127,7 @@ export function CreateMonitoriaModal({ isOpen, onClose, onSuccess }: ModalProps)
             onSuccess();
             onClose();
         } catch (e: any) {
-            alert("Erro ao cadastrar monitoria: " + e?.response?.data?.message);
+            alert("Erro ao cadastrar mentoria: " + e?.response?.data?.message);
         } finally {
             setLoading(false);
         }
@@ -139,7 +138,7 @@ export function CreateMonitoriaModal({ isOpen, onClose, onSuccess }: ModalProps)
     return (
         <div className={styles.overlay}>
             <div className={styles.modal}>
-                <h2>Nova Monitoria</h2>
+                <h2>Nova Mentoria</h2>
                 <form onSubmit={handleSubmit}>
                     <div className={styles.formGroup}>
                         <label>Nome</label>
@@ -147,7 +146,7 @@ export function CreateMonitoriaModal({ isOpen, onClose, onSuccess }: ModalProps)
                             type="text"
                             value={nome}
                             onChange={(e) => setNome(e.target.value)}
-                            placeholder="Ex: Matemática avançada"
+                            placeholder="Ex: Desenvolvimento Web com React"
                         />
                     </div>
 
@@ -156,7 +155,7 @@ export function CreateMonitoriaModal({ isOpen, onClose, onSuccess }: ModalProps)
                         <textarea
                             value={descricao}
                             onChange={(e) => setDescricao(e.target.value)}
-                            placeholder="Ex: Acompanhamento de conteúdos de matemática"
+                            placeholder="Ex: Acompanhamento completo em desenvolvimento web"
                         />
                     </div>
 
@@ -175,19 +174,19 @@ export function CreateMonitoriaModal({ isOpen, onClose, onSuccess }: ModalProps)
     );
 }
 
-// ---------------- EditMonitoriaModal ----------------
+// ---------------- EditMentoriaModal ----------------
 interface EditModalProps {
-    monitoria: any;
+    mentoria: any;
     onClose: () => void;
     onSuccess: () => void;
 }
-export function EditMonitoriaModal({ monitoria, onClose, onSuccess }: EditModalProps) {
+export function EditMentoriaModal({ mentoria, onClose, onSuccess }: EditModalProps) {
     const API_URL = getApiUrl();
     const TOKEN = getToken();
 
-    const [nome, setNome] = useState(monitoria.nome);
-    const [descricao, setDescricao] = useState(monitoria.descricao);
-    const [status, setStatus] = useState(monitoria.status);
+    const [nome, setNome] = useState(mentoria.nome);
+    const [descricao, setDescricao] = useState(mentoria.descricao);
+    const [status, setStatus] = useState(mentoria.status);
     const [loading, setLoading] = useState(false);
 
     const handleUpdate = async (e: any) => {
@@ -195,14 +194,14 @@ export function EditMonitoriaModal({ monitoria, onClose, onSuccess }: EditModalP
         try {
             setLoading(true);
             await axios.put(
-                `${API_URL}/monitorias/atualizar/${monitoria.id}`,
+                `${API_URL}/mentorias/atualizar/${mentoria.id}`,
                 { nome, descricao, status },
                 { headers: { Authorization: `Bearer ${TOKEN}` } }
             );
             onSuccess();
             onClose();
         } catch (e: any) {
-            alert("Erro ao atualizar monitoria: " + e?.response?.data?.message);
+            alert("Erro ao atualizar mentoria: " + e?.response?.data?.message);
         } finally {
             setLoading(false);
         }
@@ -211,7 +210,7 @@ export function EditMonitoriaModal({ monitoria, onClose, onSuccess }: EditModalP
     return (
         <div className={styles.overlay}>
             <div className={styles.modal}>
-                <h2>Editar Monitoria</h2>
+                <h2>Editar Mentoria</h2>
                 <form onSubmit={handleUpdate}>
                     <div className={styles.formGroup}>
                         <label>Nome</label>
@@ -252,13 +251,13 @@ export function EditMonitoriaModal({ monitoria, onClose, onSuccess }: EditModalP
     );
 }
 
-// ---------------- DeleteMonitoriaModal ----------------
+// ---------------- DeleteMentoriaModal ----------------
 interface DeleteModalProps {
-    monitoria: any;
+    mentoria: any;
     onClose: () => void;
     onSuccess: () => void;
 }
-export function DeleteMonitoriaModal({ monitoria, onClose, onSuccess }: DeleteModalProps) {
+export function DeleteMentoriaModal({ mentoria, onClose, onSuccess }: DeleteModalProps) {
     const API_URL = getApiUrl();
     const TOKEN = getToken();
     const [loading, setLoading] = useState(false);
@@ -266,13 +265,13 @@ export function DeleteMonitoriaModal({ monitoria, onClose, onSuccess }: DeleteMo
     const handleDelete = async () => {
         try {
             setLoading(true);
-            await axios.delete(`${API_URL}/monitorias/deletar/${monitoria.id}`, {
+            await axios.delete(`${API_URL}/mentorias/deletar/${mentoria.id}`, {
                 headers: { Authorization: `Bearer ${TOKEN}` }
             });
             onSuccess();
             onClose();
         } catch (e: any) {
-            alert("Erro ao deletar monitoria: " + e?.response?.data?.message);
+            alert("Erro ao deletar mentoria: " + e?.response?.data?.message);
         } finally {
             setLoading(false);
         }
@@ -281,8 +280,8 @@ export function DeleteMonitoriaModal({ monitoria, onClose, onSuccess }: DeleteMo
     return (
         <div className={styles.overlay}>
             <div className={styles.modal}>
-                <h2>Deletar Monitoria</h2>
-                <p>Tem certeza que deseja deletar a monitoria <strong>{monitoria.nome}</strong>?</p>
+                <h2>Deletar Mentoria</h2>
+                <p>Tem certeza que deseja deletar a mentoria <strong>{mentoria.nome}</strong>?</p>
                 <div className={styles.actions}>
                     <button type="button" onClick={onClose} className={styles.cancel}>
                         Cancelar
@@ -296,13 +295,13 @@ export function DeleteMonitoriaModal({ monitoria, onClose, onSuccess }: DeleteMo
     );
 }
 
-// ---------------- Monitorias (Main Component) ----------------
-export default function Monitorias() {
+// ---------------- Mentorias (Main Component) ----------------
+export default function Mentorias() {
     const [openModal, setOpenModal] = useState(false);
     const [reloadTable, setReloadTable] = useState(false);
 
     const handleSuccess = () => {
-        setReloadTable(prev => !prev); // alterna estado para recarregar a tabela
+        setReloadTable(prev => !prev);
     }
 
     return (
@@ -310,19 +309,19 @@ export default function Monitorias() {
             <div className={styles.header}>
                 <div className={styles.titleAndIcon}>
                     <FontAwesomeIcon id={styles.icon} icon={faPenToSquare} />
-                    <p>Monitorias</p>
+                    <p>Mentorias</p>
                 </div>
                 <button
                     className={styles.addButton}
                     onClick={() => setOpenModal(true)}
                 >
-                    + Nova monitoria
+                    + Nova mentoria
                 </button>
             </div>
 
-            <MonitoriasTable reload={reloadTable} />
+            <MentoriasTable reload={reloadTable} />
 
-            <CreateMonitoriaModal
+            <CreateMentoriaModal
                 isOpen={openModal}
                 onClose={() => setOpenModal(false)}
                 onSuccess={handleSuccess}

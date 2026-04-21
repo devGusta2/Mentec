@@ -4,9 +4,8 @@ import { faChartLine, faUsers, faBook, faCalendar } from '@fortawesome/free-soli
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Home() {
-    // Simulando dados do dashboard
     const [stats, setStats] = useState({
-        totalMonitorias: 0,
+        totalMentorias: 0,
         alunosAtendidos: 0,
         sessoesHoje: 0,
         proximasSessoes: 0
@@ -16,17 +15,17 @@ export default function Home() {
         // Aqui você pode buscar dados reais da API
         // Por enquanto, dados mockados
         setStats({
-            totalMonitorias: 5,
-            alunosAtendidos: 23,
-            sessoesHoje: 2,
-            proximasSessoes: 3
+            totalMentorias: 8,
+            alunosAtendidos: 45,
+            sessoesHoje: 3,
+            proximasSessoes: 5
         });
     }, []);
 
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <h1>Dashboard do Monitor</h1>
+                <h1>Dashboard do Mentor</h1>
                 <p>Bem-vindo! Aqui está um resumo das suas atividades.</p>
             </div>
 
@@ -36,8 +35,8 @@ export default function Home() {
                         <FontAwesomeIcon icon={faBook} />
                     </div>
                     <div className={styles.content}>
-                        <h3>{stats.totalMonitorias}</h3>
-                        <p>Monitorias Ativas</p>
+                        <h3>{stats.totalMentorias}</h3>
+                        <p>Mentorias Ativas</p>
                     </div>
                 </div>
 
@@ -75,8 +74,8 @@ export default function Home() {
             <div className={styles.recentActivity}>
                 <h2>Atividades Recentes</h2>
                 <ul>
-                    <li>Sessão de monitoria em Matemática - 15 alunos</li>
-                    <li>Nova monitoria criada: Física Aplicada</li>
+                    <li>Sessão de mentoria em JavaScript - 12 alunos</li>
+                    <li>Nova turma criada: React Avançado</li>
                     <li>Perfil atualizado</li>
                 </ul>
             </div>

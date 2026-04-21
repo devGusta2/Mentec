@@ -1,6 +1,7 @@
 import { getToken } from "../utils/AuthProvider";
 import AdminRoutes from "./AdminRoutes";
 import MentorRoutes from "./MentorRoutex";
+import MonitorRoutes from "./MonitorRoutes";
 import NoAuthRoutes from "./NoAuthRoutes";
 
 export default function RoutesProvider() {
@@ -19,6 +20,10 @@ export default function RoutesProvider() {
 
     if(role === 'MENTOR'){
         return <MentorRoutes />
+    }
+
+    if(role === 'MONITOR'){
+        return <MonitorRoutes />
     }
 
     return <NoAuthRoutes />

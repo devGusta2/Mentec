@@ -1,10 +1,10 @@
-
 import { Routes, Route } from "react-router-dom";
 
-import MentorLayout from "../Layouts/MentorLayout";
-import Home from "../Pages/Mentor/Home";
-import Mentorias from "../Pages/Mentor/Mentorias";
-import Profile from "../Pages/Mentor/Profile";
+import MonitorLayout from "../Layouts/MonitorLayout";
+import Home from "../Pages/Monitor/Home";
+import Monitorias from "../Pages/Monitor/Monitorias";
+import Profile from "../Pages/Monitor/Profile";
+
 
 import Login from '../Pages/login';
 import Notfound from '../Pages/Notfound';
@@ -21,8 +21,8 @@ import Mentors from '../Pages/Mentors';
 import Recovery from '../Pages/Recovery';
 import Chat from '../Pages/Chat';
 
-export default function MentorRoutes() {
-    return(
+export default function MonitorRoutes() {
+    return (
         <Routes>
             {/* Rotas públicas */}
             <Route path="/" element={<HomePage />} />
@@ -40,15 +40,15 @@ export default function MentorRoutes() {
             <Route path="/chat" element={<Chat />} />
             <Route path="/tpage" element={<Tpage />} />
 
-            {/* Rotas mentor */}
-            <Route path="/mentor" element={<MentorLayout />}>
+            {/* Rotas monitor */}
+            <Route path="/monitor" element={<MonitorLayout />}>
                 <Route path="home" element={<Home />} />
-                <Route path="mentorias" element={<Mentorias />} />
+                <Route path="monitorias" element={<Monitorias />} />
                 <Route path="profile" element={<Profile />} />
             </Route>
 
             {/* fallback */}
             <Route path="*" element={<Notfound />} />
         </Routes>
-    )
+    );
 }

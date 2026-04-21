@@ -69,6 +69,8 @@ function Login() {
                 window.location.href = "/admin/disciplinas";
             } else if (response.data.role === "MENTOR") {
                 window.location.href = "/mentor/home";
+            } else if (response.data.role === "MONITOR") {
+                window.location.href = "/monitor/home";
             } else {
                 window.location.href = "/";
             }

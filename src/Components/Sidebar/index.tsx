@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from './index.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSliders, faPenToSquare, faUsers, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faSliders, faPenToSquare, faUsers, faChevronDown, faHome, faBookOpen, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link, useLocation } from "react-router-dom";
 
 export default function SideBar() {
@@ -35,10 +35,44 @@ export default function SideBar() {
                     { label: "Professores", path: "/admin/usuarios/professores" }
                 ]
             }
+        ],
+        monitor: [
+            {
+                label: "Home",
+                icon: faHome,
+                path: "/monitor/home"
+            },
+            {
+                label: "Monitorias",
+                icon: faBookOpen,
+                path: "/monitor/monitorias"
+            },
+            {
+                label: "Perfil",
+                icon: faUser,
+                path: "/monitor/profile"
+            }
+        ],
+        mentor: [
+            {
+                label: "Home",
+                icon: faHome,
+                path: "/mentor/home"
+            },
+            {
+                label: "Mentorias",
+                icon: faBookOpen,
+                path: "/mentor/mentorias"
+            },
+            {
+                label: "Perfil",
+                icon: faUser,
+                path: "/mentor/profile"
+            }
         ]
     };
 
-    const currentLinks = tipoUsuario === "ADMIN" ? links.admin : [];
+    const currentLinks = tipoUsuario === "ADMIN" ? links.admin : tipoUsuario === "MONITOR" ? links.monitor : tipoUsuario === "MENTOR" ? links.mentor : [];
 
     return (
         <div className={styles.navBar}>
