@@ -20,6 +20,7 @@ import Calendar from '../Pages/Calendar';
 import Mentors from '../Pages/Mentors';
 import Recovery from '../Pages/Recovery';
 import Chat from '../Pages/Chat';
+import Monitores from '../Pages/Admin/Monitores'
 import Monitorias from '../Pages/Admin/MonitoriasGestor';
 export default function AdminRoutes() {
     return (
@@ -40,11 +41,13 @@ export default function AdminRoutes() {
             <Route path="/chat" element={<Chat />} />
             <Route path="/tpage" element={<Tpage />} />
 
+
             {/* Rotas admin */}
             <Route path="/admin" element={<AdminLayout />}>
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="disciplinas" element={<Disciplinas />} />
                 <Route path="monitorias" element={<Monitorias />} />
+                <Route path="monitores" element={<Monitores />} />
             </Route>
 
             {/* fallback */}

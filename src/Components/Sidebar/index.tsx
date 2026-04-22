@@ -31,7 +31,7 @@ export default function SideBar() {
                 label: "Usuários",
                 icon: faUsers,
                 children: [
-                    { label: "Mentores", path: "/admin/usuarios/mentores" },
+                    { label: "Monitores", path: "/admin/monitores" },
                     { label: "Alunos", path: "/admin/usuarios/alunos" },
                     { label: "Professores", path: "/admin/usuarios/professores" }
                 ]
