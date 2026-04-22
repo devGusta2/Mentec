@@ -1,0 +1,275 @@
+/* CONTAINER */
+.container {
+    padding: 30px;
+    background: #f2f2f2;
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.header h1 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.addButton {
+    background: #b30000;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.addButton:hover {
+    background: #8f0000;
+}
+
+/* SEARCH */
+.search {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+/* LIST */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.sub {
+    color: #666;
+    margin-top: 5px;
+}
+
+/* INFO */
+.infoRow {
+    display: flex;
+    gap: 25px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.label {
+    font-size: 12px;
+    color: #888;
+    display: block;
+}
+
+.infoRow div span:last-child {
+    font-weight: 500;
+}
+
+/* ACTIONS */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit {
+    background: #5ca95c;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.edit:hover {
+    background: #4c944c;
+}
+
+.cancel {
+    background: #b30000;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.cancel:hover {
+    background: #8f0000;
+}
+
+/* ========================= */
+/* MODAL */
+/* ========================= */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal {
+    width: 900px;
+    background: #f4f4f4;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* HEADER MODAL */
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modalHeader h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.modalHeader button {
+    background: #8b0000;
+    color: white;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* CONTENT */
+.modalContent {
+    display: flex;
+    gap: 20px;
+}
+
+/* LEFT */
+.left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.left label {
+    font-size: 13px;
+    color: #555;
+}
+
+.left input,
+.left select,
+.left textarea {
+    border: 2px solid #8b0000;
+    border-radius: 8px;
+    padding: 10px;
+    outline: none;
+    font-size: 14px;
+}
+
+.left textarea {
+    height: 120px;
+    resize: none;
+}
+
+/* RIGHT */
+.right {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.right label {
+    font-size: 13px;
+    color: #555;
+}
+
+/* MONITOR LIST */
+.monitorList {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    /* max-height: 300px; */
+    overflow-y: auto;
+    border: 1px solid #eee;
+    min-height: 100%;
+}
+
+.monitorItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.monitorItem:hover {
+    background: #f0f0f0;
+}
+
+.monitorItem div {
+    display: flex;
+    flex-direction: column;
+}
+
+.monitorItem strong {
+    font-size: 14px;
+}
+
+.monitorItem span {
+    font-size: 12px;
+    color: #777;
+}
+
+/* FOOTER */
+.modalFooter {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.modalFooter button {
+    background: #8b0000;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.modalFooter button:hover {
+    background: #a50000;
+}

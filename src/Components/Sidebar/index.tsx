@@ -27,6 +27,11 @@ export default function SideBar() {
                 path: "/admin/disciplinas"
             },
             {
+                label: "Monitorias",
+                icon: faPenToSquare,
+                path: "/admin/monitorias"
+            },
+            {
                 label: "Usuarios",
                 icon: faUsers,
                 children: [
