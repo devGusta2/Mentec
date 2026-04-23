@@ -19,7 +19,11 @@
     font-size: 22px;
     font-weight: 600;
 }
-
+.header span{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 .addButton {
     background: #b30000;
     color: white;
@@ -143,6 +147,7 @@
     background: #f4f4f4;
     border-radius: 12px;
     padding: 20px;
+    height: 500px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
@@ -152,7 +157,11 @@
     justify-content: space-between;
     align-items: center;
 }
-
+.modalHeader span{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 .modalHeader h2 {
     margin: 0;
     font-size: 18px;
@@ -172,14 +181,17 @@
 .modalContent {
     display: flex;
     gap: 20px;
+    padding: 20px 0px;
 }
 
 /* LEFT */
 .left {
-    flex: 1;
+   
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 50%;
+
 }
 
 .left label {
@@ -198,13 +210,13 @@
 }
 
 .left textarea {
-    height: 120px;
+    height: 100px;
     resize: none;
 }
 
 /* RIGHT */
 .right {
-    width: 300px;
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -233,6 +245,7 @@
     padding: 8px;
     border-radius: 8px;
     transition: 0.2s;
+    background-color: red;
 }
 
 .monitorItem:hover {
@@ -258,12 +271,17 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
+
+    height: 120px;
 }
 
 .modalFooter button {
     background: #8b0000;
     color: white;
     border: none;
+    height: 70px;
+    width: 270px;
+    margin: auto;
     padding: 12px 30px;
     border-radius: 10px;
     cursor: pointer;
@@ -272,4 +290,54 @@
 
 .modalFooter button:hover {
     background: #a50000;
+}
+
+
+
+.monitorItem:nth-child(odd){
+    background-color: #e6e6e6;
+}
+.monitorItem:nth-child(even){
+    background-color: #f7f7f7;
+}
+
+.monitorItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.monitorItem:hover {
+    background: #eaeaea;
+}
+
+.selected {
+    background: #dcdcdc !important;
+    border: 1px solid #8b0000;
+}
+
+/* bolinha avatar igual da imagem */
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #cfcfcf;
+}
+
+.monitorInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.monitorInfo strong {
+    font-size: 14px;
+}
+
+.monitorInfo span {
+    font-size: 12px;
+    color: #777;
 }

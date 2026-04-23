@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { getApiUrl, getToken } from "../../../utils/AuthProvider";
-
+import { FaPenToSquare } from "react-icons/fa6";
 export default function Monitorias() {
     const API_URL = getApiUrl();
     const TOKEN = getToken();
@@ -13,12 +13,26 @@ export default function Monitorias() {
     const [titulo, setTitulo] = useState("");
     const [descricao, setDescricao] = useState("");
     const [disciplinaId, setDisciplinaId] = useState("");
-    const [monitoresSelecionados, setMonitoresSelecionados] = useState<number[]>([]);
+    const [monitorSelecionado, setMonitorSelecionado] = useState<string | null>(null);
 
     const [disciplinas, setDisciplinas] = useState<any[]>([]);
     const [monitores, setMonitores] = useState<any[]>([]);
 
     const [loading, setLoading] = useState(false);
+
+
+
+    const fetchMonitores = async () => {
+        try {
+            const response = await axios.get(`${API_URL}/admin/usuarios/monitores/livre/list`, {
+                headers: { Authorization: `Bearer ${TOKEN}` }
+            })
+            setMonitores(response.data);
+        } catch (e: any) {
+            alert("Erro ao listar monitores!" + e?.response?.data?.message);
+        }
+    }
+
 
     useEffect(() => {
         fetchMonitorias();
@@ -43,25 +57,19 @@ export default function Monitorias() {
     const openCreateModal = async () => {
         setOpenModal(true);
 
-        const [discRes, monRes] = await Promise.all([
+        const [discRes] = await Promise.all([
             axios.get(`${API_URL}/disciplinas/listar`, {
                 headers: { Authorization: `Bearer ${TOKEN}` }
             }),
-            axios.get(`${API_URL}/usuarios/monitores`, {
-                headers: { Authorization: `Bearer ${TOKEN}` }
-            })
+
         ]);
 
         setDisciplinas(discRes.data);
-        setMonitores(monRes.data);
+
     };
 
-    const toggleMonitor = (id: number) => {
-        setMonitoresSelecionados(prev =>
-            prev.includes(id)
-                ? prev.filter(m => m !== id)
-                : [...prev, id]
-        );
+    const selecionarMonitor = (id: string) => {
+        setMonitorSelecionado(id);
     };
 
     const handleSubmit = async () => {
@@ -76,8 +84,10 @@ export default function Monitorias() {
             await axios.post(`${API_URL}/monitorias/cadastrar`, {
                 titulo,
                 descricao,
-                disciplinaId,
-                monitoresIds: monitoresSelecionados
+                imagem: "",
+                status: "ATIVO",
+                idDisciplina: disciplinaId,
+                idMonitor: monitorSelecionado
             }, {
                 headers: { Authorization: `Bearer ${TOKEN}` }
             });
@@ -103,11 +113,16 @@ export default function Monitorias() {
 
             {/* HEADER */}
             <div className={styles.header}>
-                <h1>Minhas monitorias</h1>
+                <span>
+                    <FaPenToSquare size={50} color="#b30000" />
+                    <h1>Monitorias</h1>
+                </span>
                 <button className={styles.addButton} onClick={async () => {
                     await fetchDisciplinas();
                     setOpenModal(true);
+                    fetchMonitores();
                 }}>
+
                     Nova monitoria
                 </button>
             </div>
@@ -162,8 +177,9 @@ export default function Monitorias() {
                     <div className={styles.modal}>
 
                         <div className={styles.modalHeader}>
-                            <h2>Nova monitoria</h2>
-                            <button onClick={() => setOpenModal(false)}>×</button>
+                            <span>  <FaPenToSquare size={30} color="#ae1313" />
+                                <h2>Nova monitoria</h2></span>
+                            <button onClick={() => { setOpenModal(false) }}>×</button>
                         </div>
 
                         <div className={styles.modalContent}>
@@ -204,14 +220,15 @@ export default function Monitorias() {
 
                                 <div className={styles.monitorList}>
                                     {monitores.map((m) => (
-                                        <div key={m.id} className={styles.monitorItem}>
-                                            <input
-                                                type="checkbox"
-                                                checked={monitoresSelecionados.includes(m.id)}
-                                                onChange={() => toggleMonitor(m.id)}
-                                            />
+                                        <div
+                                            key={m.id}
+                                            className={`${styles.monitorItem} ${monitorSelecionado === m.id ? styles.selected : ""
+                                                }`}
+                                            onClick={() => selecionarMonitor(m.id)}
+                                        >
+                                            <div className={styles.avatar} />
 
-                                            <div>
+                                            <div className={styles.monitorInfo}>
                                                 <strong>{m.nome}</strong>
                                                 <span>{m.ra}</span>
                                             </div>
