@@ -39,7 +39,7 @@ export default function Monitorias() {
     }, []);
 
     const fetchMonitorias = async () => {
-        const res = await axios.get(`${API_URL}/monitorias/listar`, {
+        const res = await axios.get(`${API_URL}/monitorias/listarTodas`, {
             headers: { Authorization: `Bearer ${TOKEN}` }
         });
         setMonitorias(res.data);
@@ -81,17 +81,16 @@ export default function Monitorias() {
         try {
             setLoading(true);
 
-            await axios.post(`${API_URL}/monitorias/cadastrar`, {
-                titulo,
-                descricao,
+            await axios.post(`${API_URL}/monitorias/criar`, {
+                titulo: "Monitoria de Matemática",
+                descricao: "Funções do 2 grau",
                 imagem: "",
-                status: "ATIVO",
-                idDisciplina: disciplinaId,
+                status: "PENDENTE",
+                idDisciplina: 1,
                 idMonitor: monitorSelecionado
             }, {
                 headers: { Authorization: `Bearer ${TOKEN}` }
             });
-
             setOpenModal(false);
             fetchMonitorias();
 
@@ -99,7 +98,7 @@ export default function Monitorias() {
             setTitulo("");
             setDescricao("");
             setDisciplinaId("");
-            setMonitoresSelecionados([]);
+            setMonitorSelecionado(null);
 
         } catch {
             alert("Erro ao criar monitoria");
@@ -162,7 +161,9 @@ export default function Monitorias() {
                                 </div>
                             </div>
                         </div>
-
+                        <div>
+                            {m.estado}
+                        </div>
                         <div className={styles.actions}>
                             <button className={styles.edit}>Editar</button>
                             <button className={styles.cancel}>Cancelar</button>
