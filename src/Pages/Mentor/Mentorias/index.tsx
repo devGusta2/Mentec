@@ -34,7 +34,7 @@ export function MentoriasCards({ reload, onEdit }: any) {
         monitoriasData.map((mentoria) => (
           <div key={mentoria.id} className={styles.card} style={{backgroundColor: mentoria.estado == "PENDENTE" ? "#fff3cd" : "#b8e6c1" }}>
             <div className={styles.cardInfo}>
-              <h3>{mentoria.titulo}</h3>
+              <h3 style={{fontSize:'27px'}}>{mentoria.titulo}</h3>
 
               <p className={styles.descricao}>
                 {mentoria.descricao || "Sem descrição"}
