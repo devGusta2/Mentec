@@ -29,15 +29,12 @@ export default function Alunos() {
 
     const fetchAlunos = async () => {
         try {
-            const response = await axios.get(`${API_URL}/admin/usuarios/alunos/list`, {
+            const response = await axios.get(`${API_URL}/admin/usuarios/aluno/list`, {
                 headers: { Authorization: `Bearer ${TOKEN}` }
             });
             setAlunos(response.data || []);
         } catch (e: any) {
-            setAlunos([
-                { id: 1, nome: 'Ana', sobrenome: 'Souza', email: 'ana.souza@fatec.sp.gov.br', curso: 'Engenharia de Software', periodo: '5º semestre', matricula: '2023001234' },
-                { id: 2, nome: 'Pedro', sobrenome: 'Oliveira', email: 'pedro.oliveira@fatec.sp.gov.br', curso: 'Análise e Desenvolvimento de Sistemas', periodo: '3º semestre', matricula: '2023005678' }
-            ]);
+          alert('Erro ao carregar alunos. Por favor, tente novamente mais tarde.');
         }
     };
 
