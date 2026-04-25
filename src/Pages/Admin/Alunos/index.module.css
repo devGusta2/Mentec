@@ -266,7 +266,7 @@
     font-size: 7px;
 } */
 
-.header button{
+.header button, #btnupload{
     height: 60px;
     width: 60px;
     background-color: #b30000;

@@ -1,6 +1,6 @@
 ﻿import { useEffect, useState, FormEvent } from 'react';
 import axios from 'axios';
-import { FaUserGraduate, FaPlus, FaRegEdit, FaRegTrashAlt, FaFile, FaFileAlt, FaFileArchive } from 'react-icons/fa';
+import { FaUserGraduate, FaPlus, FaRegEdit, FaRegTrashAlt } from 'react-icons/fa';
 import { MdClose } from 'react-icons/md';
 import { getApiUrl, getToken } from '../../../utils/AuthProvider';
 import styles from './index.module.css';
@@ -11,6 +11,7 @@ export default function Alunos() {
     const TOKEN = getToken();
 
     const [alunos, setAlunos] = useState<any[]>([]);
+    const [isUploading, setIsUploading] = useState(false);
     const [selectedAluno, setSelectedAluno] = useState<any>(null);
     const [aluno, setAluno] = useState({
         nome: '',
@@ -26,9 +27,6 @@ export default function Alunos() {
         delete: false
     });
 
-
-
-
     const fetchAlunos = async () => {
         try {
             const response = await axios.get(`${API_URL}/admin/usuarios/alunos/list`, {
@@ -37,24 +35,8 @@ export default function Alunos() {
             setAlunos(response.data || []);
         } catch (e: any) {
             setAlunos([
-                {
-                    id: 1,
-                    nome: 'Ana',
-                    sobrenome: 'Souza',
-                    email: 'ana.souza@fatec.sp.gov.br',
-                    curso: 'Engenharia de Software',
-                    periodo: '5º semestre',
-                    matricula: '2023001234'
-                },
-                {
-                    id: 2,
-                    nome: 'Pedro',
-                    sobrenome: 'Oliveira',
-                    email: 'pedro.oliveira@fatec.sp.gov.br',
-                    curso: 'Análise e Desenvolvimento de Sistemas',
-                    periodo: '3º semestre',
-                    matricula: '2023005678'
-                }
+                { id: 1, nome: 'Ana', sobrenome: 'Souza', email: 'ana.souza@fatec.sp.gov.br', curso: 'Engenharia de Software', periodo: '5º semestre', matricula: '2023001234' },
+                { id: 2, nome: 'Pedro', sobrenome: 'Oliveira', email: 'pedro.oliveira@fatec.sp.gov.br', curso: 'Análise e Desenvolvimento de Sistemas', periodo: '3º semestre', matricula: '2023005678' }
             ]);
         }
     };
@@ -85,23 +67,9 @@ export default function Alunos() {
         }
     };
 
-    const openEditModal = (alunoData: any) => {
-        setSelectedAluno(alunoData);
-        setAluno({
-            nome: alunoData.nome || '',
-            sobrenome: alunoData.sobrenome || '',
-            email: alunoData.email || '',
-            curso: alunoData.curso || '',
-            periodo: alunoData.periodo || '',
-            matricula: alunoData.matricula || ''
-        });
-        setModal(prev => ({ ...prev, update: true }));
-    };
-
     const updateAluno = async (e: FormEvent) => {
         e.preventDefault();
         if (!selectedAluno) return;
-
         try {
             await axios.put(`${API_URL}/admin/usuarios/alunos/${selectedAluno.id}`, aluno, {
                 headers: { Authorization: `Bearer ${TOKEN}` }
@@ -116,18 +84,12 @@ export default function Alunos() {
             setModal(prev => ({ ...prev, update: false }));
             setSelectedAluno(null);
             clearForm();
-            alert('Atualização local aplicada. API indisponível.');
+            alert('Atualização local aplicada.');
         }
-    };
-
-    const openDeleteModal = (alunoData: any) => {
-        setSelectedAluno(alunoData);
-        setModal(prev => ({ ...prev, delete: true }));
     };
 
     const deleteAluno = async () => {
         if (!selectedAluno) return;
-
         try {
             await axios.delete(`${API_URL}/admin/usuarios/alunos/${selectedAluno.id}`, {
                 headers: { Authorization: `Bearer ${TOKEN}` }
@@ -140,8 +102,46 @@ export default function Alunos() {
             setAlunos(prev => prev.filter(item => item.id !== selectedAluno.id));
             setModal(prev => ({ ...prev, delete: false }));
             setSelectedAluno(null);
-            alert('Exclusão local aplicada. API indisponível.');
+            alert('Exclusão local aplicada.');
         }
+    };
+
+    const uploadCSV = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        setIsUploading(true);
+        try {
+            await axios.post(`${API_URL}/alunos/upload`, formData, {
+                headers: { 
+                    Authorization: `Bearer ${TOKEN}`,
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            alert('Importação concluída!');
+            fetchAlunos();
+        } catch (err: any) {
+            alert('Erro na importação. Verifique o arquivo CSV.');
+        } finally {
+            setIsUploading(false);
+            e.target.value = "";
+        }
+    };
+
+    const openEditModal = (alunoData: any) => {
+        setSelectedAluno(alunoData);
+        setAluno({
+            nome: alunoData.nome || '',
+            sobrenome: alunoData.sobrenome || '',
+            email: alunoData.email || '',
+            curso: alunoData.curso || '',
+            periodo: alunoData.periodo || '',
+            matricula: alunoData.matricula || ''
+        });
+        setModal(prev => ({ ...prev, update: true }));
     };
 
     return (
@@ -153,10 +153,24 @@ export default function Alunos() {
                 </span>
 
                 <span>
-                    <button title = "Importar CSV"id={styles.btnupload} onClick={() => setModal(prev => ({ ...prev, create: true }))}>
+                    <label 
+                        htmlFor='file-upload' 
+                        title="Importar CSV" 
+                        id={styles.btnupload}
+                        style={{ opacity: isUploading ? 0.5 : 1, cursor: isUploading ? 'wait' : 'pointer' }}
+                    >
                         <FaFileArrowUp size={25} color="#fff" />
-                        {/* <p>Importar CSV</p> */}
-                    </button>
+                    </label>
+
+                    <input 
+                        disabled={isUploading}
+                        style={{ display: 'none' }} 
+                        onChange={uploadCSV} 
+                        type="file" 
+                        id="file-upload" 
+                        accept=".csv"
+                    />
+                    
                     <button id={styles.btncreate} onClick={() => setModal(prev => ({ ...prev, create: true }))}>
                         <FaPlus size={22} color="#fff" />
                         <p>Novo aluno</p>
@@ -186,10 +200,10 @@ export default function Alunos() {
                                 <td>{item.matricula}</td>
                                 <td>
                                     <div className={styles.actions}>
-                                        <button className={styles.btnAction} title="Editar" onClick={() => openEditModal(item)}>
+                                        <button className={styles.btnAction} onClick={() => openEditModal(item)}>
                                             <FaRegEdit size={16} />
                                         </button>
-                                        <button className={styles.btnAction} title="Excluir" onClick={() => openDeleteModal(item)}>
+                                        <button className={styles.btnAction} onClick={() => { setSelectedAluno(item); setModal(prev => ({ ...prev, delete: true })); }}>
                                             <FaRegTrashAlt size={16} />
                                         </button>
                                     </div>
@@ -204,43 +218,18 @@ export default function Alunos() {
                 <div className={styles.overlay}>
                     <form onSubmit={createAluno} className={styles.modal}>
                         <div className={styles.modalHeader}>
-                            <span>
-                                <FaUserGraduate size={32} color="#8B0E21" />
-                                <p>Cadastrar novo aluno</p>
-                            </span>
-                            <button className={styles.closeButton} type="button" onClick={() => setModal(prev => ({ ...prev, create: false }))}>
-                                <MdClose className={styles.closeIcon} size={30} />
-                            </button>
+                            <span><FaUserGraduate size={32} color="#8B0E21" /><p>Cadastrar novo aluno</p></span>
+                            <button type="button" onClick={() => setModal(prev => ({ ...prev, create: false }))}><MdClose size={30} /></button>
                         </div>
                         <div className={styles.form}>
-                            <div className={styles.inputGroup}>
-                                <label>Nome</label>
-                                <input required value={aluno.nome} onChange={e => setAluno(prev => ({ ...prev, nome: e.target.value }))} type="text" placeholder="Ex: João" />
-                            </div>
-                            <div className={styles.inputGroup}>
-                                <label>Sobrenome</label>
-                                <input required value={aluno.sobrenome} onChange={e => setAluno(prev => ({ ...prev, sobrenome: e.target.value }))} type="text" placeholder="Ex: Silva" />
-                            </div>
-                            <div className={styles.inputGroup}>
-                                <label>E-mail</label>
-                                <input required value={aluno.email} onChange={e => setAluno(prev => ({ ...prev, email: e.target.value }))} type="email" placeholder="email@fatec.sp.gov.br" />
-                            </div>
-                            <div className={styles.inputGroup}>
-                                <label>Curso</label>
-                                <input required value={aluno.curso} onChange={e => setAluno(prev => ({ ...prev, curso: e.target.value }))} type="text" placeholder="Ex: Análise e Desenvolvimento" />
-                            </div>
-                            <div className={styles.inputGroup}>
-                                <label>Período</label>
-                                <input required value={aluno.periodo} onChange={e => setAluno(prev => ({ ...prev, periodo: e.target.value }))} type="text" placeholder="Ex: 4º semestre" />
-                            </div>
-                            <div className={`${styles.inputGroup} ${styles.fullWidth}`}>
-                                <label>Matrícula</label>
-                                <input required value={aluno.matricula} onChange={e => setAluno(prev => ({ ...prev, matricula: e.target.value }))} type="text" placeholder="2023001234" />
-                            </div>
+                            <div className={styles.inputGroup}><label>Nome</label><input required value={aluno.nome} onChange={e => setAluno(prev => ({ ...prev, nome: e.target.value }))} type="text" /></div>
+                            <div className={styles.inputGroup}><label>Sobrenome</label><input required value={aluno.sobrenome} onChange={e => setAluno(prev => ({ ...prev, sobrenome: e.target.value }))} type="text" /></div>
+                            <div className={styles.inputGroup}><label>E-mail</label><input required value={aluno.email} onChange={e => setAluno(prev => ({ ...prev, email: e.target.value }))} type="email" /></div>
+                            <div className={styles.inputGroup}><label>Curso</label><input required value={aluno.curso} onChange={e => setAluno(prev => ({ ...prev, curso: e.target.value }))} type="text" /></div>
+                            <div className={styles.inputGroup}><label>Período</label><input required value={aluno.periodo} onChange={e => setAluno(prev => ({ ...prev, periodo: e.target.value }))} type="text" /></div>
+                            <div className={`${styles.inputGroup} ${styles.fullWidth}`}><label>Matrícula</label><input required value={aluno.matricula} onChange={e => setAluno(prev => ({ ...prev, matricula: e.target.value }))} type="text" /></div>
                         </div>
-                        <div className={styles.modalFooter}>
-                            <button className={styles.btnSave} type="submit">Salvar aluno</button>
-                        </div>
+                        <div className={styles.modalFooter}><button className={styles.btnSave} type="submit">Salvar aluno</button></div>
                     </form>
                 </div>
             )}
@@ -249,43 +238,18 @@ export default function Alunos() {
                 <div className={styles.overlay}>
                     <form onSubmit={updateAluno} className={styles.modal}>
                         <div className={styles.modalHeader}>
-                            <span>
-                                <FaUserGraduate size={32} color="#8B0E21" />
-                                <p>Editar aluno</p>
-                            </span>
-                            <button className={styles.closeButton} type="button" onClick={() => { setModal(prev => ({ ...prev, update: false })); setSelectedAluno(null); clearForm(); }}>
-                                <MdClose className={styles.closeIcon} size={30} />
-                            </button>
+                            <span><FaUserGraduate size={32} color="#8B0E21" /><p>Editar aluno</p></span>
+                            <button type="button" onClick={() => { setModal(prev => ({ ...prev, update: false })); clearForm(); }}><MdClose size={30} /></button>
                         </div>
                         <div className={styles.form}>
-                            <div className={styles.inputGroup}>
-                                <label>Nome</label>
-                                <input required value={aluno.nome} onChange={e => setAluno(prev => ({ ...prev, nome: e.target.value }))} type="text" />
-                            </div>
-                            <div className={styles.inputGroup}>
-                                <label>Sobrenome</label>
-                                <input required value={aluno.sobrenome} onChange={e => setAluno(prev => ({ ...prev, sobrenome: e.target.value }))} type="text" />
-                            </div>
-                            <div className={styles.inputGroup}>
-                                <label>E-mail</label>
-                                <input required value={aluno.email} onChange={e => setAluno(prev => ({ ...prev, email: e.target.value }))} type="email" />
-                            </div>
-                            <div className={styles.inputGroup}>
-                                <label>Curso</label>
-                                <input required value={aluno.curso} onChange={e => setAluno(prev => ({ ...prev, curso: e.target.value }))} type="text" />
-                            </div>
-                            <div className={styles.inputGroup}>
-                                <label>Período</label>
-                                <input required value={aluno.periodo} onChange={e => setAluno(prev => ({ ...prev, periodo: e.target.value }))} type="text" />
-                            </div>
-                            <div className={`${styles.inputGroup} ${styles.fullWidth}`}>
-                                <label>Matrícula</label>
-                                <input required value={aluno.matricula} onChange={e => setAluno(prev => ({ ...prev, matricula: e.target.value }))} type="text" />
-                            </div>
+                            <div className={styles.inputGroup}><label>Nome</label><input required value={aluno.nome} onChange={e => setAluno(prev => ({ ...prev, nome: e.target.value }))} type="text" /></div>
+                            <div className={styles.inputGroup}><label>Sobrenome</label><input required value={aluno.sobrenome} onChange={e => setAluno(prev => ({ ...prev, sobrenome: e.target.value }))} type="text" /></div>
+                            <div className={styles.inputGroup}><label>E-mail</label><input required value={aluno.email} onChange={e => setAluno(prev => ({ ...prev, email: e.target.value }))} type="email" /></div>
+                            <div className={styles.inputGroup}><label>Curso</label><input required value={aluno.curso} onChange={e => setAluno(prev => ({ ...prev, curso: e.target.value }))} type="text" /></div>
+                            <div className={styles.inputGroup}><label>Período</label><input required value={aluno.periodo} onChange={e => setAluno(prev => ({ ...prev, periodo: e.target.value }))} type="text" /></div>
+                            <div className={`${styles.inputGroup} ${styles.fullWidth}`}><label>Matrícula</label><input required value={aluno.matricula} onChange={e => setAluno(prev => ({ ...prev, matricula: e.target.value }))} type="text" /></div>
                         </div>
-                        <div className={styles.modalFooter}>
-                            <button className={styles.btnSave} type="submit">Salvar alterações</button>
-                        </div>
+                        <div className={styles.modalFooter}><button className={styles.btnSave} type="submit">Salvar alterações</button></div>
                     </form>
                 </div>
             )}
@@ -294,24 +258,13 @@ export default function Alunos() {
                 <div className={styles.overlay}>
                     <div className={styles.modal}>
                         <div className={styles.modalHeader}>
-                            <span>
-                                <FaUserGraduate size={32} color="#8B0E21" />
-                                <p>Confirmar exclusão</p>
-                            </span>
-                            <button className={styles.closeButton} type="button" onClick={() => { setModal(prev => ({ ...prev, delete: false })); setSelectedAluno(null); }}>
-                                <MdClose className={styles.closeIcon} size={30} />
-                            </button>
+                            <span><FaUserGraduate size={32} color="#8B0E21" /><p>Confirmar exclusão</p></span>
+                            <button type="button" onClick={() => setModal(prev => ({ ...prev, delete: false }))}><MdClose size={30} /></button>
                         </div>
-                        <div className={styles.formDelete}>
-                            <p>Tem certeza que deseja excluir <strong>{selectedAluno.nome} {selectedAluno.sobrenome}</strong>?</p>
-                        </div>
+                        <div className={styles.formDelete}><p>Deseja excluir <strong>{selectedAluno.nome}</strong>?</p></div>
                         <div className={styles.modalFooter}>
-                            <button className={styles.btnCancel} type="button" onClick={() => { setModal(prev => ({ ...prev, delete: false })); setSelectedAluno(null); }}>
-                                Cancelar
-                            </button>
-                            <button className={styles.btnSave} type="button" onClick={deleteAluno}>
-                                Excluir aluno
-                            </button>
+                            <button className={styles.btnCancel} onClick={() => setModal(prev => ({ ...prev, delete: false }))}>Cancelar</button>
+                            <button className={styles.btnSave} onClick={deleteAluno}>Excluir aluno</button>
                         </div>
                     </div>
                 </div>
