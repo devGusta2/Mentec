@@ -21,7 +21,14 @@ export default function Monitorias() {
     const [loading, setLoading] = useState(false);
 
 
-
+    const [newMonitoria, setnewMonitoria] = useState({
+        titulo: "",
+        descricao: "",
+        imagem: "",
+        status: "",
+        idDisciplina: disciplinaId,
+        idMonitor: monitorSelecionado
+    });
     const fetchMonitores = async () => {
         try {
             const response = await axios.get(`${API_URL}/admin/usuarios/monitores/livre/list`, {
@@ -73,7 +80,7 @@ export default function Monitorias() {
     };
 
     const handleSubmit = async () => {
-        if (!titulo || !descricao || !disciplinaId) {
+        if (!titulo || !descricao || !disciplinaId || !monitorSelecionado) {
             alert("Preencha todos os campos");
             return;
         }
@@ -81,20 +88,22 @@ export default function Monitorias() {
         try {
             setLoading(true);
 
-            await axios.post(`${API_URL}/monitorias/criar`, {
-                titulo: "Monitoria de Matemática",
-                descricao: "Funções do 2 grau",
+            const payload = {
+                titulo,
+                descricao,
                 imagem: "",
-                status: "PENDENTE",
-                idDisciplina: 1,
+                status: "ATIVA",
+                idDisciplina: Number(disciplinaId),
                 idMonitor: monitorSelecionado
-            }, {
+            };
+
+            await axios.post(`${API_URL}/monitorias/criar`, payload, {
                 headers: { Authorization: `Bearer ${TOKEN}` }
             });
+
             setOpenModal(false);
             fetchMonitorias();
 
-            // reset
             setTitulo("");
             setDescricao("");
             setDisciplinaId("");
@@ -190,7 +199,6 @@ export default function Monitorias() {
                                 <label>Título</label>
                                 <input
                                     value={titulo}
-                                    placeholder="Insira um título para a monitoria"
                                     onChange={(e) => setTitulo(e.target.value)}
                                 />
 
@@ -209,7 +217,6 @@ export default function Monitorias() {
                                 </select>
                                 <label>Descrição</label>
                                 <textarea
-                                    placeholder="Insira uma descrição para a monitoria"
                                     value={descricao}
                                     onChange={(e) => setDescricao(e.target.value)}
                                 />
