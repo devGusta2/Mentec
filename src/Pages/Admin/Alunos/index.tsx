@@ -219,12 +219,12 @@ export default function Alunos() {
                             <button type="button" onClick={() => setModal(prev => ({ ...prev, create: false }))}><MdClose size={30} /></button>
                         </div>
                         <div className={styles.form}>
-                            <div className={styles.inputGroup}><label>Nome</label><input required value={aluno.nome} onChange={e => setAluno(prev => ({ ...prev, nome: e.target.value }))} type="text" /></div>
-                            <div className={styles.inputGroup}><label>Sobrenome</label><input required value={aluno.sobrenome} onChange={e => setAluno(prev => ({ ...prev, sobrenome: e.target.value }))} type="text" /></div>
-                            <div className={styles.inputGroup}><label>E-mail</label><input required value={aluno.email} onChange={e => setAluno(prev => ({ ...prev, email: e.target.value }))} type="email" /></div>
-                            <div className={styles.inputGroup}><label>Curso</label><input required value={aluno.curso} onChange={e => setAluno(prev => ({ ...prev, curso: e.target.value }))} type="text" /></div>
-                            <div className={styles.inputGroup}><label>Período</label><input required value={aluno.periodo} onChange={e => setAluno(prev => ({ ...prev, periodo: e.target.value }))} type="text" /></div>
-                            <div className={`${styles.inputGroup} ${styles.fullWidth}`}><label>Matrícula</label><input required value={aluno.matricula} onChange={e => setAluno(prev => ({ ...prev, matricula: e.target.value }))} type="text" /></div>
+                            <div className={styles.inputGroup}><label>Nome</label><input placeholder='Digite o nome do aluno' required value={aluno.nome} onChange={e => setAluno(prev => ({ ...prev, nome: e.target.value }))} type="text" /></div>
+                            <div className={styles.inputGroup}><label>Sobrenome</label><input placeholder='Digite o sobrenome do aluno' required value={aluno.sobrenome} onChange={e => setAluno(prev => ({ ...prev, sobrenome: e.target.value }))} type="text" /></div>
+                            <div className={styles.inputGroup}><label>E-mail</label><input placeholder='Digite o e-mail do aluno' required value={aluno.email} onChange={e => setAluno(prev => ({ ...prev, email: e.target.value }))} type="email" /></div>
+                            <div className={styles.inputGroup}><label>Curso</label><input placeholder='Digite o curso do aluno' required value={aluno.curso} onChange={e => setAluno(prev => ({ ...prev, curso: e.target.value }))} type="text" /></div>
+                            <div className={styles.inputGroup}><label>Período</label><input placeholder='Digite o período do aluno' required value={aluno.periodo} onChange={e => setAluno(prev => ({ ...prev, periodo: e.target.value }))} type="text" /></div>
+                            <div className={`${styles.inputGroup} ${styles.fullWidth}`}><label>Matrícula</label><input placeholder='Digite a matrícula do aluno' required value={aluno.matricula} onChange={e => setAluno(prev => ({ ...prev, matricula: e.target.value }))} type="text" /></div>
                         </div>
                         <div className={styles.modalFooter}><button className={styles.btnSave} type="submit">Salvar aluno</button></div>
                     </form>
