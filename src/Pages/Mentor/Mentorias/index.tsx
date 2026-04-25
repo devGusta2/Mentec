@@ -32,7 +32,7 @@ export function MentoriasCards({ reload, onEdit }: any) {
     <div className={styles.cardsContainer}>
       {monitoriasData.length > 0 ? (
         monitoriasData.map((mentoria) => (
-          <div key={mentoria.id} className={styles.card}>
+          <div key={mentoria.id} className={styles.card} style={{backgroundColor: mentoria.estado == "PENDENTE" ? "#fff3cd" : "#b8e6c1" }}>
             <div className={styles.cardInfo}>
               <h3>{mentoria.titulo}</h3>
 
