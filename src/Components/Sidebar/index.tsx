@@ -32,7 +32,7 @@ export default function SideBar() {
                 icon: faUsers,
                 children: [
                     { label: "Monitores", path: "/admin/monitores" },
-                    { label: "Alunos", path: "/admin/usuarios/alunos" },
+                    { label: "Alunos", path: "/admin/alunos" },
                     { label: "Professores", path: "/admin/usuarios/professores" }
                 ]
             }

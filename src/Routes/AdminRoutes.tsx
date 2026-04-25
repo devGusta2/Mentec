@@ -22,6 +22,7 @@ import Recovery from '../Pages/Recovery';
 import Chat from '../Pages/Chat';
 import Monitores from '../Pages/Admin/Monitores'
 import Monitorias from '../Pages/Admin/MonitoriasGestor';
+import Alunos from '../Pages/Admin/Alunos';
 export default function AdminRoutes() {
     return (
         <Routes>
@@ -48,6 +49,7 @@ export default function AdminRoutes() {
                 <Route path="disciplinas" element={<Disciplinas />} />
                 <Route path="monitorias" element={<Monitorias />} />
                 <Route path="monitores" element={<Monitores />} />
+                <Route path="alunos" element={<Alunos />} />
             </Route>
 
             {/* fallback */}
