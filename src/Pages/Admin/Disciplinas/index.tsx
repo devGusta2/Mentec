@@ -160,6 +160,7 @@ export function CreateDisciplinaModal({ isOpen, onClose, onSuccess }: ModalProps
                         <label>Descrição</label>
                         <textarea
                             value={descricao}
+                            maxLength={1000}
                             onChange={(e) => setDescricao(e.target.value)}
                             placeholder="Ex: Estatística"
                         />
