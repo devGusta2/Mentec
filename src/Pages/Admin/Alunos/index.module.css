@@ -13,25 +13,10 @@
     width: 100%;
 }
 
-.header button{
-    height: 70px;
-    width: 200px;
-    background-color: #b30000;
-    border: 0;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.2em;
-    color: white;
-    cursor: pointer;
-}
 
-.header button p{
-    font-size: 12pt;
-}
 
-.header span p{
+
+.header span p:nth-child(1) {
     font-size: 22px;
     font-weight: 600;
 }
@@ -262,7 +247,7 @@
 }
 
 
-#btnupload{
+/* #btnupload{
     height: 80px;
     display: flex;
     flex-direction: column;
@@ -271,6 +256,36 @@
 }
 
 #btnupload p{
-    font-size: 13px;
+    font-size: 10px;
     text-align: center;
+}
+
+#btncreate{
+    height: 70px;
+    width: 70px;
+    font-size: 7px;
+} */
+
+.header button{
+    height: 60px;
+    width: 60px;
+    background-color: #b30000;
+    border: 0;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    color: white;
+    cursor: pointer;
+}
+
+#btncreate{
+    width: 150px;
+    gap: 7px;
+}
+
+.header button:hover{
+    background-color: #c43535;
+    transform: translateY(-5px);
 }

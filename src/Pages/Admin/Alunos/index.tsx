@@ -27,7 +27,7 @@ export default function Alunos() {
     });
 
 
-    
+
 
     const fetchAlunos = async () => {
         try {
@@ -152,14 +152,16 @@ export default function Alunos() {
                     <p>Alunos</p>
                 </span>
 
-                <button id={styles.btnupload}onClick={() => setModal(prev => ({ ...prev, create: true }))}>
-                    <FaFileArrowUp size={22} color="#fff" />
-                    <p>Importar CSV</p>
-                </button>
-                <button onClick={() => setModal(prev => ({ ...prev, create: true }))}>
-                    <FaPlus size={22} color="#fff" />
-                    <p>Novo aluno</p>
-                </button>
+                <span>
+                    <button title = "Importar CSV"id={styles.btnupload} onClick={() => setModal(prev => ({ ...prev, create: true }))}>
+                        <FaFileArrowUp size={25} color="#fff" />
+                        {/* <p>Importar CSV</p> */}
+                    </button>
+                    <button id={styles.btncreate} onClick={() => setModal(prev => ({ ...prev, create: true }))}>
+                        <FaPlus size={22} color="#fff" />
+                        <p>Novo aluno</p>
+                    </button>
+                </span>
             </div>
 
             <div className={styles.tableContainer}>
