@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import styles from "./index.module.css";
+import { FaInbox, FaPenToSquare } from "react-icons/fa6";
 import { getApiUrl, getToken } from "../../../utils/AuthProvider";
-import { FaPenToSquare } from "react-icons/fa6";
+import styles from "./index.module.css";
+
 export default function Monitorias() {
     const API_URL = getApiUrl();
     const TOKEN = getToken();
@@ -13,74 +14,67 @@ export default function Monitorias() {
     const [titulo, setTitulo] = useState("");
     const [descricao, setDescricao] = useState("");
     const [disciplinaId, setDisciplinaId] = useState("");
-    const [monitorSelecionado, setMonitorSelecionado] = useState<string | null>(null);
+    const [monitorSelecionado, setMonitorSelecionado] = useState<number | null>(null);
 
     const [disciplinas, setDisciplinas] = useState<any[]>([]);
     const [monitores, setMonitores] = useState<any[]>([]);
 
     const [loading, setLoading] = useState(false);
 
-
-    const [newMonitoria, setnewMonitoria] = useState({
-        titulo: "",
-        descricao: "",
-        imagem: "",
-        status: "",
-        idDisciplina: disciplinaId,
-        idMonitor: monitorSelecionado
-    });
     const fetchMonitores = async () => {
         try {
             const response = await axios.get(`${API_URL}/admin/usuarios/monitores/livre/list`, {
                 headers: { Authorization: `Bearer ${TOKEN}` }
-            })
-            setMonitores(response.data);
+            });
+            setMonitores(Array.isArray(response.data) ? response.data : []);
         } catch (e: any) {
-            alert("Erro ao listar monitores!" + e?.response?.data?.message);
+            alert("Erro ao listar monitores!" + (e?.response?.data?.message || ""));
+            setMonitores([]);
         }
-    }
-
-
-    useEffect(() => {
-        fetchMonitorias();
-    }, []);
+    };
 
     const fetchMonitorias = async () => {
-        const res = await axios.get(`${API_URL}/monitorias/listarTodas`, {
-            headers: { Authorization: `Bearer ${TOKEN}` }
-        });
-        setMonitorias(res.data);
+        try {
+            const res = await axios.get(`${API_URL}/monitorias/listarTodas`, {
+                headers: { Authorization: `Bearer ${TOKEN}` }
+            });
+
+            const data = Array.isArray(res.data) ? res.data : [];
+
+            const safeData = data.map((m: any) => ({
+                ...m,
+                monitores: Array.isArray(m?.monitores) ? m.monitores : []
+            }));
+
+            setMonitorias(safeData);
+        } catch (e: any) {
+            alert("Erro ao listar monitorias!" + (e?.response?.data?.message || ""));
+            setMonitorias([]);
+        }
     };
+
     const fetchDisciplinas = async () => {
         try {
             const resposta = await axios.get(`${API_URL}/disciplinas/listar`, {
                 headers: { Authorization: `Bearer ${TOKEN}` }
             });
-            setDisciplinas(resposta.data);
+            setDisciplinas(Array.isArray(resposta.data) ? resposta.data : []);
         } catch (e: any) {
-            alert("Erro ao listar disciplinas!" + e?.response?.data?.message);
+            alert("Erro ao listar disciplinas!" + (e?.response?.data?.message || ""));
+            setDisciplinas([]);
         }
     };
-    const openCreateModal = async () => {
-        setOpenModal(true);
 
-        const [discRes] = await Promise.all([
-            axios.get(`${API_URL}/disciplinas/listar`, {
-                headers: { Authorization: `Bearer ${TOKEN}` }
-            }),
+    useEffect(() => {
+        fetchMonitorias();
+    }, []);
 
-        ]);
-
-        setDisciplinas(discRes.data);
-
-    };
-
-    const selecionarMonitor = (id: string) => {
+    const selecionarMonitor = (id: number) => {
         setMonitorSelecionado(id);
     };
 
     const handleSubmit = async () => {
-        if (!titulo || !descricao || !disciplinaId || !monitorSelecionado) {
+        if (!titulo || !descricao || !disciplinaId || monitorSelecionado === null) {
             alert("Preencha todos os campos");
             return;
         }
@@ -93,7 +87,7 @@ export default function Monitorias() {
                 descricao,
                 imagem: "",
                 status: "ATIVA",
-                idDisciplina: Number(disciplinaId),
+                idDisciplina: disciplinaId ? Number(disciplinaId) : null,
                 idMonitor: monitorSelecionado
             };
 
@@ -109,8 +103,8 @@ export default function Monitorias() {
             setDisciplinaId("");
             setMonitorSelecionado(null);
 
-        } catch {
-            alert("Erro ao criar monitoria");
+        } catch (e: any) {
+            alert("Erro ao criar monitoria!" + (e?.response?.data?.message || ""));
         } finally {
             setLoading(false);
         }
@@ -119,86 +113,98 @@ export default function Monitorias() {
     return (
         <div className={styles.container}>
 
-            {/* HEADER */}
             <div className={styles.header}>
                 <span>
                     <FaPenToSquare size={50} color="#b30000" />
                     <h1>Monitorias</h1>
                 </span>
-                <button className={styles.addButton} onClick={async () => {
-                    await fetchDisciplinas();
-                    setOpenModal(true);
-                    fetchMonitores();
-                }}>
-
+                <button
+                    className={styles.addButton}
+                    onClick={async () => {
+                        await fetchDisciplinas();
+                        await fetchMonitores();
+                        setOpenModal(true);
+                    }}
+                >
                     Nova monitoria
                 </button>
             </div>
 
-            {/* LISTA */}
             <div className={styles.list}>
-                {monitorias.map((m) => (
-                    <div key={m.id} className={styles.card}>
-                        <div>
-                            <h2>{m.titulo}</h2>
-                            <p className={styles.sub}>{m.descricao}</p>
+                {monitorias.length === 0 ? (
+                    <div className={styles.empty}>
+                        <FaInbox size={60} color="#999" />
+                        <p>Nenhuma monitoria cadastrada.</p>
+                    </div>
+                ) : (
+                    monitorias.map((m) => (
+                        <div key={m?.id ?? Math.random()} className={styles.card}>
+                            <div>
+                                <h2>{m?.titulo ?? "—"}</h2>
+                                <p className={styles.sub}>{m?.descricao ?? "—"}</p>
 
-                            <div className={styles.infoRow}>
-                                <div>
-                                    <span className={styles.label}>Disciplina</span>
-                                    <span>{m.disciplinaNome}</span>
-                                </div>
+                                <div className={styles.infoRow}>
+                                    <div>
+                                        <span className={styles.label}>Disciplina</span>
+                                        <span>{m?.disciplinaNome ?? "—"}</span>
+                                    </div>
 
-                                <div>
-                                    <span className={styles.label}>Data</span>
-                                    <span>{m.data}</span>
-                                </div>
+                                    <div>
+                                        <span className={styles.label}>Data</span>
+                                        <span>{m?.data ? new Date(m.data).toLocaleDateString() : "—"}</span>
+                                    </div>
 
-                                <div>
-                                    <span className={styles.label}>Horário</span>
-                                    <span>{m.horario}</span>
-                                </div>
+                                    <div>
+                                        <span className={styles.label}>Horário</span>
+                                        <span>{m?.horario ?? "—"}</span>
+                                    </div>
 
-                                <div>
-                                    <span className={styles.label}>Alunos</span>
-                                    <span>{m.qtdAlunos || 0}</span>
-                                </div>
+                                    <div>
+                                        <span className={styles.label}>Alunos</span>
+                                        <span>{m?.qtdAlunos ?? 0}</span>
+                                    </div>
 
-                                <div>
-                                    <span className={styles.label}>Monitor</span>
-                                    <span>{m.monitores?.join(", ") || "—"}</span>
+                                    <div>
+                                        <span className={styles.label}>Monitor</span>
+                                        <span>
+                                            {Array.isArray(m?.monitores) && m.monitores.length > 0
+                                                ? m.monitores.join(", ")
+                                                : "—"}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div>{m?.estado ?? "—"}</div>
+
+                            <div className={styles.actions}>
+                                <button className={styles.edit}>Editar</button>
+                                <button className={styles.cancel}>Cancelar</button>
+                            </div>
                         </div>
-                        <div>
-                            {m.estado}
-                        </div>
-                        <div className={styles.actions}>
-                            <button className={styles.edit}>Editar</button>
-                            <button className={styles.cancel}>Cancelar</button>
-                        </div>
-                    </div>
-                ))}
+                    ))
+                )}
             </div>
 
-            {/* MODAL */}
             {openModal && (
                 <div className={styles.overlay}>
                     <div className={styles.modal}>
 
                         <div className={styles.modalHeader}>
-                            <span>  <FaPenToSquare size={30} color="#ae1313" />
-                                <h2>Nova monitoria</h2></span>
-                            <button onClick={() => { setOpenModal(false) }}>×</button>
+                            <span>
+                                <FaPenToSquare size={30} color="#ae1313" />
+                                <h2>Nova monitoria</h2>
+                            </span>
+                            <button onClick={() => setOpenModal(false)}>×</button>
                         </div>
 
                         <div className={styles.modalContent}>
 
-                            {/* ESQUERDA */}
                             <div className={styles.left}>
                                 <label>Título</label>
                                 <input
                                     value={titulo}
+                                    placeholder="Insira um título para a monitoria"
                                     onChange={(e) => setTitulo(e.target.value)}
                                 />
 
@@ -208,37 +214,38 @@ export default function Monitorias() {
                                     onChange={(e) => setDisciplinaId(e.target.value)}
                                 >
                                     <option value="">Selecione</option>
-
-                                    {disciplinas.map((d) => (
-                                        <option key={d.id} value={d.id}>
-                                            {d.nome}
+                                    {(disciplinas ?? []).map((d) => (
+                                        <option key={d?.id ?? Math.random()} value={d?.id}>
+                                            {d?.nome ?? "—"}
                                         </option>
                                     ))}
                                 </select>
+
                                 <label>Descrição</label>
                                 <textarea
                                     value={descricao}
+                                    placeholder="Insira uma descrição para a monitoria"
                                     onChange={(e) => setDescricao(e.target.value)}
                                 />
                             </div>
 
-                            {/* DIREITA */}
                             <div className={styles.right}>
                                 <label>Monitores disponíveis</label>
 
                                 <div className={styles.monitorList}>
-                                    {monitores.map((m) => (
+                                    {(monitores ?? []).map((m) => (
                                         <div
-                                            key={m.id}
-                                            className={`${styles.monitorItem} ${monitorSelecionado === m.id ? styles.selected : ""
-                                                }`}
-                                            onClick={() => selecionarMonitor(m.id)}
+                                            key={m?.id ?? Math.random()}
+                                            className={`${styles.monitorItem} ${
+                                                monitorSelecionado === m?.id ? styles.selected : ""
+                                            }`}
+                                            onClick={() => m?.id && selecionarMonitor(m.id)}
                                         >
                                             <div className={styles.avatar} />
 
                                             <div className={styles.monitorInfo}>
-                                                <strong>{m.nome}</strong>
-                                                <span>{m.ra}</span>
+                                                <strong>{m?.nome ?? "—"}</strong>
+                                                <span>{m?.ra ?? "—"}</span>
                                             </div>
                                         </div>
                                     ))}
