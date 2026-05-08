@@ -9,7 +9,8 @@ import {
     faHome, 
     faBookOpen, 
     faUser,
-    faRightFromBracket 
+    faRightFromBracket,
+    faHeadset 
 } from '@fortawesome/free-solid-svg-icons';
 import { Link, useLocation } from "react-router-dom";
 
@@ -27,6 +28,7 @@ export default function SideBar() {
             { label: "Dashboard", icon: faSliders, path: "/admin/dashboard" },
             { label: "Disciplinas", icon: faPenToSquare, path: "/admin/disciplinas" },
             { label: "Monitorias", icon: faPenToSquare, path: "/admin/monitorias" },
+            { label: "Sac", icon: faHeadset, path: "/admin/sac" },
             {
                 label: "Usuários",
                 icon: faUsers,
