@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import 'moment/locale/pt-br';
+import 'moment/locale/pt-br' ;
 import styles from './SacDashboard.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
@@ -14,12 +14,12 @@ import {
     faTag,
     faTimes
 } from '@fortawesome/free-solid-svg-icons';
-
+import { getToken } from '../../../utils/AuthProvider';
 moment.locale('pt-br');
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
 
-const SacDashboard = () => {
+export const SacDashboard = () => {
   const [chamados, setChamados] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -30,13 +30,13 @@ const SacDashboard = () => {
   const [filtroAlunoEmail, setFiltroAlunoEmail] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
   const [chamadoSelecionado, setChamadoSelecionado] = useState(null);
-
+  const TOKEN = getToken();
   const fetchChamados = async () => {
     setLoading(true);
     setError(null);
     try {
-      const token = localStorage.getItem('jwtToken');
-      const response = await axios.get(`${API_URL}/sac`, {
+      const token = TOKEN;
+      const response = await axios.get(`${API_URL}/sac/listar`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -75,8 +75,8 @@ const SacDashboard = () => {
     if (!chamadoSelecionado) return;
 
     try {
-      const token = localStorage.getItem('jwtToken');
-      await axios.patch(`${API_URL}/sac/${chamadoSelecionado.id}/status`, {
+        const token = TOKEN;
+      await axios.post(`${API_URL}/sac/${chamadoSelecionado.id}/status`, {
         status: 'CONCLUIDO',
       }, {
         headers: {
