@@ -310,8 +310,6 @@ function EditMentoriaModal({
 
       const payload = {
         descricao,
-        data,
-        horario,
         imagem,
         link,
         aulas
@@ -383,11 +381,10 @@ function EditMentoriaModal({
         <div className={styles.stepsContainer}>
 
           <div
-            className={`${styles.step} ${
-              step >= 1
+            className={`${styles.step} ${step >= 1
                 ? styles.activeStep
                 : ""
-            }`}
+              }`}
           >
 
             <div
@@ -412,11 +409,10 @@ function EditMentoriaModal({
           <div className={styles.stepLine} />
 
           <div
-            className={`${styles.step} ${
-              step >= 2
+            className={`${styles.step} ${step >= 2
                 ? styles.activeStep
                 : ""
-            }`}
+              }`}
           >
 
             <div
@@ -640,21 +636,21 @@ function EditMentoriaModal({
                         {aulas.length >
                           1 && (
 
-                          <button
-                            type="button"
-                            className={
-                              styles.removeButton
-                            }
-                            onClick={() =>
-                              removerAula(
-                                index
-                              )
-                            }
-                          >
-                            <FaTrash />
-                          </button>
+                            <button
+                              type="button"
+                              className={
+                                styles.removeButton
+                              }
+                              onClick={() =>
+                                removerAula(
+                                  index
+                                )
+                              }
+                            >
+                              <FaTrash />
+                            </button>
 
-                        )}
+                          )}
 
                       </div>
 
