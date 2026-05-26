@@ -2,6 +2,7 @@ import { getToken } from "../utils/AuthProvider";
 import AdminRoutes from "./AdminRoutes";
 import MentorRoutes from "./MentorRoutex";
 import MonitorRoutes from "./MonitorRoutes";
+import CoordRoutes from "./CoordRoutes";
 import NoAuthRoutes from "./NoAuthRoutes";
 
 export default function RoutesProvider() {
@@ -16,6 +17,10 @@ export default function RoutesProvider() {
 
     if(role === 'ADMIN'){
         return <AdminRoutes />
+    }
+
+    if(role === 'COORD'){
+        return <CoordRoutes />
     }
 
     if(role === 'MENTOR'){

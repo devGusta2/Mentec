@@ -48,6 +48,20 @@ export default function SideBar() {
             { label: "Home", icon: faHome, path: "/mentor/home" },
             { label: "Mentorias", icon: faBookOpen, path: "/mentor/mentorias" },
             { label: "Perfil", icon: faUser, path: "/mentor/profile" }
+        ],
+        COORD: [
+            { label: "Dashboard", icon: faSliders, path: "/coord/dashboard" },
+            { label: "Disciplinas", icon: faPenToSquare, path: "/coord/disciplinas" },
+            { label: "Monitorias", icon: faPenToSquare, path: "/coord/monitorias" },
+            { label: "Sac", icon: faHeadset, path: "/coord/sac" },
+            {
+                label: "Usuários",
+                icon: faUsers,
+                children: [
+                { label: "Monitores", path: "/coord/monitores" },
+                { label: "Alunos", path: "/coord/alunos" }
+                ]
+            }
         ]
     };
 
