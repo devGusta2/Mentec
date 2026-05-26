@@ -110,10 +110,10 @@ function Login() {
                             <p>Lembre-se de mim</p>
                             <button id={styles.btnLogin} type='submit'>Fazer login</button>
                         </div>
-                        <button type='submit' id={styles.btnMs}>
+                        {/* <button type='submit' id={styles.btnMs}>
                             <img src={msIco} style={{ height: '30px', width: '30px' }} alt="Microsoft Icon" />
                             <h4>Continue com a microsoft</h4>
-                        </button>
+                        </button> */}
                     </form>
                 </div>
                 <div className={styles.artBox}>
