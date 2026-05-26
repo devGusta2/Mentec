@@ -1,4 +1,4 @@
-import {
+﻿import {
   BarChart,
   Bar,
   XAxis,
@@ -19,8 +19,8 @@ import {
   PlaySquare,
   Radio,
   ChevronDown,
-  ExternalLink,
-  Info
+  Info,
+  FileSpreadsheet
 } from "lucide-react";
 
 import styles from "./Dashboard.module.css";
@@ -115,6 +115,42 @@ export default function Dashboard() {
     ).join(" ");
   };
 
+  const baixarArquivo = (conteudo: BlobPart, nomeArquivo: string, tipo: string) => {
+    const blob = conteudo instanceof Blob ? conteudo : new Blob([conteudo], { type: tipo });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = nomeArquivo;
+    link.click();
+
+    URL.revokeObjectURL(url);
+  };
+
+  const exportarExcel = async () => {
+    const apiUrl = getApiUrl();
+    const TOKEN = getToken();
+    const queryPeriodo = diasPeriodo > 0 ? `?dias=${diasPeriodo}` : "";
+
+    try {
+      const response = await axios.get(`${apiUrl}/dashboard/relatorio/excel${queryPeriodo}`, {
+        headers: {
+          Authorization: `Bearer ${TOKEN}`
+        },
+        responseType: "blob"
+      });
+
+      baixarArquivo(
+        response.data,
+        "relatorio-mentec.xlsx",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      );
+    } catch (error) {
+      console.error("Erro ao buscar relatório do dashboard:", error);
+      alert("Não foi possível gerar o relatório no momento.");
+    }
+  };
+
   const COLORS = ["#9F0D2C", "#F59E0B", "#8B5CF6"];
 
   if (loading && !data) {
@@ -136,7 +172,7 @@ export default function Dashboard() {
         </div>
 
         <div className={styles["periodo-btn"]}>
-          <CalendarDays size={17} />
+          <CalendarDays size={16} />
 
           <select
             value={diasPeriodo}
@@ -150,7 +186,7 @@ export default function Dashboard() {
             <option value={365}>Último ano</option>
           </select>
 
-          <ChevronDown size={17} />
+          <ChevronDown size={16} />
         </div>
 
         <div className={styles["user-box"]}>
@@ -161,7 +197,7 @@ export default function Dashboard() {
             <span>Administrador</span>
           </div>
 
-          <ChevronDown size={18} />
+          <ChevronDown size={16} />
         </div>
       </div>
 
@@ -207,13 +243,8 @@ export default function Dashboard() {
             <h3 className={styles["titulo-grafico"]}>
               Monitorias mais acessadas
             </h3>
-            <Info size={15} />
+            <Info size={14} />
           </div>
-
-          <button className={styles["select-btn"]}>
-            Participações
-            <ChevronDown size={15} />
-          </button>
         </div>
 
         <div className={styles["chart-monitoria"]}>
@@ -223,7 +254,7 @@ export default function Dashboard() {
               layout="vertical"
               barSize={14}
               barCategoryGap={18}
-              margin={{ top: 14, right: 58, left: 32, bottom: 10 }}
+              margin={{ top: 12, right: 58, left: 5, bottom: 8 }}
             >
               <CartesianGrid stroke="#E5E7EB" horizontal={false} />
               <XAxis
@@ -279,7 +310,7 @@ export default function Dashboard() {
               <BarChart
                 data={participacaoData}
                 barSize={16}
-                margin={{ top: 20, right: 16, left: 0, bottom: 10 }}
+                margin={{ top: 18, right: 16, left: 0, bottom: 8 }}
               >
                 <CartesianGrid stroke="#E5E7EB" vertical={false} />
                 <XAxis
@@ -395,9 +426,13 @@ export default function Dashboard() {
                 {quantidadeSatisfeitos} respostas satisfeitas de {totalFeedbacks}
               </p>
 
-              <button className={styles["avaliacoes-btn"]}>
-                <ExternalLink size={16} />
-                Ver avaliações
+              <button
+                type="button"
+                className={styles["relatorio-btn"]}
+                onClick={exportarExcel}
+              >
+                <FileSpreadsheet size={14} />
+                Excel
               </button>
             </div>
           </div>
@@ -406,3 +441,4 @@ export default function Dashboard() {
     </div>
   );
 }
+
