@@ -188,17 +188,6 @@ export default function Dashboard() {
 
           <ChevronDown size={16} />
         </div>
-
-        <div className={styles["user-box"]}>
-          <div className={styles.avatar}>A</div>
-
-          <div className={styles["user-info"]}>
-            <strong>Admin</strong>
-            <span>Administrador</span>
-          </div>
-
-          <ChevronDown size={16} />
-        </div>
       </div>
 
       <div className={styles["cards-container1"]}>
@@ -432,7 +421,7 @@ export default function Dashboard() {
                 onClick={exportarExcel}
               >
                 <FileSpreadsheet size={14} />
-                Excel
+                Relatório
               </button>
             </div>
           </div>
