@@ -4,12 +4,11 @@ import SideBar from "../Components/Sidebar"
 
 export default function AdminLayout (){
     return(
-        <div style={{display:'flex'}}>
+        <div style={{ display: "flex", width: "100%", height: "100dvh", overflow: "hidden" }}>
             <SideBar />
-            <div>
-                
+            <div style={{ flex: 1, minWidth: 0, height: "100dvh", overflow: "hidden" }}>
+                <Outlet />
             </div>
-            <Outlet />
         </div>
     )
 }
