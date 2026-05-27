@@ -71,6 +71,8 @@ function Login() {
                 window.location.href = "/mentor/home";
             } else if (response.data.role === "MONITOR") {
                 window.location.href = "/monitor/home";
+            } else if (response.data.role === "COORDENADOR") {
+                window.location.href = "/monitor/home";
             } else {
                 window.location.href = "/";
             }
