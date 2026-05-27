@@ -10,6 +10,8 @@ export default function Monitorias() {
 
     const [monitorias, setMonitorias] = useState<any[]>([]);
     const [openModal, setOpenModal] = useState(false);
+    const [editingMonitoria, setEditingMonitoria] = useState<any | null>(null);
+    const [deletingMonitoria, setDeletingMonitoria] = useState<any | null>(null);
 
     const [titulo, setTitulo] = useState("");
     const [descricao, setDescricao] = useState("");
@@ -20,6 +22,14 @@ export default function Monitorias() {
     const [monitores, setMonitores] = useState<any[]>([]);
 
     const [loading, setLoading] = useState(false);
+    const [actionLoading, setActionLoading] = useState(false);
+
+    const resetForm = () => {
+        setTitulo("");
+        setDescricao("");
+        setDisciplinaId("");
+        setMonitorSelecionado(null);
+    };
 
     const fetchMonitores = async () => {
         try {
@@ -97,16 +107,70 @@ export default function Monitorias() {
 
             setOpenModal(false);
             fetchMonitorias();
-
-            setTitulo("");
-            setDescricao("");
-            setDisciplinaId("");
-            setMonitorSelecionado(null);
+            resetForm();
 
         } catch (e: any) {
             alert("Erro ao criar monitoria!" + (e?.response?.data?.message || ""));
         } finally {
             setLoading(false);
+        }
+    };
+
+    const openEditModal = (monitoria: any) => {
+        setEditingMonitoria(monitoria);
+        setTitulo(monitoria?.titulo ?? "");
+        setDescricao(monitoria?.descricao ?? "");
+    };
+
+    const closeEditModal = () => {
+        setEditingMonitoria(null);
+        resetForm();
+    };
+
+    const handleUpdate = async () => {
+        if (!editingMonitoria || !titulo || !descricao) {
+            alert("Preencha título e descrição");
+            return;
+        }
+
+        try {
+            setActionLoading(true);
+
+            await axios.put(
+                `${API_URL}/monitorias/atualizar/${editingMonitoria.id}`,
+                {
+                    titulo,
+                    descricao,
+                    status: editingMonitoria?.status || "ATIVA"
+                },
+                { headers: { Authorization: `Bearer ${TOKEN}` } }
+            );
+
+            closeEditModal();
+            fetchMonitorias();
+        } catch (e: any) {
+            alert("Erro ao atualizar monitoria!" + (e?.response?.data?.message || ""));
+        } finally {
+            setActionLoading(false);
+        }
+    };
+
+    const handleDelete = async () => {
+        if (!deletingMonitoria) return;
+
+        try {
+            setActionLoading(true);
+
+            await axios.delete(`${API_URL}/monitorias/deletar/${deletingMonitoria.id}`, {
+                headers: { Authorization: `Bearer ${TOKEN}` }
+            });
+
+            setDeletingMonitoria(null);
+            fetchMonitorias();
+        } catch (e: any) {
+            alert("Erro ao excluir monitoria!" + (e?.response?.data?.message || ""));
+        } finally {
+            setActionLoading(false);
         }
     };
 
@@ -178,8 +242,8 @@ export default function Monitorias() {
                             <div>{m?.estado ?? "—"}</div>
 
                             <div className={styles.actions}>
-                                <button className={styles.edit}>Editar</button>
-                                <button className={styles.cancel}>Cancelar</button>
+                                <button className={styles.edit} onClick={() => openEditModal(m)}>Editar</button>
+                                <button className={styles.cancel} onClick={() => setDeletingMonitoria(m)}>Excluir</button>
                             </div>
                         </div>
                     ))
@@ -260,6 +324,65 @@ export default function Monitorias() {
                             </button>
                         </div>
 
+                    </div>
+                </div>
+            )}
+
+            {editingMonitoria && (
+                <div className={styles.overlay}>
+                    <div className={styles.modalSmall}>
+                        <div className={styles.modalHeader}>
+                            <span>
+                                <FaPenToSquare size={30} color="#ae1313" />
+                                <h2>Editar monitoria</h2>
+                            </span>
+                            <button onClick={closeEditModal}>X</button>
+                        </div>
+
+                        <div className={styles.formStack}>
+                            <label>Título</label>
+                            <input
+                                value={titulo}
+                                placeholder="Insira um título para a monitoria"
+                                onChange={(e) => setTitulo(e.target.value)}
+                            />
+
+                            <label>Descrição</label>
+                            <textarea
+                                value={descricao}
+                                placeholder="Insira uma descrição para a monitoria"
+                                onChange={(e) => setDescricao(e.target.value)}
+                            />
+                        </div>
+
+                        <div className={styles.modalActions}>
+                            <button className={styles.secondaryButton} onClick={closeEditModal}>
+                                Cancelar
+                            </button>
+                            <button className={styles.primaryButton} onClick={handleUpdate} disabled={actionLoading}>
+                                {actionLoading ? "Salvando..." : "Salvar"}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {deletingMonitoria && (
+                <div className={styles.overlay}>
+                    <div className={styles.confirmModal}>
+                        <h2>Excluir monitoria</h2>
+                        <p>
+                            Tem certeza que deseja excluir <strong>{deletingMonitoria?.titulo ?? "esta monitoria"}</strong>?
+                        </p>
+
+                        <div className={styles.modalActions}>
+                            <button className={styles.secondaryButton} onClick={() => setDeletingMonitoria(null)}>
+                                Cancelar
+                            </button>
+                            <button className={styles.dangerButton} onClick={handleDelete} disabled={actionLoading}>
+                                {actionLoading ? "Excluindo..." : "Excluir"}
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}
