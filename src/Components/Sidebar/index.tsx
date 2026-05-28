@@ -1,21 +1,22 @@
 import { useState } from "react";
-import styles from './index.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-    faSliders, 
-    faPenToSquare, 
-    faUsers, 
-    faChevronDown, 
-    faHome, 
-    faBookOpen, 
+import styles from "./index.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faSliders,
+    faPenToSquare,
+    faUsers,
+    faChevronDown,
+    faHome,
+    faBookOpen,
     faUser,
     faRightFromBracket,
-    faHeadset 
-} from '@fortawesome/free-solid-svg-icons';
+    faHeadset
+} from "@fortawesome/free-solid-svg-icons";
 import { Link, useLocation } from "react-router-dom";
 
 export default function SideBar() {
-    const tipoUsuario = localStorage.getItem('role')?.toUpperCase();
+    const tipoUsuario = localStorage.getItem("role")?.toUpperCase();
+    const tipoUsuarioKey = tipoUsuario === "COORDENADOR" ? "COORD" : tipoUsuario;
     const location = useLocation();
     const [openMenu, setOpenMenu] = useState<number | null>(null);
 
@@ -28,14 +29,15 @@ export default function SideBar() {
             { label: "Dashboard", icon: faSliders, path: "/admin/dashboard" },
             { label: "Disciplinas", icon: faPenToSquare, path: "/admin/disciplinas" },
             { label: "Monitorias", icon: faPenToSquare, path: "/admin/monitorias" },
-            { label: "Sac", icon: faHeadset, path: "/admin/sac" },
+            { label: "SAC", icon: faHeadset, path: "/admin/sac" },
             {
                 label: "Usuários",
                 icon: faUsers,
                 children: [
+                    { label: "Coordenadores", path: "/admin/usuarios/coordenadores" },
                     { label: "Monitores", path: "/admin/monitores" },
                     { label: "Alunos", path: "/admin/alunos" },
-                    { label: "Professores", path: "/admin/usuarios/professores" }
+                    // { label: "Professores", path: "/admin/usuarios/professores" }
                 ]
             }
         ],
@@ -48,10 +50,19 @@ export default function SideBar() {
             { label: "Home", icon: faHome, path: "/mentor/home" },
             { label: "Mentorias", icon: faBookOpen, path: "/mentor/mentorias" },
             { label: "Perfil", icon: faUser, path: "/mentor/profile" }
+        ],
+        COORD: [
+            { label: "Dashboard", icon: faSliders, path: "/coord/dashboard" },
+            { label: "SAC", icon: faHeadset, path: "/coord/sac" },
+            {
+                label: "Usuários",
+                icon: faUsers,
+                children: [{ label: "Monitores", path: "/coord/usuarios/monitores" }]
+            }
         ]
     };
 
-    const currentLinks = links[tipoUsuario || ""] || [];
+    const currentLinks = links[tipoUsuarioKey || ""] || [];
 
     const handleLogout = () => {
         localStorage.clear();
@@ -62,7 +73,11 @@ export default function SideBar() {
         <div className={styles.navBar}>
             <div className={styles.titleBox}>
                 <p>Mentec</p>
-                {tipoUsuario === "ADMIN" ? <p>GESTOR</p> : <p>{tipoUsuario || 'Convidado'}</p>}
+                {tipoUsuarioKey === "ADMIN" ? (
+                    <p>GESTOR</p>
+                ) : (
+                    <p>{tipoUsuarioKey || "Convidado"}</p>
+                )}
             </div>
 
             <nav className={styles.nav}>

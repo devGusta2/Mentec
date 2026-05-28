@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import Disciplinas from "../Pages/Admin/Disciplinas";
 import Dashboard from "../Pages/Admin/Dashboard";
 import AdminLayout from "../Layouts/AdminLayout";
 
-import App from '../App';
 import Login from '../Pages/login';
 import Notfound from '../Pages/Notfound';
 import Mentorships from '../Pages/Mentorships';
@@ -23,6 +23,7 @@ import Chat from '../Pages/Chat';
 import Monitores from '../Pages/Admin/Monitores'
 import Monitorias from '../Pages/Admin/MonitoriasGestor';
 import Alunos from '../Pages/Admin/Alunos';
+import Coordenadores from '../Pages/Admin/Coordenadores';
 import SacDashboard from "../Pages/Admin/SacDashboard/SacDashboard";
 export default function AdminRoutes() {
     return (
@@ -46,12 +47,14 @@ export default function AdminRoutes() {
 
             {/* Rotas admin */}
             <Route path="/admin" element={<AdminLayout />}>
+                <Route index element={<Navigate to="/admin/dashboard" replace />} />
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="disciplinas" element={<Disciplinas />} />
                 <Route path="monitorias" element={<Monitorias />} />
                 <Route path="monitores" element={<Monitores />} />
                 <Route path="alunos" element={<Alunos />} />
-                <Route path="Sac" element={<SacDashboard />} />
+                <Route path="usuarios/coordenadores" element={<Coordenadores />} />
+                <Route path="sac" element={<SacDashboard />} />
             </Route>
 
             {/* fallback */}

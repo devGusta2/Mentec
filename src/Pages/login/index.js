@@ -64,13 +64,16 @@ function Login() {
             const response = await axios.post(`${API_URL}/login`, payload)
             localStorage.setItem('token', response.data.accessToken)
             localStorage.setItem('useId', response.data.idUser)
-            localStorage.setItem('role', response.data.role)
-            if (response.data.role === "ADMIN") {
-                window.location.href = "/admin/disciplinas";
-            } else if (response.data.role === "MENTOR") {
+            const role = (response.data.role || '').toUpperCase();
+            localStorage.setItem('role', role)
+            if (role === "ADMIN") {
+                window.location.href = "/admin/dashboard";
+            } else if (role === "MENTOR") {
                 window.location.href = "/mentor/home";
-            } else if (response.data.role === "MONITOR") {
+            } else if (role === "MONITOR") {
                 window.location.href = "/monitor/home";
+            } else if (role === "COORDENADOR" || role === "COORD") {
+                window.location.href = "/coord/dashboard";
             } else {
                 window.location.href = "/";
             }
