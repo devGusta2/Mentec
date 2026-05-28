@@ -19,7 +19,7 @@ export default function RoutesProvider() {
         return <AdminRoutes />
     }
 
-    if(role === 'COORD'){
+    if(role === 'COORD' || role === 'COORDENADOR'){
         return <CoordRoutes />
     }
 

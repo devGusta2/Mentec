@@ -1,33 +1,29 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
-import Disciplinas from "../Pages/Admin/Disciplinas";
-import Dashboard from "../Pages/Admin/Dashboard";
 import CoordLayout from "../Layouts/CoordLayout";
-
-import App from '../App';
-import Login from '../Pages/login';
-import Notfound from '../Pages/Notfound';
-import Mentorships from '../Pages/Mentorships';
-import Profile from '../Pages/Profile';
-import Tpage from '../Pages/Tpage';
-import Contact from '../Pages/Contact';
-import Cad from '../Pages/cadastro';
-import Mentoring from '../Pages/Mentoring';
-import Forum from '../Pages/Forum';
-import Services from '../Pages/Services';
-import Home from '../Pages/Home';
-import Calendar from '../Pages/Calendar';
-import Mentors from '../Pages/Mentors';
-import Recovery from '../Pages/Recovery';
-import Chat from '../Pages/Chat';
-import Monitores from '../Pages/Admin/Monitores'
-import Monitorias from '../Pages/Admin/MonitoriasGestor';
-import Alunos from '../Pages/Admin/Alunos';
+import Dashboard from "../Pages/Admin/Dashboard";
+import Monitores from "../Pages/Admin/Monitores";
 import SacDashboard from "../Pages/Admin/SacDashboard/SacDashboard";
-export default function AdminRoutes() {
+
+import Login from "../Pages/login";
+import Notfound from "../Pages/Notfound";
+import Mentorships from "../Pages/Mentorships";
+import Profile from "../Pages/Profile";
+import Tpage from "../Pages/Tpage";
+import Contact from "../Pages/Contact";
+import Cad from "../Pages/cadastro";
+import Mentoring from "../Pages/Mentoring";
+import Forum from "../Pages/Forum";
+import Services from "../Pages/Services";
+import Home from "../Pages/Home";
+import Calendar from "../Pages/Calendar";
+import Mentors from "../Pages/Mentors";
+import Recovery from "../Pages/Recovery";
+import Chat from "../Pages/Chat";
+
+export default function CoordRoutes() {
     return (
         <Routes>
-            {/* Rotas públicas */}
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cad />} />
@@ -43,18 +39,14 @@ export default function AdminRoutes() {
             <Route path="/chat" element={<Chat />} />
             <Route path="/tpage" element={<Tpage />} />
 
-
-            {/* Rotas admin */}
             <Route path="/coord" element={<CoordLayout />}>
+                <Route index element={<Navigate to="/coord/dashboard" replace />} />
                 <Route path="dashboard" element={<Dashboard />} />
-                <Route path="disciplinas" element={<Disciplinas />} />
-                <Route path="monitorias" element={<Monitorias />} />
-                <Route path="monitores" element={<Monitores />} />
-                <Route path="alunos" element={<Alunos />} />
-                <Route path="Sac" element={<SacDashboard />} />
+                <Route path="sac" element={<SacDashboard />} />
+                <Route path="monitores" element={<Navigate to="/coord/usuarios/monitores" replace />} />
+                <Route path="usuarios/monitores" element={<Monitores />} />
             </Route>
 
-            {/* fallback */}
             <Route path="*" element={<Notfound />} />
         </Routes>
     );
