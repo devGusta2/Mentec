@@ -199,6 +199,9 @@ function EditMentoriaModal({
   const [imagem, setImagem] =
     useState("");
 
+
+  const [linkMaterial, setLinkMaterial] = useState("");
+
   const [link, setLink] =
     useState("");
 
@@ -312,6 +315,7 @@ function EditMentoriaModal({
         descricao,
         imagem,
         link,
+        linkMaterial,
         aulas
       };
 
@@ -382,8 +386,8 @@ function EditMentoriaModal({
 
           <div
             className={`${styles.step} ${step >= 1
-                ? styles.activeStep
-                : ""
+              ? styles.activeStep
+              : ""
               }`}
           >
 
@@ -410,8 +414,8 @@ function EditMentoriaModal({
 
           <div
             className={`${styles.step} ${step >= 2
-                ? styles.activeStep
-                : ""
+              ? styles.activeStep
+              : ""
               }`}
           >
 
@@ -522,9 +526,24 @@ function EditMentoriaModal({
 
                 <input
                   type="text"
+                  placeholder="Insira o link de uma imagem"
                   value={imagem}
                   onChange={(e) =>
                     setImagem(
+                      e.target.value
+                    )
+                  }
+                />
+                <label>
+                  Link do material de apoio
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Insira o link do material de apoio ex: drive"
+                  value={linkMaterial}
+                  onChange={(e) =>
+                    setLinkMaterial(
                       e.target.value
                     )
                   }
@@ -542,6 +561,7 @@ function EditMentoriaModal({
 
                 <input
                   type="text"
+                  placeholder="Insira o link da reuniao do teams"
                   value={link}
                   onChange={(e) =>
                     setLink(

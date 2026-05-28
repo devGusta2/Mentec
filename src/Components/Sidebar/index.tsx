@@ -75,6 +75,8 @@ export default function SideBar() {
                 <p>Mentec</p>
                 {tipoUsuarioKey === "ADMIN" ? (
                     <p>GESTOR</p>
+                ) : tipoUsuarioKey === "MENTOR" ? (
+                    <p>MONITOR</p>
                 ) : (
                     <p>{tipoUsuarioKey || "Convidado"}</p>
                 )}
