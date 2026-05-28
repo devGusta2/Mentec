@@ -115,6 +115,49 @@ export default function Dashboard() {
     ).join(" ");
   };
 
+  const quebrarRotuloGrafico = (texto: string, limite = 13) => {
+    const palavras = String(texto || "").split(" ");
+    const linhas: string[] = [];
+
+    palavras.forEach((palavra) => {
+      const ultimaLinha = linhas[linhas.length - 1] || "";
+
+      if (!ultimaLinha) {
+        linhas.push(palavra);
+        return;
+      }
+
+      if (`${ultimaLinha} ${palavra}`.length <= limite) {
+        linhas[linhas.length - 1] = `${ultimaLinha} ${palavra}`;
+      } else {
+        linhas.push(palavra);
+      }
+    });
+
+    return linhas.length > 0 ? linhas.slice(0, 3) : [""];
+  };
+
+  const renderTickMonitoria = ({ x, y, payload }: any) => {
+    const linhas = quebrarRotuloGrafico(payload.value);
+
+    return (
+      <g transform={`translate(${x},${y + 6})`}>
+        <text
+          textAnchor="middle"
+          fill="#111827"
+          fontSize={10}
+          dominantBaseline="hanging"
+        >
+          {linhas.map((linha, index) => (
+            <tspan key={`${linha}-${index}`} x={0} dy={index === 0 ? 0 : 12}>
+              {linha}
+            </tspan>
+          ))}
+        </text>
+      </g>
+    );
+  };
+
   const baixarArquivo = (conteudo: BlobPart, nomeArquivo: string, tipo: string) => {
     const blob = conteudo instanceof Blob ? conteudo : new Blob([conteudo], { type: tipo });
     const url = URL.createObjectURL(blob);
@@ -298,15 +341,16 @@ export default function Dashboard() {
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={participacaoData}
-                barSize={16}
-                margin={{ top: 18, right: 16, left: 0, bottom: 8 }}
+                barSize={20}
+                margin={{ top: 8, right: 16, left: 0, bottom: 22 }}
               >
                 <CartesianGrid stroke="#E5E7EB" vertical={false} />
                 <XAxis
                   dataKey="label"
                   axisLine={false}
                   tickLine={false}
-                  tick={{ fill: "#111827", fontSize: 11 }}
+                  tick={renderTickMonitoria}
+                  height={44}
                   interval={0}
                 />
                 <YAxis
@@ -317,21 +361,9 @@ export default function Dashboard() {
                 <Tooltip />
 
                 <Bar dataKey="aoVivo" fill="#9F0D2C" radius={[4, 4, 0, 0]}>
-                  <LabelList
-                    dataKey="aoVivo"
-                    position="top"
-                    fill="#111827"
-                    fontSize={11}
-                  />
                 </Bar>
 
                 <Bar dataKey="gravacao" fill="#8B5CF6" radius={[4, 4, 0, 0]}>
-                  <LabelList
-                    dataKey="gravacao"
-                    position="top"
-                    fill="#111827"
-                    fontSize={11}
-                  />
                 </Bar>
               </BarChart>
             </ResponsiveContainer>

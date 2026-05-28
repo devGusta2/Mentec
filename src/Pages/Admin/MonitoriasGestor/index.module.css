@@ -101,6 +101,25 @@
     font-weight: 500;
 }
 
+.statusBadge {
+    align-self: flex-start;
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.statusAndamento {
+    background: #fff4cc;
+    color: #7a5a00;
+}
+
+.statusConcluida {
+    background: #dff3e4;
+    color: #236332;
+}
+
 /* ACTIONS */
 .actions {
     display: flex;

@@ -246,6 +246,35 @@
     filter: brightness(1.2);
 }
 
+.btnDanger {
+    background-color: #b30000;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.2s;
+    height: 55px;
+    min-width: 180px;
+}
+
+.btnDanger:hover {
+    filter: brightness(1.1);
+}
+
+.confirmModal {
+    height: auto;
+    max-width: 520px;
+}
+
+.confirmContent {
+    padding: 30px;
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
 
 
 

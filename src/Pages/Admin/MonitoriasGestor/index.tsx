@@ -83,6 +83,29 @@ export default function Monitorias() {
         setMonitorSelecionado(id);
     };
 
+    const parseDataLocal = (data?: string) => {
+        if (!data) return null;
+
+        const [ano, mes, dia] = data.split("-").map(Number);
+        if (!ano || !mes || !dia) return null;
+
+        return new Date(ano, mes - 1, dia);
+    };
+
+    const getStatusMonitoria = (monitoria: any) => {
+        const hoje = new Date();
+        const dataFim = parseDataLocal(monitoria?.dataFim || monitoria?.data);
+
+        hoje.setHours(0, 0, 0, 0);
+        dataFim?.setHours(0, 0, 0, 0);
+
+        return dataFim && hoje > dataFim ? "CONCLUIDA" : "EM_ANDAMENTO";
+    };
+
+    const getStatusLabel = (status: string) => (
+        status === "CONCLUIDA" ? "Concluida" : "Em andamento"
+    );
+
     const handleSubmit = async () => {
         if (!titulo || !descricao || !disciplinaId || monitorSelecionado === null) {
             alert("Preencha todos os campos");
@@ -201,7 +224,10 @@ export default function Monitorias() {
                         <p>Nenhuma monitoria cadastrada.</p>
                     </div>
                 ) : (
-                    monitorias.map((m) => (
+                    monitorias.map((m) => {
+                        const statusMonitoria = getStatusMonitoria(m);
+
+                        return (
                         <div key={m?.id ?? Math.random()} className={styles.card}>
                             <div>
                                 <h2>{m?.titulo ?? "—"}</h2>
@@ -216,6 +242,11 @@ export default function Monitorias() {
                                     <div>
                                         <span className={styles.label}>Data</span>
                                         <span>{m?.data ? new Date(m.data).toLocaleDateString() : "—"}</span>
+                                    </div>
+
+                                    <div>
+                                        <span className={styles.label}>Data final</span>
+                                        <span>{m?.dataFim ? new Date(m.dataFim).toLocaleDateString() : "—"}</span>
                                     </div>
 
                                     <div>
@@ -239,14 +270,22 @@ export default function Monitorias() {
                                 </div>
                             </div>
 
-                            <div>{m?.estado ?? "—"}</div>
+                            <div
+                                className={`${styles.statusBadge} ${
+                                    statusMonitoria === "CONCLUIDA"
+                                        ? styles.statusConcluida
+                                        : styles.statusAndamento
+                                }`}
+                            >
+                                {getStatusLabel(statusMonitoria)}
+                            </div>
 
                             <div className={styles.actions}>
                                 <button className={styles.edit} onClick={() => openEditModal(m)}>Editar</button>
                                 <button className={styles.cancel} onClick={() => setDeletingMonitoria(m)}>Excluir</button>
                             </div>
                         </div>
-                    ))
+                    )})
                 )}
             </div>
 
