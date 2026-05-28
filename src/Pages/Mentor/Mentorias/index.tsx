@@ -39,7 +39,7 @@ export function MentoriasCards({
           }
         }
       );
-
+      console.log(resposta.data)
       setMonitoriasData(resposta.data);
 
     } catch (e) {
@@ -190,6 +190,12 @@ function EditMentoriaModal({
   const [descricao, setDescricao] =
     useState("");
 
+  const [hora, setHora] =
+    useState("");
+
+  const [data1, setData1] =
+    useState("");
+
   const [data, setData] =
     useState("");
 
@@ -211,6 +217,7 @@ function EditMentoriaModal({
   const [aulas, setAulas] =
     useState<any[]>([
       {
+        id: undefined,
         titulo: "",
         descricao: "",
         data: "",
@@ -218,6 +225,82 @@ function EditMentoriaModal({
         fim: ""
       }
     ]);
+
+  const buscarAulas = async (
+    monitoriaId: number
+  ) => {
+    try {
+      const resposta = await axios.get(
+        `${API_URL}/aulas/monitoria/${monitoriaId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${TOKEN}`
+          }
+        }
+      );
+
+      const aulasNormalizadas =
+        Array.isArray(resposta.data)
+          ? resposta.data.map(
+            (aula: any) => ({
+              id: aula.id,
+              monitoriaId:
+                aula.monitoriaId ??
+                monitoriaId,
+              titulo:
+                aula.titulo || "",
+              descricao:
+                aula.descricao || "",
+              data:
+                aula.data || "",
+              inicio:
+                aula.inicio?.slice(0, 5) ||
+                "",
+              fim:
+                aula.fim?.slice(0, 5) || ""
+            })
+          )
+          : [
+            {
+              id: undefined,
+              monitoriaId,
+              titulo: "",
+              descricao: "",
+              data: "",
+              inicio: "",
+              fim: ""
+            }
+          ];
+
+      setAulas(
+        aulasNormalizadas.length > 0
+          ? aulasNormalizadas
+          : [
+            {
+              id: undefined,
+              monitoriaId,
+              titulo: "",
+              descricao: "",
+              data: "",
+              inicio: "",
+              fim: ""
+            }
+          ]
+      );
+    } catch (error) {
+      setAulas([
+        {
+          id: undefined,
+          monitoriaId,
+          titulo: "",
+          descricao: "",
+          data: "",
+          inicio: "",
+          fim: ""
+        }
+      ]);
+    }
+  };
 
   useEffect(() => {
 
@@ -232,8 +315,8 @@ function EditMentoriaModal({
       );
 
       setHorario(
-        mentoria.horario || ""
-      );
+        mentoria.horario?.slice(0, 5) || ""
+      )
 
       setImagem(
         mentoria.imagem || ""
@@ -242,6 +325,14 @@ function EditMentoriaModal({
       setLink(
         mentoria.link || ""
       );
+
+      setLinkMaterial(
+        mentoria.linkMaterial || ""
+      );
+
+      if (mentoria.id) {
+        buscarAulas(mentoria.id);
+      }
 
     }
 
@@ -252,6 +343,7 @@ function EditMentoriaModal({
     setAulas([
       ...aulas,
       {
+        id: undefined,
         titulo: "",
         descricao: "",
         data: "",
@@ -316,7 +408,20 @@ function EditMentoriaModal({
         imagem,
         link,
         linkMaterial,
-        aulas
+        data,
+        horario,
+        aulas: aulas.map((aula) => ({
+          id: aula.id,
+          monitoriaId:
+            aula.monitoriaId ??
+            mentoria.id,
+          titulo: aula.titulo,
+          descricao:
+            aula.descricao,
+          data: aula.data,
+          inicio: aula.inicio,
+          fim: aula.fim
+        }))
       };
 
       await axios.put(
