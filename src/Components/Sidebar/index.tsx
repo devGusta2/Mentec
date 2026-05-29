@@ -29,6 +29,7 @@ export default function SideBar() {
             { label: "Dashboard", icon: faSliders, path: "/admin/dashboard" },
             { label: "Disciplinas", icon: faPenToSquare, path: "/admin/disciplinas" },
             { label: "Monitorias", icon: faPenToSquare, path: "/admin/monitorias" },
+            { label: "Fórum", icon: faUsers, path: "/admin/forum" },
             { label: "SAC", icon: faHeadset, path: "/admin/sac" },
             {
                 label: "Usuários",

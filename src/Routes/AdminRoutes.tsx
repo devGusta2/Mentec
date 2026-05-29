@@ -25,6 +25,7 @@ import Monitorias from '../Pages/Admin/MonitoriasGestor';
 import Alunos from '../Pages/Admin/Alunos';
 import Coordenadores from '../Pages/Admin/Coordenadores';
 import SacDashboard from "../Pages/Admin/SacDashboard/SacDashboard";
+import ForumGestor from "../Pages/Admin/Forum";
 export default function AdminRoutes() {
     return (
         <Routes>
@@ -51,6 +52,7 @@ export default function AdminRoutes() {
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="disciplinas" element={<Disciplinas />} />
                 <Route path="monitorias" element={<Monitorias />} />
+                <Route path="forum" element={<ForumGestor />} />
                 <Route path="monitores" element={<Monitores />} />
                 <Route path="alunos" element={<Alunos />} />
                 <Route path="usuarios/coordenadores" element={<Coordenadores />} />
