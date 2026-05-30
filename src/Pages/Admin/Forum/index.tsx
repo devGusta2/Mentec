@@ -6,14 +6,18 @@ import styles from "./index.module.css";
 
 type Mensagem = {
   mensagem: string;
-  nome: string;
+  usuario: string;
+  statusModeracao: string | null;
 };
 
 type Topico = {
   id: number;
-  titulo: string;
-  descricao: string;
-  mensagem: Mensagem[];
+  titulo: string | null;
+  descricao: string | null;
+  statusModeracao: string | null;
+  criador: string | null;
+  mensagens: Mensagem[];
+  ra: string
 };
 
 export default function ForumGestor() {
@@ -33,7 +37,7 @@ export default function ForumGestor() {
       const response = await axios.get(`${API_URL}/topicos/listar`, {
         headers: { Authorization: `Bearer ${TOKEN}` }
       });
-
+      console.log(response.data)
       setTopicos(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       console.error("Erro ao listar tópicos:", error);
@@ -49,13 +53,16 @@ export default function ForumGestor() {
 
   const topicosFiltrados = useMemo(() => {
     const termo = busca.trim().toLowerCase();
+
     if (!termo) return topicos;
 
     return topicos.filter((topico) => {
       const campos = [
-        topico.titulo,
-        topico.descricao,
-        ...(topico.mensagem ?? []).map((item) => `${item.nome} ${item.mensagem}`)
+        topico.titulo ?? "",
+        topico.descricao ?? "",
+        ...(topico.mensagens ?? []).map(
+          (item) => `${item.usuario} ${item.mensagem}`
+        )
       ]
         .join(" ")
         .toLowerCase();
@@ -64,7 +71,10 @@ export default function ForumGestor() {
     });
   }, [busca, topicos]);
 
-  const totalComentarios = topicos.reduce((acc, topico) => acc + (topico.mensagem?.length || 0), 0);
+  const totalComentarios = topicos.reduce(
+    (acc, topico) => acc + (topico.mensagens?.length || 0),
+    0
+  );
 
   const handleCriarTopico = async () => {
     if (!tituloNovo.trim() || !descricaoNova.trim()) {
@@ -89,6 +99,38 @@ export default function ForumGestor() {
       await fetchTopicos();
     } catch (error: any) {
       alert(error?.response?.data?.message || "Erro ao criar tópico.");
+    }
+  };
+
+  const getStatusInfo = (status?: string | null) => {
+    switch (status) {
+      case "PERIGOSO":
+        return {
+          label: "🔴 Perigoso",
+          border: "#dc2626",
+          background: "#fef2f2"
+        };
+
+      case "SUSPEITO":
+        return {
+          label: "🟡 Suspeito",
+          border: "#f59e0b",
+          background: "#fffbeb"
+        };
+
+      case "SEGURO":
+        return {
+          label: "🟢 Seguro",
+          border: "#16a34a",
+          background: "#f0fdf4"
+        };
+
+      default:
+        return {
+          label: "⚪ Não analisado",
+          border: "#9ca3af",
+          background: "#ffffff"
+        };
     }
   };
 
@@ -152,9 +194,9 @@ export default function ForumGestor() {
           <div>ID</div>
           <div>Tópico</div>
           <div>Descrição</div>
+          <div>Status</div>
           <div>Mensagens</div>
         </div>
-
         <div className={styles.tableBody}>
           {loading ? (
             <div className={styles.empty}>Carregando tópicos...</div>
@@ -162,21 +204,79 @@ export default function ForumGestor() {
             <div className={styles.empty}>Nenhum tópico encontrado.</div>
           ) : (
             topicosFiltrados.map((topico) => {
-              const ultimaMensagem = topico.mensagem?.[topico.mensagem.length - 1];
+              const ultimaMensagem =
+                topico.mensagens?.[topico.mensagens.length - 1];
+
+              const status = getStatusInfo(
+                topico.statusModeracao
+              );
 
               return (
-                <div key={topico.id} className={styles.row}>
-                  <div className={styles.cellId}>{topico.id}</div>
-                  <div className={styles.cellTitle}>{topico.titulo}</div>
-                  <div className={styles.cellDesc}>{topico.descricao}</div>
+                <div
+                  key={topico.id}
+                  className={styles.row}
+                  style={{
+                    borderLeft: `8px solid ${status.border}`,
+                    backgroundColor: status.background
+                  }}
+                >
+                  <div className={styles.cellId}>
+                    {topico.id}
+                  </div>
+
+                  <div className={styles.cellTitle}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        flexWrap: "wrap"
+                      }}
+                    >
+                      <span>
+                        {topico.titulo ?? "Sem título"}
+                      </span>
+
+                      <span
+                        style={{
+                          background: status.border,
+                          color: "#fff",
+                          padding: "4px 10px",
+                          borderRadius: "999px",
+                          fontSize: "12px",
+                          fontWeight: 700
+                        }}
+                      >
+                        {status.label}
+                      </span>
+                    </div>
+
+                    <small
+                      style={{
+                        display: "block",
+                        marginTop: "6px",
+                        color: "#6b7280"
+                      }}
+                    >
+                      Criado por: {topico.criador} 
+                      <br />
+                      Ra: {topico.ra}
+                    </small>
+                  </div>
+
+                  <div className={styles.cellDesc}>
+                    {topico.descricao ?? "Sem descrição"}
+                  </div>
+
                   <div className={styles.cellCount}>
                     <span className={styles.countBadge}>
                       <FaCommentDots />
-                      {topico.mensagem?.length || 0}
+                      {topico.mensagens?.length || 0}
                     </span>
+
                     <p>
                       {ultimaMensagem
-                        ? `${ultimaMensagem.nome}: ${ultimaMensagem.mensagem}`
+                        ? `${ultimaMensagem.usuario}: ${ultimaMensagem.mensagem}`
                         : "Sem mensagens"}
                     </p>
                   </div>
