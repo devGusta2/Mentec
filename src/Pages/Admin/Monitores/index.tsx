@@ -10,6 +10,7 @@ export default function Monitores() {
     const API_URL = getApiUrl();
     const TOKEN = getToken();
     const [monitores, setMonitores] = useState<any[]>([]);
+    const [selectedMonitor, setSelectedMonitor] = useState<any | null>(null);
     const [monitor, setMonitor] = useState({
         nome: "",
         sobrenome: "",
@@ -29,8 +30,45 @@ export default function Monitores() {
         delete: false
     })
 
+    const resetMonitor = () => {
+        setMonitor({
+            nome: "",
+            sobrenome: "",
+            email: "",
+            cpf: "",
+            senha: "",
+            nivelExperiencia: "",
+            especialidade: "",
+            ra: "",
+            curso: "",
+            periodo: "",
+            matricula: ""
+        });
+    };
 
+    const closeModal = () => {
+        setModal({ create: false, update: false, delete: false });
+        setSelectedMonitor(null);
+        resetMonitor();
+    };
 
+    const openEditModal = (item: any) => {
+        setSelectedMonitor(item);
+        setMonitor(prev => ({
+            ...prev,
+            nome: item?.nome ?? "",
+            sobrenome: item?.sobrenome ?? "",
+            email: item?.email ?? "",
+            nivelExperiencia: item?.nivelExperiencia ?? "",
+            especialidade: item?.especialidades ?? ""
+        }));
+        setModal(prev => ({ ...prev, update: true }));
+    };
+
+    const openDeleteModal = (item: any) => {
+        setSelectedMonitor(item);
+        setModal(prev => ({ ...prev, delete: true }));
+    };
 
     const createMonitor = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -40,11 +78,51 @@ export default function Monitores() {
         })
         fetchMonitores();
         alert("Monitor criado com sucesso!");
-        setModal(prev=>({...prev, create: false}))
+        closeModal();
       }catch(e: any){
         alert("Erro ao criar monitor!" + e?.response?.data?.message);
       }
     }
+
+    const updateMonitor = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (!selectedMonitor?.id) return;
+
+        try {
+            await axios.put(`${API_URL}/admin/usuarios/monitores/atualizar/${selectedMonitor.id}`, {
+                nome: monitor.nome,
+                sobrenome: monitor.sobrenome,
+                email: monitor.email,
+                nivelExperiencia: monitor.nivelExperiencia,
+                especialidade: monitor.especialidade
+            }, {
+                headers: { Authorization: `Bearer ${TOKEN}` }
+            });
+
+            await fetchMonitores();
+            alert("Monitor atualizado com sucesso!");
+            closeModal();
+        } catch (e: any) {
+            alert("Erro ao atualizar monitor!" + (e?.response?.data?.message || ""));
+        }
+    };
+
+    const deleteMonitor = async () => {
+        if (!selectedMonitor?.id) return;
+
+        try {
+            await axios.delete(`${API_URL}/admin/usuarios/monitores/deletar/${selectedMonitor.id}`, {
+                headers: { Authorization: `Bearer ${TOKEN}` }
+            });
+
+            await fetchMonitores();
+            alert("Monitor excluído com sucesso!");
+            closeModal();
+        } catch (e: any) {
+            alert("Erro ao excluir monitor!" + (e?.response?.data?.message || ""));
+        }
+    };
 
     const fetchMonitores = async () =>{
         try{
@@ -100,16 +178,24 @@ export default function Monitores() {
                                 <td>{monitor.email}</td>
                                 <td>{monitor.especialidades}</td>
                                 <td>
-                                    <span className={`${styles.badge} ${styles[monitor.nivelExperiencia.toLowerCase()]}`}>
-                                        {monitor.nivelExperiencia}
+                                    <span className={`${styles.badge} ${styles[(monitor.nivelExperiencia || "").toLowerCase()] || ""}`}>
+                                        {monitor.nivelExperiencia || "—"}
                                     </span>
                                 </td>
                                 <td>
                                     <div className={styles.actions}>
-                                        <button className={styles.btnAction} title="Editar">
+                                        <button
+                                            className={styles.btnAction}
+                                            title="Editar"
+                                            onClick={() => openEditModal(monitor)}
+                                        >
                                             <FaRegEdit size={18} />
                                         </button>
-                                        <button className={styles.btnAction} title="Excluir">
+                                        <button
+                                            className={styles.btnAction}
+                                            title="Excluir"
+                                            onClick={() => openDeleteModal(monitor)}
+                                        >
                                             <FaRegTrashAlt size={18} />
                                         </button>
                                     </div>
@@ -133,15 +219,11 @@ export default function Monitores() {
                                     <p>Cadastrar Novo Mentor</p>
                                 </span>
                                 <button
+                                    type="button"
                                     className={styles.closeButton}
-                                    onClick={() => setModal(prev => ({ ...prev, create: false }))}
+                                    onClick={closeModal}
                                 >
-                                    <MdClose className={styles.closeIcon} size={30} onClick={() => {
-                                        setModal(prev => ({
-                                            ...prev,
-                                            create: false
-                                        }))
-                                    }} />
+                                    <MdClose className={styles.closeIcon} size={30} />
                                 </button>
                             </div>
 
@@ -205,6 +287,115 @@ export default function Monitores() {
                     </div>
                 )
             }
+
+            {modal.update && (
+                <div className={styles.overlay}>
+                    <form onSubmit={updateMonitor} className={styles.modal}>
+                        <div className={styles.modalHeader}>
+                            <span>
+                                <FaChalkboardTeacher size={32} color="#8B0E21" />
+                                <p>Editar Monitor</p>
+                            </span>
+                            <button type="button" className={styles.closeButton} onClick={closeModal}>
+                                <MdClose className={styles.closeIcon} size={30} />
+                            </button>
+                        </div>
+
+                        <div className={styles.form}>
+                            <div className={styles.inputGroup}>
+                                <label>Nome</label>
+                                <input
+                                    required
+                                    value={monitor.nome}
+                                    onChange={(e) => setMonitor(prev => ({ ...prev, nome: e.target.value }))}
+                                    type="text"
+                                />
+                            </div>
+
+                            <div className={styles.inputGroup}>
+                                <label>Sobrenome</label>
+                                <input
+                                    required
+                                    value={monitor.sobrenome}
+                                    onChange={(e) => setMonitor(prev => ({ ...prev, sobrenome: e.target.value }))}
+                                    type="text"
+                                />
+                            </div>
+
+                            <div className={styles.inputGroup}>
+                                <label>E-mail</label>
+                                <input
+                                    required
+                                    value={monitor.email}
+                                    onChange={(e) => setMonitor(prev => ({ ...prev, email: e.target.value }))}
+                                    type="email"
+                                />
+                            </div>
+
+                            <div className={styles.inputGroup}>
+                                <label>Nível de Experiência</label>
+                                <select
+                                    required
+                                    value={monitor.nivelExperiencia}
+                                    onChange={(e) => setMonitor(prev => ({ ...prev, nivelExperiencia: e.target.value }))}
+                                >
+                                    <option value="">Selecione um nível de experiência</option>
+                                    <option value="JUNIOR">Júnior (1-2 semestres)</option>
+                                    <option value="PLENO">Pleno (3-4 semestres)</option>
+                                    <option value="SENIOR">Sênior (5-6 semestres)</option>
+                                </select>
+                            </div>
+
+                            <div className={`${styles.inputGroup} ${styles.fullWidth}`}>
+                                <label>Especialidade (Tecnologia/Disciplina)</label>
+                                <input
+                                    required
+                                    value={monitor.especialidade}
+                                    onChange={(e) => setMonitor(prev => ({ ...prev, especialidade: e.target.value }))}
+                                    type="text"
+                                />
+                            </div>
+                        </div>
+
+                        <div className={styles.modalFooter}>
+                            <button className={styles.btnSave} type="submit">
+                                Salvar alterações
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            )}
+
+            {modal.delete && (
+                <div className={styles.overlay}>
+                    <div className={`${styles.modal} ${styles.confirmModal}`}>
+                        <div className={styles.modalHeader}>
+                            <span>
+                                <FaRegTrashAlt size={28} color="#8B0E21" />
+                                <p>Excluir Monitor</p>
+                            </span>
+                            <button type="button" className={styles.closeButton} onClick={closeModal}>
+                                <MdClose className={styles.closeIcon} size={30} />
+                            </button>
+                        </div>
+
+                        <div className={styles.confirmContent}>
+                            <p>
+                                Tem certeza que deseja excluir <strong>{selectedMonitor?.nome} {selectedMonitor?.sobrenome}</strong>?
+                            </p>
+                        </div>
+
+                        <div className={styles.modalFooter}>
+                            <button type="button" className={styles.btnCancel} onClick={closeModal}>
+                                Cancelar
+                            </button>
+                            <button type="button" className={styles.btnDanger} onClick={deleteMonitor}>
+                                Excluir monitor
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
 
         </div>

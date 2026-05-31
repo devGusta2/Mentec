@@ -5,6 +5,7 @@
     min-height: 100vh;
     width: 100%;
     box-sizing: border-box;
+    overflow: visible;
 }
 
 /* HEADER */
@@ -61,9 +62,15 @@
     padding: 20px;
     border-radius: 12px;
     display: flex;
+    gap: 18px;
     justify-content: space-between;
     align-items: flex-start;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.card > div:first-child {
+    min-width: 0;
+    flex: 1;
 }
 
 .card h2 {
@@ -92,6 +99,25 @@
 
 .infoRow div span:last-child {
     font-weight: 500;
+}
+
+.statusBadge {
+    align-self: flex-start;
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.statusAndamento {
+    background: #fff4cc;
+    color: #7a5a00;
+}
+
+.statusConcluida {
+    background: #dff3e4;
+    color: #236332;
 }
 
 /* ACTIONS */
@@ -144,10 +170,22 @@
 
 .modal {
     width: 900px;
+    max-width: calc(100vw - 40px);
     background: #f4f4f4;
     border-radius: 12px;
     padding: 20px;
-    height: 500px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.modalSmall,
+.confirmModal {
+    width: 520px;
+    max-width: calc(100vw - 40px);
+    background: #f4f4f4;
+    border-radius: 12px;
+    padding: 20px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
@@ -182,6 +220,32 @@
     display: flex;
     gap: 20px;
     padding: 20px 0px;
+}
+
+.formStack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.formStack label {
+    font-size: 13px;
+    color: #555;
+}
+
+.formStack input,
+.formStack textarea {
+    border: 2px solid #8b0000;
+    border-radius: 8px;
+    padding: 10px;
+    outline: none;
+    font-size: 14px;
+}
+
+.formStack textarea {
+    min-height: 120px;
+    resize: vertical;
 }
 
 /* LEFT */
@@ -270,9 +334,7 @@
 .modalFooter {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-
-    height: 120px;
+    margin-top: 12px;
 }
 
 .modalFooter button {
@@ -340,4 +402,41 @@
 .monitorInfo span {
     font-size: 12px;
     color: #777;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.primaryButton,
+.secondaryButton,
+.dangerButton {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.primaryButton {
+    background: #5ca95c;
+    color: white;
+}
+
+.secondaryButton {
+    background: #d8d8d8;
+    color: #222;
+}
+
+.dangerButton {
+    background: #b30000;
+    color: white;
+}
+
+.primaryButton:disabled,
+.dangerButton:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
