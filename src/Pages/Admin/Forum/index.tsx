@@ -1,6 +1,11 @@
 import axios from "axios";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { FaCommentDots, FaPlus, FaMagnifyingGlass } from "react-icons/fa6";
+import {
+  FaCommentDots,
+  FaPlus,
+  FaMagnifyingGlass,
+  FaTrash
+} from "react-icons/fa6";
 import { getApiUrl, getToken } from "../../../utils/AuthProvider";
 import styles from "./index.module.css";
 
@@ -99,6 +104,27 @@ export default function ForumGestor() {
       await fetchTopicos();
     } catch (error: any) {
       alert(error?.response?.data?.message || "Erro ao criar tópico.");
+    }
+  };
+
+  const handleExcluirTopico = async (id: number) => {
+    const confirmar = window.confirm(
+      "Tem certeza que deseja excluir este tópico? Esta ação não pode ser desfeita."
+    );
+
+    if (!confirmar) return;
+
+    try {
+      await axios.delete(`${API_URL}/topicos/${id}`, {
+        headers: { Authorization: `Bearer ${TOKEN}` }
+      });
+
+      await fetchTopicos();
+    } catch (error: any) {
+      alert(
+        error?.response?.data?.message ||
+          "Erro ao excluir tópico. Verifique se seu usuário tem permissão de ADMIN."
+      );
     }
   };
 
@@ -276,9 +302,21 @@ export default function ForumGestor() {
 
                     <p>
                       {ultimaMensagem
-                        ? `${ultimaMensagem.usuario}: ${ultimaMensagem.mensagem}`
-                        : "Sem mensagens"}
+                      ? `${ultimaMensagem.usuario}: ${ultimaMensagem.mensagem}`
+                      : "Sem mensagens"}
                     </p>
+                  </div>
+
+                  <div className={styles.cellActions}>
+                    <button
+                      type="button"
+                      className={styles.deleteButton}
+                      onClick={() => handleExcluirTopico(topico.id)}
+                      aria-label={`Excluir tópico ${topico.titulo ?? topico.id}`}
+                    >
+                      <FaTrash />
+                      Excluir
+                    </button>
                   </div>
                 </div>
               );

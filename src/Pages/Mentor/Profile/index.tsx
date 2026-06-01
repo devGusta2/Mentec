@@ -1,139 +1,152 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./index.module.css";
-import { faUser, faSave } from '@fortawesome/free-solid-svg-icons';
+import {
+  faIdCard,
+  faEnvelope,
+  faPhone,
+  faUserPen,
+  faSchool,
+  faSpinner
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getApiUrl, getToken } from "../../../utils/AuthProvider";
 
+type MentorProfile = {
+  id?: string;
+  nome?: string;
+  sobrenome?: string;
+  email?: string;
+  telefone?: string;
+  nivelExperiencia?: string;
+  especialidade?: string;
+  ra?: string;
+};
+
 export default function Profile() {
-    const API_URL = getApiUrl();
-    const TOKEN = getToken();
+  const API_URL = getApiUrl();
+  const TOKEN = getToken();
+  const mentorId = useMemo(() => localStorage.getItem("useId"), []);
 
-    const [user, setUser] = useState({
-        nome: "",
-        email: "",
-        telefone: "",
-        matricula: "",
-        curso: ""
-    });
-    const [loading, setLoading] = useState(false);
-    const [isEditing, setIsEditing] = useState(false);
+  const [profile, setProfile] = useState<MentorProfile | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-    const fetchUser = async () => {
-        try {
-            const response = await axios.get(`${API_URL}/usuarios/perfil`, {
-                headers: { Authorization: `Bearer ${TOKEN}` }
-            });
-            setUser(response.data);
-        } catch (e: any) {
-            alert("Erro ao buscar perfil: " + e?.response?.data?.message);
-        }
+  useEffect(() => {
+    const fetchProfile = async () => {
+      if (!mentorId) {
+        setError("Nenhum identificador de mentor foi encontrado.");
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const response = await axios.get(
+          `${API_URL}/admin/usuarios/monitores/${mentorId}`,
+          {
+            headers: { Authorization: `Bearer ${TOKEN}` }
+          }
+        );
+        setProfile(response.data);
+      } catch (e: any) {
+        setError(
+          e?.response?.data?.message ||
+            "Não foi possível carregar as informações do mentor."
+        );
+      } finally {
+        setLoading(false);
+      }
     };
 
-    useEffect(() => {
-        fetchUser();
-    }, []);
+    fetchProfile();
+  }, [API_URL, TOKEN, mentorId]);
 
-    const handleUpdate = async (e: any) => {
-        e.preventDefault();
-        try {
-            setLoading(true);
-            await axios.put(
-                `${API_URL}/usuarios/atualizar`,
-                user,
-                { headers: { Authorization: `Bearer ${TOKEN}` } }
-            );
-            setIsEditing(false);
-            alert("Perfil atualizado com sucesso!");
-        } catch (e: any) {
-            alert("Erro ao atualizar perfil: " + e?.response?.data?.message);
-        } finally {
-            setLoading(false);
-        }
-    };
+  const nomeCompleto = useMemo(() => {
+    if (!profile) return "Perfil do mentor";
+    return [profile.nome, profile.sobrenome].filter(Boolean).join(" ") || "Perfil do mentor";
+  }, [profile]);
 
-    return (
-        <div className={styles.container}>
-            <div className={styles.header}>
-                <div className={styles.titleAndIcon}>
-                    <FontAwesomeIcon id={styles.icon} icon={faUser} />
-                    <p>Perfil do Mentor</p>
-                </div>
-                {!isEditing && (
-                    <button
-                        className={styles.editButton}
-                        onClick={() => setIsEditing(true)}
-                    >
-                        Editar Perfil
-                    </button>
-                )}
-            </div>
-
-            <div className={styles.profileCard}>
-                <form onSubmit={handleUpdate}>
-                    <div className={styles.formGroup}>
-                        <label>Nome</label>
-                        <input
-                            type="text"
-                            value={user.nome}
-                            onChange={(e) => setUser({...user, nome: e.target.value})}
-                            disabled={!isEditing}
-                        />
-                    </div>
-
-                    <div className={styles.formGroup}>
-                        <label>Email</label>
-                        <input
-                            type="email"
-                            value={user.email}
-                            onChange={(e) => setUser({...user, email: e.target.value})}
-                            disabled={!isEditing}
-                        />
-                    </div>
-
-                    <div className={styles.formGroup}>
-                        <label>Telefone</label>
-                        <input
-                            type="text"
-                            value={user.telefone}
-                            onChange={(e) => setUser({...user, telefone: e.target.value})}
-                            disabled={!isEditing}
-                        />
-                    </div>
-
-                    <div className={styles.formGroup}>
-                        <label>Matrícula</label>
-                        <input
-                            type="text"
-                            value={user.matricula}
-                            onChange={(e) => setUser({...user, matricula: e.target.value})}
-                            disabled={!isEditing}
-                        />
-                    </div>
-
-                    <div className={styles.formGroup}>
-                        <label>Área de Especialidade</label>
-                        <input
-                            type="text"
-                            value={user.curso}
-                            onChange={(e) => setUser({...user, curso: e.target.value})}
-                            disabled={!isEditing}
-                        />
-                    </div>
-
-                    {isEditing && (
-                        <div className={styles.actions}>
-                            <button type="button" onClick={() => setIsEditing(false)} className={styles.cancel}>
-                                Cancelar
-                            </button>
-                            <button type="submit" className={styles.submit} disabled={loading}>
-                                <FontAwesomeIcon icon={faSave} />
-                                {loading ? " Salvando..." : " Salvar"}
-                            </button>
-                        </div>
-                    )}
-                </form>
-            </div>
+  return (
+    <div className={styles.container}>
+      <section className={styles.hero}>
+        <div className={styles.heroCopy}>
+          <span className={styles.kicker}>Perfil</span>
+          <h1>{loading ? "Carregando perfil..." : nomeCompleto}</h1>
+          <p>
+            Visualização das informações do mentor obtidas diretamente do
+            cadastro administrativo.
+          </p>
         </div>
-    );
+
+        <div className={styles.heroCard}>
+          <div className={styles.avatar}>
+            <FontAwesomeIcon icon={faUserPen} />
+          </div>
+          <div>
+            <strong>{profile?.nivelExperiencia ?? "Mentor"}</strong>
+            <span>{profile?.especialidade ?? "Especialidade não informada"}</span>
+          </div>
+        </div>
+      </section>
+
+      {loading ? (
+        <section className={styles.stateCard}>
+          <FontAwesomeIcon icon={faSpinner} spin />
+          <p>Buscando dados do mentor...</p>
+        </section>
+      ) : error ? (
+        <section className={styles.stateCard}>
+          <p>{error}</p>
+        </section>
+      ) : (
+        <section className={styles.profileGrid}>
+          <article className={styles.infoCard}>
+            <h2>Informações principais</h2>
+            <div className={styles.infoList}>
+              <div className={styles.infoItem}>
+                <FontAwesomeIcon icon={faIdCard} />
+                <div>
+                  <span>Identificador</span>
+                  <strong>{profile?.id ?? mentorId}</strong>
+                </div>
+              </div>
+              <div className={styles.infoItem}>
+                <FontAwesomeIcon icon={faEnvelope} />
+                <div>
+                  <span>Email</span>
+                  <strong>{profile?.email ?? "-"}</strong>
+                </div>
+              </div>
+              <div className={styles.infoItem}>
+                <FontAwesomeIcon icon={faPhone} />
+                <div>
+                  <span>Telefone</span>
+                  <strong>{profile?.telefone ?? "-"}</strong>
+                </div>
+              </div>
+              <div className={styles.infoItem}>
+                <FontAwesomeIcon icon={faSchool} />
+                <div>
+                  <span>Especialidade</span>
+                  <strong>{profile?.especialidade ?? "-"}</strong>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article className={styles.sideCard}>
+            <h2>Resumo</h2>
+            <p>
+              Este perfil foi desenhado para ser claro, direto e visualmente
+              mais elegante. Se o backend enviar novos campos, a seção pode ser
+              expandida sem quebrar o layout.
+            </p>
+            <div className={styles.badge}>
+              {profile?.nivelExperiencia ?? "Perfil carregado"}
+            </div>
+          </article>
+        </section>
+      )}
+    </div>
+  );
 }

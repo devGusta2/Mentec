@@ -1,82 +1,28 @@
-import { useState, useEffect } from "react";
 import styles from "./index.module.css";
-import { faChartLine, faUsers, faBook, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Home() {
-    const [stats, setStats] = useState({
-        totalMentorias: 0,
-        alunosAtendidos: 0,
-        sessoesHoje: 0,
-        proximasSessoes: 0
-    });
-
-    useEffect(() => {
-        setStats({
-            totalMentorias: 8,
-            alunosAtendidos: 45,
-            sessoesHoje: 3,
-            proximasSessoes: 5
-        });
-    }, []);
-
     return (
         <div className={styles.container}>
-            <div className={styles.header}>
-                <h1>Dashboard do</h1>
-                <p>Bem-vindo! Aqui está um resumo das suas atividades.</p>
-            </div>
+            <section className={styles.card}>
+                <span className={styles.pill}>Área do monitor</span>
 
-            <div className={styles.statsGrid}>
-                <div className={styles.statCard}>
-                    <div className={styles.icon}>
-                        <FontAwesomeIcon icon={faBook} />
-                    </div>
-                    <div className={styles.content}>
-                        <h3>{stats.totalMentorias}</h3>
-                        <p>Mentorias Ativas</p>
-                    </div>
-                </div>
+                <h1>Transformando conhecimento em oportunidades.</h1>
 
-                <div className={styles.statCard}>
-                    <div className={styles.icon}>
-                        <FontAwesomeIcon icon={faUsers} />
-                    </div>
-                    <div className={styles.content}>
-                        <h3>{stats.alunosAtendidos}</h3>
-                        <p>Alunos Atendidos</p>
-                    </div>
-                </div>
+                <p>
+                    Bem-vindo ao painel do monitor do Mentec. Este ambiente foi
+                    desenvolvido para facilitar o acompanhamento de alunos,
+                    a gestão de monitorias e a troca de conhecimento dentro da
+                    comunidade acadêmica.
+                </p>
 
-                <div className={styles.statCard}>
-                    <div className={styles.icon}>
-                        <FontAwesomeIcon icon={faCalendar} />
-                    </div>
-                    <div className={styles.content}>
-                        <h3>{stats.sessoesHoje}</h3>
-                        <p>Sessões Hoje</p>
-                    </div>
-                </div>
-
-                <div className={styles.statCard}>
-                    <div className={styles.icon}>
-                        <FontAwesomeIcon icon={faChartLine} />
-                    </div>
-                    <div className={styles.content}>
-                        <h3>{stats.proximasSessoes}</h3>
-                        <p>Próximas Sessões</p>
-                    </div>
-                </div>
-            </div>
-
-            <div className={styles.recentActivity}>
-                <h2>Atividades Recentes</h2>
-                <ul>
-                    <li>Sessão de mentoria em JavaScript - 12 alunos</li>
-                    <li>Nova turma criada: React Avançado</li>
-                    <li>Perfil atualizado</li>
-                </ul>
-            </div>
+                <p>
+                    Utilize este espaço para organizar suas atividades,
+                    acompanhar demandas dos estudantes e contribuir para uma
+                    jornada de aprendizado mais dinâmica e colaborativa.
+                </p>
+            </section>
         </div>
     );
 }
