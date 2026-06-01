@@ -36,6 +36,7 @@ export default function Monitorias() {
             const response = await axios.get(`${API_URL}/admin/usuarios/monitores/livre/list`, {
                 headers: { Authorization: `Bearer ${TOKEN}` }
             });
+            console.log(response.data)
             setMonitores(Array.isArray(response.data) ? response.data : []);
         } catch (e: any) {
             alert("Erro ao listar monitores!" + (e?.response?.data?.message || ""));
@@ -348,7 +349,7 @@ export default function Monitorias() {
 
                                             <div className={styles.monitorInfo}>
                                                 <strong>{m?.nome ?? "—"}</strong>
-                                                <span>{m?.ra ?? "—"}</span>
+                                                <span>{m?.especialidades ?? "—"}</span>
                                             </div>
                                         </div>
                                     ))}
