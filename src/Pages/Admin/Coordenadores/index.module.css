@@ -1,0 +1,272 @@
+.container {
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    height: 100px;
+    width: 100%;
+}
+
+.header button {
+    height: 70px;
+    width: 220px;
+    background-color: #b30000;
+    border: 0;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: white;
+    cursor: pointer;
+}
+
+.header button p {
+    font-size: 12pt;
+}
+
+.header span p {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.header span {
+    display: flex;
+    flex-direction: row;
+    width: 260px;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+.tableContainer {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-family: sans-serif;
+}
+
+.table thead {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #eee;
+}
+
+.table th {
+    padding: 18px 25px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #666;
+    font-weight: 700;
+}
+
+.table td {
+    padding: 15px 25px;
+    font-size: 0.95rem;
+    color: #444;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.table tr:hover {
+    background-color: #fffafb;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 30px 0;
+    color: #888;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btnAction {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s;
+}
+
+.btnAction:hover {
+    color: #8B0E21;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    width: 820px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.deleteModal {
+    width: 420px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modalHeader {
+    padding: 25px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
+
+.modalHeader span {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.modalHeader p {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #8B0E21;
+    margin: 0;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.closeButton:hover {
+    color: #8B0E21;
+}
+
+.closeIcon {
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    background-color: #b30000;
+    border-radius: 16px;
+    color: white;
+}
+
+.form {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fullWidth {
+    grid-column: span 2;
+}
+
+.inputGroup label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #8B0E21;
+}
+
+.inputGroup input,
+.inputGroup select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+    border-color: #8B0E21;
+}
+
+.modalFooter {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    border-top: 1px solid #eee;
+}
+
+.btnCancel {
+    background: none;
+    border: none;
+    color: #666;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btnSave {
+    background-color: #8B0E21;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.2s;
+    height: 55px;
+    width: 160px;
+}
+
+.btnSave:hover {
+    filter: brightness(1.15);
+}
+
+.deleteBody {
+    padding: 30px;
+    font-size: 1rem;
+    color: #444;
+}

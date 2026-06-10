@@ -1,0 +1,126 @@
+.navBar {
+    width: 260px;
+    height: 100vh;
+    background-color: #8B0E21;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    box-sizing: border-box;
+    
+    /* REMOVA o position: fixed e o left/top */
+    /* ADICIONE ESTES: */
+    position: sticky; 
+    top: 0;
+    flex-shrink: 0; /* Garante que a sidebar não "esmague" se a tela diminuir */
+}
+
+.titleBox {
+    padding: 0 30px 40px 30px;
+}
+
+.titleBox p:first-child {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.titleBox p:last-child {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.nav {
+    flex: 1;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: background 0.2s;
+    cursor: pointer;
+    gap: 25px; /* Espaço maior entre ícone e texto como na foto */
+}
+
+.item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.item.active {
+    background-color: rgba(0, 0, 0, 0.1); /* Um leve escurecido para o item ativo */
+}
+
+.item span {
+    font-size: 1.1rem;
+    font-weight: 400;
+    flex: 1;
+}
+
+.icon {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.chevron {
+    font-size: 0.9rem;
+    transition: transform 0.3s;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+/* Submenu ajustado para o fundo vinho */
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.submenu.open {
+    max-height: 200px;
+}
+
+.submenu li a {
+    display: block;
+    padding: 12px 30px 12px 75px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.submenu li a:hover, .activeSub {
+    color: #fff !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sair {
+    padding: 20px 30px;
+}
+
+.sair p {
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    transition: opacity 0.2s;
+}
+
+.sair p:hover {
+    opacity: 0.7;
+}

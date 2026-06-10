@@ -1,0 +1,357 @@
+.container{
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    height: 100px;
+
+    width: 100%;
+}
+
+.header button{
+    height: 70px;
+    width: 200px;
+    background-color: #b30000;
+    border: 0;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5em;
+    color: white;
+    cursor: pointer;
+}
+
+.header button p{
+    font-size: 12pt;
+}
+
+
+.header span p{
+    font-size: 22px;
+    font-weight: 600;
+}
+.header span{
+    display: flex;
+    flex-direction:  row;
+    width: 250px;
+
+    gap: 3em;
+    align-items: center;
+   
+}
+
+/* modal */
+
+.modal{
+    height: 600px;
+    width: 900px;
+    background-color: whitesmoke;
+    border-radius: 16px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    padding: 30px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.7); /* fundo escuro transparente */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 999;
+}
+
+.modalHeader{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: cener;
+    justify-content: space-between;
+}
+
+
+.closeIcon{
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    background-color: #b30000;
+    border-radius: 16px;
+    color: white;
+    cursor: pointer;
+
+}
+
+.modalHeader span{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    gap: 1em;
+    align-items: center;
+
+
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px); /* Efeito de desfoque no fundo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    width: 800px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modalHeader {
+    padding: 25px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
+
+.modalHeader span {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.modalHeader p {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #8B0E21; /* Seu Vermelho Mentec */
+    margin: 0;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.closeButton:hover {
+    color: #8B0E21;
+}
+
+.form {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 20px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fullWidth {
+    grid-column: span 2; /* Campo que ocupa a linha toda */
+}
+
+.inputGroup label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.inputGroup input, .inputGroup select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.inputGroup input:focus {
+    border-color: #8B0E21;
+}
+
+.inputGroup label{
+    color: #8B0E21;
+}
+.modalFooter {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    border-top: 1px solid #eee;
+
+
+}
+
+.btnCancel {
+    background: none;
+    border: none;
+    color: #666;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btnSave {
+    background-color: #8B0E21;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.2s;
+    height: 55px;
+    width: 270px;
+}
+
+.btnSave:hover {
+    filter: brightness(1.2);
+}
+
+.btnDanger {
+    background-color: #b30000;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.2s;
+    height: 55px;
+    min-width: 180px;
+}
+
+.btnDanger:hover {
+    filter: brightness(1.1);
+}
+
+.confirmModal {
+    height: auto;
+    max-width: 520px;
+}
+
+.confirmContent {
+    padding: 30px;
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
+
+
+/* Container da Tabela */
+.tableContainer {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* Para manter o arredondamento nas bordas */
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-family: sans-serif;
+}
+
+.table thead {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #eee;
+}
+
+.table th {
+    padding: 18px 25px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #666;
+    font-weight: 700;
+}
+
+.table td {
+    padding: 15px 25px;
+    font-size: 0.95rem;
+    color: #444;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.table tr:hover {
+    background-color: #fffafb; /* Um leve toque avermelhado no hover */
+}
+
+/* Badges de Status/Nível */
+.badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.junior { background: #e3f2fd; color: #1976d2; }
+.pleno { background: #fff3e0; color: #f57c00; }
+.senior { background: #efebe9; color: #5d4037; }
+
+/* Ações */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btnAction {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s;
+}
+
+.btnAction:hover {
+    color: #8B0E21;
+}

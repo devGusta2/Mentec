@@ -1,0 +1,35 @@
+import { getToken } from "../utils/AuthProvider";
+import AdminRoutes from "./AdminRoutes";
+import MentorRoutes from "./MentorRoutex";
+import MonitorRoutes from "./MonitorRoutes";
+import CoordRoutes from "./CoordRoutes";
+import NoAuthRoutes from "./NoAuthRoutes";
+
+export default function RoutesProvider() {
+
+    const token = getToken();
+    const role = localStorage.getItem('role')
+
+
+    if(!token){
+        return <NoAuthRoutes />
+    }
+
+    if(role === 'ADMIN'){
+        return <AdminRoutes />
+    }
+
+    if(role === 'COORD' || role === 'COORDENADOR'){
+        return <CoordRoutes />
+    }
+
+    if(role === 'MENTOR'){
+        return <MentorRoutes />
+    }
+
+    if(role === 'MONITOR'){
+        return <MonitorRoutes />
+    }
+
+    return <NoAuthRoutes />
+}

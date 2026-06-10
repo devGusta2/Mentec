@@ -9,24 +9,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 
+import axios from 'axios'
+import { getApiUrl } from '../../utils/AuthProvider';
 function Login() {
+    const API_URL = getApiUrl();
+
     const [tema, setTema] = useState(() => localStorage.getItem("dark") === "true");
 
     useEffect(() => {
 
+
         localStorage.setItem("dark", tema);
         if (tema) {
-            document.documentElement.style.cssText = 
-            `--bg-background1: #00013C;
+            document.documentElement.style.cssText =
+                `--bg-background1: #00013C;
              --bg-background2: #271665;
              --bg-btn1:rgb(47, 101, 202);
-             --bg-btn2:rgb(49, 71, 167);
+             --bg-btn2:rgb(49, 71, 167);    
              --bg-main: #08091D;
              --color-text:white;
              --text-color2:#00BCD4;`;
         } else {
-            document.documentElement.style.cssText = 
-            `--bg-background1: #A6192E;
+            document.documentElement.style.cssText =
+                `--bg-background1: #A6192E;
              --bg-background2: #910F25;
              --bg-btn1: #CA2F46;
              --bg-btn2: #a73142;
@@ -36,6 +41,48 @@ function Login() {
     }, [tema]);
 
     const toggleDarkMode = () => setTema((prevTema) => !prevTema);
+
+
+
+    const [cretentials, setCredentials] = useState({
+        senha: '',
+        email: ''
+    })
+
+
+
+
+
+    const login = async (e) => {
+        e.preventDefault();
+        const payload = {
+            senha: cretentials.senha.trim(),
+            email: cretentials.email.trim()
+        }
+
+        try {
+            const response = await axios.post(`${API_URL}/login`, payload)
+            localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('useId', response.data.idUser)
+            const role = (response.data.role || '').toUpperCase();
+            localStorage.setItem('role', role)
+            if (role === "ADMIN") {
+                window.location.href = "/admin/dashboard";
+            } else if (role === "MENTOR") {
+                window.location.href = "/mentor/home";
+            } else if (role === "MONITOR") {
+                window.location.href = "/monitor/home";
+            } else if (role === "COORDENADOR" || role === "COORD") {
+                window.location.href = "/coord/dashboard";
+            } else {
+                window.location.href = "/";
+            }
+        } catch (e) {
+
+        }
+    }
+
+
 
     return (
         <div className={styles.main}>
@@ -50,14 +97,14 @@ function Login() {
             </div>
             <div className={styles.formAndArt}>
                 <div className={styles.formBox}>
-                    <form className={styles.formLogin}>
+                    <form className={styles.formLogin} onSubmit={login}>
                         <p>Fazer login</p>
                         <div className={styles.inptField}>
-                            <input className={styles.inpt}  placeholder=" " type='email'/>
+                            <input className={styles.inpt} onChange={(e) => { setCredentials({ ...cretentials, email: e.target.value }) }} placeholder="" />
                             <label>E-mail:</label>
                         </div>
                         <div className={styles.inptField}>
-                            <input className={styles.inpt}  placeholder=" "type='password' />
+                            <input className={styles.inpt} onChange={(e) => { setCredentials({ ...cretentials, senha: e.target.value }) }} placeholder=" " type='password' />
                             <label>Senha:</label>
                         </div>
                         <Link to='/Recovery' id={styles.textForgotPass}><span>Esqueceu sua senha?</span></Link>
@@ -66,10 +113,10 @@ function Login() {
                             <p>Lembre-se de mim</p>
                             <button id={styles.btnLogin} type='submit'>Fazer login</button>
                         </div>
-                        <button id={styles.btnMs}>
+                        {/* <button type='submit' id={styles.btnMs}>
                             <img src={msIco} style={{ height: '30px', width: '30px' }} alt="Microsoft Icon" />
                             <h4>Continue com a microsoft</h4>
-                        </button>
+                        </button> */}
                     </form>
                 </div>
                 <div className={styles.artBox}>
